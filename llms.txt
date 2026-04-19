@@ -2,7 +2,7 @@
 
 > Panduan interaktif dan visual untuk belajar SEO dari nol sampai halaman pertama Google. Bahasa Indonesia, edisi 2026. Lengkap dengan simulator Core Web Vitals, animasi crawler Googlebot, playground keyword research, inspector on-page, visualisasi backlink flow, roadmap 10 fase ala learningseo.io, kurikulum 8 modul, dan 10 masalah technical SEO beserta solusi konkret. Gratis tanpa email gating, tanpa upsell.
 
-Dibuat dan dimaintain oleh Muhammad Ferry (https://www.linkedin.com/in/muhammad-ferry/). Source code di https://github.com/FerryF19999/belajar-seo.
+Dibuat dan dimaintain oleh Muhammad Ferry. Terhubung di LinkedIn (https://www.linkedin.com/in/muhammad-ferry/), Instagram (https://www.instagram.com/ferrykets/), Threads (https://www.threads.com/@ferrykets). Source code di https://github.com/FerryF19999/belajar-seo.
 
 Situs ini adalah satu halaman (single-page) edukasi SEO dengan tiga fokus utama: (1) memberi model mental tentang cara kerja mesin pencari lewat visualisasi interaktif, (2) mengajarkan fundamental SEO secara berurutan dari pemula sampai mahir, (3) memberi peta konkret 30 hari pertama untuk implementasi.
 
