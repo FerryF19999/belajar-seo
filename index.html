@@ -540,7 +540,8 @@
         <button class="nav-trigger" aria-expanded="false">Strategi</button>
         <div class="nav-dropdown">
           <a href="#roadmap">Roadmap 10 Fase<small>Peta pemula sampai mahir</small></a>
-          <a href="#technical-seo">Technical SEO<small>10 masalah + solusi</small></a>
+          <a href="#technical-seo">Technical SEO<small>16 masalah + solusi</small></a>
+          <a href="#crawl-budget">Crawl Budget<small>Deep-dive Googlebot resource</small></a>
           <a href="#geo">GEO<small>Generative Engine Optimization</small></a>
         </div>
       </div>
@@ -574,8 +575,8 @@
     <h1>Belajar SEO<br>dari <em>nol</em>,<br>sampai halaman<br>pertama Google.</h1>
     <p class="hero-lede">Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.</p>
     <div class="hero-meta">
-      <div><strong>19</strong>Bab lengkap</div>
-      <div><strong>12</strong>Simulator dan alat</div>
+      <div><strong>20</strong>Bab lengkap</div>
+      <div><strong>13</strong>Simulator dan alat</div>
       <div><strong>10 fase</strong>Roadmap learningseo.io</div>
       <div><strong>Gratis</strong>Selamanya</div>
     </div>
@@ -2355,6 +2356,261 @@
   </script>
 </section>
 
+<section id="crawl-budget">
+  <style>
+    #crawl-budget { padding: 96px 32px; background: var(--bg-2); color: var(--ink); }
+    .cb-formula { display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr; gap: 0; align-items: stretch; margin-bottom: 56px; }
+    @media (max-width: 900px) { .cb-formula { grid-template-columns: 1fr; gap: 16px; } .cb-op { display: none; } }
+    .cb-card { background: var(--paper); border: 1px solid var(--line); padding: 28px; position: relative; }
+    .cb-card.is-result { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .cb-card::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 3px; background: var(--accent); }
+    .cb-card.is-result::before { background: var(--accent-soft); }
+    .cb-card-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .cb-card.is-result .cb-card-tag { color: rgba(250,247,241,0.6); }
+    .cb-card h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; line-height: 1.2; margin-bottom: 4px; }
+    .cb-card h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .cb-card.is-result h4 em { color: var(--accent-soft); }
+    .cb-card-sub { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 15px; color: var(--muted); margin-bottom: 18px; }
+    .cb-card.is-result .cb-card-sub { color: rgba(250,247,241,0.7); }
+    .cb-factors { list-style: none; padding: 0; margin: 0; }
+    .cb-factors li { padding: 10px 0; border-top: 1px dashed var(--line); font-size: 13px; color: var(--ink-2); line-height: 1.5; padding-left: 22px; position: relative; cursor: pointer; transition: color 0.15s; }
+    .cb-card.is-result .cb-factors li { border-top-color: rgba(250,247,241,0.15); color: rgba(250,247,241,0.85); }
+    .cb-factors li:first-child { border-top: none; }
+    .cb-factors li::before { content: '+'; position: absolute; left: 0; color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+    .cb-card.is-result .cb-factors li::before { color: var(--accent-soft); }
+    .cb-factors li:hover { color: var(--accent); }
+    .cb-card.is-result .cb-factors li:hover { color: var(--paper); }
+    .cb-factors li strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; }
+    .cb-card.is-result .cb-factors li strong { color: var(--paper); }
+    .cb-op { display: grid; place-items: center; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 48px; color: var(--accent); }
+
+    .cb-compare { background: var(--paper); border: 1px solid var(--line); padding: 36px; margin-bottom: 56px; }
+    .cb-compare-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .cb-compare-head h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; }
+    .cb-compare-head h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .cb-toggle { display: flex; gap: 4px; background: var(--bg-2); padding: 4px; border: 1px solid var(--line); }
+    .cb-toggle button { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; padding: 8px 14px; background: transparent; border: none; color: var(--ink-2); cursor: pointer; text-transform: uppercase; transition: all 0.15s; }
+    .cb-toggle button.is-active { background: var(--ink); color: var(--paper); }
+
+    .cb-bars { display: flex; flex-direction: column; gap: 20px; margin-bottom: 18px; }
+    .cb-bar-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: center; }
+    @media (max-width: 680px) { .cb-bar-row { grid-template-columns: 1fr; gap: 6px; } }
+    .cb-bar-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--ink-2); text-transform: uppercase; }
+    .cb-bar-label small { display: block; font-family: 'Fraunces', serif; font-size: 13px; color: var(--muted); margin-top: 3px; text-transform: none; letter-spacing: 0; font-style: italic; }
+    .cb-bar-track { height: 34px; display: flex; background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
+    .cb-seg { height: 100%; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--paper); font-weight: 600; letter-spacing: 0.05em; transition: flex 0.6s cubic-bezier(.4,0,.2,1), opacity 0.3s; overflow: hidden; white-space: nowrap; }
+    .cb-seg.high { background: var(--ok); }
+    .cb-seg.mid { background: var(--accent-soft); }
+    .cb-seg.low { background: var(--muted); color: var(--paper); }
+    .cb-seg.waste { background: var(--accent); }
+    .cb-seg:empty, .cb-seg[style*="flex: 0"] { opacity: 0; }
+    .cb-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2); }
+    .cb-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .cb-legend span::before { content: ''; width: 14px; height: 10px; display: inline-block; }
+    .cb-legend .lh::before { background: var(--ok); }
+    .cb-legend .lm::before { background: var(--accent-soft); }
+    .cb-legend .ll::before { background: var(--muted); }
+    .cb-legend .lw::before { background: var(--accent); }
+
+    .cb-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 56px; }
+    @media (max-width: 900px) { .cb-tiers { grid-template-columns: 1fr; } }
+    .cb-tier { background: var(--paper); border: 1px solid var(--line); padding: 28px 24px; position: relative; }
+    .cb-tier::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 3px; }
+    .cb-tier.small::before { background: var(--ok); }
+    .cb-tier.med::before { background: var(--accent-soft); }
+    .cb-tier.large::before { background: var(--accent); }
+    .cb-tier-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+    .cb-tier h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; line-height: 1.2; margin-bottom: 4px; }
+    .cb-tier h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .cb-tier-range { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+    .cb-tier-stat { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+    .cb-tier-stat:last-of-type { border-bottom: none; }
+    .cb-tier-stat-label { font-size: 12px; color: var(--muted); }
+    .cb-tier-stat-val { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; color: var(--ink); }
+    .cb-tier-note { margin-top: 14px; padding: 12px 14px; background: var(--bg); border-left: 3px solid var(--accent); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
+    .cb-principle { background: var(--ink); color: var(--paper); padding: 40px 44px; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; }
+    @media (max-width: 680px) { .cb-principle { grid-template-columns: 1fr; padding: 28px; gap: 20px; } }
+    .cb-principle-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 110px; color: var(--accent-soft); line-height: 0.8; white-space: nowrap; }
+    .cb-principle h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; line-height: 1.25; margin-bottom: 10px; }
+    .cb-principle h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
+    .cb-principle p { font-size: 14px; color: rgba(250,247,241,0.85); line-height: 1.6; margin-bottom: 10px; }
+    .cb-principle p:last-child { margin-bottom: 0; }
+    .cb-principle a { color: var(--accent-soft); text-decoration: none; border-bottom: 1px dashed rgba(232,106,82,0.5); }
+    .cb-principle a:hover { color: var(--paper); border-color: var(--paper); }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">12 · CRAWL BUDGET</div>
+      <div>
+        <h2>Berapa halaman Googlebot mau <em>crawl</em> dari situsmu?</h2>
+        <p>Crawl budget adalah resource terbatas yang Google alokasikan untuk menjelajahi situsmu tiap hari. Untuk situs kecil tidak jadi masalah, tapi untuk e-commerce dengan ratusan ribu URL, salah manajemen bikin halaman penting tidak pernah di-crawl.</p>
+      </div>
+    </div>
+
+    <div class="cb-formula">
+      <div class="cb-card">
+        <div class="cb-card-tag">FAKTOR 1</div>
+        <h4>Crawl <em>Capacity</em></h4>
+        <div class="cb-card-sub">Berapa maksimal yang server kamu bisa handle.</div>
+        <ul class="cb-factors">
+          <li><strong>Server speed (TTFB):</strong> lambat bikin Google turunkan crawl rate</li>
+          <li><strong>Concurrent connections:</strong> berapa request paralel yang tidak bikin error 5xx</li>
+          <li><strong>Server errors:</strong> 500 dan 503 langsung bikin Google pelan-pelan crawling</li>
+        </ul>
+      </div>
+      <div class="cb-op">×</div>
+      <div class="cb-card">
+        <div class="cb-card-tag">FAKTOR 2</div>
+        <h4>Crawl <em>Demand</em></h4>
+        <div class="cb-card-sub">Seberapa sering Google mau crawl kamu.</div>
+        <ul class="cb-factors">
+          <li><strong>Popularitas URL:</strong> yang banyak backlink dan traffic, sering di-crawl</li>
+          <li><strong>Staleness:</strong> konten yang sering update jadi prioritas refresh</li>
+          <li><strong>Kualitas situs:</strong> situs dengan banyak konten berkualitas dapat demand lebih tinggi</li>
+        </ul>
+      </div>
+      <div class="cb-op">=</div>
+      <div class="cb-card is-result">
+        <div class="cb-card-tag">HASIL</div>
+        <h4>Crawl <em>Budget</em></h4>
+        <div class="cb-card-sub">URL/hari yang Google crawl dari situsmu.</div>
+        <ul class="cb-factors">
+          <li><strong>Situs kecil:</strong> semua halaman di-crawl, tidak perlu pusing</li>
+          <li><strong>Situs menengah:</strong> perhatikan sitemap hygiene</li>
+          <li><strong>Situs besar:</strong> optimasi agresif diperlukan</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cb-compare">
+      <div class="cb-compare-head">
+        <h3>Ke mana <em>crawl budget</em>-mu mengalir?</h3>
+        <div class="cb-toggle" id="cb-toggle">
+          <button class="is-active" data-scenario="ecom-bad">E-COMMERCE TANPA OPTIMASI</button>
+          <button data-scenario="ecom-good">SETELAH OPTIMASI</button>
+          <button data-scenario="small">SITUS KECIL</button>
+        </div>
+      </div>
+
+      <div class="cb-bars" id="cb-bars"></div>
+
+      <div class="cb-legend">
+        <span class="lh">High-value (produk, pillar, artikel utama)</span>
+        <span class="lm">Medium (kategori, tag, archive)</span>
+        <span class="ll">Low-value (pagination, filter)</span>
+        <span class="lw">Waste (parameter tracking, checkout, duplicate)</span>
+      </div>
+    </div>
+
+    <div class="cb-tiers">
+      <div class="cb-tier small">
+        <div class="cb-tier-tag">TIER 1 · AMAN</div>
+        <h4>Situs <em>Kecil</em></h4>
+        <div class="cb-tier-range">&lt; 10.000 URL</div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Tipe situs</span><span class="cb-tier-stat-val">Blog, landing page, UMKM</span></div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Crawl freq</span><span class="cb-tier-stat-val">Seluruh situs / hari</span></div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Action</span><span class="cb-tier-stat-val">Tidak perlu</span></div>
+        <div class="cb-tier-note">Google sendiri bilang: kalau situs &lt; 50K URL, kamu tidak perlu baca guide crawl budget. Fokus di kualitas konten.</div>
+      </div>
+      <div class="cb-tier med">
+        <div class="cb-tier-tag">TIER 2 · WASPADA</div>
+        <h4>Situs <em>Menengah</em></h4>
+        <div class="cb-tier-range">10.000 sampai 100.000 URL</div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Tipe situs</span><span class="cb-tier-stat-val">Media, komunitas, SaaS</span></div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Crawl freq</span><span class="cb-tier-stat-val">2 sampai 7 hari per full cycle</span></div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Action</span><span class="cb-tier-stat-val">Audit tiap kuartal</span></div>
+        <div class="cb-tier-note">Mulai perlu audit sitemap, blok filter/tag di robots.txt, dan pastikan internal link ke halaman penting.</div>
+      </div>
+      <div class="cb-tier large">
+        <div class="cb-tier-tag">TIER 3 · KRITIKAL</div>
+        <h4>Situs <em>Besar</em></h4>
+        <div class="cb-tier-range">&gt; 100.000 URL</div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Tipe situs</span><span class="cb-tier-stat-val">E-commerce, marketplace, news</span></div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Crawl freq</span><span class="cb-tier-stat-val">Minggu sampai bulan per full cycle</span></div>
+        <div class="cb-tier-stat"><span class="cb-tier-stat-label">Action</span><span class="cb-tier-stat-val">Monitoring harian</span></div>
+        <div class="cb-tier-note">Wajib: log file analysis, robots.txt agresif, 410 untuk removed, canonical ketat, TTFB &lt; 600ms.</div>
+      </div>
+    </div>
+
+    <div class="cb-principle">
+      <div class="cb-principle-num">50K</div>
+      <div>
+        <h4>Kalau situsmu di bawah <em>50.000 URL</em>, skip bab ini.</h4>
+        <p>Ini bukan aturan saya, tapi pernyataan resmi Google Search Central: <em>"If your site doesn't have a large number of pages that change rapidly, you don't need to read this guide. Keeping your sitemap up to date and checking your index coverage regularly is adequate."</em></p>
+        <p>Sumber: <a href="https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget" target="_blank" rel="noopener">Large Site Owner's Guide to Managing Crawl Budget → Google Search Central</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const scenarios = {
+        'ecom-bad': {
+          label: 'Tanpa optimasi',
+          rows: [
+            { name: 'PRODUK', sub: 'halaman target konversi', segs: [{ cls: 'high', val: 25 }, { cls: 'waste', val: 75 }] },
+            { name: 'KATEGORI', sub: 'navigasi utama', segs: [{ cls: 'mid', val: 40 }, { cls: 'waste', val: 60 }] },
+            { name: 'BLOG', sub: 'content marketing', segs: [{ cls: 'high', val: 15 }, { cls: 'waste', val: 85 }] },
+            { name: 'FILTER + PAGINATION', sub: '?sort=, ?color=, /page/2', segs: [{ cls: 'low', val: 100 }] },
+            { name: 'PARAMETER TRACKING', sub: 'utm_source, fbclid', segs: [{ cls: 'waste', val: 100 }] }
+          ]
+        },
+        'ecom-good': {
+          label: 'Setelah optimasi',
+          rows: [
+            { name: 'PRODUK', sub: 'halaman target konversi', segs: [{ cls: 'high', val: 85 }, { cls: 'low', val: 15 }] },
+            { name: 'KATEGORI', sub: 'navigasi utama', segs: [{ cls: 'mid', val: 75 }, { cls: 'low', val: 25 }] },
+            { name: 'BLOG', sub: 'content marketing', segs: [{ cls: 'high', val: 80 }, { cls: 'low', val: 20 }] },
+            { name: 'FILTER + PAGINATION', sub: 'blocked di robots.txt', segs: [{ cls: 'low', val: 20 }, { cls: 'waste', val: 5 }] },
+            { name: 'PARAMETER TRACKING', sub: 'canonicalized', segs: [{ cls: 'waste', val: 5 }] }
+          ]
+        },
+        'small': {
+          label: 'Situs kecil (tidak perlu optimasi)',
+          rows: [
+            { name: 'HALAMAN UTAMA', sub: 'homepage, about, kontak', segs: [{ cls: 'high', val: 100 }] },
+            { name: 'ARTIKEL BLOG', sub: '10-50 artikel', segs: [{ cls: 'high', val: 100 }] },
+            { name: 'HALAMAN LAYANAN', sub: 'produk atau jasa', segs: [{ cls: 'high', val: 100 }] },
+            { name: 'KATEGORI', sub: 'archive, tag', segs: [{ cls: 'mid', val: 100 }] },
+            { name: 'UTILITY', sub: 'privacy, terms', segs: [{ cls: 'low', val: 100 }] }
+          ]
+        }
+      };
+
+      const barsEl = document.getElementById('cb-bars');
+      const toggle = document.getElementById('cb-toggle');
+
+      function render(key) {
+        const s = scenarios[key];
+        barsEl.innerHTML = s.rows.map(row => {
+          const total = row.segs.reduce((a,b) => a + b.val, 0);
+          const segsHTML = row.segs.map(seg => {
+            const pct = seg.val;
+            const label = pct >= 15 ? pct + '%' : '';
+            return '<div class="cb-seg ' + seg.cls + '" style="flex: ' + pct + ';">' + label + '</div>';
+          }).join('');
+          return '<div class="cb-bar-row">'
+            + '<div class="cb-bar-label">' + row.name + '<small>' + row.sub + '</small></div>'
+            + '<div class="cb-bar-track">' + segsHTML + '</div>'
+            + '</div>';
+        }).join('');
+      }
+
+      toggle.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggle.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          render(btn.dataset.scenario);
+        });
+      });
+
+      render('ecom-bad');
+    })();
+  </script>
+</section>
+
 <section id="geo">
   <style>
     #geo { padding: 96px 32px; background: var(--bg); color: var(--ink); }
@@ -2435,7 +2691,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">12 · GEO</div>
+      <div class="section-num">13 · GEO</div>
       <div>
         <h2>Generative <em>Engine</em> Optimization: di-cite oleh ChatGPT, Perplexity, dan Gemini.</h2>
         <p>Kalau SEO tradisional ngejar posisi di SERP, GEO ngejar di-cite sebagai sumber di jawaban AI. Dua-duanya wajib di 2026, tapi teknik-nya beda. Bagian ini rangkum riset kredibel dari Princeton dan Gartner.</p>
@@ -2579,7 +2835,7 @@
 <section id="kurikulum" class="curriculum">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">13 · KURIKULUM</div>
+      <div class="section-num">14 · KURIKULUM</div>
       <div>
         <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
         <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
@@ -2673,7 +2929,7 @@
 <section id="checklist" class="checklist-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">14 · CHECKLIST</div>
+      <div class="section-num">15 · CHECKLIST</div>
       <div>
         <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
         <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
@@ -2710,7 +2966,7 @@
 <section id="rencana">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">15 · RENCANA 30 HARI</div>
+      <div class="section-num">16 · RENCANA 30 HARI</div>
       <div>
         <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
         <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
@@ -2748,7 +3004,7 @@
 <section id="tools" class="tools">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">16 · TOOLS</div>
+      <div class="section-num">17 · TOOLS</div>
       <div>
         <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
         <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
@@ -2840,7 +3096,7 @@
 <section id="glosarium">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">17 · GLOSARIUM</div>
+      <div class="section-num">18 · GLOSARIUM</div>
       <div>
         <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
         <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
@@ -2897,7 +3153,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">18 · TENTANG PENULIS</div>
+      <div class="section-num">19 · TENTANG PENULIS</div>
       <div>
         <h2>Bahan ini <em>tidak</em> ditulis oleh AI generik.</h2>
         <p>Semua materi disusun dari pengalaman lapangan, referensi Google Search Central, studi kasus UMKM dan enterprise, serta eksperimen di klien nyata.</p>
@@ -2964,7 +3220,7 @@
 <section id="faq" class="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">19 · FAQ</div>
+      <div class="section-num">20 · FAQ</div>
       <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
     </div>
 
@@ -2998,6 +3254,7 @@
         <li><a href="#roadmap">Roadmap 10 Fase</a></li>
         <li><a href="#pilar">Empat Pilar</a></li>
         <li><a href="#technical-seo">Technical SEO</a></li>
+        <li><a href="#crawl-budget">Crawl Budget</a></li>
         <li><a href="#geo">GEO (AI Search)</a></li>
         <li><a href="#kurikulum">Kurikulum 8 Modul</a></li>
       </ul>
