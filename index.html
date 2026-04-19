@@ -1347,18 +1347,18 @@
         circ.setAttribute('stroke', cfg.color);
         circ.setAttribute('stroke-width', cfg.strokeW);
         g.appendChild(circ);
-        // Domain name inside circle
+        // Domain name (upper half inside circle)
         const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        txt.setAttribute('x', x); txt.setAttribute('y', y + 3); txt.setAttribute('text-anchor', 'middle');
+        txt.setAttribute('x', x); txt.setAttribute('y', y - 4); txt.setAttribute('text-anchor', 'middle');
         txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '10');
         txt.setAttribute('fill', '#1a1613'); txt.setAttribute('font-weight', '500');
         txt.textContent = n.name;
         g.appendChild(txt);
-        // Type label below circle
+        // Type label (lower half inside circle)
         const typeTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        typeTxt.setAttribute('x', x); typeTxt.setAttribute('y', y + cfg.radius + 16); typeTxt.setAttribute('text-anchor', 'middle');
-        typeTxt.setAttribute('font-family', 'Inter, sans-serif'); typeTxt.setAttribute('font-size', '10');
-        typeTxt.setAttribute('fill', '#857a6b');
+        typeTxt.setAttribute('x', x); typeTxt.setAttribute('y', y + 12); typeTxt.setAttribute('text-anchor', 'middle');
+        typeTxt.setAttribute('font-family', 'Instrument Serif, serif'); typeTxt.setAttribute('font-style', 'italic'); typeTxt.setAttribute('font-size', '11');
+        typeTxt.setAttribute('fill', cfg.color);
         typeTxt.textContent = cfg.label;
         g.appendChild(typeTxt);
         const cr1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
