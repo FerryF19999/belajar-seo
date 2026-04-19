@@ -2041,7 +2041,7 @@
     </div>
 
     <div class="tseo-filter" id="tseo-filter">
-      <button class="is-active" data-filter="all">SEMUA (13)</button>
+      <button class="is-active" data-filter="all">SEMUA (15)</button>
       <button data-filter="crit">KRITIKAL</button>
       <button data-filter="high">TINGGI</button>
       <button data-filter="med">SEDANG</button>
@@ -2242,6 +2242,38 @@
           ],
           tools: 'gsc pages report (filter soft 404) · gsc url inspection · server log analyzer',
           source: { url: 'https://developers.google.com/search/docs/crawling-indexing/http-network-errors', label: 'Google Search Central · HTTP Status Codes' }
+        },
+        {
+          num: '14', priority: 'high', badge: 'Tinggi',
+          title: '<em>Discovered</em> currently not indexed',
+          problem: 'Label GSC yang artinya: Google tahu URL kamu ada (dari sitemap atau internal link), tapi belum sempat crawl. Root cause biasanya signal kualitas situs dirasa rendah (Google hemat resource untuk tidak crawl), crawl budget habis di URL prioritas lain, atau server kamu lambat merespons saat bot datang. Situs baru dengan authority rendah paling sering kena ini.',
+          solutions: [
+            'Perkuat internal link ke halaman yang kena status ini dari halaman pillar atau homepage',
+            'Cek response time server (TTFB), pastikan di bawah 600ms. Upgrade hosting kalau perlu',
+            'Kurangi URL low-quality yang membanjiri sitemap (tag page, filter page, parameter tracking)',
+            'Submit ulang sitemap ke GSC dengan hanya URL canonical dan high-priority',
+            'Naikkan authority situs overall: build backlink dari domain kredibel, tingkatkan engagement user',
+            'Klik Request Indexing di GSC URL Inspection sebagai trigger manual (limit ~10 per hari)',
+            'Bersabar: untuk situs baru, Google butuh beberapa minggu untuk kalibrasi crawl priority'
+          ],
+          tools: 'gsc url inspection · gsc crawl stats report · screaming frog (simulate googlebot) · log file analyzer',
+          source: { url: 'https://www.onely.com/blog/how-to-fix-discovered-currently-not-indexed-in-google-search-console/', label: 'Onely · How to Fix Discovered Currently Not Indexed' }
+        },
+        {
+          num: '15', priority: 'high', badge: 'Tinggi',
+          title: '<em>Crawled</em> currently not indexed',
+          problem: 'Label GSC yang lebih berat dari "Discovered": Google sudah crawl halamanmu tapi memutuskan tidak layak masuk index. Biasanya karena kualitas konten dianggap rendah, duplikat (near-duplicate dengan halaman lain di situsmu atau kompetitor), thin content (kurang dari 300 kata tanpa nilai unik), atau intent mismatch dengan keyword targetnya.',
+          solutions: [
+            'Audit konten halaman tersebut: apakah memberi insight yang tidak mudah ditemukan di tempat lain?',
+            'Tambah konten substantial: data original, contoh kasus, pengalaman pribadi, screenshot, video',
+            'Selesaikan duplicate dengan canonical tag menunjuk versi utama atau consolidate halaman mirip',
+            'Perkuat internal link dari halaman terkait dan halaman pillar untuk signal relevansi',
+            'Pastikan search intent match: kalau keyword informasional, jangan buat halaman produk',
+            'Cek E-E-A-T: tampilkan author bio, tanggal publish, sources cited, kontak yang jelas',
+            'Kalau halaman memang thin dan tidak bisa diperkuat: hapus atau redirect 301 ke halaman berkualitas'
+          ],
+          tools: 'gsc url inspection · ahrefs content explorer · copyscape (cek duplicate) · chatgpt atau claude (review kualitas)',
+          source: { url: 'https://www.onely.com/blog/how-to-fix-crawled-currently-not-indexed-in-google-search-console/', label: 'Onely · How to Fix Crawled Currently Not Indexed' }
         }
       ];
 
