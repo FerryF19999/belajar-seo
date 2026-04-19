@@ -1996,6 +1996,9 @@
     .tseo-col code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--bg); padding: 1px 6px; border: 1px solid var(--line); color: var(--accent); }
     .tseo-tools { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
     .tseo-tools span { color: var(--ink-2); }
+    .tseo-source { margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.05em; }
+    .tseo-source a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); padding-bottom: 1px; }
+    .tseo-source a:hover { color: var(--ink); border-color: var(--ink); }
   </style>
 
   <div class="container">
@@ -2038,7 +2041,7 @@
     </div>
 
     <div class="tseo-filter" id="tseo-filter">
-      <button class="is-active" data-filter="all">SEMUA (10)</button>
+      <button class="is-active" data-filter="all">SEMUA (13)</button>
       <button data-filter="crit">KRITIKAL</button>
       <button data-filter="high">TINGGI</button>
       <button data-filter="med">SEDANG</button>
@@ -2063,7 +2066,8 @@
             'Defer atau async script non-kritis, minify CSS dan JS',
             'Pakai CDN (Cloudflare, Vercel) dan enable HTTP/2 atau HTTP/3'
           ],
-          tools: 'pagespeed.web.dev · webpagetest.org · chrome devtools lighthouse'
+          tools: 'pagespeed.web.dev · webpagetest.org · chrome devtools lighthouse',
+          source: { url: 'https://web.dev/articles/vitals', label: 'web.dev · Core Web Vitals' }
         },
         {
           num: '02', priority: 'crit', badge: 'Kritikal',
@@ -2077,7 +2081,8 @@
             'Submit sitemap.xml terbaru, pastikan hanya berisi URL canonical',
             'Hapus atau gabung halaman thin content (kurang dari 300 kata tanpa nilai unik)'
           ],
-          tools: 'google search console · screaming frog · sitebulb'
+          tools: 'google search console · screaming frog · sitebulb',
+          source: { url: 'https://support.google.com/webmasters/answer/7440203', label: 'Google Search Console Help · Page Indexing' }
         },
         {
           num: '03', priority: 'high', badge: 'Tinggi',
@@ -2133,7 +2138,8 @@
             'Hindari client-side routing murni untuk halaman yang perlu ranking',
             'Pakai prerendering service (Prerender.io) kalau migrasi ke SSR belum memungkinkan'
           ],
-          tools: 'gsc url inspection rendered html · chrome devtools coverage · prerender.io'
+          tools: 'gsc url inspection rendered html · chrome devtools coverage · prerender.io',
+          source: { url: 'https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics', label: 'Google Search Central · JavaScript SEO Basics' }
         },
         {
           num: '07', priority: 'med', badge: 'Sedang',
@@ -2147,7 +2153,8 @@
             'Implementasi schema yang paling relevan: Article, Product, FAQ, HowTo, LocalBusiness, Breadcrumb',
             'Monitor Enhancements report di GSC tiap minggu, fix warning sebelum jadi error'
           ],
-          tools: 'schema.org validator · rich results test · gsc enhancements report'
+          tools: 'schema.org validator · rich results test · gsc enhancements report',
+          source: { url: 'https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data', label: 'Google Search Central · Structured Data Intro' }
         },
         {
           num: '08', priority: 'med', badge: 'Sedang',
@@ -2190,6 +2197,51 @@
             'Submit HSTS header supaya browser selalu pakai HTTPS'
           ],
           tools: 'whynopadlock.com · ssl labs test · chrome devtools console (mixed content warning)'
+        },
+        {
+          num: '11', priority: 'high', badge: 'Tinggi',
+          title: 'Orphan <em>pages</em> tanpa internal link',
+          problem: 'Halaman tanpa satu pun internal link yang mengarah ke sana. Googlebot butuh "jalur masuk" untuk menemukan halaman, dan orphan page biasanya hanya ditemukan lewat sitemap atau external backlink. Dampaknya: jauh lebih kecil kemungkinan ter-index, link equity tidak mengalir, dan PageRank halaman tersebut nol.',
+          solutions: [
+            'Audit pakai Ahrefs Site Audit di tab URL Sources atau Screaming Frog (crawl analysis)',
+            'Tambahkan internal link dari halaman pillar atau artikel relevan ke orphan page',
+            'Cek halaman bisa dicapai dari homepage dalam maksimal 3 klik',
+            'Masukkan ke menu navigasi utama kalau memang halaman penting',
+            'Kalau halaman tidak relevan lagi, lebih baik di-redirect 301 atau hapus permanen dengan 410',
+            'Jalankan audit rutin tiap kuartal karena orphan page mudah muncul kembali saat struktur situs berubah'
+          ],
+          tools: 'ahrefs site audit · screaming frog · sitebulb · gsc coverage report',
+          source: { url: 'https://ahrefs.com/seo/glossary/orphan-page', label: 'Ahrefs SEO Glossary · Orphan Page' }
+        },
+        {
+          num: '12', priority: 'med', badge: 'Sedang',
+          title: 'Redirect <em>chain</em> dan loop',
+          problem: 'Rantai redirect (URL A → B → C → D) membuang crawl budget karena tiap hop dihitung sebagai request terpisah. Googlebot akan berhenti mengikuti redirect setelah sekitar 5 hop dalam satu sesi crawl, dan maksimal 10 hop total. Dampaknya: TTFB dan LCP memburuk, canonical signal melemah, crawl budget habis di URL lama.',
+          solutions: [
+            'Gunakan crawler (Screaming Frog, Sitebulb) untuk identifikasi semua redirect chain di situs',
+            'Update ke single-hop: redirect langsung dari URL lama (A) ke URL final (D), bukan lewat B dan C',
+            'Ubah semua internal link supaya arahkan ke URL final, bukan URL lama yang akan redirect',
+            'Hindari redirect loop (A → B → A), Google akan stop crawling URL tersebut',
+            'Pakai 301 (permanent) untuk migrasi konten, 302 (temporary) hanya untuk A/B test atau maintenance',
+            'Monitor GSC laporan "Page with redirect" untuk lihat volume redirect yang di-crawl'
+          ],
+          tools: 'screaming frog (redirect chains report) · ahrefs site audit · gsc page indexing report',
+          source: { url: 'https://developers.google.com/search/docs/crawling-indexing/301-redirects', label: 'Google Search Central · Redirects and Search' }
+        },
+        {
+          num: '13', priority: 'med', badge: 'Sedang',
+          title: 'Soft <em>404</em> errors di Search Console',
+          problem: 'Halaman yang tampilkan pesan "tidak ditemukan" ke user tapi server tetap balas HTTP 200 OK. Googlebot bingung: kontennya kosong atau "not found" tapi status 200 seharusnya menandakan halaman valid. Google akan menandai sebagai Soft 404 di GSC dan menghapusnya dari index, padahal mungkin kamu ingin halaman ini tetap muncul.',
+          solutions: [
+            'Buka GSC → Pages report → filter "Soft 404", lihat daftar URL yang kena',
+            'Kalau halaman memang tidak ada: konfigurasi server balas 404 Not Found atau 410 Gone yang benar',
+            'Kalau halaman pindah URL: set 301 redirect ke URL baru yang relevan',
+            'Kalau konten thin (kurang dari 300 kata, template kosong): tambah konten unik, original, bermanfaat',
+            'Hindari halaman kategori kosong (misal kategori produk tanpa item), set noindex atau hapus',
+            'Klik tombol "Validate Fix" di GSC setelah perbaikan untuk trigger re-crawl prioritas'
+          ],
+          tools: 'gsc pages report (filter soft 404) · gsc url inspection · server log analyzer',
+          source: { url: 'https://developers.google.com/search/docs/crawling-indexing/http-network-errors', label: 'Google Search Central · HTTP Status Codes' }
         }
       ];
 
@@ -2211,6 +2263,7 @@
             + '<div class="tseo-col"><h4>Masalah</h4><p>' + i.problem + '</p></div>'
             + '<div class="tseo-col"><h4>Cara Mengatasi</h4><ol>' + solutionsHTML + '</ol>'
             + '<div class="tseo-tools">Tools: <span>' + i.tools + '</span></div>'
+            + (i.source ? '<div class="tseo-source">Sumber: <a href="' + i.source.url + '" target="_blank" rel="noopener">' + i.source.label + ' →</a></div>' : '')
             + '</div>'
             + '</div></div>'
             + '</div>';
