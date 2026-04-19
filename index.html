@@ -306,9 +306,21 @@
   .topbar-inner { max-width: 1240px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
   .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
   .brand-mark { width: 28px; height: 28px; background: var(--accent); color: var(--paper); display: grid; place-items: center; font-family: 'Fraunces', serif; font-weight: 700; font-style: italic; font-size: 16px; border-radius: 3px; }
-  .nav-links { display: flex; gap: 22px; font-size: 13px; color: var(--ink-2); }
-  .nav-links a { color: inherit; text-decoration: none; transition: color 0.15s; }
+  .nav-links { display: flex; gap: 4px; font-size: 13px; color: var(--ink-2); align-items: center; }
+  .nav-links a { color: inherit; text-decoration: none; transition: color 0.15s; padding: 8px 12px; display: inline-flex; align-items: center; gap: 4px; }
   .nav-links a:hover { color: var(--accent); }
+  .nav-group { position: relative; }
+  .nav-trigger { color: var(--ink-2); cursor: pointer; background: none; border: none; font-family: inherit; font-size: 13px; padding: 8px 12px; display: inline-flex; align-items: center; gap: 5px; transition: color 0.15s; }
+  .nav-trigger:hover, .nav-group.is-open .nav-trigger { color: var(--accent); }
+  .nav-trigger::after { content: "▾"; font-size: 9px; color: var(--muted); transition: transform 0.2s; }
+  .nav-group.is-open .nav-trigger::after { transform: rotate(180deg); color: var(--accent); }
+  .nav-dropdown { position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%) translateY(-4px); background: var(--paper); border: 1px solid var(--line); min-width: 220px; padding: 8px; opacity: 0; pointer-events: none; transition: opacity 0.18s, transform 0.18s; box-shadow: 0 4px 24px rgba(26,22,19,0.08); z-index: 60; }
+  .nav-group.is-open .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+  .nav-dropdown a { display: flex; flex-direction: column; align-items: flex-start; padding: 10px 14px; gap: 2px; border-radius: 2px; white-space: nowrap; font-size: 13px; color: var(--ink); transition: background 0.15s, color 0.15s; }
+  .nav-dropdown a:hover { background: var(--bg); color: var(--accent); }
+  .nav-dropdown a small { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.05em; }
+  .nav-dropdown a:hover small { color: var(--accent-soft); }
+  .nav-dropdown-sep { border-top: 1px solid var(--line); margin: 6px 0; }
   .nav-cta { font-size: 13px; font-weight: 500; padding: 8px 16px; background: var(--ink); color: var(--paper); border: none; border-radius: 2px; cursor: pointer; letter-spacing: 0.02em; }
 
   .hero { max-width: 1240px; margin: 0 auto; padding: 80px 32px 60px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: end; }
@@ -510,17 +522,44 @@
       <span class="brand-mark">S</span>
       <span>SEO <em class="italic-serif" style="color: var(--accent); font-weight: 400;">Sekolah</em></span>
     </div>
-    <nav class="nav-links">
-      <a href="#apa-itu">Apa itu</a>
-      <a href="#crawler-demo">Crawler</a>
-      <a href="#serp-anatomy">SERP</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#pilar">Pilar</a>
-      <a href="#keyword-playground">Lab</a>
-      <a href="#technical-seo">Technical</a>
-      <a href="#geo">GEO</a>
-      <a href="#kurikulum">Kurikulum</a>
-      <a href="#checklist">Checklist</a>
+    <nav class="nav-links" id="nav-links">
+      <div class="nav-group">
+        <button class="nav-trigger" aria-expanded="false">Fundamental</button>
+        <div class="nav-dropdown">
+          <a href="#apa-itu">Apa itu SEO<small>Crawl · Index · Rank</small></a>
+          <a href="#crawler-demo">Googlebot<small>Animasi crawler</small></a>
+          <a href="#serp-anatomy">Anatomi SERP<small>Komponen halaman hasil</small></a>
+          <a href="#pilar">Empat Pilar<small>On-page · Off-page · Technical · Local</small></a>
+          <a href="#search-intent">Search Intent<small>Niat di balik query</small></a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" aria-expanded="false">Strategi</button>
+        <div class="nav-dropdown">
+          <a href="#roadmap">Roadmap 10 Fase<small>Peta pemula sampai mahir</small></a>
+          <a href="#technical-seo">Technical SEO<small>10 masalah + solusi</small></a>
+          <a href="#geo">GEO<small>Generative Engine Optimization</small></a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" aria-expanded="false">Lab</button>
+        <div class="nav-dropdown">
+          <a href="#keyword-playground">Keyword Playground<small>Generator long-tail</small></a>
+          <a href="#onpage-inspector">On-Page Inspector<small>Skor title · meta</small></a>
+          <a href="#cwv-simulator">CWV Simulator<small>LCP · CLS · INP</small></a>
+          <a href="#backlink-graph">Backlink Flow<small>Link equity graph</small></a>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" aria-expanded="false">Belajar</button>
+        <div class="nav-dropdown">
+          <a href="#kurikulum">Kurikulum<small>8 Modul</small></a>
+          <a href="#checklist">Checklist<small>10 item + progress</small></a>
+          <a href="#rencana">Rencana 30 Hari<small>Minggu demi minggu</small></a>
+          <div class="nav-dropdown-sep"></div>
+          <a href="#tentang-penulis">Tentang Penulis<small>Muhammad Ferry</small></a>
+        </div>
+      </div>
     </nav>
     <button class="nav-cta" onclick="document.getElementById('kurikulum').scrollIntoView()">Mulai Belajar →</button>
   </div>
@@ -532,8 +571,8 @@
     <h1>Belajar SEO<br>dari <em>nol</em>,<br>sampai halaman<br>pertama Google.</h1>
     <p class="hero-lede">Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.</p>
     <div class="hero-meta">
-      <div><strong>18</strong>Bab lengkap</div>
-      <div><strong>11</strong>Simulator dan alat</div>
+      <div><strong>19</strong>Bab lengkap</div>
+      <div><strong>12</strong>Simulator dan alat</div>
       <div><strong>10 fase</strong>Roadmap learningseo.io</div>
       <div><strong>Gratis</strong>Selamanya</div>
     </div>
@@ -1088,10 +1127,255 @@
     </div>
   </div>
 </section>
+<section id="search-intent">
+  <style>
+    #search-intent { padding: 96px 32px; background: var(--bg-2); color: var(--ink); }
+    .si-classifier { background: var(--paper); border: 1px solid var(--line); padding: 32px; margin-bottom: 56px; }
+    .si-class-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 12px; text-transform: uppercase; }
+    .si-class-row { display: flex; gap: 12px; align-items: stretch; margin-bottom: 14px; }
+    .si-class-input { flex: 1; border: none; border-bottom: 2px solid var(--ink); background: transparent; font-size: 24px; font-family: 'Fraunces', serif; padding: 8px 0; color: var(--ink); outline: none; }
+    .si-class-input::placeholder { color: var(--muted); font-style: italic; font-family: 'Instrument Serif', serif; }
+    .si-class-input:focus { border-bottom-color: var(--accent); }
+    .si-class-btn { background: var(--ink); color: var(--paper); border: none; padding: 0 22px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; cursor: pointer; transition: background 0.2s; }
+    .si-class-btn:hover { background: var(--accent); }
+    .si-class-examples { display: flex; gap: 8px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); align-items: center; }
+    .si-chip { background: var(--bg-2); border: 1px solid var(--line); padding: 4px 10px; cursor: pointer; color: var(--ink-2); border-radius: 2px; }
+    .si-chip:hover { background: var(--ink); color: var(--paper); }
+    .si-class-result { margin-top: 28px; padding-top: 24px; border-top: 1px dashed var(--line); display: none; }
+    .si-class-result.show { display: block; animation: siFade 0.3s ease; }
+    @keyframes siFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .si-result-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+    .si-result-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+    .si-result-badge { display: inline-block; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--paper); border-radius: 2px; text-transform: uppercase; }
+    .si-result-badge.info { background: #3d5a2b; }
+    .si-result-badge.nav { background: #2b4560; }
+    .si-result-badge.komersial { background: #8a6c1e; }
+    .si-result-badge.trans { background: var(--accent); }
+    .si-result-badge.lokal { background: var(--ok); }
+    .si-result-confidence { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+    .si-result-why { font-size: 14px; color: var(--ink-2); line-height: 1.65; margin-bottom: 14px; }
+    .si-result-why strong { color: var(--ink); background: rgba(193,67,44,0.08); padding: 1px 5px; border-radius: 2px; }
+    .si-result-reco { font-size: 13.5px; color: var(--ink-2); background: var(--bg); border-left: 3px solid var(--accent); padding: 14px 18px; line-height: 1.6; }
+    .si-result-reco strong { font-family: 'Fraunces', serif; color: var(--ink); display: block; margin-bottom: 4px; }
+
+    .si-types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 56px; }
+    @media (max-width: 900px) { .si-types { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .si-types { grid-template-columns: 1fr; } }
+    .si-type { background: var(--paper); padding: 28px 24px; position: relative; transition: transform 0.2s; }
+    .si-type::before { content: ''; position: absolute; top: 0; left: 0; width: 32px; height: 3px; }
+    .si-type.info::before { background: #3d5a2b; }
+    .si-type.nav::before { background: #2b4560; }
+    .si-type.komersial::before { background: #8a6c1e; }
+    .si-type.trans::before { background: var(--accent); }
+    .si-type:hover { transform: translateY(-3px); }
+    .si-type .si-type-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 42px; color: var(--accent); line-height: 1; margin-bottom: 10px; }
+    .si-type h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+    .si-type h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .si-type .si-type-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 14px; text-transform: uppercase; }
+    .si-type-section { padding-top: 12px; margin-top: 12px; border-top: 1px dashed var(--line); }
+    .si-type-section h5 { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+    .si-type-section p { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+    .si-type-modifiers { display: flex; flex-wrap: wrap; gap: 4px; }
+    .si-type-modifiers span { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 2px 7px; background: var(--bg); border: 1px solid var(--line); color: var(--ink-2); }
+    .si-type-examples { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+    .si-type-format { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
+    .si-mistake { background: var(--ink); color: var(--paper); padding: 36px 40px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+    @media (max-width: 680px) { .si-mistake { grid-template-columns: 1fr; padding: 28px; } }
+    .si-mistake-icon { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 80px; color: var(--accent-soft); line-height: 0.9; }
+    .si-mistake h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; line-height: 1.25; margin-bottom: 8px; }
+    .si-mistake h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
+    .si-mistake p { font-size: 14px; color: rgba(250,247,241,0.8); line-height: 1.6; }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 06 · SEARCH INTENT</div>
+      <div>
+        <h2>Sebelum menulis kata, pahami <em>niat</em> di balik pencarian.</h2>
+        <p>Google di 2026 bukan lagi soal cocokin keyword. Algoritma berusaha pahami apa yang sebenarnya dicari user: mau belajar, mau beli, atau cuma cari brand tertentu. Kalau kontenmu salah intent, mau seoptimal apapun teknisnya, tetap tidak bakal ranking.</p>
+      </div>
+    </div>
+
+    <div class="si-classifier">
+      <div class="si-class-label">COBA KLASIFIKASI QUERY</div>
+      <div class="si-class-row">
+        <input id="si-input" type="text" class="si-class-input" placeholder="Ketik query, contoh: cara masak rendang" autocomplete="off" />
+        <button id="si-btn" class="si-class-btn">Analisa →</button>
+      </div>
+      <div class="si-class-examples">
+        <span>Contoh cepat:</span>
+        <button class="si-chip" data-q="cara memasak rendang padang">cara memasak rendang padang</button>
+        <button class="si-chip" data-q="tokopedia">tokopedia</button>
+        <button class="si-chip" data-q="laptop gaming terbaik 2026">laptop gaming terbaik 2026</button>
+        <button class="si-chip" data-q="beli iphone 15 pro">beli iphone 15 pro</button>
+        <button class="si-chip" data-q="kopi dekat saya">kopi dekat saya</button>
+      </div>
+
+      <div class="si-class-result" id="si-result"></div>
+    </div>
+
+    <div class="si-types">
+      <div class="si-type info">
+        <div class="si-type-num">I</div>
+        <h4>Informasional</h4>
+        <div class="si-type-tag">MAU BELAJAR / TAHU</div>
+        <div class="si-type-section">
+          <h5>Modifier umum</h5>
+          <div class="si-type-modifiers"><span>cara</span><span>apa itu</span><span>kenapa</span><span>tips</span><span>panduan</span><span>tutorial</span></div>
+        </div>
+        <div class="si-type-section">
+          <h5>Contoh query</h5>
+          <p class="si-type-examples">"cara memasak rendang", "apa itu SEO", "kenapa langit biru"</p>
+        </div>
+        <div class="si-type-section">
+          <h5>Format konten tepat</h5>
+          <p class="si-type-format">Artikel tutorial, FAQ, video how-to, infografis step-by-step</p>
+        </div>
+      </div>
+
+      <div class="si-type nav">
+        <div class="si-type-num">II</div>
+        <h4>Navigasional</h4>
+        <div class="si-type-tag">CARI BRAND / SITUS</div>
+        <div class="si-type-section">
+          <h5>Modifier umum</h5>
+          <div class="si-type-modifiers"><span>login</span><span>official</span><span>website</span><span>nama brand</span><span>app</span></div>
+        </div>
+        <div class="si-type-section">
+          <h5>Contoh query</h5>
+          <p class="si-type-examples">"tokopedia", "gmail login", "starbucks menu", "facebook"</p>
+        </div>
+        <div class="si-type-section">
+          <h5>Format konten tepat</h5>
+          <p class="si-type-format">Homepage dioptimasi untuk brand. Jangan coba kompetisi kalau bukan pemilik brand.</p>
+        </div>
+      </div>
+
+      <div class="si-type komersial">
+        <div class="si-type-num">III</div>
+        <h4>Komersial</h4>
+        <div class="si-type-tag">RISET PRE-PURCHASE</div>
+        <div class="si-type-section">
+          <h5>Modifier umum</h5>
+          <div class="si-type-modifiers"><span>terbaik</span><span>review</span><span>vs</span><span>alternatif</span><span>perbandingan</span><span>top 10</span></div>
+        </div>
+        <div class="si-type-section">
+          <h5>Contoh query</h5>
+          <p class="si-type-examples">"laptop gaming terbaik 2026", "iphone vs samsung", "review ahrefs"</p>
+        </div>
+        <div class="si-type-section">
+          <h5>Format konten tepat</h5>
+          <p class="si-type-format">Listicle (top 10), comparison table, review mendalam dengan pros/cons, buying guide</p>
+        </div>
+      </div>
+
+      <div class="si-type trans">
+        <div class="si-type-num">IV</div>
+        <h4>Transaksional</h4>
+        <div class="si-type-tag">SIAP ACTION / BELI</div>
+        <div class="si-type-section">
+          <h5>Modifier umum</h5>
+          <div class="si-type-modifiers"><span>beli</span><span>harga</span><span>diskon</span><span>promo</span><span>jual</span><span>order</span><span>download</span></div>
+        </div>
+        <div class="si-type-section">
+          <h5>Contoh query</h5>
+          <p class="si-type-examples">"beli iphone 15 pro", "harga tiket pesawat jakarta bali", "promo shopee"</p>
+        </div>
+        <div class="si-type-section">
+          <h5>Format konten tepat</h5>
+          <p class="si-type-format">Halaman produk dengan CTA jelas, landing page, checkout flow singkat</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="si-mistake">
+      <div class="si-mistake-icon">!</div>
+      <div>
+        <h4>Kesalahan paling sering: <em>intent mismatch</em>.</h4>
+        <p>Misal, kamu optimasi halaman produk untuk "cara memasak rendang" (informasional). Google akan favor artikel tutorial, bukan halaman beli bumbu. Hasilnya, halamanmu tidak ranking meskipun SEO-nya sempurna. Selalu cek 10 hasil teratas dulu sebelum nulis: kalau semuanya artikel panjang, jangan buat halaman produk. Kalau semuanya listicle, jangan tulis essay.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const input = document.getElementById('si-input');
+      const btn = document.getElementById('si-btn');
+      const resultEl = document.getElementById('si-result');
+      const chips = document.querySelectorAll('#search-intent .si-chip');
+
+      const rules = {
+        trans:      { kws: ['beli', 'harga', 'promo', 'diskon', 'jual', 'order', 'pesan', 'download', 'langganan', 'daftar'], label: 'Transaksional', cls: 'trans', reco: { title: 'Bangun landing page konversi', text: 'Halaman produk dengan CTA jelas, bukti sosial (review, rating), checkout 2 langkah. Prioritaskan kecepatan dan trust signal.' } },
+        komersial:  { kws: ['terbaik', 'review', 'vs', 'alternatif', 'perbandingan', 'top', 'paling', 'rekomendasi', 'ranking'], label: 'Komersial', cls: 'komersial', reco: { title: 'Buat listicle atau comparison', text: 'Artikel "Top 10", tabel perbandingan fitur, review jujur dengan pros dan cons. User sedang riset pre-purchase, belum siap beli.' } },
+        info:       { kws: ['cara', 'apa', 'kenapa', 'tips', 'panduan', 'tutorial', 'belajar', 'bagaimana', 'contoh', 'arti', 'definisi'], label: 'Informasional', cls: 'info', reco: { title: 'Tulis artikel tutorial mendalam', text: 'How-to step-by-step, FAQ, inverted pyramid (jawaban di atas), heading berbasis pertanyaan. Target featured snippet dan AI Overviews.' } },
+        lokal:      { kws: ['dekat saya', 'near me', 'terdekat', 'di jakarta', 'di bandung', 'di surabaya', 'di bali', 'lokasi', 'alamat', 'buka'], label: 'Lokal', cls: 'lokal', reco: { title: 'Optimasi Google Business Profile', text: 'Daftarkan bisnismu di Google Maps, isi jam buka, foto interior, respon review. Konten halaman harus sebut nama kota target.' } },
+        nav:        { kws: ['login', 'official', 'sign in', 'app'], label: 'Navigasional', cls: 'nav', reco: { title: 'Halaman brand atau homepage', text: 'User sudah tahu tujuannya. Kalau kamu pemilik brand, pastikan homepage ranking #1 untuk nama brand. Kalau bukan, jangan kompetisi.' } }
+      };
+
+      function classify(q) {
+        q = q.trim().toLowerCase();
+        if (!q) return null;
+        const scores = {};
+        const matched = {};
+        Object.keys(rules).forEach(k => { scores[k] = 0; matched[k] = []; });
+        Object.keys(rules).forEach(k => {
+          rules[k].kws.forEach(kw => {
+            if (q.includes(kw)) { scores[k] += kw.length > 4 ? 2 : 1; matched[k].push(kw); }
+          });
+        });
+        // Heuristic: short brand-like query with no modifier = navigational
+        const words = q.split(/\s+/);
+        if (words.length <= 2 && Object.values(scores).every(s => s === 0)) {
+          scores.nav += 2; matched.nav.push('(query pendek, brand-like)');
+        }
+        // Find top
+        let best = 'info', bestScore = 0;
+        Object.keys(scores).forEach(k => { if (scores[k] > bestScore) { bestScore = scores[k]; best = k; } });
+        if (bestScore === 0) best = 'info'; // default fallback
+        const confidence = bestScore >= 3 ? 'Tinggi' : bestScore >= 1 ? 'Sedang' : 'Rendah';
+        return { intent: best, matched: matched[best], confidence, rule: rules[best] };
+      }
+
+      function highlightQuery(q, matchedKws) {
+        let result = q;
+        matchedKws.forEach(kw => {
+          if (kw.startsWith('(')) return;
+          const regex = new RegExp('(' + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+          result = result.replace(regex, '<strong>$1</strong>');
+        });
+        return result;
+      }
+
+      function render(q) {
+        const r = classify(q);
+        if (!r) { resultEl.classList.remove('show'); return; }
+        const highlighted = highlightQuery(q, r.matched);
+        const whyText = r.matched.length && !r.matched[0].startsWith('(')
+          ? 'Ditemukan sinyal kata: ' + r.matched.map(k => '<strong>' + k + '</strong>').join(', ') + '.'
+          : 'Query pendek tanpa modifier intent, cenderung navigasional (cari brand atau situs spesifik).';
+        resultEl.innerHTML =
+          '<div class="si-result-head">' +
+          '<span class="si-result-label">INTENT TERDETEKSI:</span>' +
+          '<span class="si-result-badge ' + r.rule.cls + '">' + r.rule.label + '</span>' +
+          '<span class="si-result-confidence">Confidence: ' + r.confidence + '</span>' +
+          '</div>' +
+          '<p class="si-result-why"><strong>Query kamu:</strong> "' + highlighted + '". ' + whyText + '</p>' +
+          '<div class="si-result-reco"><strong>Rekomendasi format konten:</strong>' + r.rule.reco.text + '</div>';
+        resultEl.classList.add('show');
+      }
+
+      btn.addEventListener('click', () => render(input.value));
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') render(input.value); });
+      chips.forEach(c => c.addEventListener('click', () => { input.value = c.dataset.q; render(c.dataset.q); }));
+    })();
+  </script>
+</section>
+
 <section id="keyword-playground">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 06 · PLAYGROUND KEYWORD</div>
+      <div class="section-num">§ 07 · PLAYGROUND KEYWORD</div>
       <div>
         <h2 class="serif">Eksperimen <em class="italic-serif">keyword</em> langsung di sini.</h2>
         <p>Ketik satu kata kunci utama, lalu lihat bagaimana ia bercabang jadi puluhan long-tail yang lebih spesifik. Data di sini dummy, tujuannya melatih intuisi, bukan riset produksi.</p>
@@ -1219,7 +1503,7 @@
 <section id="onpage-inspector">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 07 · ON-PAGE INSPECTOR</div>
+      <div class="section-num">§ 08 · ON-PAGE INSPECTOR</div>
       <div>
         <h2 class="serif">Cek kesehatan <em class="italic-serif">on-page</em> halamanmu.</h2>
         <p>Masukkan title tag, meta description, dan target keyword. Inspector akan menilai panjang karakter, posisi keyword, serta menampilkan mockup bagaimana hasilmu muncul di Google.</p>
@@ -1362,7 +1646,7 @@
 <section id="cwv-simulator">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 08 · CORE WEB VITALS</div>
+      <div class="section-num">§ 09 · CORE WEB VITALS</div>
       <div>
         <h2 class="serif">Simulasi performa <em class="italic-serif">halaman</em>mu.</h2>
         <p>Geser slider untuk melihat bagaimana tiga metrik Core Web Vitals (LCP, CLS, INP) berinteraksi. Google pakai ketiganya sebagai sinyal ranking sejak 2021, jadi jangan cuma kejar konten, kejar juga kecepatan.</p>
@@ -1468,7 +1752,7 @@
 <section id="backlink-graph">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 09 · BACKLINK FLOW</div>
+      <div class="section-num">§ 10 · BACKLINK FLOW</div>
       <div>
         <h2 class="serif">Bagaimana <em class="italic-serif">link equity</em> mengalir?</h2>
         <p>Setiap backlink mengirim sinyal otoritas ke situsmu, tapi tidak semua link sama bobotnya. Visual di bawah memperlihatkan bagaimana link berkualitas tinggi mendorong skor naik, sementara link spam justru bisa menarikmu turun.</p>
@@ -1698,7 +1982,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 10 · TECHNICAL SEO</div>
+      <div class="section-num">§ 11 · TECHNICAL SEO</div>
       <div>
         <h2>Sepuluh <em>masalah teknis</em> paling sering, lengkap dengan solusinya.</h2>
         <p>Technical SEO adalah fondasi infrastruktur. Kalau Googlebot tidak bisa crawl, render, atau index situsmu dengan benar, konten sebagus apapun tidak akan tampil di SERP. Bagian ini memetakan masalah-masalah paling umum yang kami temui di audit situs UMKM maupun enterprise.</p>
@@ -2017,7 +2301,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 11 · GEO</div>
+      <div class="section-num">§ 12 · GEO</div>
       <div>
         <h2>Generative <em>Engine</em> Optimization: di-cite oleh ChatGPT, Perplexity, dan Gemini.</h2>
         <p>Kalau SEO tradisional ngejar posisi di SERP, GEO ngejar di-cite sebagai sumber di jawaban AI. Dua-duanya wajib di 2026, tapi teknik-nya beda. Bagian ini rangkum riset kredibel dari Princeton dan Gartner.</p>
@@ -2161,7 +2445,7 @@
 <section id="kurikulum" class="curriculum">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 12 · KURIKULUM</div>
+      <div class="section-num">§ 13 · KURIKULUM</div>
       <div>
         <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
         <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
@@ -2255,7 +2539,7 @@
 <section id="checklist" class="checklist-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 13 · CHECKLIST</div>
+      <div class="section-num">§ 14 · CHECKLIST</div>
       <div>
         <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
         <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
@@ -2292,7 +2576,7 @@
 <section id="rencana">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 14 · RENCANA 30 HARI</div>
+      <div class="section-num">§ 15 · RENCANA 30 HARI</div>
       <div>
         <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
         <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
@@ -2330,7 +2614,7 @@
 <section class="tools">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 15 · TOOLS</div>
+      <div class="section-num">§ 16 · TOOLS</div>
       <div>
         <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
         <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
@@ -2422,7 +2706,7 @@
 <section id="glosarium">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 16 · GLOSARIUM</div>
+      <div class="section-num">§ 17 · GLOSARIUM</div>
       <div>
         <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
         <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
@@ -2479,7 +2763,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 17 · TENTANG PENULIS</div>
+      <div class="section-num">§ 18 · TENTANG PENULIS</div>
       <div>
         <h2>Bahan ini <em>tidak</em> ditulis oleh AI generik.</h2>
         <p>Semua materi disusun dari pengalaman lapangan, referensi Google Search Central, studi kasus UMKM dan enterprise, serta eksperimen di klien nyata.</p>
@@ -2537,7 +2821,7 @@
 <section class="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 18 · FAQ</div>
+      <div class="section-num">§ 19 · FAQ</div>
       <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
     </div>
 
@@ -3015,6 +3299,50 @@ Sitemap: https://situsmu.com/sitemap.xml</pre>
     });
   });
   updateProgress();
+
+  // Navbar dropdown behavior
+  (function(){
+    const groups = document.querySelectorAll('.nav-group');
+    let hoverTimeout;
+    groups.forEach(group => {
+      const trigger = group.querySelector('.nav-trigger');
+      group.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        groups.forEach(g => g.classList.remove('is-open'));
+        group.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      });
+      group.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          group.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }, 180);
+      });
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = group.classList.contains('is-open');
+        groups.forEach(g => { g.classList.remove('is-open'); g.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { group.classList.add('is-open'); trigger.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+    document.addEventListener('click', () => {
+      groups.forEach(g => { g.classList.remove('is-open'); g.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false'); });
+    });
+    // Close on link click (smooth scroll then close)
+    document.querySelectorAll('.nav-dropdown a').forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(() => {
+          groups.forEach(g => { g.classList.remove('is-open'); g.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false'); });
+        }, 100);
+      });
+    });
+    // Escape key closes all
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        groups.forEach(g => { g.classList.remove('is-open'); g.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false'); });
+      }
+    });
+  })();
 </script>
 
 </body>
