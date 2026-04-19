@@ -1347,17 +1347,17 @@
         circ.setAttribute('stroke', cfg.color);
         circ.setAttribute('stroke-width', 2);
         g.appendChild(circ);
+        // Domain name above circle
         const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        txt.setAttribute('x', x); txt.setAttribute('y', y + 4); txt.setAttribute('text-anchor', 'middle');
-        txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '10');
-        txt.setAttribute('fill', '#1a1613');
+        txt.setAttribute('x', x); txt.setAttribute('y', y - cfg.radius - 8); txt.setAttribute('text-anchor', 'middle');
+        txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '11');
+        txt.setAttribute('fill', '#1a1613'); txt.setAttribute('font-weight', '500');
         txt.textContent = n.name;
         g.appendChild(txt);
-        const outX = -dx / dist, outY = -dy / dist;
-        const labelOffset = cfg.radius + 14;
+        // Type label below circle
         const typeTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        typeTxt.setAttribute('x', x + outX * labelOffset); typeTxt.setAttribute('y', y + outY * labelOffset + 4); typeTxt.setAttribute('text-anchor', 'middle');
-        typeTxt.setAttribute('font-family', 'Inter, sans-serif'); typeTxt.setAttribute('font-size', '9');
+        typeTxt.setAttribute('x', x); typeTxt.setAttribute('y', y + cfg.radius + 18); typeTxt.setAttribute('text-anchor', 'middle');
+        typeTxt.setAttribute('font-family', 'Inter, sans-serif'); typeTxt.setAttribute('font-size', '10');
         typeTxt.setAttribute('fill', '#857a6b');
         typeTxt.textContent = cfg.label;
         g.appendChild(typeTxt);
