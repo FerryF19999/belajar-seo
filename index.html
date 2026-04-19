@@ -2438,6 +2438,58 @@
     .cb-principle p:last-child { margin-bottom: 0; }
     .cb-principle a { color: var(--accent-soft); text-decoration: none; border-bottom: 1px dashed rgba(232,106,82,0.5); }
     .cb-principle a:hover { color: var(--paper); border-color: var(--paper); }
+
+    .cb-explainer { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; margin-bottom: 56px; }
+    @media (max-width: 900px) { .cb-explainer { grid-template-columns: 1fr; } }
+    .cb-explainer-body { background: var(--paper); border: 1px solid var(--line); padding: 36px; }
+    .cb-explainer-body h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 14px; }
+    .cb-explainer-body h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .cb-explainer-body p { font-size: 15px; color: var(--ink-2); line-height: 1.7; margin-bottom: 14px; }
+    .cb-explainer-body p:last-child { margin-bottom: 0; }
+    .cb-explainer-body strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 600; }
+    .cb-analogy { background: var(--ink); color: var(--paper); padding: 32px; position: relative; overflow: hidden; }
+    .cb-analogy::before { content: '"'; position: absolute; top: -40px; right: 18px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 240px; color: rgba(232,106,82,0.12); line-height: 1; }
+    .cb-analogy .cb-analogy-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--accent-soft); margin-bottom: 14px; text-transform: uppercase; }
+    .cb-analogy blockquote { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; line-height: 1.45; color: rgba(250,247,241,0.92); margin-bottom: 20px; position: relative; }
+    .cb-analogy blockquote em { color: var(--accent-soft); font-family: inherit; }
+    .cb-analogy-map { display: grid; gap: 10px; padding-top: 18px; border-top: 1px solid rgba(250,247,241,0.15); }
+    .cb-analogy-map-row { display: grid; grid-template-columns: auto 1fr; gap: 12px; font-size: 13px; color: rgba(250,247,241,0.85); line-height: 1.5; }
+    .cb-analogy-map-row strong { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent-soft); letter-spacing: 0.08em; padding-top: 2px; min-width: 90px; }
+
+    .cb-example { background: var(--paper); border: 1px solid var(--line); padding: 32px; margin-bottom: 56px; }
+    .cb-example h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; line-height: 1.2; margin-bottom: 18px; letter-spacing: -0.01em; }
+    .cb-example h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .cb-example-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); background: var(--line); }
+    @media (max-width: 740px) { .cb-example-grid { grid-template-columns: repeat(2, 1fr); } }
+    .cb-example-cell { background: var(--paper); padding: 20px 18px; }
+    .cb-example-cell-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+    .cb-example-cell-val { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; line-height: 1; color: var(--ink); margin-bottom: 4px; }
+    .cb-example-cell-val em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; font-size: 24px; }
+    .cb-example-cell-sub { font-size: 12px; color: var(--ink-2); line-height: 1.4; }
+    .cb-example-math { margin-top: 20px; padding: 16px 20px; background: var(--bg); border-left: 3px solid var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.7; color: var(--ink-2); }
+    .cb-example-math strong { color: var(--ink); }
+    .cb-example-math .result { color: var(--accent); font-weight: 600; }
+
+    .cb-howto { background: var(--paper); border: 1px solid var(--line); padding: 36px; margin-bottom: 56px; }
+    .cb-howto h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .cb-howto h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .cb-howto-lead { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; color: var(--muted); margin-bottom: 24px; }
+    .cb-howto-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); background: var(--line); }
+    @media (max-width: 740px) { .cb-howto-steps { grid-template-columns: 1fr; } }
+    .cb-howto-step { background: var(--paper); padding: 24px 22px; position: relative; }
+    .cb-howto-step-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 44px; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+    .cb-howto-step h4 { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; line-height: 1.25; margin-bottom: 6px; }
+    .cb-howto-step-path { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 12px; padding: 4px 8px; background: var(--bg); border: 1px solid var(--line); display: inline-block; }
+    .cb-howto-step p { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+    .cb-howto-metrics { margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--line); }
+    .cb-howto-metrics h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; }
+    .cb-howto-metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 740px) { .cb-howto-metrics-grid { grid-template-columns: 1fr; } }
+    .cb-howto-metric { padding: 14px 16px; background: var(--bg); border-left: 3px solid var(--accent); }
+    .cb-howto-metric-name { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+    .cb-howto-metric-health { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ok); margin-bottom: 6px; }
+    .cb-howto-metric-health.warn { color: var(--accent); }
+    .cb-howto-metric-desc { font-size: 12px; color: var(--ink-2); line-height: 1.5; }
   </style>
 
   <div class="container">
@@ -2446,6 +2498,25 @@
       <div>
         <h2>Berapa halaman Googlebot mau <em>crawl</em> dari situsmu?</h2>
         <p>Crawl budget adalah resource terbatas yang Google alokasikan untuk menjelajahi situsmu tiap hari. Untuk situs kecil tidak jadi masalah, tapi untuk e-commerce dengan ratusan ribu URL, salah manajemen bikin halaman penting tidak pernah di-crawl.</p>
+      </div>
+    </div>
+
+    <div class="cb-explainer">
+      <div class="cb-explainer-body">
+        <h3>Penjelasan sederhana: <em>crawl budget</em> itu apa sebenarnya?</h3>
+        <p><strong>Googlebot bukan dewa yang tahu semua halamanmu secara instan.</strong> Dia adalah program (web crawler) yang punya resource terbatas: bandwidth, waktu, dan server capacity Google sendiri. Setiap hari Google alokasikan porsi resource ini untuk situsmu, itulah yang disebut <em class="italic-serif">crawl budget</em>.</p>
+        <p>Budget ini terpakai setiap kali Googlebot <strong>request satu URL</strong> dari situsmu. URL baru, URL lama yang di-refresh, file CSS, file JavaScript, gambar: <strong>semuanya masuk hitungan.</strong> Kalau budget habis sebelum semua halaman penting ter-crawl, halaman tersebut tidak akan ter-update di index Google, dan akhirnya tidak bisa ranking.</p>
+        <p>Yang penting dipahami: <strong>budget tidak bisa kamu beli atau minta langsung ke Google.</strong> Budget ditentukan otomatis oleh algoritma berdasarkan dua sinyal (Capacity dan Demand), yang keduanya bisa kamu pengaruhi secara tidak langsung.</p>
+      </div>
+      <div class="cb-analogy">
+        <div class="cb-analogy-tag">ANALOGI</div>
+        <blockquote>Bayangkan Googlebot seperti <em>kurir</em> yang datang ke gudangmu setiap hari dengan waktu kerja terbatas. Kalau gudangmu rapi dan barang penting ditaruh di depan, dia bisa ambil semuanya. Kalau gudangmu penuh kardus kosong dan barang duplikat, dia bakal sibuk di sana sampai waktunya habis sebelum sempat ambil barang yang benar-benar perlu.</blockquote>
+        <div class="cb-analogy-map">
+          <div class="cb-analogy-map-row"><strong>KURIR</strong><span>Googlebot yang datang crawl situsmu</span></div>
+          <div class="cb-analogy-map-row"><strong>JAM KERJA</strong><span>Crawl capacity limit (dipengaruhi kecepatan server)</span></div>
+          <div class="cb-analogy-map-row"><strong>PRIORITAS</strong><span>Crawl demand (URL populer dan sering update dapat prioritas)</span></div>
+          <div class="cb-analogy-map-row"><strong>GUDANG RAPI</strong><span>Sitemap bersih, internal link jelas, URL low-value di-block</span></div>
+        </div>
       </div>
     </div>
 
@@ -2481,6 +2552,83 @@
           <li><strong>Situs menengah:</strong> perhatikan sitemap hygiene</li>
           <li><strong>Situs besar:</strong> optimasi agresif diperlukan</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="cb-example">
+      <h3>Contoh <em>konkret</em>: toko online dengan 50.000 produk</h3>
+      <div class="cb-example-grid">
+        <div class="cb-example-cell">
+          <div class="cb-example-cell-tag">URL TOTAL</div>
+          <div class="cb-example-cell-val">127K</div>
+          <div class="cb-example-cell-sub">Produk, kategori, filter, parameter tracking, pagination</div>
+        </div>
+        <div class="cb-example-cell">
+          <div class="cb-example-cell-tag">BUDGET/HARI</div>
+          <div class="cb-example-cell-val">8K <em>URL</em></div>
+          <div class="cb-example-cell-sub">Jumlah request Googlebot rata-rata per hari (dari GSC Crawl Stats)</div>
+        </div>
+        <div class="cb-example-cell">
+          <div class="cb-example-cell-tag">CYCLE TIME</div>
+          <div class="cb-example-cell-val">~16 <em>hari</em></div>
+          <div class="cb-example-cell-sub">Waktu untuk Google crawl seluruh situs sekali putaran penuh</div>
+        </div>
+        <div class="cb-example-cell">
+          <div class="cb-example-cell-tag">BUDGET WASTE</div>
+          <div class="cb-example-cell-val" style="color: var(--accent);">62%</div>
+          <div class="cb-example-cell-sub">Terbuang di URL low-value: filter, parameter, pagination</div>
+        </div>
+      </div>
+      <div class="cb-example-math">
+        <strong>Hitungannya:</strong> 127.000 URL ÷ 8.000/hari = <span class="result">~16 hari</span> untuk Google selesaikan satu siklus crawl.<br>
+        Kalau produk baru dipublish hari ini, paling cepat ter-index besok (kalau beruntung), paling lambat <span class="result">2 minggu lagi</span>.<br>
+        <strong>Setelah optimasi</strong> (block filter, canonical param, hapus URL sampah), total URL turun ke ~48.000, cycle jadi <span class="result">6 hari</span>. Halaman baru ter-index 3x lebih cepat.
+      </div>
+    </div>
+
+    <div class="cb-howto">
+      <h3>Cara <em>cek</em> crawl budget situsmu di Google Search Console</h3>
+      <div class="cb-howto-lead">Tiga langkah, lima menit, tidak perlu tools bayar.</div>
+      <div class="cb-howto-steps">
+        <div class="cb-howto-step">
+          <div class="cb-howto-step-num">i</div>
+          <h4>Buka Crawl Stats report</h4>
+          <div class="cb-howto-step-path">GSC → Settings → Crawl stats → OPEN REPORT</div>
+          <p>Tersembunyi di menu Settings, bukan di main dashboard. Butuh 3 bulan data minimum untuk baseline.</p>
+        </div>
+        <div class="cb-howto-step">
+          <div class="cb-howto-step-num">ii</div>
+          <h4>Baca grafik 90 hari</h4>
+          <div class="cb-howto-step-path">Total crawl requests · Avg response time · Total download size</div>
+          <p>Tren flat atau turun padahal kamu rajin publish artinya budget tidak mencukupi atau ada masalah teknis.</p>
+        </div>
+        <div class="cb-howto-step">
+          <div class="cb-howto-step-num">iii</div>
+          <h4>Break down by purpose dan type</h4>
+          <div class="cb-howto-step-path">By purpose: Discovery vs Refresh | By file type: HTML, JS, CSS, image</div>
+          <p>Kalau "Refresh" jauh lebih besar dari "Discovery", artinya Googlebot sibuk re-crawl URL lama. Tanda perlu optimasi.</p>
+        </div>
+      </div>
+
+      <div class="cb-howto-metrics">
+        <h4>Tiga angka yang wajib kamu pantau</h4>
+        <div class="cb-howto-metrics-grid">
+          <div class="cb-howto-metric">
+            <div class="cb-howto-metric-name">Total crawl requests</div>
+            <div class="cb-howto-metric-health">SEHAT: naik atau stabil</div>
+            <div class="cb-howto-metric-desc">Jumlah request Googlebot per hari. Tren turun padahal situs tumbuh = red flag.</div>
+          </div>
+          <div class="cb-howto-metric">
+            <div class="cb-howto-metric-name">Avg response time</div>
+            <div class="cb-howto-metric-health">SEHAT: &lt; 500ms</div>
+            <div class="cb-howto-metric-desc">Waktu server balas request Googlebot. Di atas 1 detik, Google otomatis turunkan crawl rate.</div>
+          </div>
+          <div class="cb-howto-metric">
+            <div class="cb-howto-metric-name">Response by status</div>
+            <div class="cb-howto-metric-health warn">SEHAT: 200 (>95%)</div>
+            <div class="cb-howto-metric-desc">Mayoritas harus 200 OK. Banyak 301 = redirect chain. Banyak 404/5xx = masalah serius.</div>
+          </div>
+        </div>
       </div>
     </div>
 
