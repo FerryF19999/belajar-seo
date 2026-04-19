@@ -1652,6 +1652,12 @@
     .tseo-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
     .tseo-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: var(--ink); line-height: 1; }
     .tseo-stat small { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
+    .tseo-stat a.tseo-src { display: inline-block; margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); letter-spacing: 0.05em; }
+    .tseo-stat a.tseo-src:hover { color: var(--ink); border-color: var(--ink); }
+    .tseo-sources { margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--line); font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.05em; line-height: 1.6; }
+    .tseo-sources strong { color: var(--ink-2); font-weight: 600; display: inline-block; margin-right: 4px; }
+    .tseo-sources a { color: var(--ink-2); text-decoration: none; border-bottom: 1px dashed var(--muted); }
+    .tseo-sources a:hover { color: var(--accent); border-color: var(--accent); }
 
     .tseo-filter { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
     .tseo-filter button { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; padding: 8px 14px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-2); cursor: pointer; border-radius: 2px; text-transform: uppercase; transition: all 0.15s; }
@@ -1703,9 +1709,24 @@
       </div>
       <div>
         <div class="tseo-stats">
-          <div class="tseo-stat"><strong>68%</strong><small>SITUS UMKM PUNYA<br>CWV BELUM LULUS</small></div>
-          <div class="tseo-stat"><strong>24%</strong><small>HALAMAN TIDAK<br>TER-INDEX</small></div>
-          <div class="tseo-stat"><strong>3x</strong><small>LEBIH CEPAT RANKING<br>SETELAH FIX</small></div>
+          <div class="tseo-stat">
+            <strong>~52%</strong>
+            <small>ORIGIN MOBILE BELUM<br>LULUS CORE WEB VITALS</small>
+          </div>
+          <div class="tseo-stat">
+            <strong>90.6%</strong>
+            <small>HALAMAN TIDAK DAPAT<br>TRAFIK ORGANIK GOOGLE</small>
+          </div>
+          <div class="tseo-stat">
+            <strong>+53%</strong>
+            <small>KENAIKAN REVENUE<br>SETELAH CWV DIFIX</small>
+          </div>
+        </div>
+        <div class="tseo-sources">
+          <strong>Sumber:</strong>
+          <a href="https://almanac.httparchive.org/en/2024/performance" target="_blank" rel="noopener">Web Almanac 2024 · Performance</a> ·
+          <a href="https://ahrefs.com/blog/search-traffic-study/" target="_blank" rel="noopener">Ahrefs Search Traffic Study</a> ·
+          <a href="https://web.dev/case-studies/rakuten" target="_blank" rel="noopener">web.dev case study: Rakuten 24</a>
         </div>
       </div>
     </div>
