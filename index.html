@@ -1350,8 +1350,9 @@
         // Domain name (upper half inside circle)
         const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         txt.setAttribute('x', x); txt.setAttribute('y', y - 4); txt.setAttribute('text-anchor', 'middle');
-        txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '10');
+        txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '9');
         txt.setAttribute('fill', '#1a1613'); txt.setAttribute('font-weight', '500');
+        txt.setAttribute('textLength', Math.min(n.name.length * 5.5, (cfg.radius - 4) * 2)); txt.setAttribute('lengthAdjust', 'spacingAndGlyphs');
         txt.textContent = n.name;
         g.appendChild(txt);
         // Type label (lower half inside circle)
