@@ -36,6 +36,13 @@
       ]
     },
     {
+      "source": "/og-image.svg",
+      "headers": [
+        { "key": "Content-Type", "value": "image/svg+xml" },
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
+      ]
+    },
+    {
       "source": "/sitemap.xsl",
       "headers": [
         { "key": "Content-Type", "value": "application/xslt+xml; charset=utf-8" },
