@@ -1242,7 +1242,7 @@
         </div>
       </div>
 
-      <svg class="blg-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+      <svg class="blg-svg" viewBox="0 0 800 540" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <marker id="blg-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4238" />
@@ -1253,10 +1253,10 @@
         </defs>
         <g id="blg-lines"></g>
         <g id="blg-nodes"></g>
-        <circle cx="400" cy="250" r="56" fill="#c1432c" />
-        <circle cx="400" cy="250" r="56" fill="none" stroke="#1a1613" stroke-width="1.5" />
-        <text x="400" y="246" text-anchor="middle" fill="#faf7f1" font-family="Fraunces, serif" font-size="15" font-weight="600">situsmu</text>
-        <text x="400" y="264" text-anchor="middle" fill="#faf7f1" font-family="Fraunces, serif" font-size="15" font-weight="600">.com</text>
+        <circle cx="400" cy="260" r="62" fill="#c1432c" />
+        <circle cx="400" cy="260" r="62" fill="none" stroke="#1a1613" stroke-width="1.5" />
+        <text x="400" y="256" text-anchor="middle" fill="#faf7f1" font-family="Fraunces, serif" font-size="16" font-weight="600">situsmu</text>
+        <text x="400" y="276" text-anchor="middle" fill="#faf7f1" font-family="Fraunces, serif" font-size="16" font-weight="600">.com</text>
       </svg>
 
       <div class="blg-legend">
@@ -1306,16 +1306,16 @@
         { name: 'spammy-f.xyz',    type: 'spam', angle: 180  },
         { name: 'linkfarm-g.biz',  type: 'spam', angle: -135 }
       ];
-      const cx = 400, cy = 250, r = 180;
+      const cx = 400, cy = 260, r = 175;
       const linesG = document.getElementById('blg-lines');
       const nodesG = document.getElementById('blg-nodes');
       const scoreEl = document.getElementById('blg-score');
       const disavowEl = document.getElementById('blg-disavow');
       const typeCfg = {
-        ha:   { color: '#3d6b4a', width: 4,   dash: '',    weight: 18, label: 'High Authority', radius: 32 },
-        med:  { color: '#4a4238', width: 2.5, dash: '',    weight: 10, label: 'Medium',         radius: 28 },
-        low:  { color: '#857a6b', width: 1.5, dash: '',    weight: 5,  label: 'Low',            radius: 24 },
-        spam: { color: '#c1432c', width: 2,   dash: '6,4', weight: -8, label: 'Spam',           radius: 24 }
+        ha:   { color: '#3d6b4a', width: 4,   dash: '',    weight: 18, label: 'High Authority', radius: 46, strokeW: 3 },
+        med:  { color: '#4a4238', width: 2.5, dash: '',    weight: 10, label: 'Medium',         radius: 44, strokeW: 2 },
+        low:  { color: '#857a6b', width: 1.5, dash: '',    weight: 5,  label: 'Low',            radius: 42, strokeW: 1.5 },
+        spam: { color: '#c1432c', width: 2,   dash: '6,4', weight: -8, label: 'Spam',           radius: 42, strokeW: 2 }
       };
       nodes.forEach((n) => {
         const cfg = typeCfg[n.type];
@@ -1325,8 +1325,8 @@
         n.x = x; n.y = y; n.cfg = cfg;
         const dx = cx - x, dy = cy - y;
         const dist = Math.sqrt(dx*dx + dy*dy);
-        const tx = x + (dx/dist) * (dist - 60);
-        const ty = y + (dy/dist) * (dist - 60);
+        const tx = x + (dx/dist) * (dist - 66);
+        const ty = y + (dy/dist) * (dist - 66);
         const fx = x + (dx/dist) * cfg.radius;
         const fy = y + (dy/dist) * cfg.radius;
         const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -1345,18 +1345,18 @@
         circ.setAttribute('cx', x); circ.setAttribute('cy', y); circ.setAttribute('r', cfg.radius);
         circ.setAttribute('fill', '#faf7f1');
         circ.setAttribute('stroke', cfg.color);
-        circ.setAttribute('stroke-width', 2);
+        circ.setAttribute('stroke-width', cfg.strokeW);
         g.appendChild(circ);
-        // Domain name above circle
+        // Domain name inside circle
         const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        txt.setAttribute('x', x); txt.setAttribute('y', y - cfg.radius - 8); txt.setAttribute('text-anchor', 'middle');
-        txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '11');
+        txt.setAttribute('x', x); txt.setAttribute('y', y + 3); txt.setAttribute('text-anchor', 'middle');
+        txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '10');
         txt.setAttribute('fill', '#1a1613'); txt.setAttribute('font-weight', '500');
         txt.textContent = n.name;
         g.appendChild(txt);
         // Type label below circle
         const typeTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        typeTxt.setAttribute('x', x); typeTxt.setAttribute('y', y + cfg.radius + 18); typeTxt.setAttribute('text-anchor', 'middle');
+        typeTxt.setAttribute('x', x); typeTxt.setAttribute('y', y + cfg.radius + 16); typeTxt.setAttribute('text-anchor', 'middle');
         typeTxt.setAttribute('font-family', 'Inter, sans-serif'); typeTxt.setAttribute('font-size', '10');
         typeTxt.setAttribute('fill', '#857a6b');
         typeTxt.textContent = cfg.label;
