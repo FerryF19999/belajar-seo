@@ -412,11 +412,14 @@
   .tools { background: var(--paper); }
   .tools-table { width: 100%; border-collapse: collapse; }
   .tools-table thead th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; padding: 12px 16px; border-bottom: 2px solid var(--ink); text-transform: uppercase; }
-  .tools-table tbody td { padding: 24px 16px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 14px; color: var(--ink-2); }
+  .tools-table tbody td { padding: 20px 16px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
   .tools-table tbody tr:hover { background: var(--bg); }
-  .tool-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; color: var(--ink); }
-  .tool-name small { display: block; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .tool-name { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 500; color: var(--ink); line-height: 1.2; }
+  .tool-name small { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); font-weight: 400; margin-top: 4px; letter-spacing: 0.02em; }
+  .tools-table .price-cell { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; }
   .pill { display: inline-block; padding: 3px 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; border-radius: 999px; letter-spacing: 0.05em; }
+  .tool-src { display: inline-block; margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); padding-bottom: 1px; }
+  .tool-src:hover { color: var(--ink); border-color: var(--ink); }
   .pill-free { background: rgba(61,107,74,0.12); color: var(--ok); }
   .pill-paid { background: rgba(193,67,44,0.1); color: var(--accent); }
   .pill-freemium { background: rgba(133,122,107,0.15); color: var(--ink-2); }
@@ -2115,19 +2118,81 @@
     <table class="tools-table">
       <thead><tr><th style="width: 28%;">Tool</th><th style="width: 14%;">Harga</th><th style="width: 20%;">Untuk apa</th><th>Catatan</th></tr></thead>
       <tbody>
-        <tr><td><div class="tool-name">Google Search Console<small>search.google.com/search-console</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Monitoring performa di Google</td><td>Wajib hukumnya. Tunjukkan query apa yang membawa traffic, halaman mana yang ranking, dan error apa yang perlu diperbaiki.</td></tr>
-        <tr><td><div class="tool-name">Google Analytics 4<small>analytics.google.com</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Analisis perilaku pengunjung</td><td>Lihat berapa lama orang tinggal, halaman apa yang paling populer, dari mana mereka datang. Pasangan wajib dengan GSC.</td></tr>
-        <tr><td><div class="tool-name">Google Tag Manager<small>tagmanager.google.com</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Pasang tag dan event tanpa touch kode</td><td>Satu container untuk kelola GA4, Facebook Pixel, Ads Conversion, custom event. Deploy trigger tanpa perlu developer tiap kali ada perubahan tracking.</td></tr>
-        <tr><td><div class="tool-name">Google Keyword Planner<small>ads.google.com/keywordplanner</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Riset volume keyword</td><td>Butuh akun Google Ads (tidak perlu ngeluarin uang). Range volume agak kasar tapi cukup untuk panduan awal.</td></tr>
-        <tr><td><div class="tool-name">Google Trends<small>trends.google.com</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Tren pencarian dari waktu ke waktu</td><td>Cek apakah sebuah topik sedang naik atau turun. Bagus untuk timing konten musiman.</td></tr>
-        <tr><td><div class="tool-name">PageSpeed Insights<small>pagespeed.web.dev</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Audit Core Web Vitals</td><td>Ukur LCP, CLS, INP. Kasih rekomendasi konkret untuk mempercepat halaman.</td></tr>
-        <tr><td><div class="tool-name">GTmetrix<small>gtmetrix.com</small></div></td><td><span class="pill pill-freemium">Freemium</span> <span class="pill pill-paid" style="margin-left: 4px;">$10+/bln</span></td><td>Audit page speed mendalam</td><td>Free tier: test dari lokasi Vancouver, report 7 hari. Paid 4 tier (Solo, Basic, Pro, Business): multi-location (termasuk Jakarta, Hong Kong, London), hourly monitoring, API, video playback HD, historical data unlimited. <a href="https://gtmetrix.com/pricing.html" target="_blank" rel="noopener" style="color:var(--accent); border-bottom: 1px dashed var(--accent); text-decoration: none;">Cek pricing resmi →</a></td></tr>
-        <tr><td><div class="tool-name">Ahrefs Webmaster Tools<small>ahrefs.com/webmaster-tools</small></div></td><td><span class="pill pill-freemium">Freemium</span></td><td>Backlink dan site audit</td><td>Versi gratis untuk situs yang kamu verifikasi. Cek backlink masuk dan masalah teknis.</td></tr>
-        <tr><td><div class="tool-name">Ubersuggest<small>neilpatel.com/ubersuggest</small></div></td><td><span class="pill pill-freemium">Freemium</span></td><td>Riset keyword alternatif</td><td>Free tier terbatas per hari tapi bagus untuk eksplorasi cepat long-tail keyword.</td></tr>
-        <tr><td><div class="tool-name">AnswerThePublic<small>answerthepublic.com</small></div></td><td><span class="pill pill-freemium">Freemium</span> <span class="pill pill-paid" style="margin-left: 4px;">$5+/bln</span></td><td>Visualisasi search intent</td><td>Cluster pertanyaan nyata yang orang ketik: who, what, when, where, why, how, plus perbandingan (vs, or, and) dan preposisi. Free tier terbatas per hari. Paid 3 tier (Individual, Pro, Expert) sampai Enterprise $950+/bln: unlimited search, CSV export, monitoring perubahan query, data historis. Bahan emas untuk FAQ, heading H2, dan content cluster. <a href="https://answerthepublic.com/en/pricing" target="_blank" rel="noopener" style="color:var(--accent); border-bottom: 1px dashed var(--accent); text-decoration: none;">Cek pricing resmi →</a></td></tr>
-        <tr><td><div class="tool-name">Ahrefs<small>ahrefs.com</small></div></td><td><span class="pill pill-paid">$29+/bln</span></td><td>Backlink audit dan riset kompetitor</td><td>4 tier: Starter $29, Lite $129, Standard $249, Advanced $449/bln. Database backlink terbesar dan paling update di industri. <a href="https://ahrefs.com/id/pricing" target="_blank" rel="noopener" style="color:var(--accent); border-bottom: 1px dashed var(--accent); text-decoration: none;">Cek pricing resmi →</a></td></tr>
-        <tr><td><div class="tool-name">Semrush<small>semrush.com</small></div></td><td><span class="pill pill-paid">$139+/bln</span></td><td>All-in-one SEO dan kompetitor</td><td>3 tier utama: Pro $139.95, Guru $249.95, Business $499.95/bln. Kuat di keyword gap analysis, content marketing platform, dan local SEO. <a href="https://www.semrush.com/pricing/" target="_blank" rel="noopener" style="color:var(--accent); border-bottom: 1px dashed var(--accent); text-decoration: none;">Cek pricing resmi →</a></td></tr>
-        <tr><td colspan="4" style="padding: 16px; background: var(--bg); font-size: 13px; color: var(--muted); font-style: italic; text-align: center;">Jangan upgrade ke tools berbayar sampai kamu betul-betul butuh. 6 bulan pertama fokus di tools gratis dulu.</td></tr>
+        <tr>
+          <td><div class="tool-name">Google Search Console<small>search.google.com/search-console</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-free">Gratis</span></div></td>
+          <td>Monitoring performa di Google</td>
+          <td>Wajib hukumnya. Tunjukkan query apa yang membawa traffic, halaman mana yang ranking, dan error apa yang perlu diperbaiki.</td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Google Analytics 4<small>analytics.google.com</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-free">Gratis</span></div></td>
+          <td>Analisis perilaku pengunjung</td>
+          <td>Lihat berapa lama orang tinggal, halaman apa yang populer, dari mana mereka datang. Pasangan wajib dengan GSC.</td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Google Tag Manager<small>tagmanager.google.com</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-free">Gratis</span></div></td>
+          <td>Pasang tag dan event tanpa touch kode</td>
+          <td>Satu container untuk kelola GA4, Facebook Pixel, Ads Conversion, custom event. Deploy trigger tanpa perlu developer tiap perubahan tracking.</td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Google Keyword Planner<small>ads.google.com/keywordplanner</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-free">Gratis</span></div></td>
+          <td>Riset volume keyword</td>
+          <td>Butuh akun Google Ads (tidak perlu ngeluarin uang). Range volume agak kasar tapi cukup untuk panduan awal.</td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Google Trends<small>trends.google.com</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-free">Gratis</span></div></td>
+          <td>Tren pencarian dari waktu ke waktu</td>
+          <td>Cek apakah sebuah topik sedang naik atau turun. Bagus untuk timing konten musiman.</td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">PageSpeed Insights<small>pagespeed.web.dev</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-free">Gratis</span></div></td>
+          <td>Audit Core Web Vitals</td>
+          <td>Ukur LCP, CLS, INP. Kasih rekomendasi konkret untuk mempercepat halaman.</td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">GTmetrix<small>gtmetrix.com</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-freemium">Freemium</span><span class="pill pill-paid">$10+/bln</span></div></td>
+          <td>Audit page speed mendalam</td>
+          <td>Waterfall chart, video playback, historical tracking, multi-location. Free tier cukup untuk spot check. Paid 4 tier (Solo, Basic, Pro, Business) buat monitoring rutin.<br><a class="tool-src" href="https://gtmetrix.com/pricing.html" target="_blank" rel="noopener">CEK PRICING RESMI →</a></td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Ahrefs Webmaster Tools<small>ahrefs.com/webmaster-tools</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-freemium">Freemium</span></div></td>
+          <td>Backlink dan site audit</td>
+          <td>Versi gratis untuk situs yang kamu verifikasi. Cek backlink masuk dan masalah teknis.</td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Ubersuggest<small>neilpatel.com/ubersuggest</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-freemium">Freemium</span><span class="pill pill-paid">$12+/bln</span></div></td>
+          <td>Riset keyword alternatif</td>
+          <td>Free tier terbatas per hari tapi bagus untuk eksplorasi cepat long-tail. Paid 3 tier (Individual, Business, Enterprise) dengan opsi lifetime deal.<br><a class="tool-src" href="https://app.neilpatel.com/en/pricing" target="_blank" rel="noopener">CEK PRICING RESMI →</a></td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">AnswerThePublic<small>answerthepublic.com</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-freemium">Freemium</span><span class="pill pill-paid">$5+/bln</span></div></td>
+          <td>Visualisasi search intent</td>
+          <td>Cluster pertanyaan nyata: who, what, when, where, why, how plus perbandingan (vs, or, and). Bahan emas untuk FAQ, H2, content cluster. Paid (Individual, Pro, Expert) sampai Enterprise $950+.<br><a class="tool-src" href="https://answerthepublic.com/en/pricing" target="_blank" rel="noopener">CEK PRICING RESMI →</a></td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Ahrefs<small>ahrefs.com</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-paid">$29+/bln</span></div></td>
+          <td>Backlink audit dan kompetitor</td>
+          <td>4 tier: Starter $29, Lite $129, Standard $249, Advanced $449/bln. Database backlink terbesar dan paling update di industri.<br><a class="tool-src" href="https://ahrefs.com/id/pricing" target="_blank" rel="noopener">CEK PRICING RESMI →</a></td>
+        </tr>
+        <tr>
+          <td><div class="tool-name">Semrush<small>semrush.com</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-paid">$139+/bln</span></div></td>
+          <td>All-in-one SEO platform</td>
+          <td>3 tier utama: Pro $139.95, Guru $249.95, Business $499.95/bln. Kuat di keyword gap, content marketing, local SEO.<br><a class="tool-src" href="https://www.semrush.com/pricing/" target="_blank" rel="noopener">CEK PRICING RESMI →</a></td>
+        </tr>
+        <tr>
+          <td colspan="4" style="padding: 18px 16px; background: var(--bg); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; color: var(--ink-2); text-align: center; border-bottom: none;">Jangan upgrade ke tools berbayar sampai kamu betul-betul butuh. 6 bulan pertama, fokus di tools gratis dulu.</td>
+        </tr>
       </tbody>
     </table>
   </div>
