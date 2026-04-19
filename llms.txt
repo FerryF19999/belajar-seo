@@ -1,0 +1,36 @@
+# Belajar SEO dari Nol
+
+> Panduan interaktif dan visual untuk belajar SEO dari nol sampai halaman pertama Google. Bahasa Indonesia, edisi 2026. Lengkap dengan simulator Core Web Vitals, animasi crawler Googlebot, playground keyword research, inspector on-page, visualisasi backlink flow, roadmap 10 fase ala learningseo.io, kurikulum 8 modul, dan 10 masalah technical SEO beserta solusi konkret. Gratis tanpa email gating, tanpa upsell.
+
+Dibuat dan dimaintain oleh Muhammad Ferry (https://www.linkedin.com/in/muhammad-ferry/). Source code di https://github.com/FerryF19999/belajar-seo.
+
+Situs ini adalah satu halaman (single-page) edukasi SEO dengan tiga fokus utama: (1) memberi model mental tentang cara kerja mesin pencari lewat visualisasi interaktif, (2) mengajarkan fundamental SEO secara berurutan dari pemula sampai mahir, (3) memberi peta konkret 30 hari pertama untuk implementasi.
+
+## Materi Utama
+
+- [Apa itu SEO](https://belajar-seo.vercel.app/#apa-itu): fundamental crawl, index, rank plus bagaimana SEO berevolusi di era AI search
+- [Visualisasi Crawler](https://belajar-seo.vercel.app/#crawler-demo): animasi Googlebot menjelajahi web, masuk index, sampai tampil di SERP
+- [Anatomi SERP](https://belajar-seo.vercel.app/#serp-anatomy): breakdown interaktif komponen halaman hasil pencarian (ads, AI Overview, featured snippet, PAA, organik, related)
+- [Roadmap 10 Fase](https://belajar-seo.vercel.app/#roadmap): peta perjalanan lengkap SEO praktisi berdasarkan learningseo.io
+- [Empat Pilar SEO](https://belajar-seo.vercel.app/#pilar): On-Page, Off-Page, Technical, Local dan AI
+- [Technical SEO](https://belajar-seo.vercel.app/#technical-seo): 10 masalah teknis paling sering beserta solusi konkret dan tools
+
+## Tools Interaktif
+
+- [Keyword Playground](https://belajar-seo.vercel.app/#keyword-playground): eksperimen keyword research, generate long-tail dengan intent dan difficulty estimate
+- [On-Page Inspector](https://belajar-seo.vercel.app/#onpage-inspector): analisis title tag, meta description, posisi keyword dengan skor 0 sampai 100 plus preview SERP
+- [CWV Simulator](https://belajar-seo.vercel.app/#cwv-simulator): simulasi Core Web Vitals dengan slider LCP, CLS, INP plus verdict lulus atau gagal
+- [Backlink Flow](https://belajar-seo.vercel.app/#backlink-graph): visualisasi link equity dari node authority berbeda plus efek disavow spam
+
+## Kurikulum dan Praktik
+
+- [Kurikulum 8 Modul](https://belajar-seo.vercel.app/#kurikulum): mesin pencari, keyword research, on-page, konten, technical, internal link, backlink, measurement
+- [Checklist 10 Item](https://belajar-seo.vercel.app/#checklist): wajib sebelum publish halaman baru, dengan progress tersimpan di browser
+- [Rencana 30 Hari](https://belajar-seo.vercel.app/#rencana): peta jalan minggu demi minggu untuk pemula total
+- [Tools Gratis](https://belajar-seo.vercel.app/): Google Search Console, GA4, Keyword Planner, Trends, PageSpeed Insights, Ahrefs Webmaster, Ubersuggest
+
+## Referensi
+
+- [Glosarium](https://belajar-seo.vercel.app/#glosarium): 12 istilah SEO paling sering muncul dalam bahasa Indonesia plain
+- [FAQ](https://belajar-seo.vercel.app/): 7 pertanyaan pemula paling umum beserta jawaban realistis
+- [Full text (llms-full.txt)](https://belajar-seo.vercel.app/llms-full.txt): seluruh konten edukasi dalam satu file teks

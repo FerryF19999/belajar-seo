@@ -1,0 +1,33 @@
+# robots.txt for belajar-seo.vercel.app
+# Belajar SEO dari Nol, Interaktif dan Visual
+
+User-agent: *
+Allow: /
+
+# AI search crawlers (opt-in ke AI Overviews, ChatGPT, Perplexity, Gemini)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://belajar-seo.vercel.app/sitemap.xml

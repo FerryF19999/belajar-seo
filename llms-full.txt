@@ -1,0 +1,305 @@
+# Belajar SEO dari Nol, Interaktif dan Visual (Edisi 2026)
+
+Maintainer: Muhammad Ferry (https://www.linkedin.com/in/muhammad-ferry/)
+Source: https://belajar-seo.vercel.app/
+Repository: https://github.com/FerryF19999/belajar-seo
+Language: Bahasa Indonesia
+License: Free, open access, tanpa email gating
+
+Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.
+
+
+## § 01 Fundamental: Apa itu SEO
+
+SEO (Search Engine Optimization) adalah praktik membuat situs lebih mudah ditemukan oleh orang yang mencari sesuatu di Google, Bing, atau ChatGPT. Bukan soal menipu algoritma, tapi membantu mesin memahami konten dan membantu manusia menemukan jawaban mereka.
+
+### Tiga langkah mesin pencari
+
+1. Crawl: Google mengirim crawler untuk menjelajah web, mengikuti tautan, dan mengumpulkan halaman
+2. Index: halaman dianalisis dan disimpan di database raksasa. Tidak di index berarti tidak akan muncul di pencarian
+3. Rank: saat user mengetik query, algoritma memilih halaman paling relevan dari index dan menyusunnya
+
+### SEO di era AI search
+
+SEO tidak mati, dia berevolusi. Google AI Overviews, ChatGPT, Perplexity, dan Gemini semua butuh sumber konten untuk dikutip. Yang berubah: konten harus lebih terstruktur, jelas, dapat dipercaya.
+
+- Pakai heading H2, H3 yang jelas supaya AI memetakan struktur
+- Jawab pertanyaan utama di paragraf pembuka (inverted pyramid)
+- Sertakan data, angka, tabel. AI suka mengutip fakta konkret
+- Bangun otoritas topikal, bukan sekadar satu artikel viral
+
+
+## § 04 Roadmap 10 Fase (berdasarkan learningseo.io)
+
+1. Fundamental SEO: keyword research, analisis kompetisi, technical dasar, on-page content, link building dasar
+2. Eksekusi Proses SEO: strategi, goal setting, audit, measurement, reporting, stakeholder buy-in
+3. SEO di CMS: WordPress, Shopify, Wix, Webflow, Magento, Squarespace
+4. Perdalam Pengetahuan: technical lanjutan, content lanjutan, link building, management
+5. Spesialisasi: international, e-commerce, local, enterprise, news, SaaS, travel, UMKM
+6. Otomasi SEO: Python, SQL, App Scripts, regex, JavaScript, AI dan LLM, machine learning
+7. SEO di Mesin Lain: Bing, Yandex, Baidu, Naver, Amazon, YouTube, TikTok, Reddit
+8. Ikuti Berita SEO: publikasi resmi, newsletter, podcast, aggregator, event
+9. Lengkapi Skill Pendukung: HTML dan CSS, JavaScript, analytics, Tag Manager, ASO, soft skills
+10. Latihan dan Troubleshoot: kursus, kuis, diagnosa ranking, program accelerator
+
+
+## § 05 Empat Pilar SEO
+
+### On-Page SEO
+Optimasi elemen di dalam halaman sendiri: konten, HTML, struktur.
+- Title dan meta description
+- Heading hierarchy
+- Keyword placement
+- Alt text dan URL
+
+### Off-Page SEO
+Semua yang terjadi di luar situs: backlink, brand mention, sinyal sosial. Reputasi di mata internet.
+- Backlink berkualitas
+- Digital PR
+- Brand mentions
+- Guest content
+
+### Technical SEO
+Fondasi infrastruktur. Kalau Google tidak bisa crawl atau index situs, konten terbaik sekalipun tidak terlihat.
+- Speed dan Core Web Vitals
+- Mobile-friendly
+- HTTPS dan keamanan
+- Sitemap dan robots.txt
+
+### Local dan AI SEO
+Pilar baru untuk 2026: Google Business Profile untuk lokal, dan optimasi untuk AI Overviews serta answer engines.
+- Google Business Profile
+- Schema dan structured data
+- AI-friendly formatting
+- Retrieval optimization
+
+
+## § 10 Technical SEO: 10 Masalah dan Solusinya
+
+### 1. Core Web Vitals Gagal (Kritikal)
+Masalah: LCP di atas 2.5 detik, CLS di atas 0.1, INP di atas 200ms. Google pakai ketiga metrik ini sebagai sinyal ranking sejak 2021. Halaman lambat juga menurunkan konversi sampai 30 persen.
+Solusi:
+- Compress gambar ke WebP atau AVIF, quality 75 sampai 85 persen
+- Lazy-load gambar below-the-fold pakai loading="lazy"
+- Preload hero image dengan link rel="preload"
+- Set width dan height eksplisit di img dan video untuk cegah CLS
+- Defer atau async script non-kritis, minify CSS dan JS
+- Pakai CDN (Cloudflare, Vercel) dan enable HTTP/2 atau HTTP/3
+
+### 2. Halaman Tidak Ter-index (Kritikal)
+Masalah: Coverage report di GSC menampilkan Discovered currently not indexed atau Crawled currently not indexed. Artinya Googlebot menemukan halaman tapi memutuskan tidak layak di-index.
+Solusi:
+- Naikkan kualitas konten, tambah insight original, data, atau pengalaman pribadi
+- Perkuat internal link ke halaman yang belum ter-index dari halaman pillar
+- Cek tag meta robots, pastikan tidak ada noindex yang tidak sengaja
+- Request indexing manual via GSC URL Inspection
+- Submit sitemap.xml terbaru, hanya berisi URL canonical
+- Hapus atau gabung halaman thin content
+
+### 3. Duplicate Content Antar URL (Tinggi)
+Masalah: Konten sama diakses dari banyak URL (trailing slash, HTTP vs HTTPS, www vs non-www, query string). Google memecah sinyal ranking di antara variasi ini.
+Solusi:
+- Tambahkan link rel="canonical" menunjuk versi utama
+- 301 redirect dari versi non-preferred ke versi utama
+- Pilih satu format URL dan konsisten
+- Di server, paksa HTTPS dan redirect www
+- Untuk multi bahasa, pakai hreflang
+- Gunakan URL parameter handling di GSC
+
+### 4. Broken Internal Link dan 404 (Tinggi)
+Masalah: Link ke halaman yang sudah dihapus bikin crawl budget terbuang dan UX jelek.
+Solusi:
+- Jalankan crawler (Screaming Frog) untuk scan link internal
+- Halaman dihapus set 410 Gone supaya Google cepat drop
+- Halaman pindah URL 301 redirect ke URL baru relevan
+- Bikin custom 404 page dengan search box, navigasi utama, link ke halaman populer
+- Monitor Not found di GSC Coverage
+- Audit tiap kuartal
+
+### 5. Mobile Usability Bermasalah (Tinggi)
+Masalah: Google pakai mobile-first indexing. Text kecil, tap target dekat, konten meluber langsung menjatuhkan peringkat.
+Solusi:
+- Pastikan meta viewport width=device-width initial-scale=1
+- Font size minimum 16px untuk body text
+- Tap target minimal 44 x 44 piksel
+- Test layout di breakpoint 375, 414, 768, 1024 piksel
+- Hindari pop-up intrusif di mobile
+- Cek Mobile Usability report di GSC
+
+### 6. JavaScript Rendering Tidak Terbaca Bot (Tinggi)
+Masalah: SPA tanpa SSR sering menampilkan HTML kosong ke Googlebot. Konten muncul setelah JS dieksekusi.
+Solusi:
+- Pakai Server-Side Rendering (Next.js, Nuxt, SvelteKit) untuk halaman penting
+- Alternatif Static Site Generation untuk konten yang tidak sering berubah
+- Implementasi progressive enhancement
+- Test via GSC URL Inspection lalu cek Rendered HTML
+- Hindari client-side routing murni untuk halaman yang perlu ranking
+- Pakai prerendering service (Prerender.io) kalau SSR belum memungkinkan
+
+### 7. Structured Data Error atau Hilang (Sedang)
+Masalah: Schema markup salah bikin rich snippet tidak muncul.
+Solusi:
+- Pakai format JSON-LD
+- Validasi di validator.schema.org dan Rich Results Test
+- Pastikan properti required terisi
+- Jangan mark up konten yang tidak ada di halaman
+- Implementasi schema relevan: Article, Product, FAQ, HowTo, LocalBusiness, Breadcrumb
+- Monitor Enhancements report di GSC
+
+### 8. Sitemap.xml Tidak Terupdate (Sedang)
+Masalah: Sitemap outdated, berisi URL 404, atau tidak pernah disubmit bikin discovery halaman baru lambat.
+Solusi:
+- Generate sitemap otomatis dari CMS (Yoast atau RankMath di WordPress)
+- Hanya masukkan URL canonical, status 200, dan ter-index
+- Update field lastmod tiap konten berubah signifikan
+- Split jadi multiple sitemaps kalau situs lebih dari 50 ribu URL
+- Submit ke GSC dan Bing Webmaster Tools
+- Reference sitemap di robots.txt
+
+### 9. Robots.txt Memblokir Resource Penting (Sedang)
+Masalah: Robots.txt terlalu agresif memblokir folder CSS dan JS bikin Googlebot render halaman versi telanjang.
+Solusi:
+- Allow semua folder berisi CSS, JS, gambar, font
+- Blokir hanya admin, staging, cart, area private
+- Hindari blanket Disallow: /
+- Test pakai robots.txt Tester di GSC
+- Cek Blocked by robots.txt report di GSC Coverage
+- Setelah launch baru, selalu double-check robots.txt
+
+### 10. HTTPS dan Mixed Content (Rendah)
+Masalah: Situs HTTPS tapi masih load resource lewat HTTP bikin Not Fully Secure warning.
+Solusi:
+- Pasang SSL certificate gratis dari Let's Encrypt atau Cloudflare
+- 301 redirect semua HTTP ke HTTPS di level server
+- Update hardcoded http:// di database, theme, config ke https://
+- Pakai protocol-relative URL untuk asset eksternal
+- Update canonical, hreflang, sitemap, internal link ke HTTPS
+- Submit HSTS header
+
+
+## § 11 Kurikulum 8 Modul
+
+### Modul 01 Cara Kerja Mesin Pencari (42 menit, 4 pelajaran)
+Model mental tentang crawl, index, rank. Sebelum kamu mengoptimasi apa pun, kamu perlu tahu apa yang kamu optimasi untuk. Faktor ranking utama: relevansi, kualitas, usability, konteks.
+
+### Modul 02 Riset Keyword yang Benar (1 jam 20 menit, 6 pelajaran)
+Mulai dari brainstorm topik, bukan keyword. Perluas dengan Google Suggest, People Also Ask, Related Searches, Google Trends, Keyword Planner. Pahami search intent (informasional, navigasional, komersial, transaksional). Fokus long-tail dulu: volume 50 sampai 500 per bulan, difficulty di bawah 30.
+
+### Modul 03 On-page SEO: Title, Meta, Heading (2 jam 10 menit, 8 pelajaran)
+Title tag 50 sampai 60 karakter dengan keyword di awal. Meta description 140 sampai 160 karakter dengan CTA. Satu H1 per halaman, H2 untuk section utama, H3 untuk sub. URL pendek deskriptif pakai tanda minus. Alt text natural. Keyword placement di title, H1, paragraf pertama, H2, URL, meta, alt text.
+
+### Modul 04 Konten yang Dicintai Google dan Manusia (1 jam 45 menit, 5 pelajaran)
+People-first content. Framework E-E-A-T: Experience, Expertise, Authority, Trust. Struktur inverted pyramid: jawaban utama di atas. Content cluster: pillar page plus supporting page. Update konten lama tiap 6 sampai 12 bulan.
+
+### Modul 05 Technical SEO tanpa Overwhelm (2 jam 30 menit, 7 pelajaran)
+Core Web Vitals: LCP di bawah 2.5s, CLS di bawah 0.1, INP di bawah 200ms. Mobile-friendly wajib. HTTPS non-negotiable. Sitemap.xml dan robots.txt. Structured data JSON-LD. Canonical tag untuk duplicate content.
+
+### Modul 06 Internal Link dan Struktur Situs (55 menit, 3 pelajaran)
+Struktur pillar plus cluster. Anchor text deskriptif bukan generik. Aturan: setiap artikel baru link ke 2 sampai 5 artikel relevan, setiap artikel terima minimal 1 link, halaman penting dalam 3 klik dari homepage.
+
+### Modul 07 Off-page SEO dan Backlink (1 jam 30 menit, 5 pelajaran)
+Backlink bagus: dari situs relevan dan otoritas tinggi, anchor natural, konteks editorial. Cara halal: guest post, digital PR, unlinked brand mentions, broken link building, resource page, business listings. Hindari: beli link, link exchange berlebihan, PBN, komentar spam.
+
+### Modul 08 Search Console, Analytics, dan Mengukur Hasil (1 jam 15 menit, 4 pelajaran)
+Google Search Console: Performance, Coverage, Sitemaps, Core Web Vitals, Enhancements. Google Analytics 4: Users, Engagement rate, Engagement time, Pages per session, Conversion. KPI pemula: organic impressions, clicks, average position, indexed pages, organic users. Siklus iterasi bulanan.
+
+
+## § 12 Checklist 10 Item Sebelum Publish
+
+1. Title tag 50 sampai 60 karakter dengan keyword utama
+2. Meta description 140 sampai 160 karakter dengan CTA
+3. Satu H1 jelas, dilanjut H2/H3 terstruktur
+4. URL pendek, deskriptif, pakai tanda minus
+5. Keyword utama muncul alami di paragraf pertama
+6. Alt text pada setiap gambar, deskriptif dan natural
+7. Internal link ke 2 sampai 5 halaman relevan lain
+8. Mobile responsive, lulus Core Web Vitals
+9. Konten minimal 800 kata, unik, menjawab tuntas
+10. Sudah di-submit ke Google Search Console
+
+
+## § 13 Rencana 30 Hari
+
+### Minggu 01: Fondasi dan Mental Model (Hari 1 sampai 7)
+- Baca Google Search Central starter guide
+- Pahami crawl, index, rank
+- Install Google Search Console
+- Install Google Analytics 4
+- Submit sitemap.xml pertama
+- Baca glosarium SEO
+
+### Minggu 02: Riset Keyword (Hari 8 sampai 14)
+- Brainstorm 1 sampai 3 topik inti
+- Pakai Google Suggest dan People Also Ask
+- Jelajahi Google Keyword Planner
+- Kumpulkan 20 long-tail keyword
+- Kelompokkan target vs related
+- Tentukan search intent tiap keyword
+
+### Minggu 03: Menulis dan On-page (Hari 15 sampai 21)
+- Tulis 2 artikel pilar (1500 kata atau lebih)
+- Optimasi title dan meta description
+- Struktur heading rapi H1, H2, H3
+- Tambahkan internal link antar artikel
+- Alt text semua gambar
+- Publish, submit URL ke GSC
+
+### Minggu 04: Technical dan Iterasi (Hari 22 sampai 30)
+- Audit Core Web Vitals di PSI
+- Compress gambar, lazy load
+- Pastikan HTTPS dan mobile OK
+- Implement schema (Article, FAQ)
+- Cek GSC: error, coverage, query
+- Rencana konten bulan berikutnya
+
+
+## § 14 Tools Gratis
+
+- Google Search Console (wajib): monitoring performa, coverage, error
+- Google Analytics 4 (wajib): analisis perilaku pengunjung
+- Google Keyword Planner: riset volume keyword
+- Google Trends: tren pencarian dari waktu ke waktu
+- PageSpeed Insights: audit Core Web Vitals
+- Ahrefs Webmaster Tools (freemium): backlink dan site audit
+- Ubersuggest (freemium): riset keyword alternatif
+- Semrush atau Ahrefs berbayar: riset mendalam dan kompetitor (upgrade setelah 6 bulan)
+
+
+## § 15 Glosarium
+
+SERP: Search engine results page, halaman hasil saat mengetik query di Google
+Keyword: kata atau frasa yang diketik orang ke mesin pencari
+Long-tail: keyword 3 sampai 5 kata, spesifik, volume kecil tapi intent tinggi
+Backlink: link dari situs lain menuju situsmu
+Anchor text: teks yang terlihat dan diklik dalam sebuah link
+Meta description: ringkasan pendek halaman (sekitar 155 karakter) di bawah title di SERP
+Core Web Vitals: tiga metrik performa halaman Google yaitu LCP, CLS, INP
+E-E-A-T: Experience, Expertise, Authority, Trust. Framework penilaian kualitas Google
+Schema: kode JSON-LD yang menjelaskan isi halaman ke mesin pencari
+Crawl budget: jumlah halaman yang mau di-crawl Google dari situsmu dalam periode tertentu
+Canonical: tag menunjukkan versi utama halaman jika ada duplikat
+AI Overview: kotak jawaban AI di atas hasil pencarian Google
+
+
+## § 16 FAQ
+
+Q: Berapa lama sampai SEO menunjukkan hasil?
+A: Marathon bukan sprint. Situs baru di 2026 biasanya terasa traction signifikan di bulan ke-4 sampai ke-8. Long-tail keyword bisa ranking dalam 2 sampai 3 bulan, keyword kompetitif butuh jauh lebih lama.
+
+Q: Apakah saya perlu bisa coding untuk belajar SEO?
+A: Tidak wajib, tapi sangat membantu. Pemahaman dasar HTML dan structured data mempermudah troubleshoot. Pemula fokus dulu di konten, keyword research, on-page SEO.
+
+Q: Apakah SEO sudah mati karena ChatGPT dan AI search?
+A: Tidak. SEO berevolusi jadi Search Everywhere Optimization. Google AI Overviews, ChatGPT, Perplexity, Gemini semua butuh sumber untuk dikutip.
+
+Q: Apakah saya bisa ranking tanpa backlink?
+A: Bisa, terutama untuk long-tail dengan kompetisi rendah. Konten sangat helpful dengan engagement tinggi bisa ranking tanpa backlink eksternal.
+
+Q: Berapa panjang artikel yang ideal?
+A: Tidak ada angka magis. Topik edukasi biasanya 1200 sampai 2500 kata. Jawaban cepat 500 sampai 800 kata. Fokus ke apakah halaman ini mengurangi kebutuhan user untuk search lagi.
+
+Q: Haruskah saya pakai tools berbayar seperti Ahrefs?
+A: Belum perlu di awal. GSC, GA4, Keyword Planner, Trends, PSI semuanya gratis dan cukup untuk 6 bulan pertama.
+
+Q: Apa kesalahan pemula paling sering?
+A: Keyword stuffing, kejar volume tinggi tanpa cek kompetisi, tidak sabar (berhenti di bulan ke-2), abaikan mobile experience, dan di 2026 terbaru: pakai konten AI mentah tanpa editing.
