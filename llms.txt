@@ -13,7 +13,9 @@ Situs ini adalah satu halaman (single-page) edukasi SEO dengan tiga fokus utama:
 - [Anatomi SERP](https://belajar-seo.vercel.app/#serp-anatomy): breakdown interaktif komponen halaman hasil pencarian (ads, AI Overview, featured snippet, PAA, organik, related)
 - [Roadmap 10 Fase](https://belajar-seo.vercel.app/#roadmap): peta perjalanan lengkap SEO praktisi berdasarkan learningseo.io
 - [Empat Pilar SEO](https://belajar-seo.vercel.app/#pilar): On-Page, Off-Page, Technical, Local dan AI
+- [Search Intent](https://belajar-seo.vercel.app/#search-intent): klasifikasi 5 intent (informasional, navigasional, komersial, transaksional, lokal) dengan classifier interaktif
 - [Technical SEO](https://belajar-seo.vercel.app/#technical-seo): 10 masalah teknis paling sering beserta solusi konkret dan tools
+- [GEO (Generative Engine Optimization)](https://belajar-seo.vercel.app/#geo): optimasi untuk AI search (ChatGPT, Perplexity, Gemini, AI Overviews) berdasarkan riset Princeton (arXiv:2311.09735)
 
 ## Tools Interaktif
 
@@ -31,6 +33,7 @@ Situs ini adalah satu halaman (single-page) edukasi SEO dengan tiga fokus utama:
 
 ## Referensi
 
+- [Tentang Penulis](https://belajar-seo.vercel.app/#tentang-penulis): Muhammad Ferry, praktisi SEO 4+ tahun, fokus revenue melalui Google Search, ChatGPT, Google Maps, dan Gemini
 - [Glosarium](https://belajar-seo.vercel.app/#glosarium): 12 istilah SEO paling sering muncul dalam bahasa Indonesia plain
-- [FAQ](https://belajar-seo.vercel.app/): 7 pertanyaan pemula paling umum beserta jawaban realistis
+- [FAQ](https://belajar-seo.vercel.app/#faq): 7 pertanyaan pemula paling umum beserta jawaban realistis
 - [Full text (llms-full.txt)](https://belajar-seo.vercel.app/llms-full.txt): seluruh konten edukasi dalam satu file teks

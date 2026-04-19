@@ -43,6 +43,87 @@ SEO tidak mati, dia berevolusi. Google AI Overviews, ChatGPT, Perplexity, dan Ge
 10. Latihan dan Troubleshoot: kursus, kuis, diagnosa ranking, program accelerator
 
 
+## § 06 Search Intent
+
+Niat di balik query lebih penting daripada cocokin keyword. Google di 2026 berusaha pahami apa yang sebenarnya dicari user. Lima tipe intent utama:
+
+1. **Informasional** (mau belajar / tahu)
+   Modifier: cara, apa itu, kenapa, tips, panduan, tutorial
+   Contoh: "cara memasak rendang", "apa itu SEO"
+   Format: artikel tutorial, FAQ, video how-to, infografis step-by-step
+
+2. **Navigasional** (cari brand atau situs)
+   Modifier: login, official, website, nama brand, app
+   Contoh: "tokopedia", "gmail login", "starbucks menu"
+   Format: homepage dioptimasi untuk brand. Jangan coba kompetisi kalau bukan pemilik brand.
+
+3. **Komersial** (riset pre-purchase)
+   Modifier: terbaik, review, vs, alternatif, perbandingan, top 10
+   Contoh: "laptop gaming terbaik 2026", "iphone vs samsung"
+   Format: listicle (top 10), comparison table, review mendalam dengan pros/cons, buying guide
+
+4. **Transaksional** (siap action / beli)
+   Modifier: beli, harga, diskon, promo, jual, order, download
+   Contoh: "beli iphone 15 pro", "harga tiket pesawat jakarta bali"
+   Format: halaman produk dengan CTA jelas, landing page, checkout flow singkat
+
+5. **Lokal** (niat lokasi)
+   Modifier: dekat saya, near me, terdekat, di [kota]
+   Contoh: "kopi dekat saya", "hotel di bali"
+   Format: Google Business Profile, halaman lokasi, konten yang sebut nama kota target
+
+Kesalahan paling sering: intent mismatch. Kalau kamu optimasi halaman produk untuk "cara memasak rendang" (informasional), Google akan favor artikel tutorial, bukan halaman produk. Selalu cek 10 hasil teratas dulu sebelum nulis.
+
+
+## § 12 Generative Engine Optimization (GEO)
+
+GEO adalah praktik mengoptimasi konten agar dipilih, dikutip, dan dirujuk oleh generative engines seperti ChatGPT, Perplexity, Google AI Overviews, dan Gemini saat menyusun jawaban.
+
+Istilah GEO pertama kali didefinisikan secara formal dalam paper akademik "GEO: Generative Engine Optimization" (arXiv:2311.09735) oleh Aggarwal, Murahari, Rajpurohit, Kalyan, Narasimhan, dan Deshpande dari Princeton University, Georgia Tech, Allen Institute for AI, dan IIT Delhi. Dipresentasikan di KDD 2024.
+
+Temuan inti: teknik GEO yang tepat bisa naikin visibility di jawaban AI sampai 40%. Tapi teknik SEO klasik seperti keyword stuffing tidak bekerja sama sekali di generative engines.
+
+### Efektivitas teknik GEO (dari paper Princeton)
+
+1. Tambah kutipan (Quotation Addition): +41% visibility
+2. Tambah statistik (Statistics Addition): +37%
+3. Sitasi sumber (Cite Sources): +36%
+4. Optimasi fluency (Fluency Optimization): +28% (range 15 sampai 30%)
+5. Bahasa sederhana (Easy-to-Understand): +22%
+6. Tone otoritatif (Authoritative Tone): +18%
+7. Kata unik (Unique Words): +12%
+8. Istilah teknis (Technical Terms): +9%
+9. Keyword stuffing: -3% (TIDAK BEKERJA di GEO, bahkan bisa menurunkan visibility)
+
+### SEO vs GEO (dimensi utama)
+
+| Dimensi | SEO Tradisional | GEO |
+| Target | Posisi peringkat SERP (top 10 organik) | Dikutip sebagai sumber di jawaban generatif |
+| Mesin | Google Search, Bing, Yandex, DuckDuckGo | ChatGPT (Search dan base), Perplexity, Gemini, Claude, Google AI Overviews |
+| Sinyal | Backlink, keyword, E-E-A-T, Core Web Vitals, intent match | Fact density, kutipan sumber, statistik, fluency, authority dalam training data |
+| Format | Variatif: pillar page, cluster, how-to, listicle, FAQ, halaman produk | Jawaban ringkas di atas (inverted pyramid), bukti konkret, heading berbasis pertanyaan |
+| Metrik | Organic impressions, CTR, position, traffic, konversi | Citation rate, subjective impression, position-adjusted word count |
+| Siklus | Situs baru: 3 sampai 8 bulan. Situs matang: 2 sampai 8 minggu | Live-retrieval engines (Perplexity, Gemini, AI Overviews): hitungan hari. Training-based (ChatGPT base): menunggu siklus training berikutnya |
+
+### Optimasi per engine
+
+**ChatGPT (training heavy)**
+- Hindari frasa subjektif (saya rasa, menurut kami, kayaknya)
+- Pakai kalimat deklaratif objektif yang menurunkan perplexity
+- Cantumkan data, angka, fakta yang bisa diverifikasi
+- Build topical authority lewat cluster konten konsisten
+- Pastikan konten masuk sitemap Bing dan Common Crawl
+
+**Perplexity (live web citations)**
+- Prioritaskan konten fresh dengan tanggal publish dan update jelas
+- Gunakan schema Article dan datePublished yang valid
+- Optimalkan teknis dasar SEO (sitemap, robots, speed)
+- Sertakan data original, studi kasus, angka konkret ber-atribusi
+- Build domain authority dengan backlink dari situs kredibel
+
+Gartner memprediksi volume search tradisional turun 25% di 2026, digeser oleh AI agents dan answer engines. Artinya 75% volume tetap di Google klasik (SEO masih wajib), tapi 25% migrasi ke AI search bukan angka kecil. Strategi ganda SEO plus GEO bukan pilihan tapi keharusan.
+
+
 ## § 05 Empat Pilar SEO
 
 ### On-Page SEO
@@ -74,7 +155,7 @@ Pilar baru untuk 2026: Google Business Profile untuk lokal, dan optimasi untuk A
 - Retrieval optimization
 
 
-## § 10 Technical SEO: 10 Masalah dan Solusinya
+## § 11 Technical SEO: 10 Masalah dan Solusinya
 
 ### 1. Core Web Vitals Gagal (Kritikal)
 Masalah: LCP di atas 2.5 detik, CLS di atas 0.1, INP di atas 200ms. Google pakai ketiga metrik ini sebagai sinyal ranking sejak 2021. Halaman lambat juga menurunkan konversi sampai 30 persen.
@@ -177,7 +258,7 @@ Solusi:
 - Submit HSTS header
 
 
-## § 11 Kurikulum 8 Modul
+## § 13 Kurikulum 8 Modul
 
 ### Modul 01 Cara Kerja Mesin Pencari (42 menit, 4 pelajaran)
 Model mental tentang crawl, index, rank. Sebelum kamu mengoptimasi apa pun, kamu perlu tahu apa yang kamu optimasi untuk. Faktor ranking utama: relevansi, kualitas, usability, konteks.
@@ -204,7 +285,7 @@ Backlink bagus: dari situs relevan dan otoritas tinggi, anchor natural, konteks 
 Google Search Console: Performance, Coverage, Sitemaps, Core Web Vitals, Enhancements. Google Analytics 4: Users, Engagement rate, Engagement time, Pages per session, Conversion. KPI pemula: organic impressions, clicks, average position, indexed pages, organic users. Siklus iterasi bulanan.
 
 
-## § 12 Checklist 10 Item Sebelum Publish
+## § 14 Checklist 10 Item Sebelum Publish
 
 1. Title tag 50 sampai 60 karakter dengan keyword utama
 2. Meta description 140 sampai 160 karakter dengan CTA
@@ -218,7 +299,7 @@ Google Search Console: Performance, Coverage, Sitemaps, Core Web Vitals, Enhance
 10. Sudah di-submit ke Google Search Console
 
 
-## § 13 Rencana 30 Hari
+## § 15 Rencana 30 Hari
 
 ### Minggu 01: Fondasi dan Mental Model (Hari 1 sampai 7)
 - Baca Google Search Central starter guide
@@ -253,7 +334,7 @@ Google Search Console: Performance, Coverage, Sitemaps, Core Web Vitals, Enhance
 - Rencana konten bulan berikutnya
 
 
-## § 14 Tools Gratis
+## § 16 Tools Gratis
 
 - Google Search Console (wajib): monitoring performa, coverage, error
 - Google Analytics 4 (wajib): analisis perilaku pengunjung
@@ -265,7 +346,7 @@ Google Search Console: Performance, Coverage, Sitemaps, Core Web Vitals, Enhance
 - Semrush atau Ahrefs berbayar: riset mendalam dan kompetitor (upgrade setelah 6 bulan)
 
 
-## § 15 Glosarium
+## § 17 Glosarium
 
 SERP: Search engine results page, halaman hasil saat mengetik query di Google
 Keyword: kata atau frasa yang diketik orang ke mesin pencari
@@ -281,7 +362,23 @@ Canonical: tag menunjukkan versi utama halaman jika ada duplikat
 AI Overview: kotak jawaban AI di atas hasil pencarian Google
 
 
-## § 16 FAQ
+## § 18 Tentang Penulis
+
+Muhammad Ferry, praktisi SEO dengan pengalaman 4+ tahun. Fokus bantu bisnis menaikkan revenue lewat kanal pencarian modern: Google Search, ChatGPT, Google Maps, dan Gemini. Bukan sekadar ranking, tapi benar-benar converting.
+
+Kontak: ferry19f@gmail.com
+LinkedIn: https://www.linkedin.com/in/muhammad-ferry/
+
+Prinsip yang dipegang saat menulis materi di situs ini:
+- Tidak ada hack atau trik rahasia, semua mengacu guideline resmi Google
+- Angka dan klaim wajib ter-sitasi dari sumber (Search Central, Web.dev, CrUX, Princeton GEO paper)
+- Prioritas fundamental, bukan framework yang cepat usang
+- Tulis untuk pemula tapi tidak merendahkan intelegensi pembaca
+- Contoh konkret lebih berharga daripada teori abstrak
+- Revisi rutin tiap 3 bulan supaya tidak ketinggalan update algoritma
+
+
+## § 19 FAQ
 
 Q: Berapa lama sampai SEO menunjukkan hasil?
 A: Marathon bukan sprint. Situs baru di 2026 biasanya terasa traction signifikan di bulan ke-4 sampai ke-8. Long-tail keyword bisa ranking dalam 2 sampai 3 bulan, keyword kompetitif butuh jauh lebih lama.
