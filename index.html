@@ -4,6 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Belajar SEO dari Nol, Interaktif dan Visual (2026)</title>
+<meta name="description" content="Panduan interaktif belajar SEO dari nol sampai halaman pertama Google. Lengkap dengan simulator Core Web Vitals, animasi crawler, playground keyword, roadmap 10 fase learningseo.io, serta 10 masalah technical SEO beserta solusinya. Gratis, Bahasa Indonesia, edisi 2026.">
+<meta name="keywords" content="belajar seo, seo pemula, seo indonesia, panduan seo gratis, tutorial seo, seo 2026, core web vitals, keyword research, on page seo, technical seo, backlink, learningseo, seo sekolah, ai search, google search console">
+<meta name="author" content="SEO Sekolah">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://ferryf19999.github.io/belajar-seo/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Belajar SEO dari Nol, Interaktif dan Visual (2026)">
+<meta property="og:description" content="Panduan interaktif lengkap: simulator Core Web Vitals, animasi crawler, playground keyword, roadmap 10 fase, dan 10 masalah technical SEO beserta solusinya. Gratis, Bahasa Indonesia.">
+<meta property="og:url" content="https://ferryf19999.github.io/belajar-seo/">
+<meta property="og:site_name" content="SEO Sekolah">
+<meta property="og:locale" content="id_ID">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Belajar SEO dari Nol, Interaktif dan Visual (2026)">
+<meta name="twitter:description" content="Panduan interaktif belajar SEO dari nol. Simulator CWV, animasi crawler, playground keyword, roadmap 10 fase. Gratis.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Belajar SEO dari Nol, Interaktif dan Visual",
+  "description": "Panduan interaktif belajar SEO dari nol sampai halaman pertama Google. Lengkap dengan simulator Core Web Vitals, animasi crawler, playground keyword, dan roadmap 10 fase.",
+  "inLanguage": "id",
+  "learningResourceType": "Course",
+  "educationalLevel": "Beginner to Intermediate",
+  "teaches": ["SEO Fundamentals", "Keyword Research", "On-Page SEO", "Technical SEO", "Core Web Vitals", "Backlink Strategy", "Google Search Console"],
+  "url": "https://ferryf19999.github.io/belajar-seo/",
+  "provider": { "@type": "Organization", "name": "SEO Sekolah" },
+  "isAccessibleForFree": true
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -239,6 +272,7 @@
       <a href="#roadmap">Roadmap</a>
       <a href="#pilar">Pilar</a>
       <a href="#keyword-playground">Lab</a>
+      <a href="#technical-seo">Technical</a>
       <a href="#kurikulum">Kurikulum</a>
       <a href="#checklist">Checklist</a>
     </nav>
@@ -1319,8 +1353,10 @@
         txt.setAttribute('fill', '#1a1613');
         txt.textContent = n.name;
         g.appendChild(txt);
+        const outX = -dx / dist, outY = -dy / dist;
+        const labelOffset = cfg.radius + 14;
         const typeTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        typeTxt.setAttribute('x', x); typeTxt.setAttribute('y', y + cfg.radius + 14); typeTxt.setAttribute('text-anchor', 'middle');
+        typeTxt.setAttribute('x', x + outX * labelOffset); typeTxt.setAttribute('y', y + outY * labelOffset + 4); typeTxt.setAttribute('text-anchor', 'middle');
         typeTxt.setAttribute('font-family', 'Inter, sans-serif'); typeTxt.setAttribute('font-size', '9');
         typeTxt.setAttribute('fill', '#857a6b');
         typeTxt.textContent = cfg.label;
@@ -1362,10 +1398,281 @@
     })();
   </script>
 </section>
+<section id="technical-seo">
+  <style>
+    #technical-seo { padding: 96px 32px; background: var(--bg); color: var(--ink); }
+    .tseo-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 56px; padding: 36px; background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--accent); }
+    @media (max-width: 900px) { .tseo-intro { grid-template-columns: 1fr; gap: 24px; padding: 28px; } }
+    .tseo-intro h3 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .tseo-intro h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .tseo-intro p { font-size: 15px; color: var(--ink-2); line-height: 1.65; margin-bottom: 10px; }
+    .tseo-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .tseo-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: var(--ink); line-height: 1; }
+    .tseo-stat small { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
+
+    .tseo-filter { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .tseo-filter button { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; padding: 8px 14px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-2); cursor: pointer; border-radius: 2px; text-transform: uppercase; transition: all 0.15s; }
+    .tseo-filter button:hover { border-color: var(--accent); color: var(--accent); }
+    .tseo-filter button.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    .tseo-list { display: flex; flex-direction: column; gap: 12px; }
+    .tseo-issue { background: var(--paper); border: 1px solid var(--line); transition: all 0.2s; }
+    .tseo-issue.is-open { border-color: var(--accent); box-shadow: 0 4px 0 var(--bg-2); }
+    .tseo-head { display: grid; grid-template-columns: 56px 1fr auto auto; gap: 20px; padding: 22px 28px; align-items: center; cursor: pointer; user-select: none; }
+    .tseo-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 36px; color: var(--accent); line-height: 1; }
+    .tseo-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: var(--ink); }
+    .tseo-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .tseo-badge { font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 4px 9px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; }
+    .tseo-badge.crit { background: rgba(193,67,44,0.12); color: var(--accent); }
+    .tseo-badge.high { background: rgba(232,106,82,0.15); color: #a03820; }
+    .tseo-badge.med { background: rgba(193,154,58,0.15); color: #8a6c1e; }
+    .tseo-badge.low { background: rgba(61,107,74,0.12); color: var(--ok); }
+    .tseo-chev { width: 24px; height: 24px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-family: 'Instrument Serif', serif; font-size: 16px; color: var(--muted); transition: transform 0.2s, background 0.2s, color 0.2s; }
+    .tseo-issue.is-open .tseo-chev { transform: rotate(45deg); background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+    .tseo-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .tseo-issue.is-open .tseo-body { max-height: 1200px; }
+    .tseo-inner { padding: 0 28px 28px 104px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; border-top: 1px dashed var(--line); padding-top: 24px; margin-top: 4px; }
+    @media (max-width: 900px) { .tseo-inner { grid-template-columns: 1fr; padding: 24px 24px 24px 24px; gap: 20px; } .tseo-head { grid-template-columns: 44px 1fr auto auto; gap: 12px; padding: 18px 20px; } .tseo-num { font-size: 28px; } .tseo-title { font-size: 17px; } .tseo-badge { display: none; } }
+    .tseo-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+    .tseo-col p { font-size: 14px; color: var(--ink-2); line-height: 1.65; margin-bottom: 10px; }
+    .tseo-col ol, .tseo-col ul { padding-left: 18px; font-size: 14px; color: var(--ink-2); line-height: 1.7; }
+    .tseo-col li { margin-bottom: 6px; }
+    .tseo-col code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--bg); padding: 1px 6px; border: 1px solid var(--line); color: var(--accent); }
+    .tseo-tools { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+    .tseo-tools span { color: var(--ink-2); }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 10 · TECHNICAL SEO</div>
+      <div>
+        <h2>Sepuluh <em>masalah teknis</em> paling sering, lengkap dengan solusinya.</h2>
+        <p>Technical SEO adalah fondasi infrastruktur. Kalau Googlebot tidak bisa crawl, render, atau index situsmu dengan benar, konten sebagus apapun tidak akan tampil di SERP. Bagian ini memetakan masalah-masalah paling umum yang kami temui di audit situs UMKM maupun enterprise.</p>
+      </div>
+    </div>
+
+    <div class="tseo-intro">
+      <div>
+        <h3>Perkenalan <em>Technical SEO</em></h3>
+        <p>Tiga pekerjaan utama yang harus kamu pastikan berjalan lancar: <strong>crawlability</strong> (Googlebot bisa mencapai halamanmu), <strong>indexability</strong> (halamanmu memenuhi syarat masuk index), dan <strong>renderability</strong> (konten dinamis tetap terbaca oleh bot).</p>
+        <p>Kabar baiknya, sebagian besar isu technical SEO bersifat sekali setup. Setelah fondasi beres, kamu tinggal monitor via Search Console tiap bulan dan iterasi kecil-kecil.</p>
+      </div>
+      <div>
+        <div class="tseo-stats">
+          <div class="tseo-stat"><strong>68%</strong><small>SITUS UMKM PUNYA<br>CWV BELUM LULUS</small></div>
+          <div class="tseo-stat"><strong>24%</strong><small>HALAMAN TIDAK<br>TER-INDEX</small></div>
+          <div class="tseo-stat"><strong>3x</strong><small>LEBIH CEPAT RANKING<br>SETELAH FIX</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tseo-filter" id="tseo-filter">
+      <button class="is-active" data-filter="all">SEMUA (10)</button>
+      <button data-filter="crit">KRITIKAL</button>
+      <button data-filter="high">TINGGI</button>
+      <button data-filter="med">SEDANG</button>
+      <button data-filter="low">RENDAH</button>
+    </div>
+
+    <div class="tseo-list" id="tseo-list"></div>
+  </div>
+
+  <script>
+    (function(){
+      const issues = [
+        {
+          num: '01', priority: 'crit', badge: 'Kritikal',
+          title: 'Core Web Vitals <em>gagal</em> di PageSpeed Insights',
+          problem: 'LCP di atas 2.5 detik, CLS di atas 0.1, atau INP di atas 200ms. Google pakai ketiga metrik ini sebagai sinyal ranking sejak 2021. Halaman lambat juga menurunkan konversi sampai 30 persen.',
+          solutions: [
+            'Compress gambar ke format WebP atau AVIF, quality 75 sampai 85 persen',
+            'Lazy-load gambar below-the-fold pakai atribut <code>loading="lazy"</code>',
+            'Preload hero image dengan <code>&lt;link rel="preload"&gt;</code>',
+            'Set atribut <code>width</code> dan <code>height</code> eksplisit di img dan video untuk cegah CLS',
+            'Defer atau async script non-kritis, minify CSS dan JS',
+            'Pakai CDN (Cloudflare, Vercel) dan enable HTTP/2 atau HTTP/3'
+          ],
+          tools: 'pagespeed.web.dev · webpagetest.org · chrome devtools lighthouse'
+        },
+        {
+          num: '02', priority: 'crit', badge: 'Kritikal',
+          title: 'Halaman tidak <em>ter-index</em> oleh Google',
+          problem: 'Coverage report di GSC menampilkan "Discovered currently not indexed" atau "Crawled currently not indexed". Artinya Googlebot menemukan halamanmu tapi memutuskan tidak layak di-index, biasanya karena kualitas dianggap rendah atau duplikat.',
+          solutions: [
+            'Naikkan kualitas konten, tambah insight original, data, atau pengalaman pribadi',
+            'Perkuat internal link ke halaman yang belum ter-index dari halaman pillar',
+            'Cek tag meta robots, pastikan tidak ada <code>noindex</code> yang tidak sengaja',
+            'Request indexing manual via GSC URL Inspection untuk mempercepat',
+            'Submit sitemap.xml terbaru, pastikan hanya berisi URL canonical',
+            'Hapus atau gabung halaman thin content (kurang dari 300 kata tanpa nilai unik)'
+          ],
+          tools: 'google search console · screaming frog · sitebulb'
+        },
+        {
+          num: '03', priority: 'high', badge: 'Tinggi',
+          title: 'Duplicate content antar <em>URL</em>',
+          problem: 'Konten sama bisa diakses dari banyak URL, contoh trailing slash vs tanpa, HTTP vs HTTPS, www vs non-www, atau URL dengan query string tracking. Google memecah sinyal ranking di antara variasi ini, bikin tidak ada yang kuat.',
+          solutions: [
+            'Tambahkan <code>&lt;link rel="canonical"&gt;</code> di tiap halaman menunjuk versi utama',
+            '301 redirect dari versi non-preferred ke versi utama (satu arah, permanent)',
+            'Pilih satu format URL dan konsisten (slash di akhir atau tidak)',
+            'Di server nginx atau Apache, paksa HTTPS dan redirect www ke non-www (atau sebaliknya)',
+            'Untuk multi bahasa, pakai <code>hreflang</code> untuk hint ke Google',
+            'Gunakan URL parameter handling di GSC Legacy Tools untuk parameter tracking'
+          ],
+          tools: 'screaming frog (duplicate report) · siteliner.com · gsc url inspection'
+        },
+        {
+          num: '04', priority: 'high', badge: 'Tinggi',
+          title: 'Broken internal link dan <em>404</em> yang bocor',
+          problem: 'Link ke halaman yang sudah dihapus atau URL yang salah ketik membuat crawl budget terbuang dan pengalaman user jelek. Error 404 di GSC yang terus bertambah tanpa penanganan menandakan struktur situs tidak dirawat.',
+          solutions: [
+            'Jalankan crawler (Screaming Frog) untuk scan semua link internal',
+            'Untuk halaman yang memang dihapus, set 410 Gone supaya Google cepat drop',
+            'Untuk halaman yang pindah URL, 301 redirect ke URL baru yang paling relevan',
+            'Bikin custom 404 page dengan search box, navigasi utama, dan link ke halaman populer',
+            'Monitor laporan Not found di GSC Coverage, fix sesegera mungkin',
+            'Audit tiap kuartal, link rot natural terjadi seiring waktu'
+          ],
+          tools: 'screaming frog · ahrefs broken link checker · gsc coverage report'
+        },
+        {
+          num: '05', priority: 'high', badge: 'Tinggi',
+          title: 'Mobile usability <em>bermasalah</em>',
+          problem: 'Google pakai mobile-first indexing, artinya versi mobile yang jadi patokan ranking. Text terlalu kecil, tap target terlalu dekat, atau konten meluber melebihi viewport langsung menjatuhkan peringkat di pencarian mobile.',
+          solutions: [
+            'Pastikan ada <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>',
+            'Font size minimum 16px untuk body text, jangan paksa user zoom',
+            'Tap target minimal 44 x 44 piksel dengan jarak antar elemen cukup',
+            'Test layout di breakpoint 375, 414, 768, 1024 piksel',
+            'Hindari pop-up intrusif yang menutupi konten utama di mobile',
+            'Cek Mobile Usability report di GSC, fix semua error yang muncul'
+          ],
+          tools: 'chrome devtools device mode · gsc mobile usability · google mobile friendly test'
+        },
+        {
+          num: '06', priority: 'high', badge: 'Tinggi',
+          title: 'JavaScript <em>rendering</em> tidak terbaca bot',
+          problem: 'Situs berbasis SPA (React, Vue, Angular) tanpa SSR sering menampilkan HTML kosong ke Googlebot. Konten baru muncul setelah JavaScript dieksekusi, dan walaupun Google bisa render JS, prosesnya lebih lambat dan tidak selalu sempurna.',
+          solutions: [
+            'Pakai Server-Side Rendering (Next.js, Nuxt, SvelteKit) untuk halaman penting',
+            'Alternatif, Static Site Generation untuk konten yang tidak sering berubah',
+            'Implementasi progressive enhancement, konten inti sudah ada di HTML awal',
+            'Test via GSC URL Inspection, klik "View crawled page" lalu cek Rendered HTML',
+            'Hindari client-side routing murni untuk halaman yang perlu ranking',
+            'Pakai prerendering service (Prerender.io) kalau migrasi ke SSR belum memungkinkan'
+          ],
+          tools: 'gsc url inspection rendered html · chrome devtools coverage · prerender.io'
+        },
+        {
+          num: '07', priority: 'med', badge: 'Sedang',
+          title: 'Structured data <em>error</em> atau hilang',
+          problem: 'Schema markup yang salah membuat rich snippet (bintang review, FAQ accordion, recipe card) tidak muncul. Error di GSC Enhancements report juga bisa membuat Google tidak percaya data terstruktur dari situsmu ke depannya.',
+          solutions: [
+            'Pakai format JSON-LD, disarankan resmi oleh Google daripada microdata',
+            'Validasi tiap schema di <code>validator.schema.org</code> dan <code>search.google.com/test/rich-results</code>',
+            'Pastikan properti required (headline, author, datePublished untuk Article) terisi',
+            'Jangan mark up konten yang tidak benar-benar ada di halaman, ini melanggar guideline',
+            'Implementasi schema yang paling relevan: Article, Product, FAQ, HowTo, LocalBusiness, Breadcrumb',
+            'Monitor Enhancements report di GSC tiap minggu, fix warning sebelum jadi error'
+          ],
+          tools: 'schema.org validator · rich results test · gsc enhancements report'
+        },
+        {
+          num: '08', priority: 'med', badge: 'Sedang',
+          title: 'Sitemap.xml <em>tidak terupdate</em>',
+          problem: 'Sitemap adalah peta jalan untuk Googlebot menemukan halaman baru atau yang diupdate. Sitemap outdated, berisi URL 404, atau tidak pernah disubmit membuat discovery halaman baru lambat, kadang sampai berminggu-minggu.',
+          solutions: [
+            'Generate sitemap otomatis dari CMS (WordPress pakai Yoast atau RankMath)',
+            'Hanya masukkan URL canonical, status 200, dan ter-index (bukan noindex)',
+            'Update field <code>&lt;lastmod&gt;</code> tiap konten berubah signifikan',
+            'Split menjadi multiple sitemaps kalau situs besar (lebih dari 50rb URL per file)',
+            'Submit ke GSC Sitemaps dan bing webmaster tools, cek status "Success"',
+            'Reference sitemap di robots.txt: <code>Sitemap: https://domain.com/sitemap.xml</code>'
+          ],
+          tools: 'yoast seo · rankmath · xml-sitemaps.com · gsc sitemaps'
+        },
+        {
+          num: '09', priority: 'med', badge: 'Sedang',
+          title: 'Robots.txt memblokir <em>resource penting</em>',
+          problem: 'Robots.txt yang terlalu agresif memblokir folder seperti /wp-content atau /assets bikin Googlebot tidak bisa load CSS dan JavaScript. Akibatnya Google merender halaman versi "telanjang" dan salah menilai kualitasnya.',
+          solutions: [
+            'Allow semua folder yang berisi CSS, JS, gambar, dan font',
+            'Blokir hanya halaman admin, staging, cart, atau area private',
+            'Hindari blanket <code>Disallow: /</code>, pastikan ini bukan sisa staging mode',
+            'Test pakai robots.txt Tester di GSC untuk URL spesifik',
+            'Cek "Blocked by robots.txt" report di GSC Coverage secara rutin',
+            'Setelah launch baru, selalu double-check robots.txt, ini kesalahan paling sering'
+          ],
+          tools: 'gsc robots.txt tester · technicalseo.com robots testing tool'
+        },
+        {
+          num: '10', priority: 'low', badge: 'Rendah',
+          title: 'HTTPS dan <em>mixed content</em>',
+          problem: 'Situs pakai HTTPS tapi masih load resource lewat HTTP (gambar, script lama, embed YouTube http). Browser menampilkan warning "Not Fully Secure" dan Google bisa menurunkan trust score. Di browser terbaru, mixed content bahkan di-block otomatis.',
+          solutions: [
+            'Pasang SSL certificate gratis dari Let\'s Encrypt atau via hosting (Cloudflare, Vercel)',
+            '301 redirect semua HTTP ke HTTPS di level server',
+            'Update hardcoded <code>http://</code> di database, theme, dan config ke <code>https://</code>',
+            'Pakai protocol-relative URL (<code>//example.com/img.jpg</code>) untuk asset eksternal',
+            'Update canonical tag, hreflang, sitemap, dan internal link ke versi HTTPS',
+            'Submit HSTS header supaya browser selalu pakai HTTPS'
+          ],
+          tools: 'whynopadlock.com · ssl labs test · chrome devtools console (mixed content warning)'
+        }
+      ];
+
+      const list = document.getElementById('tseo-list');
+      const filter = document.getElementById('tseo-filter');
+
+      function render(filterVal) {
+        const filtered = filterVal === 'all' ? issues : issues.filter(i => i.priority === filterVal);
+        list.innerHTML = filtered.map(i => {
+          const solutionsHTML = i.solutions.map(s => '<li>' + s + '</li>').join('');
+          return '<div class="tseo-issue" data-priority="' + i.priority + '">'
+            + '<div class="tseo-head">'
+            + '<div class="tseo-num">' + i.num + '</div>'
+            + '<div class="tseo-title">' + i.title + '</div>'
+            + '<div class="tseo-badge ' + i.priority + '">' + i.badge + '</div>'
+            + '<div class="tseo-chev">+</div>'
+            + '</div>'
+            + '<div class="tseo-body"><div class="tseo-inner">'
+            + '<div class="tseo-col"><h4>Masalah</h4><p>' + i.problem + '</p></div>'
+            + '<div class="tseo-col"><h4>Cara Mengatasi</h4><ol>' + solutionsHTML + '</ol>'
+            + '<div class="tseo-tools">Tools: <span>' + i.tools + '</span></div>'
+            + '</div>'
+            + '</div></div>'
+            + '</div>';
+        }).join('');
+
+        list.querySelectorAll('.tseo-head').forEach(head => {
+          head.addEventListener('click', () => {
+            const issue = head.parentElement;
+            const wasOpen = issue.classList.contains('is-open');
+            list.querySelectorAll('.tseo-issue').forEach(el => el.classList.remove('is-open'));
+            if (!wasOpen) issue.classList.add('is-open');
+          });
+        });
+      }
+
+      filter.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          filter.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          render(btn.dataset.filter);
+        });
+      });
+
+      render('all');
+    })();
+  </script>
+</section>
+
 <section id="kurikulum" class="curriculum">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 10 · KURIKULUM</div>
+      <div class="section-num">§ 11 · KURIKULUM</div>
       <div>
         <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
         <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
@@ -1459,7 +1766,7 @@
 <section id="checklist" class="checklist-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 11 · CHECKLIST</div>
+      <div class="section-num">§ 12 · CHECKLIST</div>
       <div>
         <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
         <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
@@ -1496,7 +1803,7 @@
 <section id="rencana">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 12 · RENCANA 30 HARI</div>
+      <div class="section-num">§ 13 · RENCANA 30 HARI</div>
       <div>
         <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
         <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
@@ -1534,7 +1841,7 @@
 <section class="tools">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 13 · TOOLS</div>
+      <div class="section-num">§ 14 · TOOLS</div>
       <div>
         <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
         <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
@@ -1559,7 +1866,7 @@
 <section id="glosarium">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 14 · GLOSARIUM</div>
+      <div class="section-num">§ 15 · GLOSARIUM</div>
       <div>
         <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
         <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
@@ -1585,7 +1892,7 @@
 <section class="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 15 · FAQ</div>
+      <div class="section-num">§ 16 · FAQ</div>
       <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
     </div>
 
@@ -1614,6 +1921,7 @@
         <li><a href="#serp-anatomy">Anatomi SERP</a></li>
         <li><a href="#roadmap">Roadmap 10 Fase</a></li>
         <li><a href="#pilar">Empat Pilar</a></li>
+        <li><a href="#technical-seo">Technical SEO</a></li>
         <li><a href="#kurikulum">Kurikulum 8 Modul</a></li>
       </ul>
     </div>
