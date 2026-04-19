@@ -518,6 +518,7 @@
       <a href="#pilar">Pilar</a>
       <a href="#keyword-playground">Lab</a>
       <a href="#technical-seo">Technical</a>
+      <a href="#geo">GEO</a>
       <a href="#kurikulum">Kurikulum</a>
       <a href="#checklist">Checklist</a>
     </nav>
@@ -531,8 +532,8 @@
     <h1>Belajar SEO<br>dari <em>nol</em>,<br>sampai halaman<br>pertama Google.</h1>
     <p class="hero-lede">Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.</p>
     <div class="hero-meta">
-      <div><strong>16</strong>Bab lengkap</div>
-      <div><strong>10</strong>Simulator dan alat</div>
+      <div><strong>18</strong>Bab lengkap</div>
+      <div><strong>11</strong>Simulator dan alat</div>
       <div><strong>10 fase</strong>Roadmap learningseo.io</div>
       <div><strong>Gratis</strong>Selamanya</div>
     </div>
@@ -1936,10 +1937,231 @@
   </script>
 </section>
 
+<section id="geo">
+  <style>
+    #geo { padding: 96px 32px; background: var(--bg); color: var(--ink); }
+    .geo-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin-bottom: 56px; align-items: start; }
+    @media (max-width: 900px) { .geo-intro { grid-template-columns: 1fr; gap: 28px; } }
+    .geo-intro-body { background: var(--paper); border: 1px solid var(--line); padding: 32px; }
+    .geo-intro-body p { font-size: 15px; color: var(--ink-2); line-height: 1.7; margin-bottom: 14px; }
+    .geo-intro-body p:last-child { margin-bottom: 0; }
+    .geo-intro-body strong { color: var(--ink); }
+    .geo-intro-paper { background: var(--ink); color: var(--paper); padding: 32px; position: relative; overflow: hidden; }
+    .geo-intro-paper::before { content: "PAPER"; position: absolute; top: 14px; right: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: rgba(232,106,82,0.6); }
+    .geo-intro-paper h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent-soft); margin-bottom: 14px; text-transform: uppercase; }
+    .geo-intro-paper .paper-title { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; line-height: 1.2; margin-bottom: 10px; }
+    .geo-intro-paper .paper-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
+    .geo-intro-paper .paper-authors { font-size: 13px; color: rgba(250,247,241,0.7); line-height: 1.6; margin-bottom: 16px; }
+    .geo-intro-paper .paper-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(250,247,241,0.6); padding-top: 14px; border-top: 1px solid rgba(250,247,241,0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .geo-intro-paper a { color: var(--accent-soft); text-decoration: none; border-bottom: 1px dashed rgba(232,106,82,0.4); }
+    .geo-intro-paper a:hover { color: var(--paper); border-color: var(--paper); }
+
+    .geo-compare { margin-bottom: 56px; background: var(--paper); border: 1px solid var(--line); overflow: hidden; }
+    .geo-compare-head { display: grid; grid-template-columns: 1fr 1fr 1fr; background: var(--bg-2); border-bottom: 2px solid var(--ink); }
+    .geo-compare-head > div { padding: 18px 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; border-right: 1px solid var(--line); }
+    .geo-compare-head > div:last-child { border-right: none; }
+    .geo-compare-head > div strong { display: block; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; text-transform: none; margin-top: 4px; }
+    .geo-compare-head > div.is-geo strong em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .geo-compare-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--line); }
+    .geo-compare-row:last-child { border-bottom: none; }
+    .geo-compare-row > div { padding: 18px 22px; font-size: 14px; color: var(--ink-2); line-height: 1.55; border-right: 1px solid var(--line); }
+    .geo-compare-row > div:last-child { border-right: none; }
+    .geo-compare-row > div:first-child { font-family: 'Fraunces', serif; font-weight: 500; color: var(--ink); font-size: 15px; }
+    @media (max-width: 740px) { .geo-compare-head, .geo-compare-row { grid-template-columns: 1fr; } .geo-compare-head > div, .geo-compare-row > div { border-right: none; border-bottom: 1px solid var(--line); } }
+
+    .geo-chart { background: var(--paper); border: 1px solid var(--line); padding: 36px; margin-bottom: 56px; }
+    .geo-chart-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .geo-chart-head h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 28px; line-height: 1.15; letter-spacing: -0.01em; }
+    .geo-chart-head h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .geo-chart-head .src { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.05em; }
+    .geo-chart-head .src a { color: var(--ink-2); text-decoration: none; border-bottom: 1px dashed var(--muted); }
+    .geo-chart-head .src a:hover { color: var(--accent); border-color: var(--accent); }
+
+    .geo-bars { display: flex; flex-direction: column; gap: 14px; }
+    .geo-bar { display: grid; grid-template-columns: 220px 1fr 70px; gap: 16px; align-items: center; cursor: pointer; transition: transform 0.15s; }
+    .geo-bar:hover { transform: translateX(2px); }
+    .geo-bar-label { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; line-height: 1.25; }
+    .geo-bar-label small { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .geo-bar-track { height: 28px; background: var(--bg); border: 1px solid var(--line); position: relative; overflow: hidden; }
+    .geo-bar-fill { height: 100%; width: 0; background: var(--accent); transition: width 1.2s cubic-bezier(.4, 0, .2, 1); position: relative; }
+    .geo-bar-fill.neg { background: var(--muted); }
+    .geo-bar-fill.high { background: var(--accent); }
+    .geo-bar-fill.mid { background: var(--accent-soft); }
+    .geo-bar-fill.low { background: #c19a3a; }
+    .geo-bar-val { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; text-align: right; color: var(--ink); }
+    .geo-bar-val.neg { color: var(--muted); font-size: 16px; }
+    .geo-bar-desc { grid-column: 1 / -1; padding: 12px 18px; background: var(--bg); border-left: 2px solid var(--accent); font-size: 13px; color: var(--ink-2); line-height: 1.55; max-height: 0; overflow: hidden; transition: max-height 0.3s, padding 0.3s; padding-top: 0; padding-bottom: 0; }
+    .geo-bar.is-open .geo-bar-desc { max-height: 200px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; }
+    @media (max-width: 680px) { .geo-bar { grid-template-columns: 1fr 60px; } .geo-bar-label { grid-column: 1 / -1; } .geo-bar-track { grid-column: 1 / 2; } .geo-bar-val { grid-column: 2 / 3; } }
+
+    .geo-engines { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+    @media (max-width: 740px) { .geo-engines { grid-template-columns: 1fr; } }
+    .geo-engine { background: var(--paper); border: 1px solid var(--line); padding: 28px; position: relative; }
+    .geo-engine::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 3px; background: var(--accent); }
+    .geo-engine h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+    .geo-engine h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .geo-engine .engine-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+    .geo-engine p { font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-bottom: 14px; }
+    .geo-engine ul { list-style: none; padding: 0; }
+    .geo-engine ul li { padding: 7px 0 7px 20px; border-top: 1px dashed var(--line); position: relative; font-size: 13.5px; color: var(--ink-2); line-height: 1.45; }
+    .geo-engine ul li:first-child { border-top: none; }
+    .geo-engine ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+
+    .geo-takeaway { background: var(--ink); color: var(--paper); padding: 36px 40px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+    @media (max-width: 680px) { .geo-takeaway { grid-template-columns: 1fr; gap: 16px; padding: 28px; } }
+    .geo-takeaway-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 96px; color: var(--accent-soft); line-height: 0.8; }
+    .geo-takeaway h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; line-height: 1.25; margin-bottom: 8px; }
+    .geo-takeaway h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
+    .geo-takeaway p { font-size: 14px; color: rgba(250,247,241,0.8); line-height: 1.6; }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 11 · GEO</div>
+      <div>
+        <h2>Generative <em>Engine</em> Optimization: di-cite oleh ChatGPT, Perplexity, dan Gemini.</h2>
+        <p>Kalau SEO tradisional ngejar posisi di SERP, GEO ngejar di-cite sebagai sumber di jawaban AI. Dua-duanya wajib di 2026, tapi teknik-nya beda. Bagian ini rangkum riset kredibel dari Princeton dan Gartner.</p>
+      </div>
+    </div>
+
+    <div class="geo-intro">
+      <div class="geo-intro-body">
+        <p><strong>GEO (Generative Engine Optimization)</strong> adalah praktik mengoptimasi konten agar dipilih, dikutip, dan dirujuk oleh <em class="italic-serif">generative engines</em> seperti ChatGPT, Perplexity, Google AI Overviews, dan Gemini saat mereka menyusun jawaban untuk user.</p>
+        <p>Istilah ini pertama kali didefinisikan secara formal dalam paper akademik berjudul <em class="italic-serif">"GEO: Generative Engine Optimization"</em> (arXiv:2311.09735), dipublikasikan oleh tim riset <strong>Princeton University, Georgia Tech, Allen Institute for AI, dan IIT Delhi</strong>. Paper ini dipresentasikan di <strong>KDD 2024</strong>, konferensi machine learning tier-1.</p>
+        <p>Temuan inti paper: teknik GEO yang tepat bisa naikin visibility di jawaban AI sampai <strong>40%</strong>. Tapi teknik SEO klasik seperti keyword stuffing <strong>tidak bekerja sama sekali</strong> di generative engines.</p>
+      </div>
+      <aside class="geo-intro-paper">
+        <h4>Sumber Primer</h4>
+        <div class="paper-title">GEO: Generative <em>Engine</em> Optimization</div>
+        <div class="paper-authors">Pranjal Aggarwal, Vishvak Murahari, Tanmay Rajpurohit, Ashwin Kalyan, Karthik Narasimhan, Ameet Deshpande · KDD 2024</div>
+        <div class="paper-meta">
+          <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener">arxiv.org</a>
+          <a href="https://dl.acm.org/doi/10.1145/3637528.3671900" target="_blank" rel="noopener">ACM SIGKDD</a>
+          <span>PEER-REVIEWED</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="geo-compare">
+      <div class="geo-compare-head">
+        <div>DIMENSI</div>
+        <div>SEO <strong>Tradisional</strong></div>
+        <div class="is-geo">GEO <strong><em>AI Search</em></strong></div>
+      </div>
+      <div class="geo-compare-row"><div>Target</div><div>Posisi peringkat di SERP (top 10 organik)</div><div>Dikutip sebagai sumber di jawaban generatif</div></div>
+      <div class="geo-compare-row"><div>Mesin</div><div>Google Search, Bing, Yandex, DuckDuckGo</div><div>ChatGPT, Perplexity, Gemini, Claude, AI Overviews</div></div>
+      <div class="geo-compare-row"><div>Sinyal utama</div><div>Backlink, keyword, E-E-A-T, Core Web Vitals</div><div>Fact density, kutipan sumber, statistik, fluency</div></div>
+      <div class="geo-compare-row"><div>Format konten</div><div>Artikel panjang, pillar page, cluster</div><div>Jawaban ringkas + bukti konkret, heading pertanyaan</div></div>
+      <div class="geo-compare-row"><div>Metrik sukses</div><div>Organic impressions, CTR, position, traffic</div><div>Citation rate, subjective impression, position-adjusted word count</div></div>
+      <div class="geo-compare-row"><div>Siklus hasil</div><div>3 sampai 8 bulan</div><div>Lebih cepat (LLM re-index berkala) tapi volatil</div></div>
+    </div>
+
+    <div class="geo-chart">
+      <div class="geo-chart-head">
+        <h3>Efektivitas teknik <em>GEO</em> terhadap visibility di AI search</h3>
+        <div class="src">SUMBER: <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener">Aggarwal et al · Princeton · KDD 2024</a></div>
+      </div>
+      <div class="geo-bars" id="geo-bars"></div>
+    </div>
+
+    <div class="geo-engines">
+      <div class="geo-engine">
+        <div class="engine-tag">ENGINE · TRAINING HEAVY</div>
+        <h4>Optimasi untuk <em>ChatGPT</em></h4>
+        <p>ChatGPT mengandalkan training data dan "semantic authority". Tulisanmu harus terdengar seperti ensiklopedia yang terpercaya, bukan opini pribadi.</p>
+        <ul>
+          <li>Hindari frasa subjektif ("saya rasa", "menurut kami", "kayaknya")</li>
+          <li>Pakai kalimat deklaratif objektif yang menurunkan perplexity</li>
+          <li>Cantumkan data, angka, dan fakta yang bisa diverifikasi</li>
+          <li>Build topical authority lewat cluster konten yang konsisten</li>
+          <li>Pastikan konten masuk sitemap Bing dan Common Crawl</li>
+        </ul>
+      </div>
+      <div class="geo-engine">
+        <div class="engine-tag">ENGINE · LIVE WEB CITATIONS</div>
+        <h4>Optimasi untuk <em>Perplexity</em></h4>
+        <p>Perplexity adalah "citations-first engine" yang pakai live web indexing (Bing plus bot sendiri). Setiap jawaban selalu mencantumkan sumber.</p>
+        <ul>
+          <li>Prioritaskan konten fresh dengan tanggal publish dan update jelas</li>
+          <li>Gunakan schema Article dan datePublished yang valid</li>
+          <li>Optimalkan teknis dasar SEO (sitemap, robots, speed)</li>
+          <li>Sertakan data original, studi kasus, angka konkret yang ber-atribusi</li>
+          <li>Build domain authority dengan backlink dari situs kredibel</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="geo-takeaway">
+      <div class="geo-takeaway-num">25<span style="font-size:36px;">%</span></div>
+      <div>
+        <h4>Prediksi Gartner: volume search tradisional turun <em>25%</em> di 2026, digeser oleh AI agents dan answer engines.</h4>
+        <p>Artinya 75% volume pencarian tetap di Google klasik (SEO masih wajib). Tapi 25% migrasi ke AI search bukan angka kecil. Strategi ganda (SEO + GEO) bukan pilihan, tapi keharusan.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const techniques = [
+        { name: 'Quotation Addition',       id: 'Tambah kutipan', cat: 'high', value: 41, desc: 'Sisipkan kutipan relevan dari sumber atau pakar. Terbukti paling efektif: +41% Position-Adjusted Word Count di jawaban AI.' },
+        { name: 'Statistics Addition',      id: 'Tambah statistik', cat: 'high', value: 37, desc: 'Cantumkan angka konkret, data, persentase. AI suka cite fakta yang bisa diverifikasi. Peningkatan sampai +37% visibility.' },
+        { name: 'Cite Sources',             id: 'Sitasi sumber', cat: 'high', value: 36, desc: 'Link ke sumber otoritatif (riset akademik, laporan industri, situs resmi). Minimal effort, impact besar. +36% subjective impression.' },
+        { name: 'Fluency Optimization',     id: 'Optimasi fluency', cat: 'mid', value: 28, desc: 'Perbaiki readability, grammar, struktur kalimat. Generative engines favor tulisan yang mengalir. +15% sampai +30%.' },
+        { name: 'Easy-to-Understand',       id: 'Bahasa sederhana', cat: 'mid', value: 22, desc: 'Kalimat pendek, jargon minimal, analogi konkret. AI cenderung cite konten yang mudah di-paraphrase kembali ke user.' },
+        { name: 'Authoritative Tone',       id: 'Tone otoritatif', cat: 'mid', value: 18, desc: 'Hindari frasa ragu ("mungkin", "kayaknya"). Pakai pernyataan tegas yang didukung fakta. Turunkan perplexity skor.' },
+        { name: 'Unique Words',             id: 'Kata unik', cat: 'low', value: 12, desc: 'Pakai terminologi spesifik domain, nama entitas lengkap. Menghindari kata generik yang mudah di-cluster dengan konten lain.' },
+        { name: 'Technical Terms',          id: 'Istilah teknis', cat: 'low', value: 9, desc: 'Sebut istilah teknis dengan tepat dan definisi. Efektif di domain spesifik (medis, legal, tech), kurang efektif di topik umum.' },
+        { name: 'Keyword Stuffing',         id: 'Keyword stuffing', cat: 'neg', value: -3, desc: 'Teknik lama SEO yang gagal total di GEO. Bahkan bisa menurunkan visibility karena dianggap spam oleh LLM detector. Jangan dipakai.' }
+      ];
+
+      const container = document.getElementById('geo-bars');
+      const maxVal = 45;
+
+      function render() {
+        container.innerHTML = techniques.map((t, i) => {
+          const width = Math.abs(t.value) / maxVal * 100;
+          const valSign = t.value >= 0 ? '+' : '';
+          return '<div class="geo-bar" data-idx="' + i + '">'
+            + '<div class="geo-bar-label">' + t.id + '<small>' + t.name + '</small></div>'
+            + '<div class="geo-bar-track"><div class="geo-bar-fill ' + t.cat + '" data-target="' + width + '"></div></div>'
+            + '<div class="geo-bar-val ' + (t.value < 0 ? 'neg' : '') + '">' + valSign + t.value + '%</div>'
+            + '<div class="geo-bar-desc">' + t.desc + '</div>'
+            + '</div>';
+        }).join('');
+
+        container.querySelectorAll('.geo-bar').forEach(bar => {
+          bar.addEventListener('click', () => {
+            const wasOpen = bar.classList.contains('is-open');
+            container.querySelectorAll('.geo-bar').forEach(b => b.classList.remove('is-open'));
+            if (!wasOpen) bar.classList.add('is-open');
+          });
+        });
+      }
+
+      function animate() {
+        container.querySelectorAll('.geo-bar-fill').forEach((fill, i) => {
+          setTimeout(() => {
+            fill.style.width = fill.dataset.target + '%';
+          }, i * 80);
+        });
+      }
+
+      render();
+
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { animate(); io.disconnect(); } });
+        }, { threshold: 0.2 });
+        io.observe(document.getElementById('geo'));
+      } else { animate(); }
+    })();
+  </script>
+</section>
+
 <section id="kurikulum" class="curriculum">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 11 · KURIKULUM</div>
+      <div class="section-num">§ 12 · KURIKULUM</div>
       <div>
         <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
         <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
@@ -2033,7 +2255,7 @@
 <section id="checklist" class="checklist-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 12 · CHECKLIST</div>
+      <div class="section-num">§ 13 · CHECKLIST</div>
       <div>
         <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
         <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
@@ -2070,7 +2292,7 @@
 <section id="rencana">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 13 · RENCANA 30 HARI</div>
+      <div class="section-num">§ 14 · RENCANA 30 HARI</div>
       <div>
         <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
         <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
@@ -2108,7 +2330,7 @@
 <section class="tools">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 14 · TOOLS</div>
+      <div class="section-num">§ 15 · TOOLS</div>
       <div>
         <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
         <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
@@ -2200,7 +2422,7 @@
 <section id="glosarium">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 15 · GLOSARIUM</div>
+      <div class="section-num">§ 16 · GLOSARIUM</div>
       <div>
         <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
         <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
@@ -2257,7 +2479,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 16 · TENTANG PENULIS</div>
+      <div class="section-num">§ 17 · TENTANG PENULIS</div>
       <div>
         <h2>Bahan ini <em>tidak</em> ditulis oleh AI generik.</h2>
         <p>Semua materi disusun dari pengalaman lapangan, referensi Google Search Central, studi kasus UMKM dan enterprise, serta eksperimen di klien nyata.</p>
@@ -2315,7 +2537,7 @@
 <section class="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">§ 17 · FAQ</div>
+      <div class="section-num">§ 18 · FAQ</div>
       <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
     </div>
 
@@ -2348,6 +2570,7 @@
         <li><a href="#roadmap">Roadmap 10 Fase</a></li>
         <li><a href="#pilar">Empat Pilar</a></li>
         <li><a href="#technical-seo">Technical SEO</a></li>
+        <li><a href="#geo">GEO (AI Search)</a></li>
         <li><a href="#kurikulum">Kurikulum 8 Modul</a></li>
       </ul>
     </div>
