@@ -2280,8 +2280,19 @@
       const list = document.getElementById('tseo-list');
       const filter = document.getElementById('tseo-filter');
 
+      // Sort issues by priority tier, with logical grouping within each tier
+      // Kritikal: 01, 02
+      // Tinggi (indexing first, then infrastructure): 14 Discovered, 15 Crawled, 11 Orphan, 03 Duplicate, 04 Broken 404, 05 Mobile, 06 JS
+      // Sedang: 12 Redirect, 13 Soft 404, 07 Schema, 08 Sitemap, 09 Robots
+      // Rendah: 10 HTTPS
+      const customOrder = ['01','02','14','15','11','03','04','05','06','12','13','07','08','09','10'];
+      const sortedIssues = customOrder.map((origNum, idx) => {
+        const issue = issues.find(i => i.num === origNum);
+        return Object.assign({}, issue, { num: String(idx + 1).padStart(2, '0') });
+      });
+
       function render(filterVal) {
-        const filtered = filterVal === 'all' ? issues : issues.filter(i => i.priority === filterVal);
+        const filtered = filterVal === 'all' ? sortedIssues : sortedIssues.filter(i => i.priority === filterVal);
         list.innerHTML = filtered.map(i => {
           const solutionsHTML = i.solutions.map(s => '<li>' + s + '</li>').join('');
           return '<div class="tseo-issue" data-priority="' + i.priority + '">'
