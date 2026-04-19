@@ -1570,6 +1570,17 @@
     .opi-serp-title:hover { text-decoration: underline; }
     .opi-serp-meta { font-size: 13px; color: #4d5156; line-height: 1.5; }
     .opi-serp-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
+    .opi-timeline { margin-top: 24px; padding: 20px 22px; background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--accent); }
+    .opi-timeline-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .opi-timeline-label a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); font-size: 9px; letter-spacing: 0.1em; }
+    .opi-timeline-label a:hover { color: var(--ink); border-color: var(--ink); }
+    .opi-timeline-row { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: baseline; padding: 10px 0; border-top: 1px dashed var(--line); }
+    .opi-timeline-row:first-of-type { border-top: none; padding-top: 0; }
+    .opi-timeline-step { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: var(--accent); line-height: 1; }
+    .opi-timeline-text { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .opi-timeline-text strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; }
+    .opi-timeline-dur { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+    .opi-timeline-note { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
   </style>
 
   <script>
@@ -1636,6 +1647,13 @@
           + '<div class="opi-serp-url">https://situsmu.com › artikel › '+kw.replace(/\s+/g,'-')+'</div>'
           + '<div class="opi-serp-title">'+(title.length>60?title.slice(0,57)+'...':title)+'</div>'
           + '<div class="opi-serp-meta">'+(meta.length>160?meta.slice(0,157)+'...':meta)+'</div>'
+          + '</div>'
+          + '<div class="opi-timeline">'
+          + '<div class="opi-timeline-label"><span>ESTIMASI WAKTU UPDATE DI GOOGLE</span><a href="https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl" target="_blank" rel="noopener">SUMBER: GOOGLE SEARCH CENTRAL →</a></div>'
+          + '<div class="opi-timeline-row"><span class="opi-timeline-step">i</span><span class="opi-timeline-text"><strong>Re-crawl</strong> oleh Googlebot setelah publish perubahan (atau klik Request Indexing di GSC URL Inspection).</span><span class="opi-timeline-dur">1 jam – 14 hari</span></div>'
+          + '<div class="opi-timeline-row"><span class="opi-timeline-step">ii</span><span class="opi-timeline-text"><strong>Re-index</strong> dan update tampilan title/meta di SERP. Biasanya sinkron dengan re-crawl, kadang 1-3 hari setelahnya.</span><span class="opi-timeline-dur">0 – 3 hari</span></div>'
+          + '<div class="opi-timeline-row"><span class="opi-timeline-step">iii</span><span class="opi-timeline-text"><strong>CTR impact</strong> terukur di laporan Performance GSC. Butuh sampel klik yang cukup untuk signifikan statistik.</span><span class="opi-timeline-dur">2 – 4 minggu</span></div>'
+          + '<div class="opi-timeline-note">Catatan: Google bisa memilih untuk <strong>menulis ulang title atau meta description</strong> sendiri kalau dianggap lebih cocok dengan query. Berdasarkan studi Zyppy (2024), sekitar <strong>61% title di SERP</strong> adalah rewrite Google, bukan original. Title tetap ditulis sebaik mungkin karena jadi baseline.</div>'
           + '</div>';
       }
       btn.addEventListener('click', check);
