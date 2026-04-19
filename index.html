@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar SEO dari Nol, Interaktif dan Visual (2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f1ea;
+    --bg-2: #ebe4d7;
+    --ink: #1a1613;
+    --ink-2: #4a4238;
+    --muted: #857a6b;
+    --line: #d9d0bf;
+    --paper: #faf7f1;
+    --accent: #c1432c;
+    --accent-soft: #e86a52;
+    --ok: #3d6b4a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .serif { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto; }
+  .italic-serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .topbar { position: sticky; top: 0; z-index: 50; background: rgba(245, 241, 234, 0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .topbar-inner { max-width: 1240px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+  .brand-mark { width: 28px; height: 28px; background: var(--accent); color: var(--paper); display: grid; place-items: center; font-family: 'Fraunces', serif; font-weight: 700; font-style: italic; font-size: 16px; border-radius: 3px; }
+  .nav-links { display: flex; gap: 22px; font-size: 13px; color: var(--ink-2); }
+  .nav-links a { color: inherit; text-decoration: none; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { font-size: 13px; font-weight: 500; padding: 8px 16px; background: var(--ink); color: var(--paper); border: none; border-radius: 2px; cursor: pointer; letter-spacing: 0.02em; }
+
+  .hero { max-width: 1240px; margin: 0 auto; padding: 80px 32px 60px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: end; }
+  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--muted); }
+  .hero h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(56px, 7vw, 104px); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 28px; }
+  .hero h1 em { font-style: italic; font-family: 'Instrument Serif', serif; font-weight: 400; color: var(--accent); }
+  .hero-lede { font-size: 18px; color: var(--ink-2); max-width: 520px; line-height: 1.55; margin-bottom: 32px; }
+  .hero-meta { display: flex; gap: 28px; font-size: 13px; color: var(--muted); padding-top: 24px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+  .hero-meta strong { color: var(--ink); font-weight: 600; display: block; font-size: 18px; font-family: 'Fraunces', serif; }
+  .hero-aside { background: var(--paper); border: 1px solid var(--line); padding: 28px; position: relative; }
+  .hero-aside::before { content: "TL;DR"; position: absolute; top: -10px; left: 20px; background: var(--bg); padding: 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+  .hero-aside h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; margin-bottom: 14px; line-height: 1.25; }
+  .hero-aside p { font-size: 14px; color: var(--ink-2); margin-bottom: 14px; }
+  .hero-aside ul { list-style: none; font-size: 13.5px; color: var(--ink-2); counter-reset: item; }
+  .hero-aside ul li { padding: 8px 0; border-top: 1px dashed var(--line); display: flex; gap: 10px; }
+  .hero-aside ul li:first-child { border-top: none; }
+  .hero-aside ul li::before { content: counter(item, decimal-leading-zero); counter-increment: item; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); padding-top: 2px; min-width: 24px; }
+
+  section { padding: 72px 32px; }
+  .container { max-width: 1240px; margin: 0 auto; }
+  .section-header { display: grid; grid-template-columns: 200px 1fr; gap: 48px; margin-bottom: 56px; align-items: start; }
+  .section-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.1em; border-top: 2px solid var(--ink); padding-top: 12px; }
+  .section-header h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.02; letter-spacing: -0.02em; max-width: 800px; }
+  .section-header h2 em { font-style: italic; font-family: 'Instrument Serif', serif; color: var(--accent); }
+  .section-header p { margin-top: 20px; font-size: 17px; color: var(--ink-2); max-width: 640px; line-height: 1.6; }
+
+  .what-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .what-cell { background: var(--paper); padding: 36px 32px; }
+  .what-cell h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 14px; line-height: 1.2; }
+  .what-cell .step-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 42px; color: var(--accent); display: block; line-height: 1; margin-bottom: 20px; }
+  .what-cell p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; }
+
+  .ai-callout { background: var(--ink); color: var(--paper); padding: 64px 48px; margin: 40px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; position: relative; overflow: hidden; }
+  .ai-callout::before { content: "AI"; position: absolute; right: -40px; top: -60px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 360px; color: rgba(232,106,82,0.12); line-height: 0.8; }
+  .ai-callout h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 42px; line-height: 1.05; letter-spacing: -0.02em; position: relative; }
+  .ai-callout h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
+  .ai-callout p { font-size: 16px; color: rgba(250,247,241,0.8); line-height: 1.6; position: relative; }
+  .ai-callout ul { list-style: none; margin-top: 20px; font-size: 14px; }
+  .ai-callout ul li { padding: 8px 0; border-top: 1px solid rgba(250,247,241,0.12); color: rgba(250,247,241,0.85); padding-left: 24px; position: relative; }
+  .ai-callout ul li::before { content: "◆"; position: absolute; left: 0; color: var(--accent-soft); font-size: 10px; top: 11px; }
+
+  .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .pillar { background: var(--paper); border: 1px solid var(--line); padding: 32px 24px; position: relative; transition: transform 0.2s; }
+  .pillar:hover { transform: translateY(-4px); }
+  .pillar-icon { width: 44px; height: 44px; display: grid; place-items: center; border: 1.5px solid var(--ink); margin-bottom: 20px; font-family: 'Fraunces', serif; font-weight: 500; font-size: 20px; }
+  .pillar h4 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 10px; line-height: 1.2; }
+  .pillar p { font-size: 14px; color: var(--ink-2); line-height: 1.55; margin-bottom: 18px; }
+  .pillar ul { list-style: none; font-size: 13px; color: var(--ink-2); }
+  .pillar ul li { padding: 6px 0; border-top: 1px dashed var(--line); padding-left: 18px; position: relative; }
+  .pillar ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+
+  .curriculum { background: var(--paper); }
+  .lesson-list { display: flex; flex-direction: column; }
+  .lesson { display: grid; grid-template-columns: 60px 1fr auto; gap: 32px; padding: 32px 0; border-top: 1px solid var(--line); align-items: start; cursor: pointer; transition: background 0.2s; position: relative; }
+  .lesson:last-child { border-bottom: 1px solid var(--line); }
+  .lesson:hover { background: var(--bg-2); margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+  .lesson:hover .lesson-arrow { transform: translateX(4px); color: var(--accent); }
+  .lesson-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); padding-top: 6px; }
+  .lesson-body h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 8px; }
+  .lesson-body h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+  .lesson-body p { font-size: 15px; color: var(--ink-2); max-width: 640px; margin-bottom: 12px; }
+  .lesson-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 3px 8px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); letter-spacing: 0.03em; }
+  .tag.tag-accent { color: var(--accent); border-color: var(--accent); background: rgba(193,67,44,0.04); }
+  .lesson-meta { text-align: right; font-size: 12px; color: var(--muted); padding-top: 4px; min-width: 80px; }
+  .lesson-meta strong { display: block; color: var(--ink); font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; }
+  .lesson-arrow { font-family: serif; font-size: 22px; color: var(--muted); transition: transform 0.2s, color 0.2s; padding-top: 10px; }
+
+  .checklist-section { background: var(--paper); }
+  .checklist-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+  .checklist-aside { background: var(--ink); color: var(--paper); padding: 40px; position: sticky; top: 90px; }
+  .checklist-aside h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 32px; line-height: 1.1; margin-bottom: 20px; }
+  .checklist-aside h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
+  .checklist-aside p { font-size: 15px; color: rgba(250, 247, 241, 0.75); margin-bottom: 28px; }
+  .progress-bar { height: 6px; background: rgba(250,247,241,0.15); margin-bottom: 12px; position: relative; }
+  .progress-fill { height: 100%; background: var(--accent-soft); width: 0%; transition: width 0.3s; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(250,247,241,0.6); display: flex; justify-content: space-between; }
+  .check-items { display: flex; flex-direction: column; }
+  .check-item { padding: 18px 0; border-top: 1px solid var(--line); display: flex; gap: 16px; cursor: pointer; user-select: none; }
+  .check-item:first-child { border-top: none; }
+  .checkbox { width: 22px; height: 22px; border: 1.5px solid var(--ink); display: grid; place-items: center; flex-shrink: 0; margin-top: 2px; transition: all 0.15s; }
+  .check-item.done .checkbox { background: var(--ink); color: var(--paper); }
+  .check-item.done .check-title { text-decoration: line-through; color: var(--muted); }
+  .checkbox::after { content: "✓"; font-size: 13px; opacity: 0; transition: opacity 0.15s; }
+  .check-item.done .checkbox::after { opacity: 1; }
+  .check-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 4px; line-height: 1.3; }
+  .check-desc { font-size: 13.5px; color: var(--ink-2); }
+
+  .plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .plan-week { background: var(--paper); border: 1px solid var(--line); padding: 28px 24px; position: relative; }
+  .plan-week::before { content: ""; position: absolute; top: 0; left: 0; width: 32px; height: 3px; background: var(--accent); }
+  .plan-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 8px; }
+  .plan-week h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; margin-bottom: 4px; line-height: 1.15; }
+  .plan-week h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+  .plan-sub { font-size: 13px; color: var(--muted); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .plan-week ul { list-style: none; font-size: 13.5px; color: var(--ink-2); }
+  .plan-week ul li { padding: 7px 0; padding-left: 22px; position: relative; line-height: 1.4; }
+  .plan-week ul li::before { content: "\25A1"; position: absolute; left: 0; top: 6px; font-family: monospace; color: var(--muted); font-size: 12px; }
+
+  .tools { background: var(--paper); }
+  .tools-table { width: 100%; border-collapse: collapse; }
+  .tools-table thead th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; padding: 12px 16px; border-bottom: 2px solid var(--ink); text-transform: uppercase; }
+  .tools-table tbody td { padding: 24px 16px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 14px; color: var(--ink-2); }
+  .tools-table tbody tr:hover { background: var(--bg); }
+  .tool-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; color: var(--ink); }
+  .tool-name small { display: block; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .pill { display: inline-block; padding: 3px 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; border-radius: 999px; letter-spacing: 0.05em; }
+  .pill-free { background: rgba(61,107,74,0.12); color: var(--ok); }
+  .pill-paid { background: rgba(193,67,44,0.1); color: var(--accent); }
+  .pill-freemium { background: rgba(133,122,107,0.15); color: var(--ink-2); }
+
+  .glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .term { background: var(--paper); padding: 28px 32px; display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: start; }
+  .term dt { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; line-height: 1.15; }
+  .term dt small { display: block; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); margin-top: 6px; font-weight: 400; letter-spacing: 0.05em; }
+  .term dd { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+
+  .faq { background: var(--bg-2); }
+  .faq-list { max-width: 900px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--line); padding: 24px 0; }
+  details summary { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: "+"; font-family: 'Instrument Serif', serif; font-size: 32px; color: var(--accent); font-style: italic; transition: transform 0.2s; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details p { margin-top: 14px; font-size: 15.5px; color: var(--ink-2); line-height: 1.65; max-width: 780px; }
+
+  footer { background: var(--ink); color: var(--paper); padding: 80px 32px 40px; }
+  .footer-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; }
+  footer h5 { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(250,247,241,0.5); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 18px; }
+  footer ul { list-style: none; }
+  footer ul li { padding: 5px 0; font-size: 14px; color: rgba(250,247,241,0.75); }
+  footer ul li:hover { color: var(--accent-soft); cursor: pointer; }
+  .footer-brand h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 40px; line-height: 1; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .footer-brand h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
+  .footer-brand p { font-size: 14px; color: rgba(250,247,241,0.65); max-width: 360px; line-height: 1.55; }
+  .footer-bottom { max-width: 1240px; margin: 60px auto 0; padding-top: 24px; border-top: 1px solid rgba(250,247,241,0.1); display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(250,247,241,0.5); letter-spacing: 0.05em; }
+
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(26, 22, 19, 0.6); backdrop-filter: blur(4px); z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.25s; display: grid; place-items: center; padding: 40px 20px; }
+  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+  .modal { background: var(--paper); max-width: 860px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(16px); transition: transform 0.3s; border: 1px solid var(--line); }
+  .modal-backdrop.open .modal { transform: translateY(0); }
+  .modal-close { position: sticky; top: 0; margin-left: auto; display: block; width: 44px; height: 44px; background: var(--paper); border: none; cursor: pointer; font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--ink); z-index: 2; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .modal-close:hover { background: var(--accent); color: var(--paper); }
+  .modal-content { padding: 20px 56px 56px; margin-top: -44px; }
+  .modal-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 14px; padding-top: 30px; }
+  .modal-content h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 42px; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
+  .modal-content h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+  .modal-lede { font-family: 'Fraunces', serif; font-size: 19px; color: var(--ink-2); line-height: 1.5; margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+  .modal-content h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 24px; margin-top: 36px; margin-bottom: 14px; line-height: 1.2; }
+  .modal-content p { font-size: 15.5px; color: var(--ink-2); line-height: 1.7; margin-bottom: 14px; }
+  .modal-content ul, .modal-content ol { margin: 14px 0 20px 0; padding-left: 22px; color: var(--ink-2); font-size: 15.5px; line-height: 1.7; }
+  .modal-content li { margin-bottom: 8px; }
+  .modal-content .callout { background: var(--bg); border-left: 3px solid var(--accent); padding: 18px 22px; margin: 20px 0; font-size: 14.5px; }
+  .modal-content .callout strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 600; }
+  .modal-content code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--bg); padding: 2px 6px; border: 1px solid var(--line); }
+  .modal-content pre { background: var(--ink); color: var(--paper); padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; overflow-x: auto; margin: 18px 0; line-height: 1.5; }
+  .modal-nav { display: flex; justify-content: space-between; padding-top: 36px; margin-top: 36px; border-top: 1px solid var(--line); gap: 16px; }
+  .modal-nav button { background: none; border: 1px solid var(--line); padding: 14px 20px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink); cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; transition: all 0.15s; }
+  .modal-nav button:hover:not(:disabled) { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .modal-nav button:disabled { opacity: 0.3; cursor: not-allowed; }
+  .modal-nav button small { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--muted); }
+  .modal-nav button:hover:not(:disabled) small { color: var(--accent-soft); }
+  .modal-nav button.next { align-items: flex-end; }
+  body.modal-open { overflow: hidden; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
+    .section-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+    .what-grid { grid-template-columns: 1fr; }
+    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+    .plan-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+    .term { grid-template-columns: 1fr; gap: 10px; }
+    .checklist-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .checklist-aside { position: static; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .ai-callout { grid-template-columns: 1fr; padding: 40px 28px; }
+    .nav-links { display: none; }
+    section { padding: 48px 20px; }
+    .lesson { grid-template-columns: 40px 1fr; gap: 16px; }
+    .lesson-meta { display: none; }
+    .lesson-arrow { display: none; }
+    .modal-content { padding: 20px 24px 40px; }
+    .modal-content h2 { font-size: 32px; }
+    .modal-nav { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">S</span>
+      <span>SEO <em class="italic-serif" style="color: var(--accent); font-weight: 400;">Sekolah</em></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#apa-itu">Apa itu</a>
+      <a href="#crawler-demo">Crawler</a>
+      <a href="#serp-anatomy">SERP</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#pilar">Pilar</a>
+      <a href="#keyword-playground">Lab</a>
+      <a href="#kurikulum">Kurikulum</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+    <button class="nav-cta" onclick="document.getElementById('kurikulum').scrollIntoView()">Mulai Belajar →</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">Kurikulum SEO Edisi 2026 · Pemula sampai Mahir</div>
+    <h1>Belajar SEO<br>dari <em>nol</em>,<br>sampai halaman<br>pertama Google.</h1>
+    <p class="hero-lede">Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.</p>
+    <div class="hero-meta">
+      <div><strong>15</strong>Bab lengkap</div>
+      <div><strong>6</strong>Tools interaktif</div>
+      <div><strong>10 fase</strong>Roadmap learningseo.io</div>
+      <div><strong>Gratis</strong>Selamanya</div>
+    </div>
+  </div>
+  <aside class="hero-aside">
+    <h3>Yang akan kamu kuasai</h3>
+    <p>Mulai dari memahami cara kerja mesin pencari sampai mengoptimalkan halaman untuk AI Overviews.</p>
+    <ul>
+      <li>Cara kerja Google: crawl, index, rank</li>
+      <li>Riset keyword dengan tools gratis</li>
+      <li>On-page SEO: title, meta, heading, internal link</li>
+      <li>Technical SEO: speed, mobile, sitemap, HTTPS</li>
+      <li>Off-page SEO dan backlink yang sehat</li>
+      <li>Optimasi untuk AI search (ChatGPT, Gemini)</li>
+    </ul>
+  </aside>
+</section>
+
+<section id="apa-itu">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 01 · FUNDAMENTAL</div>
+      <div>
+        <h2>Apa itu <em>SEO</em>, dan kenapa penting di 2026?</h2>
+        <p>SEO (Search Engine Optimization) adalah praktik membuat situsmu lebih mudah ditemukan oleh orang yang mencari sesuatu di Google, Bing, atau bahkan ChatGPT. Bukan soal menipu algoritma, tapi soal membantu mesin memahami kontenmu, dan membantu manusia menemukan jawaban mereka.</p>
+      </div>
+    </div>
+
+    <div class="what-grid">
+      <div class="what-cell">
+        <span class="step-num">i</span>
+        <h4>Crawl</h4>
+        <p>Google mengirim program bernama <em class="italic-serif">crawler</em> untuk menjelajah web, mengikuti tautan dari satu halaman ke halaman lain, dan mengumpulkan apa yang mereka temukan.</p>
+      </div>
+      <div class="what-cell">
+        <span class="step-num">ii</span>
+        <h4>Index</h4>
+        <p>Halaman yang sudah ditemukan dianalisis dan disimpan di database raksasa. Jika halamanmu tidak ada di index, kamu tidak akan pernah muncul di hasil pencarian. Sesederhana itu.</p>
+      </div>
+      <div class="what-cell">
+        <span class="step-num">iii</span>
+        <h4>Rank</h4>
+        <p>Saat seseorang mengetik query, algoritma memilih halaman paling relevan dari index dan menyusunnya dari yang paling berguna ke yang paling kurang berguna. SEO sama dengan memperbaiki posisimu.</p>
+      </div>
+    </div>
+
+    <div class="ai-callout">
+      <div>
+        <h3>SEO di era <em>AI search</em> bukan mati, dia hanya berevolusi.</h3>
+      </div>
+      <div>
+        <p>Google AI Overviews, ChatGPT, Perplexity, Gemini. Semuanya menjadi "answer engine" baru. Tapi mereka masih butuh sumber. Kontenmu masih harus terstruktur, jelas, dan dapat dipercaya.</p>
+        <ul>
+          <li>Pakai heading yang jelas (H2, H3) supaya AI bisa memetakan struktur</li>
+          <li>Jawab pertanyaan utama di paragraf pembuka, inverted pyramid</li>
+          <li>Sertakan data, angka, tabel. AI suka mengutip fakta konkret</li>
+          <li>Bangun otoritas topikal, bukan sekadar satu artikel viral</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="crawler-demo">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 02 · VISUALISASI</div>
+      <div>
+        <h2>Lihat <em>Googlebot</em> bekerja.</h2>
+        <p>Tiga langkah yang terjadi tiap kali seseorang mencari sesuatu.</p>
+      </div>
+    </div>
+
+    <div class="crawler-wrap">
+      <div class="crawler-phases">
+        <div class="crawler-phase" data-phase="crawl"><span class="mono">§ CRAWL</span><small>Menjelajah tautan</small></div>
+        <div class="crawler-phase" data-phase="index"><span class="mono">§ INDEX</span><small>Menyimpan salinan</small></div>
+        <div class="crawler-phase" data-phase="rank"><span class="mono">§ RANK</span><small>Menyusun hasil</small></div>
+      </div>
+
+      <div class="crawler-stage">
+        <svg class="crawler-svg" viewBox="0 0 900 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <marker id="crawler-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#857a6b"/>
+            </marker>
+          </defs>
+          <text x="20" y="28" class="crawler-coltitle mono">WEB</text>
+          <text x="360" y="28" class="crawler-coltitle mono">INDEX GOOGLE</text>
+          <text x="640" y="28" class="crawler-coltitle mono">SERP</text>
+          <line x1="20" y1="40" x2="300" y2="40" class="crawler-sep"/>
+          <line x1="360" y1="40" x2="580" y2="40" class="crawler-sep"/>
+          <line x1="640" y1="40" x2="880" y2="40" class="crawler-sep"/>
+          <g id="crawler-links"></g>
+          <g id="crawler-pages"></g>
+          <g id="crawler-index"></g>
+          <g id="crawler-serp"></g>
+          <circle id="crawler-bot" r="9" cx="70" cy="100" class="crawler-bot"/>
+        </svg>
+
+        <div class="crawler-footer">
+          <p class="crawler-desc italic-serif" id="crawler-desc">Tekan tombol di bawah untuk memulai simulasi.</p>
+          <button class="crawler-btn mono" id="crawler-replay">↻ Ulangi animasi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #crawler-demo { padding: 80px 32px; background: var(--bg); color: var(--ink); }
+    .crawler-wrap { margin-top: 48px; border: 1px solid var(--line); background: var(--paper); border-radius: 4px; overflow: hidden; }
+    .crawler-phases { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+    .crawler-phase { padding: 18px 24px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; transition: background .4s, color .4s; }
+    .crawler-phase:last-child { border-right: 0; }
+    .crawler-phase span { font-size: 12px; letter-spacing: .12em; color: var(--muted); }
+    .crawler-phase small { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink-2); }
+    .crawler-phase.is-active { background: var(--ink); color: var(--paper); }
+    .crawler-phase.is-active span { color: var(--accent-soft); }
+    .crawler-phase.is-active small { color: var(--bg-2); }
+    .crawler-phase.is-done { background: var(--bg-2); }
+    .crawler-stage { padding: 28px; }
+    .crawler-svg { width: 100%; height: auto; display: block; }
+    .crawler-coltitle { font-size: 11px; letter-spacing: .18em; fill: var(--muted); }
+    .crawler-sep { stroke: var(--line); stroke-width: 1; }
+    .crawler-page-box { fill: var(--paper); stroke: var(--muted); stroke-width: 1.3; transition: all .35s ease; }
+    .crawler-page-box.is-visiting { fill: var(--accent-soft); stroke: var(--accent); }
+    .crawler-page-box.is-done { fill: var(--bg-2); stroke: var(--ok); stroke-width: 1.6; }
+    .crawler-page-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--ink-2); pointer-events: none; }
+    .crawler-check { opacity: 0; transition: opacity .3s; }
+    .crawler-check.show { opacity: 1; }
+    .crawler-link { stroke: var(--line); stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    .crawler-link.is-traveled { stroke: var(--accent); stroke-dasharray: 0; }
+    .crawler-bot { fill: var(--ink); stroke: var(--accent); stroke-width: 2.5; filter: drop-shadow(0 0 6px rgba(193,67,44,.5)); transition: opacity .3s; }
+    .crawler-index-item { opacity: 0; transform: translateY(8px); transition: opacity .4s, transform .4s; }
+    .crawler-index-item.show { opacity: 1; transform: translateY(0); }
+    .crawler-index-box { fill: var(--paper); stroke: var(--ok); stroke-width: 1.2; }
+    .crawler-index-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--ink); }
+    .crawler-serp-item { opacity: 0; transition: opacity .5s; }
+    .crawler-serp-item.show { opacity: 1; }
+    .crawler-serp-title { font-family: 'Fraunces', serif; font-size: 15px; fill: var(--ink); font-weight: 500; }
+    .crawler-serp-url { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--ok); }
+    .crawler-serp-desc { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--muted); }
+    .crawler-serp-rank { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; fill: var(--accent); }
+    .crawler-footer { margin-top: 20px; padding-top: 20px; border-top: 1px dashed var(--line); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .crawler-desc { font-size: 18px; color: var(--ink-2); margin: 0; flex: 1; min-width: 240px; }
+    .crawler-btn { background: var(--ink); color: var(--paper); border: 0; padding: 12px 20px; font-size: 11px; letter-spacing: .15em; cursor: pointer; border-radius: 2px; transition: background .2s; }
+    .crawler-btn:hover { background: var(--accent); }
+    @media (max-width: 680px) {
+      .crawler-phases { grid-template-columns: 1fr; }
+      .crawler-phase { border-right: 0; border-bottom: 1px solid var(--line); }
+      .crawler-stage { padding: 16px; }
+    }
+  </style>
+
+  <script>
+  (function(){
+    const pages = [
+      { id: 0, x: 70,  y: 80,  label: '/home',    title: 'Panduan SEO Lengkap untuk Pemula', desc: 'Mulai dari dasar, tanpa jargon berlebihan.' },
+      { id: 1, x: 200, y: 70,  label: '/blog',    title: 'Blog SEO: Studi Kasus Nyata',      desc: 'Koleksi eksperimen dan hasil di lapangan.' },
+      { id: 2, x: 80,  y: 200, label: '/tutorial',title: 'Tutorial SEO Step by Step',         desc: 'Tujuh langkah praktis buat pemilik toko.' },
+      { id: 3, x: 220, y: 200, label: '/tools',   title: 'Tools SEO Gratis Pilihan',          desc: 'Rekomendasi alat yang benar benar dipakai.' },
+      { id: 4, x: 140, y: 320, label: '/kontak',  title: 'Hubungi Tim Konsultan SEO',         desc: 'Konsultasi singkat, respons dalam 24 jam.' },
+      { id: 5, x: 260, y: 320, label: '/harga',   title: 'Harga Paket Audit SEO',             desc: 'Tiga tier, mulai dari audit ringan.' }
+    ];
+    const edges = [[0,1],[0,2],[1,3],[2,3],[2,4],[3,5],[4,5]];
+    const visitOrder = [0,1,3,5,4,2];
+    const linksG = document.getElementById('crawler-links');
+    const pagesG = document.getElementById('crawler-pages');
+    const indexG = document.getElementById('crawler-index');
+    const serpG  = document.getElementById('crawler-serp');
+    const bot    = document.getElementById('crawler-bot');
+    const desc   = document.getElementById('crawler-desc');
+    const phaseEls = document.querySelectorAll('.crawler-phase');
+    function render() {
+      linksG.innerHTML = ''; pagesG.innerHTML = ''; indexG.innerHTML = ''; serpG.innerHTML = '';
+      edges.forEach(([a,b],i) => {
+        const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+        line.setAttribute('x1', pages[a].x); line.setAttribute('y1', pages[a].y);
+        line.setAttribute('x2', pages[b].x); line.setAttribute('y2', pages[b].y);
+        line.setAttribute('class','crawler-link'); line.dataset.edge = i;
+        linksG.appendChild(line);
+      });
+      pages.forEach(p => {
+        const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        rect.setAttribute('x', p.x-28); rect.setAttribute('y', p.y-16);
+        rect.setAttribute('width', 56); rect.setAttribute('height', 32); rect.setAttribute('rx', 2);
+        rect.setAttribute('class','crawler-page-box'); rect.dataset.id = p.id;
+        pagesG.appendChild(rect);
+        const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+        t.setAttribute('x', p.x); t.setAttribute('y', p.y+3);
+        t.setAttribute('text-anchor','middle'); t.setAttribute('class','crawler-page-label');
+        t.textContent = p.label; pagesG.appendChild(t);
+        const ck = document.createElementNS('http://www.w3.org/2000/svg','text');
+        ck.setAttribute('x', p.x+20); ck.setAttribute('y', p.y-10);
+        ck.setAttribute('class','crawler-check mono'); ck.setAttribute('fill','#3d6b4a');
+        ck.setAttribute('font-size','12'); ck.textContent = '✓'; ck.dataset.check = p.id;
+        pagesG.appendChild(ck);
+      });
+      bot.setAttribute('cx', pages[visitOrder[0]].x);
+      bot.setAttribute('cy', pages[visitOrder[0]].y);
+      bot.style.opacity = 0;
+    }
+    function setPhase(name) {
+      phaseEls.forEach(el => { el.classList.remove('is-active'); if (el.dataset.phase === name) el.classList.add('is-active'); });
+      const order = ['crawl','index','rank'];
+      const idx = order.indexOf(name);
+      phaseEls.forEach((el,i) => { if (i < idx) el.classList.add('is-done'); });
+    }
+    function animateBot(fromIdx, toIdx, dur) {
+      return new Promise(resolve => {
+        const from = pages[fromIdx], to = pages[toIdx];
+        const start = performance.now();
+        function step(now){
+          const t = Math.min(1,(now-start)/dur);
+          const e = t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
+          bot.setAttribute('cx', from.x + (to.x-from.x)*e);
+          bot.setAttribute('cy', from.y + (to.y-from.y)*e);
+          if (t<1) requestAnimationFrame(step); else resolve();
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    const wait = ms => new Promise(r => setTimeout(r,ms));
+    async function run() {
+      render(); setPhase('crawl');
+      desc.textContent = 'Googlebot mulai menjelajahi halaman awal situs.';
+      await wait(500); bot.style.opacity = 1;
+      for (let i=0; i<visitOrder.length; i++) {
+        const cur = visitOrder[i];
+        const prev = i===0 ? cur : visitOrder[i-1];
+        if (i>0) {
+          const edgeIdx = edges.findIndex(([a,b]) => (a===prev&&b===cur)||(a===cur&&b===prev));
+          if (edgeIdx>=0) linksG.children[edgeIdx].classList.add('is-traveled');
+          await animateBot(prev, cur, 700);
+        }
+        const box = pagesG.querySelector('rect[data-id="'+cur+'"]');
+        box.classList.add('is-visiting');
+        desc.textContent = 'Bot membaca '+pages[cur].label+', mengikuti tautan ke halaman berikutnya.';
+        await wait(450);
+        box.classList.remove('is-visiting'); box.classList.add('is-done');
+        pagesG.querySelector('text[data-check="'+cur+'"]').classList.add('show');
+        setPhase('index'); addToIndex(cur, i);
+        await wait(350); setPhase('crawl');
+      }
+      bot.style.opacity = 0; setPhase('index');
+      desc.textContent = 'Semua halaman tersimpan di indeks Google, siap dinilai relevansinya.';
+      await wait(900);
+      setPhase('rank');
+      desc.textContent = 'Google menyusun peringkat berdasarkan relevansi, otoritas, dan sinyal pengguna.';
+      await renderSerp();
+    }
+    function addToIndex(pageId, slot) {
+      const y = 70 + slot*38;
+      const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+      g.setAttribute('class','crawler-index-item');
+      g.innerHTML = '<rect x="370" y="'+y+'" width="200" height="28" rx="2" class="crawler-index-box"/>'
+        + '<text x="380" y="'+(y+18)+'" class="crawler-index-label">'+pages[pageId].label+'</text>'
+        + '<text x="560" y="'+(y+18)+'" text-anchor="end" class="crawler-index-label" fill="#3d6b4a">indexed</text>';
+      indexG.appendChild(g);
+      requestAnimationFrame(() => g.classList.add('show'));
+    }
+    async function renderSerp() {
+      const ranked = [3,0,2].map(i => pages[i]);
+      for (let i=0;i<ranked.length;i++) {
+        const y = 80 + i*95; const p = ranked[i];
+        const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+        g.setAttribute('class','crawler-serp-item');
+        g.innerHTML = '<text x="650" y="'+y+'" class="crawler-serp-rank">'+(i+1)+'.</text>'
+          + '<text x="680" y="'+(y-4)+'" class="crawler-serp-title">'+p.title+'</text>'
+          + '<text x="680" y="'+(y+14)+'" class="crawler-serp-url">situsmu.com'+p.label+'</text>'
+          + '<text x="680" y="'+(y+32)+'" class="crawler-serp-desc">'+p.desc+'</text>';
+        serpG.appendChild(g);
+        await wait(400); g.classList.add('show');
+      }
+      desc.textContent = 'Hasil pencarian tampil ke pengguna dalam hitungan milidetik.';
+    }
+    document.getElementById('crawler-replay').addEventListener('click', run);
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { run(); io.disconnect(); } });
+      }, { threshold: .25 });
+      io.observe(document.getElementById('crawler-demo'));
+    } else { run(); }
+  })();
+  </script>
+</section>
+<section id="serp-anatomy">
+  <style>
+    #serp-anatomy { padding: 96px 32px; background: var(--bg); border-top: 1px solid var(--line); }
+    .serp-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: start; }
+    @media (max-width: 900px) { .serp-grid { grid-template-columns: 1fr; } }
+    .serp-mockup { background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 20px; box-shadow: 0 2px 0 var(--bg-2); }
+    .serp-searchbar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 24px; margin-bottom: 20px; background: #fff; }
+    .serp-searchbar .serp-q { font-size: 14px; color: var(--ink); flex: 1; }
+    .serp-searchbar .serp-icon { width: 14px; height: 14px; border: 2px solid var(--muted); border-radius: 50%; position: relative; }
+    .serp-block { border: 1px dashed transparent; border-radius: 4px; padding: 12px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s ease; position: relative; }
+    .serp-block:hover { border-color: var(--accent-soft); background: rgba(232, 106, 82, 0.04); }
+    .serp-block.is-active { border: 1px solid var(--accent); background: rgba(193, 67, 44, 0.06); }
+    .serp-block.is-active::before { content: attr(data-label); position: absolute; top: -10px; left: 10px; background: var(--accent); color: var(--paper); font-family: 'JetBrains Mono', monospace; font-size: 9px; padding: 2px 8px; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 2px; }
+    .serp-ad-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; border: 1px solid var(--ink); padding: 1px 5px; border-radius: 3px; margin-right: 8px; font-weight: 600; }
+    .serp-result-title { font-size: 17px; color: #1a0dab; font-family: 'Fraunces', serif; font-weight: 400; margin: 4px 0 2px; line-height: 1.3; }
+    .serp-result-url { font-size: 12px; color: var(--ok); font-family: 'JetBrains Mono', monospace; }
+    .serp-result-desc { font-size: 13px; color: var(--ink-2); line-height: 1.5; margin-top: 4px; }
+    .serp-ai { background: linear-gradient(135deg, #fef8f5, #f5ecd9); border: 1px solid var(--line); padding: 16px !important; }
+    .serp-ai-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .serp-ai-dot { width: 14px; height: 14px; border-radius: 50%; background: linear-gradient(45deg, var(--accent), var(--accent-soft)); }
+    .serp-ai-title { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 500; }
+    .serp-ai-body { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
+    .serp-snippet { background: #fff; border: 1px solid var(--line) !important; }
+    .serp-snippet-label { font-size: 11px; color: var(--muted); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .serp-snippet ul { margin: 6px 0 0; padding-left: 20px; font-size: 13px; color: var(--ink-2); line-height: 1.7; }
+    .serp-paa-item { border-top: 1px solid var(--line); padding: 10px 0; display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--ink); cursor: pointer; }
+    .serp-paa-item:first-child { border-top: none; }
+    .serp-paa-item .serp-chev { font-family: 'JetBrains Mono', monospace; color: var(--muted); font-size: 12px; transition: transform 0.2s; }
+    .serp-paa-item.open .serp-chev { transform: rotate(180deg); }
+    .serp-paa-answer { font-size: 13px; color: var(--ink-2); line-height: 1.6; padding: 4px 0 10px; display: none; }
+    .serp-paa-item.open + .serp-paa-answer { display: block; }
+    .serp-related { display: flex; flex-wrap: wrap; gap: 8px; }
+    .serp-chip { font-size: 13px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 20px; background: var(--bg-2); color: var(--ink-2); }
+    .serp-panel { position: sticky; top: 90px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 28px; min-height: 420px; }
+    .serp-panel-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 12px; }
+    .serp-panel-title { font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15; color: var(--ink); margin: 0 0 6px; letter-spacing: -0.01em; }
+    .serp-panel-sub { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; color: var(--accent); margin-bottom: 20px; }
+    .serp-panel-section { margin-top: 20px; }
+    .serp-panel-section h4 { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; margin: 0 0 8px; font-weight: 500; }
+    .serp-panel-section p, .serp-panel-section li { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ink-2); line-height: 1.65; margin: 0 0 6px; }
+    .serp-panel-section ul { padding-left: 18px; margin: 0; }
+    .serp-panel.empty .serp-panel-title { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--muted); font-size: 22px; }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 03 · ANATOMI SERP</div>
+      <div>
+        <h2>Apa saja yang ada di <em>halaman hasil</em> Google?</h2>
+        <p>Klik tiap komponen untuk memahami peluang dan cara optimasinya.</p>
+      </div>
+    </div>
+
+    <div class="serp-grid">
+      <div class="serp-mockup">
+        <div class="serp-searchbar">
+          <span class="serp-q serif">cara memulai belajar seo</span>
+          <span class="serp-icon"></span>
+        </div>
+        <div class="serp-block" data-feature="ads" data-label="Iklan">
+          <div><span class="serp-ad-tag">Ad</span><span class="serp-result-url">www.kursus-seo.id</span></div>
+          <div class="serp-result-title">Kursus SEO Bersertifikat, Mulai 299rb</div>
+          <div class="serp-result-desc">Belajar SEO dari praktisi, materi lengkap, mentor siap bantu. Daftar sekarang.</div>
+        </div>
+        <div class="serp-block serp-ai" data-feature="ai" data-label="AI Overview">
+          <div class="serp-ai-head"><span class="serp-ai-dot"></span><span class="serp-ai-title">AI Overview</span></div>
+          <div class="serp-ai-body">Untuk memulai SEO, pahami dulu cara kerja mesin pencari, riset kata kunci yang relevan, lalu buat konten berkualitas yang menjawab maksud pencarian. Teknis dasar seperti kecepatan situs dan struktur URL juga penting.</div>
+        </div>
+        <div class="serp-block serp-snippet" data-feature="snippet" data-label="Featured Snippet">
+          <div class="serp-snippet-label">Featured Snippet</div>
+          <div class="serp-result-title" style="color: #1a0dab;">5 Langkah Pertama Belajar SEO</div>
+          <ul><li>Pahami cara kerja Google</li><li>Riset kata kunci dasar</li><li>Pelajari on-page SEO</li></ul>
+          <div class="serp-result-url" style="margin-top: 8px;">belajarseo.id › panduan</div>
+        </div>
+        <div class="serp-block" data-feature="paa" data-label="People Also Ask">
+          <div style="font-family: 'Fraunces', serif; font-size: 18px; margin-bottom: 10px;">Orang juga bertanya</div>
+          <div>
+            <div class="serp-paa-item"><span>Berapa lama belajar SEO sampai bisa?</span><span class="serp-chev">v</span></div>
+            <div class="serp-paa-answer">Umumnya 3 sampai 6 bulan untuk dasar, 1 tahun lebih untuk mahir praktis.</div>
+            <div class="serp-paa-item"><span>Apakah SEO masih relevan di era AI?</span><span class="serp-chev">v</span></div>
+            <div class="serp-paa-answer">Masih sangat relevan. Prinsipnya bergeser ke kualitas, otoritas, dan kecocokan maksud pencarian.</div>
+            <div class="serp-paa-item"><span>Tools SEO gratis apa saja?</span><span class="serp-chev">v</span></div>
+            <div class="serp-paa-answer">Google Search Console, Analytics, Keyword Planner, PageSpeed Insights, dan Bing Webmaster.</div>
+          </div>
+        </div>
+        <div class="serp-block" data-feature="organic" data-label="Organic Result">
+          <div class="serp-result-url">belajarseo.id › pemula</div>
+          <div class="serp-result-title">Panduan SEO untuk Pemula, Versi Bahasa Indonesia</div>
+          <div class="serp-result-desc">Tutorial lengkap mulai dari nol, mencakup riset kata kunci, on-page, dan teknis dasar.</div>
+        </div>
+        <div class="serp-block" data-feature="organic" data-label="Organic Result">
+          <div class="serp-result-url">moz.com › beginners-guide-seo</div>
+          <div class="serp-result-title">The Beginner's Guide to SEO</div>
+          <div class="serp-result-desc">Bab demi bab memandu pembaca memahami SEO modern dengan contoh konkret.</div>
+        </div>
+        <div class="serp-block" data-feature="organic" data-label="Organic Result">
+          <div class="serp-result-url">ahrefs.com › blog › belajar-seo</div>
+          <div class="serp-result-title">Belajar SEO Secara Mandiri dalam 90 Hari</div>
+          <div class="serp-result-desc">Rencana harian untuk praktisi pemula yang ingin membangun dasar SEO kuat.</div>
+        </div>
+        <div class="serp-block" data-feature="related" data-label="Related Searches">
+          <div style="font-family: 'Fraunces', serif; font-size: 16px; margin-bottom: 10px;">Penelusuran terkait</div>
+          <div class="serp-related">
+            <span class="serp-chip">seo pemula pdf</span>
+            <span class="serp-chip">kursus seo gratis</span>
+            <span class="serp-chip">contoh seo on page</span>
+            <span class="serp-chip">alat seo gratis 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="serp-panel empty" id="serp-panel">
+        <div class="serp-panel-tag">§ Detail Fitur</div>
+        <div class="serp-panel-title">Klik komponen SERP untuk pelajari perannya.</div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var data = {
+        ads: { title: 'Iklan Berbayar', sub: 'Google Ads, bukan hasil organik.', desc: 'Slot berbayar di atas atau bawah hasil. Menggunakan sistem lelang berbasis relevansi dan penawaran.', peluang: ['Trafik cepat untuk kampanye baru', 'Uji intent kata kunci sebelum investasi SEO', 'Dominasi SERP di kata kunci transaksional'], tips: ['Pisahkan kampanye brand dan non brand', 'Gunakan negative keywords', 'Selaraskan landing page dengan maksud pencarian'] },
+        ai: { title: 'AI Overview', sub: 'Ringkasan jawaban generatif di puncak SERP.', desc: 'Kotak ringkasan yang disusun model bahasa Google dari berbagai sumber tepercaya. Mengubah pola klik organik.', peluang: ['Menjadi sumber kutipan otoritatif', 'Menangkap trafik informasional dalam maksud riset', 'Membangun brand recognition lewat citation'], tips: ['Jawab pertanyaan secara singkat dan terstruktur', 'Pakai heading pertanyaan yang jelas', 'Perkuat sinyal E E A T lewat author bio dan referensi'] },
+        snippet: { title: 'Featured Snippet', sub: 'Posisi nol, jawaban langsung di atas hasil.', desc: 'Google mengangkat cuplikan konten yang menjawab query langsung. Formatnya bisa paragraf, list, atau tabel.', peluang: ['Visibilitas ganda, snippet plus listing', 'Peningkatan otoritas topikal', 'Menjawab voice search'], tips: ['Tulis definisi singkat 40 sampai 60 kata', 'Gunakan list terstruktur untuk how to', 'Tempatkan jawaban langsung setelah heading pertanyaan'] },
+        paa: { title: 'People Also Ask', sub: 'Pertanyaan lanjutan yang terus membesar.', desc: 'Kumpulan pertanyaan terkait yang Google anggap berhubungan dengan query utama. Setiap klik bisa memunculkan pertanyaan baru.', peluang: ['Riset topik cluster', 'Ide FAQ dan H2 konten', 'Sumber long tail keyword'], tips: ['Buat section FAQ terstruktur', 'Pakai schema FAQPage bila relevan', 'Jawab dalam 2 sampai 3 kalimat padat'] },
+        organic: { title: 'Hasil Organik', sub: 'Sepuluh tautan biru klasik.', desc: 'Hasil non berbayar yang diperingkat berdasarkan algoritma relevansi, otoritas, dan pengalaman pengguna.', peluang: ['Trafik jangka panjang dengan biaya marginal rendah', 'Membangun otoritas domain', 'Konversi stabil dari maksud spesifik'], tips: ['Optimalkan title dan meta description untuk CTR', 'Bangun internal link yang relevan', 'Jaga kesesuaian konten dengan maksud pencarian'] },
+        related: { title: 'Related Searches', sub: 'Penelusuran terkait di dasar halaman.', desc: 'Saran query lain yang sering diketik pengguna setelah query utama. Cermin perjalanan intent.', peluang: ['Memetakan customer journey', 'Bahan untuk konten pilar dan cluster', 'Menemukan kata kunci dengan kompetisi lebih rendah'], tips: ['Gabungkan dengan data Search Console', 'Bangun konten lanjutan untuk setiap saran', 'Gunakan sebagai anchor internal link'] }
+      };
+      var panel = document.getElementById('serp-panel');
+      var blocks = document.querySelectorAll('#serp-anatomy .serp-block');
+      blocks.forEach(function (b) {
+        b.addEventListener('click', function (e) {
+          if (e.target.closest('.serp-paa-item')) return;
+          var key = b.getAttribute('data-feature');
+          blocks.forEach(function (x) { x.classList.remove('is-active'); });
+          b.classList.add('is-active');
+          var d = data[key];
+          panel.classList.remove('empty');
+          panel.innerHTML = '<div class="serp-panel-tag">§ Detail Fitur</div>' +
+            '<div class="serp-panel-title">' + d.title + '</div>' +
+            '<div class="serp-panel-sub">' + d.sub + '</div>' +
+            '<div class="serp-panel-section"><h4>Deskripsi</h4><p>' + d.desc + '</p></div>' +
+            '<div class="serp-panel-section"><h4>Peluang SEO</h4><ul>' + d.peluang.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul></div>' +
+            '<div class="serp-panel-section"><h4>Tips Singkat</h4><ul>' + d.tips.map(function (p) { return '<li>' + p + '</li>'; }).join('') + '</ul></div>';
+        });
+      });
+      document.querySelectorAll('#serp-anatomy .serp-paa-item').forEach(function (item) {
+        item.addEventListener('click', function (e) { e.stopPropagation(); item.classList.toggle('open'); });
+      });
+    })();
+  </script>
+</section>
+<section id="roadmap">
+  <style>
+    #roadmap { padding: 96px 32px; background: var(--bg-2); border-top: 1px solid var(--line); }
+    .roadmap-track { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+    .roadmap-track::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--line); transform: translateX(-0.5px); }
+    @media (max-width: 900px) { .roadmap-track { grid-template-columns: 1fr; } .roadmap-track::before { left: 24px; } }
+    .roadmap-phase { position: relative; padding: 24px 0 40px; break-inside: avoid; }
+    .roadmap-phase::before { content: ''; position: absolute; top: 36px; width: 11px; height: 11px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); z-index: 2; }
+    .roadmap-phase.left { padding-right: 32px; text-align: right; }
+    .roadmap-phase.left::before { right: -38px; }
+    .roadmap-phase.right { padding-left: 32px; grid-column: 2; }
+    .roadmap-phase.right::before { left: -38px; }
+    @media (max-width: 900px) {
+      .roadmap-phase.left, .roadmap-phase.right { grid-column: 1; text-align: left; padding-left: 56px; padding-right: 0; }
+      .roadmap-phase.left::before, .roadmap-phase.right::before { left: 19px; right: auto; }
+    }
+    .roadmap-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 56px; color: var(--accent); line-height: 1; margin-bottom: 8px; font-weight: 400; }
+    .roadmap-title { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; color: var(--ink); margin: 0 0 8px; letter-spacing: -0.01em; line-height: 1.25; }
+    .roadmap-desc { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ink-2); line-height: 1.6; margin: 0 0 16px; max-width: 380px; }
+    .roadmap-phase.left .roadmap-desc { margin-left: auto; }
+    .roadmap-toggle { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); background: none; border: 1px solid var(--accent); padding: 6px 12px; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+    .roadmap-toggle:hover { background: var(--accent); color: var(--paper); }
+    .roadmap-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .roadmap-phase.left .roadmap-pills { justify-content: flex-end; }
+    .roadmap-phase.is-open .roadmap-pills { max-height: 300px; }
+    .roadmap-pill { font-family: 'Inter', sans-serif; font-size: 12px; padding: 5px 11px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-2); border-radius: 20px; white-space: nowrap; }
+    .roadmap-pill:hover { border-color: var(--accent-soft); color: var(--accent); }
+    @media (max-width: 900px) { .roadmap-phase.left .roadmap-desc { margin-left: 0; } .roadmap-phase.left .roadmap-pills { justify-content: flex-start; } }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 04 · ROADMAP 10 FASE</div>
+      <div>
+        <h2>Peta lengkap <em>perjalanan</em> SEO praktisi.</h2>
+        <p>Dari pemula sampai mahir, berdasarkan roadmap komunitas global learningseo.io.</p>
+      </div>
+    </div>
+    <div class="roadmap-track" id="roadmap-track"></div>
+  </div>
+
+  <script>
+    (function () {
+      var phases = [
+        { num: '01', title: 'Fundamental SEO', desc: 'Dasar yang wajib dikuasai sebelum melangkah lebih jauh ke spesialisasi.', tags: ['keyword research', 'analisis kompetisi', 'technical dasar', 'on page content', 'link building dasar'] },
+        { num: '02', title: 'Eksekusi Proses SEO', desc: 'Mengubah pengetahuan jadi workflow yang terukur dan dipercaya stakeholder.', tags: ['strategi', 'goal setting', 'audit', 'measurement', 'reporting', 'stakeholder buy in'] },
+        { num: '03', title: 'SEO di CMS', desc: 'Memahami platform tempat konten dan produk Anda sebenarnya dipasang.', tags: ['WordPress', 'Shopify', 'Wix', 'Webflow', 'Magento', 'Squarespace'] },
+        { num: '04', title: 'Perdalam Pengetahuan', desc: 'Selami area teknis, konten, dan manajemen dengan lebih dalam dan terstruktur.', tags: ['technical lanjutan', 'content lanjutan', 'link building', 'management'] },
+        { num: '05', title: 'Spesialisasi', desc: 'Pilih vertikal atau skala yang cocok dengan minat dan peluang pasar Anda.', tags: ['international', 'e commerce', 'local', 'enterprise', 'news', 'SaaS', 'travel', 'UMKM'] },
+        { num: '06', title: 'Otomasi SEO', desc: 'Lepaskan diri dari tugas berulang, bangun tooling agar skala mungkin.', tags: ['Python', 'SQL', 'App Scripts', 'regex', 'JavaScript', 'AI dan LLM', 'machine learning'] },
+        { num: '07', title: 'SEO di Mesin Lain', desc: 'Google bukan satu satunya, eksplorasi kanal pencarian yang tumbuh cepat.', tags: ['Bing', 'Yandex', 'Baidu', 'Naver', 'Amazon', 'YouTube', 'TikTok', 'Reddit'] },
+        { num: '08', title: 'Ikuti Berita SEO', desc: 'Industri ini berubah mingguan, bangun kebiasaan konsumsi informasi yang sehat.', tags: ['publikasi resmi', 'newsletter', 'podcast', 'aggregator', 'event'] },
+        { num: '09', title: 'Lengkapi Skill Pendukung', desc: 'Skill tetangga yang membuat pekerjaan SEO Anda jauh lebih ampuh.', tags: ['HTML dan CSS', 'JavaScript', 'analytics', 'Tag Manager', 'ASO', 'soft skills'] },
+        { num: '10', title: 'Latihan dan Troubleshoot', desc: 'Uji praktik, diagnosa kasus nyata, dan terus kembangkan intuisi Anda.', tags: ['kursus', 'kuis', 'diagnosa ranking', 'program accelerator'] }
+      ];
+      var track = document.getElementById('roadmap-track');
+      var html = '';
+      phases.forEach(function (p, i) {
+        var side = i % 2 === 0 ? 'left' : 'right';
+        html += '<div class="roadmap-phase ' + side + '">' +
+          '<div class="roadmap-num">' + p.num + '</div>' +
+          '<h3 class="roadmap-title">' + p.title + '</h3>' +
+          '<p class="roadmap-desc">' + p.desc + '</p>' +
+          '<button class="roadmap-toggle" type="button">Lihat subtopik</button>' +
+          '<div class="roadmap-pills">' + p.tags.map(function (t) { return '<span class="roadmap-pill">' + t + '</span>'; }).join('') + '</div>' +
+          '</div>';
+      });
+      track.innerHTML = html;
+      track.querySelectorAll('.roadmap-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var phase = btn.closest('.roadmap-phase');
+          phase.classList.toggle('is-open');
+          btn.textContent = phase.classList.contains('is-open') ? 'Sembunyikan' : 'Lihat subtopik';
+        });
+      });
+    })();
+  </script>
+</section>
+<section id="pilar">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 05 · EMPAT PILAR</div>
+      <div>
+        <h2>Empat <em>pilar</em> yang menopang semua strategi SEO.</h2>
+        <p>Bayangkan sebagai kaki meja. Kalau salah satu lemah, seluruh strategi goyah. Setiap pilar punya teknik dan metriknya sendiri, tapi mereka bekerja bersama.</p>
+      </div>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">i</div>
+        <h4>On-Page SEO</h4>
+        <p>Optimasi elemen di dalam halamanmu sendiri (konten, HTML, struktur) supaya mesin dan manusia mudah memahaminya.</p>
+        <ul><li>Title dan meta description</li><li>Heading hierarchy</li><li>Keyword placement</li><li>Alt text dan URL</li></ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">ii</div>
+        <h4>Off-Page SEO</h4>
+        <p>Semua yang terjadi di luar situsmu: backlink, brand mention, sinyal sosial. Pada dasarnya, reputasi di mata internet.</p>
+        <ul><li>Backlink berkualitas</li><li>Digital PR</li><li>Brand mentions</li><li>Guest content</li></ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">iii</div>
+        <h4>Technical SEO</h4>
+        <p>Fondasi infrastruktur. Kalau Google tidak bisa meng-crawl atau meng-index situsmu, konten terbaik sekalipun tidak akan terlihat.</p>
+        <ul><li>Speed dan Core Web Vitals</li><li>Mobile-friendly</li><li>HTTPS dan keamanan</li><li>Sitemap dan robots.txt</li></ul>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">iv</div>
+        <h4>Local dan AI SEO</h4>
+        <p>Pilar baru untuk 2026: Google Business Profile untuk lokal, dan optimasi untuk AI Overviews serta answer engines.</p>
+        <ul><li>Google Business Profile</li><li>Schema dan structured data</li><li>AI-friendly formatting</li><li>Retrieval optimization</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="keyword-playground">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 06 · PLAYGROUND KEYWORD</div>
+      <div>
+        <h2 class="serif">Eksperimen <em class="italic-serif">keyword</em> langsung di sini.</h2>
+        <p>Ketik satu kata kunci utama, lalu lihat bagaimana ia bercabang jadi puluhan long-tail yang lebih spesifik. Data di sini dummy, tujuannya melatih intuisi, bukan riset produksi.</p>
+      </div>
+    </div>
+
+    <div class="kwp-wrap">
+      <div class="kwp-inputbar">
+        <label class="kwp-label mono" for="kwp-input">KEYWORD UTAMA</label>
+        <div class="kwp-inputrow">
+          <input id="kwp-input" type="text" class="kwp-input serif" placeholder="Coba: resep rendang" autocomplete="off" />
+          <button id="kwp-go" class="kwp-btn mono">Eksplorasi →</button>
+        </div>
+        <div class="kwp-hints mono">
+          <span>Saran cepat:</span>
+          <button data-kw="resep rendang" class="kwp-chip">resep rendang</button>
+          <button data-kw="belajar gitar" class="kwp-chip">belajar gitar</button>
+          <button data-kw="laptop murah" class="kwp-chip">laptop murah</button>
+          <button data-kw="wisata jogja" class="kwp-chip">wisata jogja</button>
+        </div>
+      </div>
+      <div class="kwp-results" id="kwp-results">
+        <div class="kwp-empty italic-serif">Hasil eksplorasi akan muncul di sini.</div>
+      </div>
+      <div class="kwp-info">
+        <div class="kwp-info-num mono">i</div>
+        <div>
+          <strong class="serif">Catatan edukatif.</strong>
+          <p>Skor volume dan difficulty di atas dihasilkan client-side untuk tujuan belajar. Untuk riset produksi, kombinasikan Google Keyword Planner, Google Trends, data Search Console, serta tools seperti Ahrefs atau Semrush. Intinya, long-tail biasanya lebih rendah volumenya tapi lebih mudah di-rank dan lebih tinggi konversinya.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #keyword-playground { padding: 96px 32px; background: var(--bg); color: var(--ink); }
+    .kwp-wrap { margin-top: 48px; }
+    .kwp-inputbar { background: var(--paper); border: 1px solid var(--line); padding: 28px; border-radius: 4px; }
+    .kwp-label { font-size: 11px; letter-spacing: 0.12em; color: var(--muted); display: block; margin-bottom: 12px; }
+    .kwp-inputrow { display: flex; gap: 12px; align-items: stretch; }
+    .kwp-input { flex: 1; border: none; border-bottom: 2px solid var(--ink); background: transparent; font-size: 28px; font-family: 'Fraunces', serif; padding: 8px 0; color: var(--ink); outline: none; }
+    .kwp-input::placeholder { color: var(--muted); font-style: italic; font-family: 'Instrument Serif', serif; }
+    .kwp-input:focus { border-bottom-color: var(--accent); }
+    .kwp-btn { background: var(--ink); color: var(--paper); border: none; padding: 0 24px; font-size: 12px; letter-spacing: 0.1em; cursor: pointer; transition: background 0.2s; }
+    .kwp-btn:hover { background: var(--accent); }
+    .kwp-hints { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; font-size: 11px; color: var(--muted); }
+    .kwp-chip { background: var(--bg-2); border: 1px solid var(--line); padding: 4px 10px; font-size: 11px; cursor: pointer; font-family: 'JetBrains Mono', monospace; color: var(--ink-2); border-radius: 2px; }
+    .kwp-chip:hover { background: var(--ink); color: var(--paper); }
+    .kwp-results { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; min-height: 100px; }
+    .kwp-empty { grid-column: 1 / -1; text-align: center; padding: 48px; color: var(--muted); font-size: 20px; }
+    .kwp-card { background: var(--paper); border: 1px solid var(--line); padding: 18px; border-left: 3px solid var(--ink); transition: transform 0.15s, border-color 0.15s; }
+    .kwp-card:hover { transform: translateY(-2px); border-left-color: var(--accent); }
+    .kwp-card-kw { font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.3; color: var(--ink); margin-bottom: 12px; }
+    .kwp-card-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+    .kwp-badge { padding: 3px 8px; border-radius: 2px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .kwp-badge.info { background: #e3ecd9; color: #3d5a2b; }
+    .kwp-badge.komersial { background: #f5e4c8; color: #7a5420; }
+    .kwp-badge.trans { background: #f2d4cc; color: var(--accent); }
+    .kwp-badge.nav { background: #dde3ec; color: #2b4560; }
+    .kwp-diff { color: var(--muted); }
+    .kwp-diff.mudah { color: var(--ok); }
+    .kwp-diff.menengah { color: #9a6a1a; }
+    .kwp-diff.sulit { color: var(--accent); }
+    .kwp-vol { color: var(--ink-2); font-weight: 600; }
+    .kwp-info { margin-top: 40px; background: var(--bg-2); border-left: 4px solid var(--accent); padding: 20px 24px; display: flex; gap: 18px; border-radius: 2px; }
+    .kwp-info-num { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--paper); display: grid; place-items: center; font-weight: 700; flex-shrink: 0; }
+    .kwp-info p { margin: 4px 0 0; color: var(--ink-2); font-size: 14px; line-height: 1.55; }
+  </style>
+
+  <script>
+    (function(){
+      const input = document.getElementById('kwp-input');
+      const btn = document.getElementById('kwp-go');
+      const results = document.getElementById('kwp-results');
+      const chips = document.querySelectorAll('#keyword-playground .kwp-chip');
+      const templates = [
+        { t: (k) => 'cara membuat '+k, intent: 'info' },
+        { t: (k) => 'tips '+k+' untuk pemula', intent: 'info' },
+        { t: (k) => k+' terbaik 2026', intent: 'komersial' },
+        { t: (k) => k+' vs alternatifnya', intent: 'komersial' },
+        { t: (k) => 'harga '+k+' terbaru', intent: 'trans' },
+        { t: (k) => 'review '+k+' jujur', intent: 'komersial' },
+        { t: (k) => k+' di jakarta', intent: 'nav' },
+        { t: (k) => 'apa itu '+k, intent: 'info' },
+        { t: (k) => 'kenapa '+k+' penting', intent: 'info' },
+        { t: (k) => k+' murah dan enak', intent: 'trans' },
+        { t: (k) => 'beli '+k+' online', intent: 'trans' },
+        { t: (k) => k+' otentik asli', intent: 'info' },
+        { t: (k) => 'panduan lengkap '+k, intent: 'info' },
+        { t: (k) => k+' untuk anak kos', intent: 'info' }
+      ];
+      const intentLabel = { info: 'Informasional', komersial: 'Komersial', trans: 'Transaksional', nav: 'Navigasional' };
+      function explore(kw){
+        kw = kw.trim().toLowerCase();
+        if (!kw) { results.innerHTML = '<div class="kwp-empty italic-serif">Ketik dulu keyword utamanya.</div>'; return; }
+        const shuffled = templates.slice().sort(() => Math.random() - 0.5);
+        const count = 9 + Math.floor(Math.random() * 3);
+        const picks = shuffled.slice(0, count);
+        const html = picks.map(p => {
+          const phrase = p.t(kw);
+          const words = phrase.split(' ').length;
+          const isLong = words >= 4;
+          const diffRoll = Math.random();
+          let diff;
+          if (isLong) diff = diffRoll < 0.65 ? 'mudah' : (diffRoll < 0.9 ? 'menengah' : 'sulit');
+          else diff = diffRoll < 0.3 ? 'mudah' : (diffRoll < 0.7 ? 'menengah' : 'sulit');
+          const diffLabel = { mudah: 'Mudah', menengah: 'Menengah', sulit: 'Sulit' }[diff];
+          const volBase = isLong ? 50 + Math.random() * 800 : 500 + Math.random() * 4500;
+          const vol = Math.round(volBase / 10) * 10;
+          return '<div class="kwp-card"><div class="kwp-card-kw">'+phrase+'</div>'
+            + '<div class="kwp-card-meta">'
+            + '<span class="kwp-badge '+p.intent+'">'+intentLabel[p.intent]+'</span>'
+            + '<span class="kwp-diff '+diff+'">● '+diffLabel+'</span>'
+            + '<span class="kwp-vol">~'+vol+'/bln</span>'
+            + '</div></div>';
+        }).join('');
+        results.innerHTML = html;
+      }
+      btn.addEventListener('click', () => explore(input.value));
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') explore(input.value); });
+      chips.forEach(c => c.addEventListener('click', () => { input.value = c.dataset.kw; explore(c.dataset.kw); }));
+    })();
+  </script>
+</section>
+<section id="onpage-inspector">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 07 · ON-PAGE INSPECTOR</div>
+      <div>
+        <h2 class="serif">Cek kesehatan <em class="italic-serif">on-page</em> halamanmu.</h2>
+        <p>Masukkan title tag, meta description, dan target keyword. Inspector akan menilai panjang karakter, posisi keyword, serta menampilkan mockup bagaimana hasilmu muncul di Google.</p>
+      </div>
+    </div>
+
+    <div class="opi-grid">
+      <div class="opi-panel">
+        <div class="opi-field">
+          <label class="opi-label mono">TITLE TAG <span id="opi-title-count">0</span>/60</label>
+          <input id="opi-title" type="text" class="opi-input" maxlength="120" placeholder="Resep Rendang Padang Asli, Empuk dan Gurih" />
+          <div class="opi-bar"><div class="opi-bar-fill" id="opi-title-bar"></div></div>
+        </div>
+        <div class="opi-field">
+          <label class="opi-label mono">META DESCRIPTION <span id="opi-meta-count">0</span>/160</label>
+          <textarea id="opi-meta" class="opi-input opi-textarea" maxlength="300" placeholder="Panduan lengkap memasak rendang padang asli ala rumahan. Resep turun temurun, bumbu pasti pas, daging empuk meski dimasak lama."></textarea>
+          <div class="opi-bar"><div class="opi-bar-fill" id="opi-meta-bar"></div></div>
+        </div>
+        <div class="opi-field">
+          <label class="opi-label mono">TARGET KEYWORD</label>
+          <input id="opi-kw" type="text" class="opi-input" placeholder="resep rendang" />
+        </div>
+        <button id="opi-check" class="opi-btn mono">Cek Sekarang →</button>
+      </div>
+
+      <div class="opi-output" id="opi-output">
+        <div class="opi-placeholder italic-serif">Hasil analisis dan preview SERP akan tampil di sini setelah kamu tekan Cek.</div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #onpage-inspector { padding: 96px 32px; background: var(--bg-2); color: var(--ink); }
+    .opi-grid { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 900px) { .opi-grid { grid-template-columns: 1fr; } }
+    .opi-panel { background: var(--paper); border: 1px solid var(--line); padding: 28px; }
+    .opi-field { margin-bottom: 22px; }
+    .opi-label { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; }
+    .opi-input { width: 100%; border: 1px solid var(--line); background: var(--bg); padding: 10px 12px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ink); outline: none; box-sizing: border-box; }
+    .opi-input:focus { border-color: var(--accent); }
+    .opi-textarea { min-height: 80px; resize: vertical; }
+    .opi-bar { height: 4px; background: var(--line); margin-top: 6px; overflow: hidden; }
+    .opi-bar-fill { height: 100%; width: 0%; background: var(--muted); transition: width 0.2s, background 0.2s; }
+    .opi-bar-fill.good { background: var(--ok); }
+    .opi-bar-fill.warn { background: #c19a3a; }
+    .opi-bar-fill.bad { background: var(--accent); }
+    .opi-btn { background: var(--ink); color: var(--paper); border: none; padding: 12px 24px; font-size: 12px; letter-spacing: 0.1em; cursor: pointer; }
+    .opi-btn:hover { background: var(--accent); }
+    .opi-output { background: var(--paper); border: 1px solid var(--line); padding: 28px; min-height: 300px; }
+    .opi-placeholder { color: var(--muted); text-align: center; padding-top: 60px; font-size: 18px; }
+    .opi-score { text-align: center; padding: 16px; background: var(--bg); border-radius: 2px; margin-bottom: 20px; }
+    .opi-score-num { font-family: 'Fraunces', serif; font-size: 64px; font-weight: 600; line-height: 1; }
+    .opi-score-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); margin-top: 6px; }
+    .opi-checks { list-style: none; padding: 0; margin: 0 0 20px; }
+    .opi-checks li { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 13px; color: var(--ink-2); }
+    .opi-checks li:last-child { border: none; }
+    .opi-icon { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; font-size: 11px; font-weight: 700; color: var(--paper); }
+    .opi-icon.pass { background: var(--ok); }
+    .opi-icon.warn { background: #c19a3a; }
+    .opi-icon.fail { background: var(--accent); }
+    .opi-serp { background: #fff; border: 1px solid var(--line); padding: 16px; border-radius: 2px; font-family: Arial, sans-serif; }
+    .opi-serp-url { font-size: 12px; color: #006621; }
+    .opi-serp-title { font-size: 18px; color: #1a0dab; margin: 4px 0; line-height: 1.3; cursor: pointer; }
+    .opi-serp-title:hover { text-decoration: underline; }
+    .opi-serp-meta { font-size: 13px; color: #4d5156; line-height: 1.5; }
+    .opi-serp-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
+  </style>
+
+  <script>
+    (function(){
+      const titleEl = document.getElementById('opi-title');
+      const metaEl = document.getElementById('opi-meta');
+      const kwEl = document.getElementById('opi-kw');
+      const titleCount = document.getElementById('opi-title-count');
+      const metaCount = document.getElementById('opi-meta-count');
+      const titleBar = document.getElementById('opi-title-bar');
+      const metaBar = document.getElementById('opi-meta-bar');
+      const btn = document.getElementById('opi-check');
+      const output = document.getElementById('opi-output');
+      function updateTitle(){
+        const v = titleEl.value;
+        titleCount.textContent = v.length;
+        titleBar.style.width = Math.min(100, (v.length / 60) * 100) + '%';
+        titleBar.className = 'opi-bar-fill ' + (v.length >= 50 && v.length <= 60 ? 'good' : (v.length >= 40 && v.length <= 70 ? 'warn' : 'bad'));
+      }
+      function updateMeta(){
+        const v = metaEl.value;
+        metaCount.textContent = v.length;
+        metaBar.style.width = Math.min(100, (v.length / 160) * 100) + '%';
+        metaBar.className = 'opi-bar-fill ' + (v.length >= 140 && v.length <= 160 ? 'good' : (v.length >= 120 && v.length <= 180 ? 'warn' : 'bad'));
+      }
+      titleEl.addEventListener('input', updateTitle);
+      metaEl.addEventListener('input', updateMeta);
+      function check(){
+        const title = titleEl.value.trim();
+        const meta = metaEl.value.trim();
+        const kw = kwEl.value.trim().toLowerCase();
+        if (!title || !meta || !kw) {
+          output.innerHTML = '<div class="opi-placeholder italic-serif">Isi ketiga kolom dulu ya, baru klik Cek.</div>';
+          return;
+        }
+        const checks = [];
+        let score = 0;
+        if (title.length >= 50 && title.length <= 60) { checks.push(['pass', 'Panjang title '+title.length+' karakter, ideal.']); score += 20; }
+        else if (title.length >= 40 && title.length <= 70) { checks.push(['warn', 'Panjang title '+title.length+' karakter, masih aman tapi kurang ideal.']); score += 12; }
+        else { checks.push(['fail', 'Panjang title '+title.length+' karakter, terlalu '+(title.length < 40 ? 'pendek' : 'panjang')+'.']); score += 4; }
+        if (meta.length >= 140 && meta.length <= 160) { checks.push(['pass', 'Meta description '+meta.length+' karakter, pas.']); score += 20; }
+        else if (meta.length >= 120 && meta.length <= 180) { checks.push(['warn', 'Meta description '+meta.length+' karakter, cukup.']); score += 12; }
+        else { checks.push(['fail', 'Meta description '+meta.length+' karakter, perlu disesuaikan.']); score += 4; }
+        const titleLow = title.toLowerCase();
+        const kwIdx = titleLow.indexOf(kw);
+        if (kwIdx === 0) { checks.push(['pass', 'Keyword ada di awal title, bagus untuk CTR.']); score += 25; }
+        else if (kwIdx > 0 && kwIdx < titleLow.length / 2) { checks.push(['pass', 'Keyword ada di paruh awal title.']); score += 20; }
+        else if (kwIdx >= 0) { checks.push(['warn', 'Keyword ada di title tapi di bagian akhir.']); score += 12; }
+        else { checks.push(['fail', 'Keyword tidak ditemukan di title.']); }
+        if (meta.toLowerCase().includes(kw)) { checks.push(['pass', 'Keyword muncul di meta description.']); score += 20; }
+        else { checks.push(['fail', 'Keyword belum muncul di meta description.']); }
+        if (title.split(' ').length >= 5) { checks.push(['pass', 'Title cukup deskriptif (5 kata atau lebih).']); score += 15; }
+        else { checks.push(['warn', 'Title terlalu singkat, tambah konteks.']); score += 6; }
+        score = Math.min(100, score);
+        const scoreLabel = score >= 85 ? 'SEHAT' : (score >= 60 ? 'PERLU TUNING' : 'BUTUH PERBAIKAN');
+        const scoreColor = score >= 85 ? 'var(--ok)' : (score >= 60 ? '#c19a3a' : 'var(--accent)');
+        const checkHTML = checks.map(c => '<li><span class="opi-icon '+c[0]+'">'+(c[0]==='pass'?'✓':(c[0]==='warn'?'!':'×'))+'</span>'+c[1]+'</li>').join('');
+        output.innerHTML =
+          '<div class="opi-score"><div class="opi-score-num" style="color:'+scoreColor+'">'+score+'</div>'
+          + '<div class="opi-score-label">SKOR ON-PAGE · '+scoreLabel+'</div></div>'
+          + '<ul class="opi-checks">'+checkHTML+'</ul>'
+          + '<div class="opi-serp-label">PREVIEW SERP</div>'
+          + '<div class="opi-serp">'
+          + '<div class="opi-serp-url">https://situsmu.com › artikel › '+kw.replace(/\s+/g,'-')+'</div>'
+          + '<div class="opi-serp-title">'+(title.length>60?title.slice(0,57)+'...':title)+'</div>'
+          + '<div class="opi-serp-meta">'+(meta.length>160?meta.slice(0,157)+'...':meta)+'</div>'
+          + '</div>';
+      }
+      btn.addEventListener('click', check);
+      updateTitle(); updateMeta();
+    })();
+  </script>
+</section>
+<section id="cwv-simulator">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 08 · CORE WEB VITALS</div>
+      <div>
+        <h2 class="serif">Simulasi performa <em class="italic-serif">halaman</em>mu.</h2>
+        <p>Geser slider untuk melihat bagaimana tiga metrik Core Web Vitals (LCP, CLS, INP) berinteraksi. Google pakai ketiganya sebagai sinyal ranking sejak 2021, jadi jangan cuma kejar konten, kejar juga kecepatan.</p>
+      </div>
+    </div>
+
+    <div class="cwv-panel">
+      <div class="cwv-metric">
+        <div class="cwv-head"><div><div class="cwv-abbr mono">LCP</div><div class="cwv-name serif">Largest Contentful Paint</div></div><div class="cwv-value" id="cwv-lcp-val">2.5s</div></div>
+        <input type="range" class="cwv-slider" id="cwv-lcp" min="0" max="6" step="0.1" value="2.5" />
+        <div class="cwv-zones"><div class="cwv-zone good" style="flex:2.5"></div><div class="cwv-zone warn" style="flex:1.5"></div><div class="cwv-zone bad" style="flex:2"></div><div class="cwv-marker" id="cwv-lcp-mark"></div></div>
+        <div class="cwv-status" id="cwv-lcp-status">Good</div>
+        <div class="cwv-desc">Waktu sampai elemen terbesar di viewport selesai dimuat. Target di bawah 2.5 detik.</div>
+      </div>
+      <div class="cwv-metric">
+        <div class="cwv-head"><div><div class="cwv-abbr mono">CLS</div><div class="cwv-name serif">Cumulative Layout Shift</div></div><div class="cwv-value" id="cwv-cls-val">0.10</div></div>
+        <input type="range" class="cwv-slider" id="cwv-cls" min="0" max="0.5" step="0.01" value="0.1" />
+        <div class="cwv-zones"><div class="cwv-zone good" style="flex:1"></div><div class="cwv-zone warn" style="flex:1.5"></div><div class="cwv-zone bad" style="flex:2.5"></div><div class="cwv-marker" id="cwv-cls-mark"></div></div>
+        <div class="cwv-status" id="cwv-cls-status">Good</div>
+        <div class="cwv-desc">Seberapa sering layout geser tak terduga saat halaman loading. Target di bawah 0.1.</div>
+      </div>
+      <div class="cwv-metric">
+        <div class="cwv-head"><div><div class="cwv-abbr mono">INP</div><div class="cwv-name serif">Interaction to Next Paint</div></div><div class="cwv-value" id="cwv-inp-val">200ms</div></div>
+        <input type="range" class="cwv-slider" id="cwv-inp" min="0" max="500" step="10" value="200" />
+        <div class="cwv-zones"><div class="cwv-zone good" style="flex:2"></div><div class="cwv-zone warn" style="flex:3"></div><div class="cwv-zone bad" style="flex:0"></div><div class="cwv-marker" id="cwv-inp-mark"></div></div>
+        <div class="cwv-status" id="cwv-inp-status">Good</div>
+        <div class="cwv-desc">Waktu respons interaksi user (klik, tap, tombol). Target di bawah 200ms.</div>
+      </div>
+      <div class="cwv-verdict" id="cwv-verdict">
+        <div class="cwv-verdict-label mono">VERDICT KESELURUHAN</div>
+        <div class="cwv-verdict-text serif" id="cwv-verdict-text">Lulus Core Web Vitals</div>
+        <div class="cwv-verdict-sub" id="cwv-verdict-sub">Tiga metrik dalam zona hijau. Pertahankan.</div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #cwv-simulator { padding: 96px 32px; background: var(--bg); color: var(--ink); }
+    .cwv-panel { margin-top: 48px; background: var(--paper); border: 1px solid var(--line); padding: 36px; }
+    .cwv-metric { padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .cwv-metric:last-of-type { border-bottom: none; }
+    .cwv-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; }
+    .cwv-abbr { font-size: 11px; letter-spacing: 0.15em; color: var(--muted); }
+    .cwv-name { font-size: 20px; margin-top: 2px; }
+    .cwv-value { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 600; }
+    .cwv-slider { width: 100%; -webkit-appearance: none; appearance: none; height: 2px; background: var(--ink); outline: none; margin: 8px 0 12px; }
+    .cwv-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); cursor: pointer; border: 2px solid var(--paper); box-shadow: 0 0 0 1px var(--ink); }
+    .cwv-slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); cursor: pointer; border: 2px solid var(--paper); }
+    .cwv-zones { position: relative; display: flex; height: 8px; gap: 2px; margin-bottom: 10px; }
+    .cwv-zone { height: 100%; }
+    .cwv-zone.good { background: var(--ok); opacity: 0.7; }
+    .cwv-zone.warn { background: var(--accent-soft); opacity: 0.7; }
+    .cwv-zone.bad { background: var(--accent); opacity: 0.7; }
+    .cwv-marker { position: absolute; top: -3px; width: 2px; height: 14px; background: var(--ink); transition: left 0.15s; }
+    .cwv-status { display: inline-block; padding: 4px 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); background: var(--ok); border-radius: 2px; }
+    .cwv-status.warn { background: var(--accent-soft); }
+    .cwv-status.bad { background: var(--accent); }
+    .cwv-desc { margin-top: 10px; font-size: 13px; color: var(--muted); font-style: italic; font-family: 'Instrument Serif', serif; }
+    .cwv-verdict { margin-top: 28px; padding: 24px; background: var(--bg-2); border-left: 4px solid var(--ok); text-align: center; }
+    .cwv-verdict.warn { border-left-color: var(--accent-soft); }
+    .cwv-verdict.bad { border-left-color: var(--accent); }
+    .cwv-verdict-label { font-size: 11px; letter-spacing: 0.15em; color: var(--muted); }
+    .cwv-verdict-text { font-size: 32px; margin-top: 6px; }
+    .cwv-verdict-sub { font-size: 14px; color: var(--ink-2); margin-top: 6px; }
+  </style>
+
+  <script>
+    (function(){
+      const metrics = {
+        lcp: { el: document.getElementById('cwv-lcp'), val: document.getElementById('cwv-lcp-val'), mark: document.getElementById('cwv-lcp-mark'), status: document.getElementById('cwv-lcp-status'), max: 6, fmt: (v) => v.toFixed(1) + 's', thresh: [2.5, 4] },
+        cls: { el: document.getElementById('cwv-cls'), val: document.getElementById('cwv-cls-val'), mark: document.getElementById('cwv-cls-mark'), status: document.getElementById('cwv-cls-status'), max: 0.5, fmt: (v) => v.toFixed(2), thresh: [0.1, 0.25] },
+        inp: { el: document.getElementById('cwv-inp'), val: document.getElementById('cwv-inp-val'), mark: document.getElementById('cwv-inp-mark'), status: document.getElementById('cwv-inp-status'), max: 500, fmt: (v) => Math.round(v) + 'ms', thresh: [200, 500] }
+      };
+      const verdict = document.getElementById('cwv-verdict');
+      const verdictText = document.getElementById('cwv-verdict-text');
+      const verdictSub = document.getElementById('cwv-verdict-sub');
+      function statusOf(v, thresh) { if (v < thresh[0]) return 'good'; if (v < thresh[1]) return 'warn'; return 'bad'; }
+      function update() {
+        const states = {};
+        Object.keys(metrics).forEach(k => {
+          const m = metrics[k];
+          const v = parseFloat(m.el.value);
+          m.val.textContent = m.fmt(v);
+          const pct = (v / m.max) * 100;
+          m.mark.style.left = 'calc('+pct+'% - 1px)';
+          const s = statusOf(v, m.thresh);
+          states[k] = s;
+          m.status.className = 'cwv-status' + (s === 'good' ? '' : (s === 'warn' ? ' warn' : ' bad'));
+          m.status.textContent = s === 'good' ? 'Good' : (s === 'warn' ? 'Needs Improvement' : 'Poor');
+        });
+        const vals = Object.values(states);
+        let overall;
+        if (vals.every(s => s === 'good')) { overall = 'good'; verdictText.textContent = 'Lulus Core Web Vitals'; verdictSub.textContent = 'Tiga metrik dalam zona hijau. Pertahankan.'; }
+        else if (vals.some(s => s === 'bad')) { overall = 'bad'; verdictText.textContent = 'Gagal CWV'; verdictSub.textContent = 'Ada metrik di zona merah. Prioritas tinggi untuk dioptimasi.'; }
+        else { overall = 'warn'; verdictText.textContent = 'Perlu Perbaikan'; verdictSub.textContent = 'Metrik di ambang batas. Bisa jadi lebih baik dengan tuning.'; }
+        verdict.className = 'cwv-verdict' + (overall === 'good' ? '' : ' ' + overall);
+      }
+      Object.values(metrics).forEach(m => m.el.addEventListener('input', update));
+      update();
+    })();
+  </script>
+</section>
+<section id="backlink-graph">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 09 · BACKLINK FLOW</div>
+      <div>
+        <h2 class="serif">Bagaimana <em class="italic-serif">link equity</em> mengalir?</h2>
+        <p>Setiap backlink mengirim sinyal otoritas ke situsmu, tapi tidak semua link sama bobotnya. Visual di bawah memperlihatkan bagaimana link berkualitas tinggi mendorong skor naik, sementara link spam justru bisa menarikmu turun.</p>
+      </div>
+    </div>
+
+    <div class="blg-panel">
+      <div class="blg-controls">
+        <label class="blg-toggle">
+          <input type="checkbox" id="blg-disavow" />
+          <span class="blg-toggle-box"></span>
+          <span class="blg-toggle-label mono">DISAVOW LINK SPAM</span>
+        </label>
+        <div class="blg-score">
+          <div class="blg-score-label mono">AUTHORITY SCORE</div>
+          <div class="blg-score-num serif" id="blg-score">42</div>
+        </div>
+      </div>
+
+      <svg class="blg-svg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="blg-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4238" />
+          </marker>
+          <marker id="blg-arrow-spam" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#c1432c" />
+          </marker>
+        </defs>
+        <g id="blg-lines"></g>
+        <g id="blg-nodes"></g>
+        <circle cx="400" cy="250" r="56" fill="#c1432c" />
+        <circle cx="400" cy="250" r="56" fill="none" stroke="#1a1613" stroke-width="1.5" />
+        <text x="400" y="246" text-anchor="middle" fill="#faf7f1" font-family="Fraunces, serif" font-size="15" font-weight="600">situsmu</text>
+        <text x="400" y="264" text-anchor="middle" fill="#faf7f1" font-family="Fraunces, serif" font-size="15" font-weight="600">.com</text>
+      </svg>
+
+      <div class="blg-legend">
+        <div class="blg-legend-item"><span class="blg-sw" style="background:#3d6b4a;height:4px"></span>High Authority</div>
+        <div class="blg-legend-item"><span class="blg-sw" style="background:#4a4238;height:2.5px"></span>Medium</div>
+        <div class="blg-legend-item"><span class="blg-sw" style="background:#857a6b;height:1.5px"></span>Low</div>
+        <div class="blg-legend-item"><span class="blg-sw" style="background:#c1432c;height:2px"></span>Spam</div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #backlink-graph { padding: 96px 32px; background: var(--bg-2); color: var(--ink); }
+    .blg-panel { margin-top: 48px; background: var(--paper); border: 1px solid var(--line); padding: 32px; }
+    .blg-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; gap: 24px; flex-wrap: wrap; }
+    .blg-toggle { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+    .blg-toggle input { display: none; }
+    .blg-toggle-box { width: 44px; height: 22px; background: var(--line); border-radius: 11px; position: relative; transition: background 0.2s; }
+    .blg-toggle-box::after { content: ''; position: absolute; width: 18px; height: 18px; background: var(--paper); border-radius: 50%; top: 2px; left: 2px; transition: transform 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+    .blg-toggle input:checked + .blg-toggle-box { background: var(--ok); }
+    .blg-toggle input:checked + .blg-toggle-box::after { transform: translateX(22px); }
+    .blg-toggle-label { font-size: 11px; letter-spacing: 0.12em; color: var(--ink-2); }
+    .blg-score { text-align: right; }
+    .blg-score-label { font-size: 10px; letter-spacing: 0.15em; color: var(--muted); }
+    .blg-score-num { font-size: 40px; font-weight: 600; line-height: 1; transition: color 0.3s; }
+    .blg-svg { width: 100%; height: auto; display: block; background: var(--bg); border: 1px solid var(--line); }
+    .blg-node { cursor: default; transition: opacity 0.3s; }
+    .blg-node.disavowed { opacity: 0.25; }
+    .blg-node-cross { stroke: var(--accent); stroke-width: 2; opacity: 0; transition: opacity 0.3s; }
+    .blg-node.disavowed .blg-node-cross { opacity: 1; }
+    .blg-line { transition: opacity 0.3s; }
+    .blg-line.disavowed { opacity: 0.15; }
+    .blg-legend { margin-top: 20px; display: flex; gap: 24px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2); }
+    .blg-legend-item { display: flex; align-items: center; gap: 8px; }
+    .blg-sw { display: inline-block; width: 24px; }
+  </style>
+
+  <script>
+    (function(){
+      const nodes = [
+        { name: 'news-a.com', type: 'ha', angle: -90 },
+        { name: 'gov-id.go.id', type: 'ha', angle: -40 },
+        { name: 'blog-b.id', type: 'med', angle: 10 },
+        { name: 'forum-c.com', type: 'med', angle: 60 },
+        { name: 'directory-d.net', type: 'low', angle: 110 },
+        { name: 'wiki-e.org', type: 'med', angle: 160 },
+        { name: 'spammy-f.xyz', type: 'spam', angle: 210 },
+        { name: 'linkfarm-g.biz', type: 'spam', angle: 260 }
+      ];
+      const cx = 400, cy = 250, r = 180;
+      const linesG = document.getElementById('blg-lines');
+      const nodesG = document.getElementById('blg-nodes');
+      const scoreEl = document.getElementById('blg-score');
+      const disavowEl = document.getElementById('blg-disavow');
+      const typeCfg = {
+        ha:   { color: '#3d6b4a', width: 4,   dash: '',    weight: 18, label: 'High Authority', radius: 32 },
+        med:  { color: '#4a4238', width: 2.5, dash: '',    weight: 10, label: 'Medium',         radius: 28 },
+        low:  { color: '#857a6b', width: 1.5, dash: '',    weight: 5,  label: 'Low',            radius: 24 },
+        spam: { color: '#c1432c', width: 2,   dash: '6,4', weight: -8, label: 'Spam',           radius: 24 }
+      };
+      nodes.forEach((n) => {
+        const cfg = typeCfg[n.type];
+        const rad = (n.angle * Math.PI) / 180;
+        const x = cx + r * Math.cos(rad);
+        const y = cy + r * Math.sin(rad);
+        n.x = x; n.y = y; n.cfg = cfg;
+        const dx = cx - x, dy = cy - y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        const tx = x + (dx/dist) * (dist - 60);
+        const ty = y + (dy/dist) * (dist - 60);
+        const fx = x + (dx/dist) * cfg.radius;
+        const fy = y + (dy/dist) * cfg.radius;
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', fx); line.setAttribute('y1', fy);
+        line.setAttribute('x2', tx); line.setAttribute('y2', ty);
+        line.setAttribute('stroke', cfg.color);
+        line.setAttribute('stroke-width', cfg.width);
+        if (cfg.dash) line.setAttribute('stroke-dasharray', cfg.dash);
+        line.setAttribute('marker-end', n.type === 'spam' ? 'url(#blg-arrow-spam)' : 'url(#blg-arrow)');
+        line.setAttribute('class', 'blg-line');
+        linesG.appendChild(line);
+        n.lineEl = line;
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('class', 'blg-node');
+        const circ = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circ.setAttribute('cx', x); circ.setAttribute('cy', y); circ.setAttribute('r', cfg.radius);
+        circ.setAttribute('fill', '#faf7f1');
+        circ.setAttribute('stroke', cfg.color);
+        circ.setAttribute('stroke-width', 2);
+        g.appendChild(circ);
+        const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        txt.setAttribute('x', x); txt.setAttribute('y', y + 4); txt.setAttribute('text-anchor', 'middle');
+        txt.setAttribute('font-family', 'JetBrains Mono, monospace'); txt.setAttribute('font-size', '10');
+        txt.setAttribute('fill', '#1a1613');
+        txt.textContent = n.name;
+        g.appendChild(txt);
+        const typeTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        typeTxt.setAttribute('x', x); typeTxt.setAttribute('y', y + cfg.radius + 14); typeTxt.setAttribute('text-anchor', 'middle');
+        typeTxt.setAttribute('font-family', 'Inter, sans-serif'); typeTxt.setAttribute('font-size', '9');
+        typeTxt.setAttribute('fill', '#857a6b');
+        typeTxt.textContent = cfg.label;
+        g.appendChild(typeTxt);
+        const cr1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        cr1.setAttribute('x1', x - cfg.radius*0.7); cr1.setAttribute('y1', y - cfg.radius*0.7);
+        cr1.setAttribute('x2', x + cfg.radius*0.7); cr1.setAttribute('y2', y + cfg.radius*0.7);
+        cr1.setAttribute('class', 'blg-node-cross');
+        const cr2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        cr2.setAttribute('x1', x + cfg.radius*0.7); cr2.setAttribute('y1', y - cfg.radius*0.7);
+        cr2.setAttribute('x2', x - cfg.radius*0.7); cr2.setAttribute('y2', y + cfg.radius*0.7);
+        cr2.setAttribute('class', 'blg-node-cross');
+        g.appendChild(cr1); g.appendChild(cr2);
+        nodesG.appendChild(g);
+        n.nodeEl = g;
+      });
+      function computeScore(disavowed) {
+        let base = 30;
+        nodes.forEach(n => {
+          if (n.type === 'spam' && disavowed) return;
+          base += n.cfg.weight;
+        });
+        return Math.max(0, Math.min(100, base));
+      }
+      function update() {
+        const disavowed = disavowEl.checked;
+        nodes.forEach(n => {
+          if (n.type === 'spam') {
+            n.nodeEl.classList.toggle('disavowed', disavowed);
+            n.lineEl.classList.toggle('disavowed', disavowed);
+          }
+        });
+        const score = computeScore(disavowed);
+        scoreEl.textContent = score;
+        scoreEl.style.color = score >= 60 ? 'var(--ok)' : (score >= 40 ? 'var(--ink)' : 'var(--accent)');
+      }
+      disavowEl.addEventListener('change', update);
+      update();
+    })();
+  </script>
+</section>
+<section id="kurikulum" class="curriculum">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 10 · KURIKULUM</div>
+      <div>
+        <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
+        <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
+      </div>
+    </div>
+
+    <div class="lesson-list">
+      <div class="lesson" data-lesson="1">
+        <div class="lesson-num">01</div>
+        <div class="lesson-body">
+          <h3>Cara kerja <em>mesin pencari</em></h3>
+          <p>Model mental yang paling penting sebelum menyentuh hal teknis apa pun. Kalau kamu paham bagaimana Google melihat web, semua keputusan berikutnya jadi masuk akal.</p>
+          <div class="lesson-tags"><span class="tag">Crawl</span><span class="tag">Index</span><span class="tag">Ranking</span><span class="tag">SERP</span></div>
+        </div>
+        <div class="lesson-meta"><strong>42 min</strong>4 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+      <div class="lesson" data-lesson="2">
+        <div class="lesson-num">02</div>
+        <div class="lesson-body">
+          <h3>Riset <em>keyword</em> yang benar</h3>
+          <p>Keyword research adalah proses menemukan kata dan frasa yang benar-benar dicari audiensmu. Pakai Google Suggest, Trends, Keyword Planner. Semua gratis dan sudah cukup untuk memulai.</p>
+          <div class="lesson-tags"><span class="tag tag-accent">Fondasi</span><span class="tag">Long-tail</span><span class="tag">Search intent</span><span class="tag">Difficulty</span></div>
+        </div>
+        <div class="lesson-meta"><strong>1j 20m</strong>6 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+      <div class="lesson" data-lesson="3">
+        <div class="lesson-num">03</div>
+        <div class="lesson-body">
+          <h3>On-page SEO: <em>title, meta, heading</em></h3>
+          <p>Elemen on-site yang dibaca langsung oleh Google. Title tag, meta description, H1/H2/H3, URL, alt text. Semua dengan aturan main yang sudah teruji selama dua dekade.</p>
+          <div class="lesson-tags"><span class="tag">Title tag</span><span class="tag">Meta desc</span><span class="tag">Heading</span><span class="tag">Alt text</span></div>
+        </div>
+        <div class="lesson-meta"><strong>2j 10m</strong>8 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+      <div class="lesson" data-lesson="4">
+        <div class="lesson-num">04</div>
+        <div class="lesson-body">
+          <h3>Membuat <em>konten</em> yang dicintai Google dan manusia</h3>
+          <p>Google di 2026 me-rank halaman yang membuat orang tinggal lebih lama, bukan yang paling banyak keyword-nya. Konten harus unik, up-to-date, helpful, people-first.</p>
+          <div class="lesson-tags"><span class="tag tag-accent">Inti</span><span class="tag">E-E-A-T</span><span class="tag">Dwell time</span><span class="tag">Content cluster</span></div>
+        </div>
+        <div class="lesson-meta"><strong>1j 45m</strong>5 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+      <div class="lesson" data-lesson="5">
+        <div class="lesson-num">05</div>
+        <div class="lesson-body">
+          <h3>Technical SEO tanpa <em>overwhelm</em></h3>
+          <p>Page speed, Core Web Vitals, mobile-friendly, HTTPS, sitemap, robots.txt. Terdengar menakutkan tapi sebenarnya sekali setup: beres. Dua bulan pertama cukup untuk menguasai ini.</p>
+          <div class="lesson-tags"><span class="tag">Core Web Vitals</span><span class="tag">Mobile</span><span class="tag">Sitemap</span><span class="tag">Schema</span></div>
+        </div>
+        <div class="lesson-meta"><strong>2j 30m</strong>7 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+      <div class="lesson" data-lesson="6">
+        <div class="lesson-num">06</div>
+        <div class="lesson-body">
+          <h3>Internal link dan <em>struktur situs</em></h3>
+          <p>Cara menghubungkan pillar page (halaman utama) dengan supporting page (blog, FAQ). Internal linking memperkuat otoritas topikal dan memandu crawler ke halaman penting.</p>
+          <div class="lesson-tags"><span class="tag">Pillar page</span><span class="tag">Anchor text</span><span class="tag">Topical authority</span></div>
+        </div>
+        <div class="lesson-meta"><strong>55 min</strong>3 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+      <div class="lesson" data-lesson="7">
+        <div class="lesson-num">07</div>
+        <div class="lesson-body">
+          <h3>Off-page SEO dan <em>backlink</em> yang sehat</h3>
+          <p>Backlink adalah sinyal bahwa situs lain menganggap kontenmu layak dikutip. Guest posting, business listing, unlinked brand mentions. Tapi ingat, kualitas di atas kuantitas, selalu.</p>
+          <div class="lesson-tags"><span class="tag">Backlink</span><span class="tag">Guest post</span><span class="tag">Digital PR</span></div>
+        </div>
+        <div class="lesson-meta"><strong>1j 30m</strong>5 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+      <div class="lesson" data-lesson="8">
+        <div class="lesson-num">08</div>
+        <div class="lesson-body">
+          <h3>Search Console, Analytics, dan <em>mengukur hasil</em></h3>
+          <p>Tanpa data, SEO cuma tebak-tebakan. Setup Google Search Console dan Analytics, baca laporan, lalu iterasi. SEO biasanya butuh 3 sampai 6 bulan sebelum hasil terlihat jelas.</p>
+          <div class="lesson-tags"><span class="tag tag-accent">Wajib</span><span class="tag">GSC</span><span class="tag">GA4</span><span class="tag">Iterasi</span></div>
+        </div>
+        <div class="lesson-meta"><strong>1j 15m</strong>4 pelajaran</div>
+        <div class="lesson-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="checklist" class="checklist-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 11 · CHECKLIST</div>
+      <div>
+        <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
+        <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
+      </div>
+    </div>
+
+    <div class="checklist-wrap">
+      <div class="check-items">
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Title tag 50 sampai 60 karakter, mengandung keyword utama</div><div class="check-desc">Title adalah headline yang muncul di SERP. Buat menarik, spesifik, dan jangan pakai clickbait kosong.</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Meta description 140 sampai 160 karakter dengan call-to-action</div><div class="check-desc">Ringkasan yang membujuk orang untuk klik. Unik per halaman, jangan pakai template.</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Satu H1 jelas, dilanjut H2/H3 yang terstruktur</div><div class="check-desc">Struktur heading membantu manusia dan AI memetakan isi halaman. Jangan skip level (H2 ke H4).</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">URL pendek, deskriptif, pakai tanda minus</div><div class="check-desc">Contoh: <span class="mono" style="background:var(--bg); padding:2px 6px; font-size: 12px;">/panduan/belajar-seo</span> bukan <span class="mono" style="background:var(--bg); padding:2px 6px; font-size: 12px;">/?p=1234</span></div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Keyword utama muncul alami di paragraf pertama</div><div class="check-desc">Inverted pyramid: jawaban utama di atas, detail di bawah. AI Overviews akan menyukainya.</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Alt text pada setiap gambar, deskriptif dan natural</div><div class="check-desc">Bantu accessibility dan image SEO. Jangan stuffing keyword.</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Internal link ke 2 sampai 5 halaman relevan lain</div><div class="check-desc">Pakai anchor text yang deskriptif, bukan "klik di sini".</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Mobile responsive, lulus tes Core Web Vitals</div><div class="check-desc">Cek di PageSpeed Insights. LCP di bawah 2.5s, CLS di bawah 0.1, INP di bawah 200ms.</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Konten minimal 800 kata, unik, menjawab tuntas</div><div class="check-desc">Bukan soal panjang demi panjang, tapi konten yang mengurangi kebutuhan follow-up search.</div></div></label>
+        <label class="check-item"><div class="checkbox"></div><div><div class="check-title">Sudah di-submit ke Google Search Console</div><div class="check-desc">Tanpa ini, kamu tidak tahu apakah Google sudah meng-index halamanmu atau belum.</div></div></label>
+      </div>
+
+      <aside class="checklist-aside">
+        <h3>Kemajuanmu<br>sejauh <em>ini</em>.</h3>
+        <p>Kami simpan status di browser kamu. Refresh halaman sesukamu, progres tidak hilang.</p>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label"><span id="progressText">0 / 10 selesai</span><span id="progressPct">0%</span></div>
+        <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(250,247,241,0.15);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(250,247,241,0.5); letter-spacing: 0.1em; margin-bottom: 12px;">PRO TIP</div>
+          <p style="font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400; color: rgba(250,247,241,0.9); line-height: 1.4;">"SEO bukan sprint, tapi marathon. Situs baru biasanya butuh 4 sampai 8 bulan konsisten sebelum traction terasa."</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+<section id="rencana">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 12 · RENCANA 30 HARI</div>
+      <div>
+        <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
+        <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
+      </div>
+    </div>
+
+    <div class="plan-grid">
+      <div class="plan-week">
+        <div class="plan-label">MINGGU 01</div>
+        <h4>Fondasi dan <em>mental model</em></h4>
+        <div class="plan-sub">Hari 1 sampai 7 · Reading heavy</div>
+        <ul><li>Baca Google Search Central starter guide</li><li>Pahami crawl, index, rank</li><li>Install Google Search Console</li><li>Install Google Analytics 4</li><li>Submit sitemap.xml pertama</li><li>Baca glosarium SEO (istilah dasar)</li></ul>
+      </div>
+      <div class="plan-week">
+        <div class="plan-label">MINGGU 02</div>
+        <h4>Riset <em>keyword</em></h4>
+        <div class="plan-sub">Hari 8 sampai 14 · Data gathering</div>
+        <ul><li>Brainstorm 1 sampai 3 topik inti</li><li>Pakai Google Suggest dan People Also Ask</li><li>Jelajahi Google Keyword Planner</li><li>Kumpulkan 20 long-tail keyword</li><li>Kelompokkan: target vs related</li><li>Tentukan search intent tiap keyword</li></ul>
+      </div>
+      <div class="plan-week">
+        <div class="plan-label">MINGGU 03</div>
+        <h4>Menulis dan <em>on-page</em></h4>
+        <div class="plan-sub">Hari 15 sampai 21 · Produksi</div>
+        <ul><li>Tulis 2 artikel pilar (1500 kata atau lebih)</li><li>Optimasi title dan meta description</li><li>Struktur heading rapi (H1, H2, H3)</li><li>Tambahkan internal link antar artikel</li><li>Alt text semua gambar</li><li>Publish, submit URL ke GSC</li></ul>
+      </div>
+      <div class="plan-week">
+        <div class="plan-label">MINGGU 04</div>
+        <h4>Technical dan <em>iterasi</em></h4>
+        <div class="plan-sub">Hari 22 sampai 30 · Polish</div>
+        <ul><li>Audit Core Web Vitals di PSI</li><li>Compress gambar, lazy load</li><li>Pastikan HTTPS dan mobile OK</li><li>Implement schema (Article, FAQ)</li><li>Cek GSC: error, coverage, query</li><li>Rencana konten bulan berikutnya</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="tools">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 13 · TOOLS</div>
+      <div>
+        <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
+        <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
+      </div>
+    </div>
+
+    <table class="tools-table">
+      <thead><tr><th style="width: 28%;">Tool</th><th style="width: 14%;">Harga</th><th style="width: 20%;">Untuk apa</th><th>Catatan</th></tr></thead>
+      <tbody>
+        <tr><td><div class="tool-name">Google Search Console<small>search.google.com/search-console</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Monitoring performa di Google</td><td>Wajib hukumnya. Tunjukkan query apa yang membawa traffic, halaman mana yang ranking, dan error apa yang perlu diperbaiki.</td></tr>
+        <tr><td><div class="tool-name">Google Analytics 4<small>analytics.google.com</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Analisis perilaku pengunjung</td><td>Lihat berapa lama orang tinggal, halaman apa yang paling populer, dari mana mereka datang. Pasangan wajib dengan GSC.</td></tr>
+        <tr><td><div class="tool-name">Google Keyword Planner<small>ads.google.com/keywordplanner</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Riset volume keyword</td><td>Butuh akun Google Ads (tidak perlu ngeluarin uang). Range volume agak kasar tapi cukup untuk panduan awal.</td></tr>
+        <tr><td><div class="tool-name">Google Trends<small>trends.google.com</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Tren pencarian dari waktu ke waktu</td><td>Cek apakah sebuah topik sedang naik atau turun. Bagus untuk timing konten musiman.</td></tr>
+        <tr><td><div class="tool-name">PageSpeed Insights<small>pagespeed.web.dev</small></div></td><td><span class="pill pill-free">Gratis</span></td><td>Audit Core Web Vitals</td><td>Ukur LCP, CLS, INP. Kasih rekomendasi konkret untuk mempercepat halaman.</td></tr>
+        <tr><td><div class="tool-name">Ahrefs Webmaster Tools<small>ahrefs.com/webmaster-tools</small></div></td><td><span class="pill pill-freemium">Freemium</span></td><td>Backlink dan site audit</td><td>Versi gratis untuk situs yang kamu verifikasi. Cek backlink masuk dan masalah teknis.</td></tr>
+        <tr><td><div class="tool-name">Ubersuggest<small>neilpatel.com/ubersuggest</small></div></td><td><span class="pill pill-freemium">Freemium</span></td><td>Riset keyword alternatif</td><td>Free tier terbatas per hari tapi bagus untuk eksplorasi cepat long-tail keyword.</td></tr>
+        <tr><td><div class="tool-name">Semrush atau Ahrefs<small>Versi berbayar</small></div></td><td><span class="pill pill-paid">$99+/bln</span></td><td>Riset mendalam dan kompetitor</td><td>Jangan upgrade ke sini sampai kamu betul-betul butuh. 6 bulan pertama fokus di tools gratis dulu.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section id="glosarium">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 14 · GLOSARIUM</div>
+      <div>
+        <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
+        <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
+      </div>
+    </div>
+
+    <dl class="glossary-grid">
+      <div class="term"><dt>SERP<small>Search engine results page</small></dt><dd>Halaman yang muncul saat kamu mengetik sesuatu di Google. Isinya ads, organic results, AI Overview, featured snippet, dan lainnya.</dd></div>
+      <div class="term"><dt>Keyword<small>Kata kunci</small></dt><dd>Kata atau frasa yang diketik orang ke mesin pencari. Fondasi semua strategi SEO, kamu harus tahu apa yang dicari audiensmu.</dd></div>
+      <div class="term"><dt>Long-tail<small>Keyword panjang</small></dt><dd>Keyword 3 sampai 5 kata, spesifik, volume pencarian kecil tapi intent tinggi. Contoh: "sepatu lari wanita ukuran 38" lebih long-tail dari "sepatu lari".</dd></div>
+      <div class="term"><dt>Backlink<small>Inbound link</small></dt><dd>Link dari situs lain menuju situsmu. Dilihat Google sebagai sinyal bahwa konten kamu layak dirujuk. Kualitas di atas kuantitas.</dd></div>
+      <div class="term"><dt>Anchor text<small>Teks tautan</small></dt><dd>Teks yang terlihat dan bisa diklik dalam sebuah link. Harus deskriptif, bukan "klik di sini" atau "baca selengkapnya".</dd></div>
+      <div class="term"><dt>Meta description<small>Meta deskripsi</small></dt><dd>Ringkasan pendek halaman (sekitar 155 karakter) yang muncul di SERP di bawah title. Tidak langsung untuk ranking, tapi mempengaruhi CTR.</dd></div>
+      <div class="term"><dt>Core Web Vitals<small>CWV</small></dt><dd>Tiga metrik performa halaman versi Google: LCP (kecepatan muat), CLS (stabilitas layout), INP (responsivitas interaksi).</dd></div>
+      <div class="term"><dt>E-E-A-T<small>Experience, Expertise, Authority, Trust</small></dt><dd>Framework Google untuk menilai kualitas konten. Tunjukkan pengalaman nyata, keahlian, otoritas topikal, dan kepercayaan.</dd></div>
+      <div class="term"><dt>Schema<small>Structured data</small></dt><dd>Kode khusus (JSON-LD) yang menjelaskan isi halaman ke mesin pencari. Buka peluang rich snippet: bintang review, FAQ, recipe, dll.</dd></div>
+      <div class="term"><dt>Crawl budget<small></small></dt><dd>Jumlah halaman yang mau di-crawl Google dari situsmu dalam periode tertentu. Situs besar perlu mengoptimasi ini; situs kecil biasanya tidak perlu pusing.</dd></div>
+      <div class="term"><dt>Canonical<small>rel="canonical"</small></dt><dd>Tag yang menunjukkan versi "utama" dari sebuah halaman jika ada duplikat. Mencegah masalah duplicate content.</dd></div>
+      <div class="term"><dt>AI Overview<small>SGE</small></dt><dd>Kotak jawaban AI di atas hasil pencarian Google. Tampil pada query informasional. Muncul di sini sama dengan jackpot visibilitas.</dd></div>
+    </dl>
+  </div>
+</section>
+<section class="faq">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">§ 15 · FAQ</div>
+      <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
+    </div>
+
+    <div class="faq-list">
+      <details><summary>Berapa lama sampai SEO menunjukkan hasil?</summary><p>SEO adalah marathon, bukan sprint. Untuk situs baru di 2026, traction yang signifikan biasanya terasa di bulan ke-4 sampai ke-8. Kamu mungkin melihat halaman pertama mulai ranking untuk long-tail keyword dalam 2 sampai 3 bulan pertama, tapi keyword kompetitif butuh waktu jauh lebih lama. Kuncinya: konsistensi publish plus perbaikan iteratif.</p></details>
+      <details><summary>Apakah saya perlu bisa coding untuk belajar SEO?</summary><p>Tidak wajib, tapi sangat membantu. Pemahaman dasar HTML dan structured data akan mempermudah troubleshoot dan komunikasi dengan developer. Untuk pemula, fokus dulu di konten, keyword research, dan on-page SEO. Technical stuff bisa dipelajari sambil jalan di bulan kedua.</p></details>
+      <details><summary>Apakah SEO sudah mati karena ChatGPT dan AI search?</summary><p>Tidak. SEO tidak mati, dia berevolusi menjadi "Search Everywhere Optimization". Google AI Overviews, ChatGPT, Perplexity, dan Gemini semua masih butuh sumber konten untuk dikutip. Yang berubah: cara menulis konten. Kamu perlu struktur yang lebih jelas, jawaban yang lebih ringkas di atas, dan data konkret yang bisa dikutip oleh AI.</p></details>
+      <details><summary>Apakah saya bisa ranking tanpa backlink?</summary><p>Bisa, terutama untuk long-tail keyword dengan kompetisi rendah. Konten yang sangat helpful dengan engagement tinggi (orang tinggal lama, tidak bounce back ke SERP) bisa ranking tanpa backlink eksternal sekalipun. Tapi untuk keyword kompetitif, backlink tetap jadi sinyal kuat.</p></details>
+      <details><summary>Berapa panjang artikel yang ideal?</summary><p>Tidak ada angka magis. Artikel harus cukup panjang untuk menjawab tuntas, tapi tidak bertele-tele. Untuk topik edukasi biasanya 1.200 sampai 2.500 kata. Untuk jawaban cepat bisa 500 sampai 800 kata. Fokus ke "apakah halaman ini mengurangi kebutuhan user untuk search lagi?". Kalau ya, panjangnya sudah tepat.</p></details>
+      <details><summary>Haruskah saya pakai tools SEO berbayar seperti Ahrefs?</summary><p>Belum perlu di awal. Google Search Console, Google Analytics, Google Keyword Planner, Google Trends, dan PageSpeed Insights, semuanya gratis dan cukup untuk 6 bulan pertama. Upgrade ke tools berbayar (Ahrefs, Semrush) kalau kamu sudah punya alur kerja yang mantap dan butuh data kompetitor yang lebih dalam.</p></details>
+      <details><summary>Apa kesalahan pemula yang paling sering dilakukan?</summary><p>Keyword stuffing (mengulang keyword berlebihan), mengejar keyword dengan volume tinggi tanpa melihat kompetisi, tidak sabar (berhenti di bulan ke-2 karena belum ada hasil), dan mengabaikan mobile experience. Di 2026, kesalahan terbaru: menulis konten AI mentah tanpa editing dan konteks manusia.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h2>Belajar <em>SEO</em> sampai halaman pertama.</h2>
+      <p>Panduan gratis, tanpa email-gated, tanpa upsell. Ditulis dari fundamental yang sudah teruji, bukan trik viral yang berumur pendek.</p>
+    </div>
+    <div>
+      <h5>Materi</h5>
+      <ul>
+        <li>Apa itu SEO</li>
+        <li>Anatomi SERP</li>
+        <li>Roadmap 10 Fase</li>
+        <li>Empat Pilar</li>
+        <li>Kurikulum 8 Modul</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Tools</h5>
+      <ul>
+        <li>Keyword Playground</li>
+        <li>On-Page Inspector</li>
+        <li>CWV Simulator</li>
+        <li>Backlink Flow</li>
+      </ul>
+    </div>
+    <div>
+      <h5>Referensi</h5>
+      <ul>
+        <li>Google Search Central</li>
+        <li>learningseo.io</li>
+        <li>Web.dev</li>
+        <li>Schema.org</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SEO SEKOLAH · MATERI ORIGINAL</span>
+    <span>TERAKHIR DIPERBARUI · APR 2026</span>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+  const LESSONS = {
+    1: {
+      eyebrow: "MODUL 01 · 42 MENIT · 4 PELAJARAN",
+      title: "Cara kerja <em>mesin pencari</em>",
+      lede: "Sebelum kamu mengoptimasi apa pun, kamu perlu tahu apa yang kamu optimasi untuk. Google bukan kotak ajaib, cara kerjanya bisa dipahami dalam tiga langkah sederhana.",
+      body: `
+        <h3>1. Crawling, Google menjelajah web</h3>
+        <p>Google punya program otomatis bernama <strong>Googlebot</strong> yang terus-menerus menjelajahi internet. Dia mengikuti tautan dari satu halaman ke halaman lain, mengunduh HTML-nya, dan mengantarkan ke server Google.</p>
+        <p>Supaya Googlebot bisa menemukan halamanmu, dia butuh <strong>jalur masuk</strong>: tautan dari halaman lain yang sudah dikenal Google, atau sitemap yang kamu submit langsung.</p>
+        <h3>2. Indexing, Google memahami dan menyimpan</h3>
+        <p>Setelah crawl, Google menganalisis: apa isi halaman ini? apa topiknya? ada gambar, video, data terstruktur? Semua dimasukkan ke index, database raksasa berisi ratusan miliar halaman.</p>
+        <div class="callout"><strong>Penting:</strong> kalau halamanmu tidak masuk index, dia tidak akan muncul di hasil pencarian. Titik. Cek di Google Search Console, Coverage untuk memastikan.</div>
+        <h3>3. Ranking, Google memilih dan menyusun</h3>
+        <p>Saat user mengetik query, algoritma Google memilih halaman paling relevan dari index dan menyusunnya dari paling berguna ke paling kurang berguna. Ada ratusan faktor ranking, tapi yang utama:</p>
+        <ul>
+          <li><strong>Relevansi</strong>, apakah halaman menjawab query?</li>
+          <li><strong>Kualitas</strong>, seberapa helpful, original, dan terpercaya?</li>
+          <li><strong>Usability</strong>, cepat? mobile-friendly? aman (HTTPS)?</li>
+          <li><strong>Konteks</strong>, lokasi user, bahasa, riwayat pencarian</li>
+        </ul>
+        <h3>Model mental yang penting</h3>
+        <p>Kalau kamu ingin ranking, pastikan semua tiga langkah berjalan lancar: Google <em>bisa</em> crawl halamanmu, <em>mau</em> mengindeksnya, dan <em>pantas</em> memberinya posisi tinggi. Semua optimasi SEO berikutnya adalah turunan dari tiga hal ini.</p>
+      `
+    },
+    2: {
+      eyebrow: "MODUL 02 · 1 JAM 20 MENIT · 6 PELAJARAN",
+      title: "Riset <em>keyword</em> yang benar",
+      lede: "Keyword research adalah proses menemukan kata dan frasa yang benar-benar dipakai audiensmu di Google. Ini fondasi semua strategi SEO. Tanpa ini kamu cuma menulis konten secara membabi buta.",
+      body: `
+        <h3>Mulai dari brainstorm topik, bukan keyword</h3>
+        <p>Jangan langsung pakai tools. Tulis dulu 3 sampai 5 topik inti yang relevan dengan bisnis atau blogmu. Misal untuk toko kopi: <code>cara seduh kopi</code>, <code>jenis biji kopi</code>, <code>alat seduh manual</code>.</p>
+        <h3>Perluas dengan tools gratis</h3>
+        <ol>
+          <li><strong>Google Suggest</strong>, ketik topikmu di Google, lihat auto-complete. Itu adalah pertanyaan nyata orang.</li>
+          <li><strong>People Also Ask</strong>, kotak pertanyaan di SERP. Goldmine untuk FAQ dan heading.</li>
+          <li><strong>Related Searches</strong>, di bawah hasil pencarian. Ekspansi topik natural.</li>
+          <li><strong>Google Trends</strong>, cek apakah topiknya naik atau turun.</li>
+          <li><strong>Google Keyword Planner</strong>, volume pencarian (butuh akun Google Ads, tidak perlu bayar).</li>
+        </ol>
+        <h3>Pahami search intent</h3>
+        <p>Tiap keyword punya niat di baliknya:</p>
+        <ul>
+          <li><strong>Informasional</strong>, "cara menanam kopi" berarti orang ingin belajar</li>
+          <li><strong>Navigasional</strong>, "starbucks menu" berarti cari brand atau situs tertentu</li>
+          <li><strong>Komersial</strong>, "mesin espresso terbaik 2026" berarti riset sebelum beli</li>
+          <li><strong>Transaksional</strong>, "beli v60 online" berarti siap membeli</li>
+        </ul>
+        <p>Konten harus cocok dengan intent. Keyword transaksional ditulis sebagai halaman produk, bukan artikel edukasi.</p>
+        <h3>Fokus ke long-tail keyword dulu</h3>
+        <p>Sebagai pemula, jangan kejar "sepatu lari" (volume tinggi, kompetisi brutal). Kejar <code>sepatu lari wanita untuk marathon pertama</code>, volume kecil, tapi intent tinggi dan jauh lebih mungkin ranking.</p>
+        <div class="callout"><strong>Aturan jempol:</strong> situs baru mulai dari keyword dengan volume 50 sampai 500/bulan dan difficulty di bawah 30. Baru setelah ada otoritas, naik ke keyword yang lebih kompetitif.</div>
+        <h3>Kelompokkan: target vs related</h3>
+        <p>Satu halaman sama dengan satu target keyword ditambah 3 sampai 5 related keyword. Contoh:</p>
+        <ul>
+          <li><strong>Target:</strong> cara seduh kopi v60</li>
+          <li><strong>Related:</strong> rasio kopi v60, grind size v60, teknik pour over, troubleshoot v60 pahit</li>
+        </ul>
+      `
+    },
+    3: {
+      eyebrow: "MODUL 03 · 2 JAM 10 MENIT · 8 PELAJARAN",
+      title: "On-page SEO: <em>title, meta, heading</em>",
+      lede: "On-page SEO adalah apa yang kamu kendalikan langsung di halamanmu. Kalau fondasi ini salah, strategi apapun di atasnya akan goyah.",
+      body: `
+        <h3>Title tag, headline di SERP</h3>
+        <p>Elemen terpenting di on-page SEO. Dia muncul sebagai clickable headline di hasil Google.</p>
+        <ul>
+          <li>Panjang: 50 sampai 60 karakter (sebelum dipotong "...")</li>
+          <li>Taruh keyword utama di awal kalau natural</li>
+          <li>Unik per halaman, jangan pakai template</li>
+          <li>Buat menarik tanpa clickbait kosong</li>
+        </ul>
+        <pre>&lt;title&gt;Cara Seduh Kopi V60 untuk Pemula (Panduan 2026)&lt;/title&gt;</pre>
+        <h3>Meta description, pitch di bawah title</h3>
+        <p>Tidak langsung mempengaruhi ranking, tapi sangat mempengaruhi <strong>click-through rate</strong>. Anggap sebagai iklan 2 baris.</p>
+        <ul>
+          <li>Panjang: 140 sampai 160 karakter</li>
+          <li>Sertakan keyword (ditebalkan oleh Google)</li>
+          <li>Ada call-to-action: "Pelajari...", "Temukan...", "Ikuti langkah..."</li>
+          <li>Unik per halaman</li>
+        </ul>
+        <h3>Heading (H1 sampai H6), struktur isi</h3>
+        <p>Heading membantu manusia membaca cepat, dan membantu Google plus AI memetakan isi.</p>
+        <ul>
+          <li><strong>Satu H1 per halaman</strong>, biasanya sama dengan judul artikel</li>
+          <li>H2 untuk section utama, H3 untuk sub-section</li>
+          <li>Jangan skip level (H2 langsung ke H4)</li>
+          <li>Pakai keyword variasi, bukan cuma keyword utama berulang</li>
+        </ul>
+        <h3>URL, pendek, deskriptif, rapi</h3>
+        <pre>Bagus: /panduan/seduh-kopi-v60
+Buruk: /?p=4421&amp;cat=7</pre>
+        <ul>
+          <li>Pakai tanda minus (-), bukan underscore (_)</li>
+          <li>Semua lowercase</li>
+          <li>Hindari tanggal di URL kalau konten evergreen</li>
+        </ul>
+        <h3>Alt text, deskripsi gambar</h3>
+        <p>Teks alternatif untuk gambar. Penting untuk aksesibilitas (screen reader) dan image SEO.</p>
+        <pre>&lt;img src="v60.jpg" alt="Dripper V60 keramik putih dengan filter kertas"&gt;</pre>
+        <p>Jelaskan gambar secara natural. Boleh sertakan keyword kalau relevan, jangan stuffing.</p>
+        <h3>Keyword placement, alami bukan dipaksa</h3>
+        <p>Tempat strategis untuk keyword utama:</p>
+        <ol>
+          <li>Title tag</li><li>H1 (heading utama)</li><li>Paragraf pertama (inverted pyramid)</li><li>Satu atau dua H2</li><li>URL</li><li>Meta description</li><li>Alt text (kalau natural)</li>
+        </ol>
+        <div class="callout"><strong>Hindari keyword stuffing.</strong> Panda Update 2011 sudah menghukum praktik ini. Di 2026, Google lebih menghargai variasi semantik daripada repetisi mentah.</div>
+      `
+    },
+    4: {
+      eyebrow: "MODUL 04 · 1 JAM 45 MENIT · 5 PELAJARAN",
+      title: "Konten yang dicintai <em>Google dan manusia</em>",
+      lede: "Google di 2026 me-rank halaman yang membuat orang tinggal lebih lama dan tidak kembali ke SERP. Rahasianya: konten yang benar-benar menjawab, bukan yang paling panjang.",
+      body: `
+        <h3>Prinsip people-first content</h3>
+        <p>Google Helpful Content Update menekankan: tulis untuk manusia, bukan untuk algoritma. Pertanyaan yang harus kamu jawab jujur:</p>
+        <ul>
+          <li>Apakah kontenmu memberi informasi yang tidak mudah ditemukan di tempat lain?</li>
+          <li>Apakah kamu punya pengalaman atau keahlian nyata di topik ini?</li>
+          <li>Setelah membaca, apakah user merasa cukup, atau malah perlu search lagi?</li>
+        </ul>
+        <h3>Framework E-E-A-T</h3>
+        <p><strong>Experience, Expertise, Authority, Trust</strong>. Bagaimana Google menilai kualitas.</p>
+        <ul>
+          <li><strong>Experience:</strong> pengalaman langsung. "Saya memakai tool ini selama 6 bulan..."</li>
+          <li><strong>Expertise:</strong> keahlian formal atau praktis di bidang</li>
+          <li><strong>Authority:</strong> diakui oleh sumber lain yang kredibel</li>
+          <li><strong>Trust:</strong> transparan, akurat, aman (HTTPS, author bio, kontak)</li>
+        </ul>
+        <h3>Struktur inverted pyramid</h3>
+        <p>Jawaban utama di paragraf pertama. Detail dan konteks di bawahnya. Alasan:</p>
+        <ol>
+          <li>User yang buru-buru langsung dapat jawaban</li>
+          <li>AI Overviews suka mengutip jawaban ringkas di awal</li>
+          <li>Featured snippet Google diambil dari struktur seperti ini</li>
+        </ol>
+        <h3>Content cluster, bangun otoritas topikal</h3>
+        <p>Alih-alih menulis 50 artikel acak, bangun <strong>pillar page</strong> (topik besar) yang dilinkkan ke banyak <strong>supporting page</strong> (sub-topik). Google melihat pola ini sebagai tanda keahlian.</p>
+        <pre>Pillar: "Panduan Lengkap Seduh Kopi Manual"
+  V60 untuk Pemula
+  Aeropress Technique
+  Rasio Kopi-Air
+  Grind Size Chart</pre>
+        <h3>Update dan hapus konten lama</h3>
+        <p>Google menyukai konten yang "hidup". Tiap 6 sampai 12 bulan:</p>
+        <ul>
+          <li>Update statistik, data, link yang mati</li>
+          <li>Tambahkan section baru kalau ada perkembangan</li>
+          <li>Hapus halaman yang sudah tidak relevan (content pruning)</li>
+        </ul>
+        <div class="callout"><strong>Dwell time sama dengan sinyal ranking.</strong> Kalau user menutup tab dan kembali ke SERP dalam 5 detik, Google tahu kontenmu tidak menjawab. Buat pembuka kuat, format yang mudah di-scan, dan konten yang membuat orang terus scroll.</div>
+      `
+    },
+    5: {
+      eyebrow: "MODUL 05 · 2 JAM 30 MENIT · 7 PELAJARAN",
+      title: "Technical SEO tanpa <em>overwhelm</em>",
+      lede: "Technical SEO terdengar menakutkan, tapi sebenarnya sekali setup: beres. Fokus di hal yang punya dampak besar dulu.",
+      body: `
+        <h3>Core Web Vitals, tiga metrik yang Google ukur</h3>
+        <ul>
+          <li><strong>LCP (Largest Contentful Paint):</strong> seberapa cepat konten utama muncul. Target di bawah 2.5 detik</li>
+          <li><strong>CLS (Cumulative Layout Shift):</strong> stabilitas layout saat loading. Target di bawah 0.1</li>
+          <li><strong>INP (Interaction to Next Paint):</strong> responsivitas klik atau tap. Target di bawah 200ms</li>
+        </ul>
+        <p>Cek di <code>pagespeed.web.dev</code>. Tools ini memberi rekomendasi spesifik: compress gambar, defer JS, preload font, dll.</p>
+        <h3>Mobile-friendly itu wajib</h3>
+        <p>Google pakai <strong>mobile-first indexing</strong>, versi mobile lah yang jadi acuan ranking. Pastikan:</p>
+        <ul>
+          <li>Responsive design (breakpoint di 768px, 1024px)</li>
+          <li>Tap target minimal 44x44 px</li>
+          <li>Text minimal 16px, tidak perlu zoom</li>
+          <li>Tidak ada horizontal scroll</li>
+        </ul>
+        <h3>HTTPS, non-negotiable</h3>
+        <p>Google sudah menandai HTTP sebagai "Not Secure" di Chrome. Pasang SSL certificate gratis dari Let's Encrypt atau via hosting provider (Cloudflare, Vercel, Netlify: otomatis).</p>
+        <h3>Sitemap.xml dan robots.txt</h3>
+        <p><strong>Sitemap.xml</strong> sama dengan peta situs yang membantu Google menemukan semua halamanmu.</p>
+        <pre>https://situsmu.com/sitemap.xml</pre>
+        <p>Submit ke Google Search Console, Sitemaps.</p>
+        <p><strong>Robots.txt</strong> sama dengan instruksi mana yang boleh atau tidak di-crawl.</p>
+        <pre>User-agent: *
+Allow: /
+Disallow: /admin/
+Sitemap: https://situsmu.com/sitemap.xml</pre>
+        <h3>Structured data (Schema.org)</h3>
+        <p>Kode JSON-LD yang menjelaskan isi halaman ke mesin pencari. Membuka peluang <strong>rich snippet</strong>: bintang rating, FAQ accordion, recipe card, breadcrumb.</p>
+        <pre>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cara Seduh Kopi V60",
+  "author": {"@type": "Person", "name": "Budi"},
+  "datePublished": "2026-04-01"
+}
+&lt;/script&gt;</pre>
+        <p>Validasi di <code>validator.schema.org</code>.</p>
+        <h3>Canonical tag, untuk duplicate content</h3>
+        <p>Kalau ada dua URL dengan konten sama (misal versi print, filter, tracking param), tentukan yang "utama":</p>
+        <pre>&lt;link rel="canonical" href="https://situsmu.com/v60"&gt;</pre>
+        <div class="callout"><strong>Prioritas pemula:</strong> HTTPS, mobile-friendly, Core Web Vitals, sitemap, baru structured data. Jangan sentuh hreflang, crawl budget, atau log analysis sampai kamu benar-benar butuh.</div>
+      `
+    },
+    6: {
+      eyebrow: "MODUL 06 · 55 MENIT · 3 PELAJARAN",
+      title: "Internal link dan <em>struktur situs</em>",
+      lede: "Cara kamu menghubungkan halaman satu dengan lainnya bisa membuat perbedaan besar, baik untuk Google maupun pengunjung.",
+      body: `
+        <h3>Kenapa internal link penting</h3>
+        <ul>
+          <li>Membantu crawler menemukan halaman baru</li>
+          <li>Mendistribusikan "link equity" dari halaman kuat ke halaman baru</li>
+          <li>Membantu Google memahami hubungan antar halaman</li>
+          <li>Menurunkan bounce rate (user klik ke artikel lain)</li>
+        </ul>
+        <h3>Struktur pillar plus cluster</h3>
+        <p>Model yang paling sering dipakai:</p>
+        <pre>Homepage
+  Pillar Page A (topik besar)
+      Supporting 1
+      Supporting 2
+      Supporting 3
+  Pillar Page B
+      Supporting 1
+      Supporting 2</pre>
+        <p>Pillar page sama dengan halaman komprehensif tentang topik besar. Supporting page sama dengan artikel mendalam tentang sub-topik, masing-masing link balik ke pillar.</p>
+        <h3>Anchor text, deskriptif bukan generik</h3>
+        <ul>
+          <li>Buruk: "<a>klik di sini</a> untuk panduan lengkap"</li>
+          <li>Bagus: "baca <a>panduan lengkap seduh V60</a>"</li>
+        </ul>
+        <p>Anchor text memberi konteks ke Google tentang halaman tujuan. Pakai variasi keyword, jangan selalu sama persis.</p>
+        <h3>Aturan internal linking yang sehat</h3>
+        <ol>
+          <li>Setiap artikel baru minimal link ke 2 sampai 5 artikel relevan</li>
+          <li>Setiap artikel menerima minimal 1 link dari artikel lain (tidak ada "orphan page")</li>
+          <li>Halaman penting harus bisa dicapai dari homepage dalam 3 klik atau kurang</li>
+          <li>Jangan link berlebihan, pilih yang paling relevan</li>
+        </ol>
+        <div class="callout"><strong>Audit trick:</strong> pakai Google Search Console, Links report untuk melihat halaman mana yang paling banyak menerima internal link. Halaman dengan link sedikit sama dengan prioritas improvement.</div>
+      `
+    },
+    7: {
+      eyebrow: "MODUL 07 · 1 JAM 30 MENIT · 5 PELAJARAN",
+      title: "Off-page SEO dan <em>backlink</em>",
+      lede: "Backlink adalah suara kepercayaan dari situs lain. Tapi hati-hati, kualitas backlink 100x lebih penting dari kuantitas.",
+      body: `
+        <h3>Apa itu backlink yang bagus?</h3>
+        <ul>
+          <li>Dari situs relevan dengan topikmu</li>
+          <li>Dari domain authority yang tinggi</li>
+          <li>Anchor text natural, bervariasi</li>
+          <li>Dalam konteks editorial (bukan paid link tersembunyi)</li>
+          <li>Dari situs yang tidak "menjual link"</li>
+        </ul>
+        <p>Satu link dari situs berita besar bisa lebih berharga dari 100 link dari directory spam.</p>
+        <h3>Cara dapat backlink yang halal</h3>
+        <ol>
+          <li><strong>Guest post:</strong> tulis artikel untuk situs lain, dapatkan 1 sampai 2 link kembali</li>
+          <li><strong>Digital PR:</strong> buat studi atau data original yang layak dikutip media</li>
+          <li><strong>Unlinked brand mentions:</strong> cari brandmu disebut tanpa link, minta tuan rumah untuk me-link</li>
+          <li><strong>Broken link building:</strong> cari link mati di situs lain, usulkan kontenmu sebagai pengganti</li>
+          <li><strong>Resource page:</strong> cari halaman "resources atau tools", pitch konten relevan</li>
+          <li><strong>Business listings:</strong> Google Business Profile, direktori industri lokal</li>
+        </ol>
+        <h3>Yang harus DIHINDARI</h3>
+        <ul>
+          <li>Beli link dari "SEO agency" murah</li>
+          <li>Link exchange berlebihan</li>
+          <li>Private Blog Network (PBN)</li>
+          <li>Komentar spam dengan link</li>
+          <li>Directory murahan atau link farm</li>
+        </ul>
+        <p>Google Penguin sangat canggih mendeteksi pola ini. Penalty bisa membuat situs turun drastis bertahun-tahun.</p>
+        <h3>Brand building sama dengan off-page SEO jangka panjang</h3>
+        <p>Fokus membangun brand yang orang <em>ingin</em> menyebut. Aktif di media sosial, komunitas, podcast, konferensi. Backlink akan datang sendiri kalau brandmu layak dikutip.</p>
+        <div class="callout"><strong>Realistis:</strong> untuk situs baru, 6 bulan pertama fokuslah di konten. Baru setelah ada 15 sampai 20 artikel berkualitas, mulai kejar backlink. Tanpa konten yang layak, tidak ada yang mau link ke kamu.</div>
+      `
+    },
+    8: {
+      eyebrow: "MODUL 08 · 1 JAM 15 MENIT · 4 PELAJARAN",
+      title: "Search Console, Analytics, dan <em>mengukur hasil</em>",
+      lede: "Tanpa data, SEO cuma tebak-tebakan mahal. Dua tools gratis dari Google ini, sudah cukup untuk 95 persen kebutuhan.",
+      body: `
+        <h3>Google Search Console (GSC), wajib hukumnya</h3>
+        <p>Setup di <code>search.google.com/search-console</code>. Verifikasi domain via DNS, HTML tag, atau file upload.</p>
+        <p><strong>Laporan yang paling sering dipakai:</strong></p>
+        <ul>
+          <li><strong>Performance:</strong> query apa yang bawa traffic, CTR, posisi rata-rata</li>
+          <li><strong>Coverage atau Pages:</strong> halaman mana yang diindex, mana yang error</li>
+          <li><strong>Sitemaps:</strong> submit sitemap.xml</li>
+          <li><strong>Core Web Vitals:</strong> halaman dengan masalah performa</li>
+          <li><strong>Enhancements:</strong> schema yang valid atau error</li>
+        </ul>
+        <h3>Google Analytics 4 (GA4)</h3>
+        <p>Tracking perilaku pengunjung. Setup via Google Tag atau GTM.</p>
+        <p><strong>Metrik yang perlu dipantau:</strong></p>
+        <ul>
+          <li><strong>Users atau Sessions:</strong> jumlah pengunjung</li>
+          <li><strong>Engagement rate:</strong> seberapa aktif mereka (pengganti bounce rate)</li>
+          <li><strong>Engagement time:</strong> lama di halaman</li>
+          <li><strong>Pages per session:</strong> kedalaman eksplorasi</li>
+          <li><strong>Conversion events:</strong> action yang kamu definisikan</li>
+        </ul>
+        <h3>KPI SEO untuk pemula</h3>
+        <ol>
+          <li><strong>Organic impressions</strong> (GSC), seberapa sering kamu muncul</li>
+          <li><strong>Organic clicks</strong> (GSC), seberapa sering diklik</li>
+          <li><strong>Average position</strong> (GSC), posisi rata-rata di SERP</li>
+          <li><strong>Indexed pages</strong> (GSC), halaman yang masuk index</li>
+          <li><strong>Organic users</strong> (GA4), pengunjung dari search</li>
+        </ol>
+        <h3>Siklus iterasi bulanan</h3>
+        <p>Tiap akhir bulan, luangkan 2 jam untuk review:</p>
+        <ol>
+          <li>Cek 10 query dengan impressions tinggi tapi CTR rendah, perbaiki title atau meta</li>
+          <li>Cek 10 halaman dengan posisi 11 sampai 20, tambah konten atau internal link (mereka dekat halaman 1)</li>
+          <li>Cek error di Coverage, fix 404, redirect chain, blocked pages</li>
+          <li>Update 1 sampai 2 artikel lama dengan info terbaru</li>
+          <li>Publish 2 sampai 4 artikel baru sesuai roadmap keyword</li>
+        </ol>
+        <div class="callout"><strong>Realitas:</strong> SEO butuh 3 sampai 6 bulan sebelum hasil terlihat jelas. Situs benar-benar baru bisa butuh 6 sampai 12 bulan untuk traction signifikan. Jangan berhenti di bulan ke-2.</div>
+      `
+    }
+  };
+
+  const backdrop = document.getElementById('modalBackdrop');
+  const closeBtn = document.getElementById('modalClose');
+  const modalContent = document.getElementById('modalContent');
+  let currentLesson = null;
+
+  function openLesson(n) {
+    const data = LESSONS[n];
+    if (!data) return;
+    const prevN = n > 1 ? n - 1 : null;
+    const nextN = n < 8 ? n + 1 : null;
+    modalContent.innerHTML = `
+      <div class="modal-eyebrow">${data.eyebrow}</div>
+      <h2>${data.title}</h2>
+      <p class="modal-lede">${data.lede}</p>
+      ${data.body}
+      <div class="modal-nav">
+        <button class="prev" ${prevN ? '' : 'disabled'} onclick="openLesson(${prevN})">
+          <small>SEBELUMNYA</small>
+          <span>${prevN ? 'Modul ' + String(prevN).padStart(2,'0') : 'Awal modul'}</span>
+        </button>
+        <button class="next" ${nextN ? '' : 'disabled'} onclick="openLesson(${nextN})">
+          <small>SELANJUTNYA</small>
+          <span>${nextN ? 'Modul ' + String(nextN).padStart(2,'0') : 'Akhir modul'}</span>
+        </button>
+      </div>
+    `;
+    modalContent.scrollTop = 0;
+    backdrop.querySelector('.modal').scrollTop = 0;
+    backdrop.classList.add('open');
+    document.body.classList.add('modal-open');
+    currentLesson = n;
+  }
+  function closeModal() {
+    backdrop.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    currentLesson = null;
+  }
+  window.openLesson = openLesson;
+
+  document.querySelectorAll('.lesson').forEach(el => {
+    el.addEventListener('click', () => {
+      const n = parseInt(el.dataset.lesson, 10);
+      openLesson(n);
+    });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (!currentLesson) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowRight' && currentLesson < 8) openLesson(currentLesson + 1);
+    if (e.key === 'ArrowLeft' && currentLesson > 1) openLesson(currentLesson - 1);
+  });
+
+  // Checklist persistence
+  const STORAGE_KEY = 'seo_checklist_state';
+  const items = document.querySelectorAll('.check-item');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const progressPct = document.getElementById('progressPct');
+  function loadState() { try { const raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : {}; } catch { return {}; } }
+  function saveState(state) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {} }
+  function updateProgress() {
+    const total = items.length;
+    const done = document.querySelectorAll('.check-item.done').length;
+    const pct = Math.round((done / total) * 100);
+    progressFill.style.width = pct + '%';
+    progressText.textContent = done + ' / ' + total + ' selesai';
+    progressPct.textContent = pct + '%';
+  }
+  const state = loadState();
+  items.forEach((item, idx) => {
+    if (state[idx]) item.classList.add('done');
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      item.classList.toggle('done');
+      const newState = loadState();
+      newState[idx] = item.classList.contains('done');
+      saveState(newState);
+      updateProgress();
+    });
+  });
+  updateProgress();
+</script>
+
+</body>
+</html>
