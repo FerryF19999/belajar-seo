@@ -540,7 +540,8 @@
   .progress-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 0; padding: 10px 6px; background: rgba(250,247,241,0.88); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 2px; max-height: 78vh; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.3s, width 0.25s; scrollbar-width: none; -ms-overflow-style: none; }
   .progress-nav::-webkit-scrollbar { width: 0; height: 0; display: none; }
   .progress-nav.visible { opacity: 1; pointer-events: auto; }
-  @media (max-width: 1100px) { .progress-nav { display: none; } }
+  @media (max-width: 1200px) { .progress-nav { display: none; } }
+  @media (min-width: 1201px) { body { padding-right: 60px; } }
   .progress-nav-item { display: flex; align-items: center; gap: 8px; padding: 3px 6px; text-decoration: none; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; border-radius: 2px; transition: all 0.15s; position: relative; }
   .progress-nav-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--line); transition: all 0.2s; flex-shrink: 0; }
   .progress-nav-item:hover { color: var(--accent); background: var(--bg); }
@@ -641,8 +642,8 @@
     <h1>Belajar SEO<br><em>praktis</em>,<br>dari nol<br>sampai ngerti.</h1>
     <p class="hero-lede">Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.</p>
     <div class="hero-meta">
-      <div><strong>21</strong>Bab lengkap</div>
-      <div><strong>13</strong>Simulator dan alat</div>
+      <div><strong>22</strong>Bab lengkap</div>
+      <div><strong>14</strong>Simulator dan alat</div>
       <div><strong>10 fase</strong>Roadmap learningseo.io</div>
       <div><strong>Gratis</strong>Selamanya</div>
     </div>
@@ -686,7 +687,7 @@
         <ul>
           <li><a href="#apa-itu">Apa itu SEO</a></li>
           <li><a href="#mindset">Mindset SEO (reset dulu)</a></li>
-          <li><a href="#crawler-demo">Animasi Crawler</a></li>
+          <li><a href="#seo-audit">Audit cepat posisimu</a></li>
           <li><a href="#serp-anatomy">Anatomi SERP</a></li>
           <li><a href="#search-intent">Search Intent</a></li>
         </ul>
@@ -897,10 +898,206 @@
   </div>
 </section>
 
+<section id="seo-audit">
+  <style>
+    #seo-audit { padding: 96px 32px; background: var(--bg); color: var(--ink); }
+    .audit-panel { max-width: 760px; margin: 0 auto; background: var(--paper); border: 1px solid var(--line); overflow: hidden; }
+    .audit-head { padding: 22px 32px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; background: var(--bg-2); }
+    .audit-progress { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); }
+    .audit-progress strong { color: var(--accent); font-weight: 600; }
+    .audit-progress-bar { width: 160px; height: 4px; background: var(--line); position: relative; overflow: hidden; }
+    .audit-progress-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); width: 0; transition: width 0.4s cubic-bezier(.4,0,.2,1); }
+
+    .audit-stage { padding: 44px 40px; min-height: 260px; position: relative; }
+    .audit-question-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 14px; }
+    .audit-question-tag em { color: var(--accent); font-style: normal; font-weight: 600; }
+    .audit-question { font-family: 'Fraunces', serif; font-weight: 500; font-size: 28px; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .audit-question em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .audit-hint { font-size: 14px; color: var(--ink-2); line-height: 1.6; font-style: italic; font-family: 'Instrument Serif', serif; margin-bottom: 28px; max-width: 580px; }
+    .audit-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+    .audit-btn { flex: 1; min-width: 140px; padding: 16px 24px; background: var(--paper); border: 1px solid var(--line); font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; color: var(--ink); cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: space-between; border-radius: 2px; }
+    .audit-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--bg); transform: translateY(-1px); }
+    .audit-btn .key { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); background: var(--bg); padding: 3px 6px; border: 1px solid var(--line); letter-spacing: 0.05em; }
+    .audit-btn:hover .key { border-color: var(--accent); color: var(--accent); }
+    .audit-skip { margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); background: none; border: none; cursor: pointer; letter-spacing: 0.05em; padding: 4px 0; }
+    .audit-skip:hover { color: var(--accent); }
+
+    .audit-result { padding: 44px 40px; display: none; }
+    .audit-result.show { display: block; animation: auditFade 0.45s ease; }
+    @keyframes auditFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .audit-score-row { display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center; margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+    @media (max-width: 560px) { .audit-score-row { grid-template-columns: 1fr; gap: 18px; } }
+    .audit-score-num { font-family: 'Fraunces', serif; font-weight: 600; font-size: 96px; line-height: 0.9; letter-spacing: -0.04em; color: var(--accent); }
+    .audit-score-num .total { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 40px; color: var(--muted); }
+    .audit-level-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+    .audit-level { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 500; line-height: 1.2; margin-bottom: 8px; }
+    .audit-level em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .audit-level-desc { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+    .audit-reco-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 16px; }
+    .audit-recos { list-style: none; padding: 0; margin: 0 0 28px; }
+    .audit-reco { padding: 14px 0 14px 36px; position: relative; border-top: 1px dashed var(--line); font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+    .audit-reco:first-child { border-top: none; }
+    .audit-reco-num { position: absolute; left: 0; top: 14px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: var(--accent); line-height: 1; font-weight: 400; }
+    .audit-reco strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; display: block; margin-bottom: 3px; font-size: 16px; }
+    .audit-reco a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); }
+    .audit-reco a:hover { color: var(--ink); border-color: var(--ink); }
+
+    .audit-retry { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: none; border: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--ink-2); cursor: pointer; text-transform: uppercase; border-radius: 2px; transition: all 0.15s; }
+    .audit-retry:hover { border-color: var(--accent); color: var(--accent); }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>03 · AUDIT CEPAT</div>
+      <div>
+        <h2>Sebelum belajar, cek dulu <em>posisimu</em> sekarang.</h2>
+        <p>Delapan pertanyaan jujur tentang situsmu. Isi tanpa Google dulu, baru akan dikasih skor, level, dan 3 rekomendasi prioritas yang paling bikin dampak. Kurang dari 2 menit.</p>
+      </div>
+    </div>
+
+    <div class="audit-panel">
+      <div class="audit-head">
+        <div class="audit-progress">PERTANYAAN <strong id="audit-current">1</strong> / <span id="audit-total">8</span></div>
+        <div class="audit-progress-bar"><div class="audit-progress-fill" id="audit-fill"></div></div>
+      </div>
+      <div class="audit-stage" id="audit-stage"></div>
+      <div class="audit-result" id="audit-result"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const questions = [
+        { id: 'https', text: 'Situs kamu sudah pakai <em>HTTPS</em>?', hint: 'URL di address bar ada gemboknya. Kalau masih http:// atau browser bilang Not Secure, jawab tidak.', cat: 'technical', weight: 10 },
+        { id: 'gsc', text: 'Sudah install <em>Google Search Console</em> dan Analytics 4?', hint: 'Dua tools Google gratis untuk tahu traffic dan error. Tanpa ini, SEO cuma tebak-tebakan.', cat: 'measurement', weight: 10 },
+        { id: 'sitemap', text: 'Sitemap.xml sudah di-submit ke <em>GSC</em>?', hint: 'File yang kasih tahu Google semua URL di situsmu. Cek di GSC > Sitemaps.', cat: 'technical', weight: 8 },
+        { id: 'title', text: 'Tiap halaman punya <em>title tag unik</em> (50-60 karakter)?', hint: 'Bukan default template. Unik tiap halaman, mengandung keyword utama, tidak terlalu panjang atau pendek.', cat: 'onpage', weight: 8 },
+        { id: 'cwv', text: 'Pernah cek <em>Core Web Vitals</em> di PageSpeed Insights?', hint: 'LCP di bawah 2.5 detik, CLS di bawah 0.1, INP di bawah 200ms. Cek di pagespeed.web.dev.', cat: 'technical', weight: 7 },
+        { id: 'internal', text: 'Ada <em>strategi internal link</em> antar artikel?', hint: 'Bukan sekadar link menu. Setiap artikel baru minimal link ke 2-5 artikel relevan lainnya di situsmu.', cat: 'onpage', weight: 7 },
+        { id: 'keyword', text: 'Riset keyword <em>sebelum</em> nulis artikel?', hint: 'Bukan tulis dulu baru cari keyword. Pakai Google Suggest, Keyword Planner, atau AnswerThePublic untuk validasi demand.', cat: 'strategy', weight: 8 },
+        { id: 'revenue', text: 'Konten kamu mengarah ke <em>konversi spesifik</em>?', hint: 'Lead form, sign-up, pembelian, bukan sekadar traffic. Tahu keyword mana yang bawa revenue, bukan cuma impressions.', cat: 'strategy', weight: 10 }
+      ];
+
+      const TOTAL = questions.reduce((sum, q) => sum + q.weight, 0);
+      const LEVELS = [
+        { min: 85, tag: 'LEVEL MAHIR', title: 'Kamu sudah <em>di level atas</em>', desc: 'Fondasi SEO-mu solid. Masuk ke optimasi strategic dan GEO era AI.', reco_focus: 'strategy' },
+        { min: 60, tag: 'LEVEL MENENGAH', title: 'Fondasi <em>mulai kebentuk</em>', desc: 'Dasar sudah ada tapi masih banyak gap. Fokus tutup celah yang paling impact.', reco_focus: 'onpage' },
+        { min: 30, tag: 'PEMULA ADVANCE', title: 'Kamu <em>baru mulai</em>, itu normal', desc: 'Beberapa hal sudah ada, tapi masih banyak PR. Ikuti kurikulum step-by-step, jangan loncat.', reco_focus: 'technical' },
+        { min: 0,  tag: 'PEMULA TOTAL', title: 'Bagus, kamu <em>di tempat yang tepat</em>', desc: 'Belum banyak yang jalan, tapi itu baseline jujur. Mulai dari Track 1 Pemula, fokus fondasi dulu.', reco_focus: 'all' }
+      ];
+
+      const RECOS = {
+        https:    { title: 'Pasang HTTPS di situsmu', text: 'Pakai SSL gratis dari Let\'s Encrypt, Cloudflare, atau hosting provider. Paksa redirect HTTP ke HTTPS. Cek <a href="#technical-seo">Bab Technical SEO #15</a> poin HTTPS.' },
+        gsc:      { title: 'Setup Google Search Console dan Analytics 4', text: 'Gratis, 15 menit. Tanpa ini kamu tidak tahu halaman mana yang ranking dan error apa yang harus diperbaiki. Mulai dari search.google.com/search-console.' },
+        sitemap:  { title: 'Submit sitemap.xml ke GSC', text: 'Generate sitemap otomatis dari CMS (Yoast di WordPress, atau xml-sitemaps.com). Submit di GSC Sitemaps.' },
+        title:    { title: 'Audit title tag tiap halaman', text: 'Pakai tools gratis seperti Screaming Frog atau Ahrefs Webmaster Tools. Pastikan tiap halaman punya title unik 50-60 karakter dengan keyword utama di depan.' },
+        cwv:      { title: 'Test Core Web Vitals situsmu', text: 'Buka <a href="#cwv-simulator">Bab Simulator CWV</a> untuk pahami metriknya, lalu test di pagespeed.web.dev. Fokus fix LCP dulu (biasanya image yang belum di-compress).' },
+        internal: { title: 'Bangun internal linking sistematis', text: 'Setiap artikel baru link ke 2-5 artikel existing yang relevan. Hindari orphan page. Pelajari pola pillar + cluster di <a href="#kurikulum">Modul 06 Kurikulum</a>.' },
+        keyword:  { title: 'Riset keyword sebelum nulis', text: 'Pakai <a href="#keyword-playground">Keyword Playground</a> untuk latih intuisi, lalu validasi di Google Keyword Planner. Pahami search intent dulu sebelum eksekusi.' },
+        revenue:  { title: 'Ubah mindset: traffic ke revenue', text: 'Mulai dari <a href="#mindset">Bab Mindset SEO</a>. Target keyword yang pembeli-mu cari, bukan keyword volume tinggi yang tidak konversi.' }
+      };
+
+      const stage = document.getElementById('audit-stage');
+      const resultEl = document.getElementById('audit-result');
+      const current = document.getElementById('audit-current');
+      const totalEl = document.getElementById('audit-total');
+      const fill = document.getElementById('audit-fill');
+
+      let idx = 0;
+      const answers = {};
+      totalEl.textContent = questions.length;
+
+      function renderQ() {
+        const q = questions[idx];
+        current.textContent = idx + 1;
+        fill.style.width = ((idx) / questions.length * 100) + '%';
+        stage.innerHTML =
+          '<div class="audit-question-tag">PERTANYAAN <em>' + String(idx + 1).padStart(2, '0') + '</em> · ' + q.cat.toUpperCase() + '</div>'
+          + '<div class="audit-question">' + q.text + '</div>'
+          + '<div class="audit-hint">' + q.hint + '</div>'
+          + '<div class="audit-buttons">'
+          +   '<button class="audit-btn" data-val="1"><span>Ya</span><span class="key">Y</span></button>'
+          +   '<button class="audit-btn" data-val="0"><span>Tidak</span><span class="key">N</span></button>'
+          + '</div>'
+          + '<button class="audit-skip" data-skip="1">Lewati pertanyaan ini →</button>';
+        stage.querySelectorAll('.audit-btn').forEach(b => b.addEventListener('click', () => answer(parseInt(b.dataset.val, 10))));
+        stage.querySelector('.audit-skip').addEventListener('click', () => answer(null));
+      }
+
+      function answer(val) {
+        answers[questions[idx].id] = val;
+        idx++;
+        if (idx >= questions.length) showResult();
+        else renderQ();
+      }
+
+      function showResult() {
+        fill.style.width = '100%';
+        let score = 0;
+        questions.forEach(q => {
+          if (answers[q.id] === 1) score += q.weight;
+        });
+        const pct = Math.round(score / TOTAL * 100);
+        const level = LEVELS.find(l => pct >= l.min);
+
+        // Pick top 3 missing items by weight
+        const missing = questions.filter(q => answers[q.id] !== 1).sort((a, b) => b.weight - a.weight).slice(0, 3);
+        let recosHTML = '';
+        if (missing.length === 0) {
+          recosHTML = '<div class="audit-reco"><span class="audit-reco-num">i</span><strong>Semua dasar sudah kamu jalanin.</strong>Langkah berikutnya: eksplorasi GEO dan AI search. Mulai dari <a href="#geo">Bab GEO</a>.</div>';
+        } else {
+          recosHTML = missing.map((q, i) => {
+            const r = RECOS[q.id];
+            return '<li class="audit-reco"><span class="audit-reco-num">' + ['i','ii','iii'][i] + '</span><strong>' + r.title + '</strong>' + r.text + '</li>';
+          }).join('');
+        }
+
+        stage.style.display = 'none';
+        resultEl.innerHTML =
+          '<div class="audit-score-row">'
+          + '<div class="audit-score-num">' + pct + '<span class="total">/100</span></div>'
+          + '<div>'
+          +   '<div class="audit-level-tag">' + level.tag + '</div>'
+          +   '<div class="audit-level">' + level.title + '</div>'
+          +   '<div class="audit-level-desc">' + level.desc + '</div>'
+          + '</div>'
+          + '</div>'
+          + '<div class="audit-reco-label">' + (missing.length ? '3 REKOMENDASI PRIORITAS' : 'LANGKAH BERIKUTNYA') + '</div>'
+          + '<ul class="audit-recos">' + recosHTML + '</ul>'
+          + '<button class="audit-retry" id="audit-retry">↻ Ulangi audit</button>';
+        resultEl.classList.add('show');
+        document.getElementById('audit-retry').addEventListener('click', reset);
+      }
+
+      function reset() {
+        idx = 0;
+        Object.keys(answers).forEach(k => delete answers[k]);
+        resultEl.classList.remove('show');
+        resultEl.innerHTML = '';
+        stage.style.display = '';
+        renderQ();
+      }
+
+      // Keyboard shortcut Y/N
+      document.addEventListener('keydown', (e) => {
+        if (resultEl.classList.contains('show')) return;
+        const section = document.getElementById('seo-audit');
+        const rect = section.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+        if (e.key === 'y' || e.key === 'Y') answer(1);
+        if (e.key === 'n' || e.key === 'N') answer(0);
+      });
+
+      renderQ();
+    })();
+  </script>
+</section>
+
 <section id="crawler-demo">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>03 · VISUALISASI</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>04 · VISUALISASI</div>
       <div>
         <h2>Lihat <em>Googlebot</em> bekerja.</h2>
         <p>Tiga langkah yang terjadi tiap kali seseorang mencari sesuatu.</p>
@@ -1167,7 +1364,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>04 · ANATOMI SERP</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>05 · ANATOMI SERP</div>
       <div>
         <h2>Apa saja yang ada di <em>halaman hasil</em> Google?</h2>
         <p>Klik tiap komponen untuk memahami peluang dan cara optimasinya.</p>
@@ -1306,7 +1503,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>05 · ROADMAP 10 FASE</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>06 · ROADMAP 10 FASE</div>
       <div>
         <h2>Peta lengkap <em>perjalanan</em> SEO praktisi.</h2>
         <p>Dari pemula sampai mahir, berdasarkan roadmap komunitas global learningseo.io. Pakai ini sebagai peta perjalanan jangka panjang, bukan checklist instan. Fondasi mindset dan fundamental di fase 01 lebih penting dari spesialisasi di fase 05.</p>
@@ -1356,7 +1553,7 @@
 <section id="pilar">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>06 · EMPAT PILAR</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>07 · EMPAT PILAR</div>
       <div>
         <h2>Empat <em>pilar</em> yang menopang semua strategi SEO.</h2>
         <p>Bayangkan sebagai kaki meja. Kalau salah satu lemah, seluruh strategi goyah. Setiap pilar punya teknik dan metriknya sendiri, tapi mereka bekerja bersama.</p>
@@ -1455,7 +1652,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>07 · SEARCH INTENT</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>08 · SEARCH INTENT</div>
       <div>
         <h2>Sebelum menulis kata, pahami <em>niat</em> di balik pencarian.</h2>
         <p>Google di 2026 bukan lagi soal cocokin keyword. Algoritma berusaha pahami apa yang sebenarnya dicari user: mau belajar, mau beli, atau cuma cari brand tertentu. Kalau kontenmu salah intent, mau seoptimal apapun teknisnya, tetap tidak bakal ranking.</p>
@@ -1640,7 +1837,7 @@
 <section id="keyword-playground">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>08 · PLAYGROUND KEYWORD</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>09 · PLAYGROUND KEYWORD</div>
       <div>
         <h2 class="serif">Eksperimen <em class="italic-serif">keyword</em> langsung di sini.</h2>
         <p>Ketik satu kata kunci utama, lalu lihat bagaimana ia bercabang jadi puluhan long-tail yang lebih spesifik. Data di sini dummy, tujuannya melatih intuisi, bukan riset produksi.</p>
@@ -1769,7 +1966,7 @@
 <section id="kurikulum" class="curriculum">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>09 · KURIKULUM</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>10 · KURIKULUM</div>
       <div>
         <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
         <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
@@ -1864,7 +2061,7 @@
 <section id="checklist" class="checklist-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>10 · CHECKLIST</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>11 · CHECKLIST</div>
       <div>
         <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
         <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
@@ -1902,7 +2099,7 @@
 <section id="rencana">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>11 · RENCANA 30 HARI</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>12 · RENCANA 30 HARI</div>
       <div>
         <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
         <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
@@ -1941,7 +2138,7 @@
 <section id="faq" class="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>12 · FAQ</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>13 · FAQ</div>
       <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
     </div>
 
@@ -1960,7 +2157,7 @@
 <section id="onpage-inspector">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge menengah">Menengah</span>13 · ON-PAGE INSPECTOR</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>14 · ON-PAGE INSPECTOR</div>
       <div>
         <h2 class="serif">Cek kesehatan <em class="italic-serif">on-page</em> halamanmu.</h2>
         <p>Masukkan title tag, meta description, dan target keyword. Inspector akan menilai panjang karakter, posisi keyword, serta menampilkan mockup bagaimana hasilmu muncul di Google.</p>
@@ -2122,7 +2319,7 @@
 <section id="cwv-simulator">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge menengah">Menengah</span>14 · CORE WEB VITALS</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>15 · CORE WEB VITALS</div>
       <div>
         <h2 class="serif">Simulasi performa <em class="italic-serif">halaman</em>mu.</h2>
         <p>Geser slider untuk melihat bagaimana tiga metrik Core Web Vitals (LCP, CLS, INP) berinteraksi. Google pakai ketiganya sebagai sinyal ranking sejak 2021, jadi jangan cuma kejar konten, kejar juga kecepatan.</p>
@@ -2229,7 +2426,7 @@
 <section id="backlink-graph">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge menengah">Menengah</span>15 · BACKLINK FLOW</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>16 · BACKLINK FLOW</div>
       <div>
         <h2 class="serif">Bagaimana <em class="italic-serif">link equity</em> mengalir?</h2>
         <p>Setiap backlink mengirim sinyal otoritas ke situsmu, tapi tidak semua link sama bobotnya. Visual di bawah memperlihatkan bagaimana link berkualitas tinggi mendorong skor naik, sementara link spam justru bisa menarikmu turun.</p>
@@ -2463,7 +2660,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge mahir">Mahir</span>16 · TECHNICAL SEO</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>17 · TECHNICAL SEO</div>
       <div>
         <h2>Sepuluh <em>masalah teknis</em> paling sering, lengkap dengan solusinya.</h2>
         <p>Technical SEO adalah fondasi infrastruktur. Kalau Googlebot tidak bisa crawl, render, atau index situsmu dengan benar, konten sebagus apapun tidak akan tampil di SERP. Bagian ini memetakan masalah-masalah paling umum yang kami temui di audit situs UMKM maupun enterprise.</p>
@@ -2950,7 +3147,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge mahir">Mahir</span>17 · CRAWL BUDGET</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>18 · CRAWL BUDGET</div>
       <div>
         <h2>Berapa halaman Googlebot mau <em>crawl</em> dari situsmu?</h2>
         <p>Crawl budget adalah resource terbatas yang Google alokasikan untuk menjelajahi situsmu tiap hari. Untuk situs kecil tidak jadi masalah, tapi untuk e-commerce dengan ratusan ribu URL, salah manajemen bikin halaman penting tidak pernah di-crawl.</p>
@@ -3315,7 +3512,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge mahir">Mahir</span>18 · GEO</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>19 · GEO</div>
       <div>
         <h2>Generative <em>Engine</em> Optimization: di-cite oleh ChatGPT, Perplexity, dan Gemini.</h2>
         <p>Kalau SEO tradisional ngejar posisi di SERP, GEO ngejar di-cite sebagai sumber di jawaban AI. Dua-duanya wajib di 2026, tapi teknik-nya beda. Bagian ini rangkum riset kredibel dari Princeton dan Gartner.</p>
@@ -3485,7 +3682,7 @@
 <section id="tools" class="tools">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge semua">Semua Level</span>19 · TOOLS</div>
+      <div class="section-num"><span class="level-badge semua">Semua Level</span>20 · TOOLS</div>
       <div>
         <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
         <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
@@ -3584,7 +3781,7 @@
 <section id="glosarium">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge semua">Semua Level</span>20 · GLOSARIUM</div>
+      <div class="section-num"><span class="level-badge semua">Semua Level</span>21 · GLOSARIUM</div>
       <div>
         <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
         <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
@@ -3642,7 +3839,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">21 · TENTANG PENULIS</div>
+      <div class="section-num">22 · TENTANG PENULIS</div>
       <div>
         <h2>Bahan ini <em>tidak</em> ditulis oleh AI generik.</h2>
         <p>Semua materi disusun dari pengalaman lapangan, referensi Google Search Central, studi kasus UMKM dan enterprise, serta eksperimen di klien nyata.</p>
@@ -3762,28 +3959,29 @@
   <a class="progress-nav-item is-chapter" href="#startpath"><span class="progress-nav-label">PEMULA</span></a>
   <a class="progress-nav-item" data-section="apa-itu" href="#apa-itu"><span class="progress-nav-label">01 Fundamental</span></a>
   <a class="progress-nav-item" data-section="mindset" href="#mindset"><span class="progress-nav-label">02 Mindset</span></a>
-  <a class="progress-nav-item" data-section="crawler-demo" href="#crawler-demo"><span class="progress-nav-label">03 Crawler</span></a>
-  <a class="progress-nav-item" data-section="serp-anatomy" href="#serp-anatomy"><span class="progress-nav-label">04 SERP</span></a>
-  <a class="progress-nav-item" data-section="roadmap" href="#roadmap"><span class="progress-nav-label">05 Roadmap</span></a>
-  <a class="progress-nav-item" data-section="pilar" href="#pilar"><span class="progress-nav-label">06 Pilar</span></a>
-  <a class="progress-nav-item" data-section="search-intent" href="#search-intent"><span class="progress-nav-label">07 Intent</span></a>
-  <a class="progress-nav-item" data-section="keyword-playground" href="#keyword-playground"><span class="progress-nav-label">08 Keyword</span></a>
-  <a class="progress-nav-item" data-section="kurikulum" href="#kurikulum"><span class="progress-nav-label">09 Kurikulum</span></a>
-  <a class="progress-nav-item" data-section="checklist" href="#checklist"><span class="progress-nav-label">10 Checklist</span></a>
-  <a class="progress-nav-item" data-section="rencana" href="#rencana"><span class="progress-nav-label">11 30 Hari</span></a>
-  <a class="progress-nav-item" data-section="faq" href="#faq"><span class="progress-nav-label">12 FAQ</span></a>
+  <a class="progress-nav-item" data-section="seo-audit" href="#seo-audit"><span class="progress-nav-label">03 Audit Cepat</span></a>
+  <a class="progress-nav-item" data-section="crawler-demo" href="#crawler-demo"><span class="progress-nav-label">04 Crawler</span></a>
+  <a class="progress-nav-item" data-section="serp-anatomy" href="#serp-anatomy"><span class="progress-nav-label">05 SERP</span></a>
+  <a class="progress-nav-item" data-section="roadmap" href="#roadmap"><span class="progress-nav-label">06 Roadmap</span></a>
+  <a class="progress-nav-item" data-section="pilar" href="#pilar"><span class="progress-nav-label">07 Pilar</span></a>
+  <a class="progress-nav-item" data-section="search-intent" href="#search-intent"><span class="progress-nav-label">08 Intent</span></a>
+  <a class="progress-nav-item" data-section="keyword-playground" href="#keyword-playground"><span class="progress-nav-label">09 Keyword</span></a>
+  <a class="progress-nav-item" data-section="kurikulum" href="#kurikulum"><span class="progress-nav-label">10 Kurikulum</span></a>
+  <a class="progress-nav-item" data-section="checklist" href="#checklist"><span class="progress-nav-label">11 Checklist</span></a>
+  <a class="progress-nav-item" data-section="rencana" href="#rencana"><span class="progress-nav-label">12 30 Hari</span></a>
+  <a class="progress-nav-item" data-section="faq" href="#faq"><span class="progress-nav-label">13 FAQ</span></a>
   <a class="progress-nav-item is-chapter" href="#onpage-inspector"><span class="progress-nav-label">MENENGAH</span></a>
-  <a class="progress-nav-item" data-section="onpage-inspector" href="#onpage-inspector"><span class="progress-nav-label">13 On-Page</span></a>
-  <a class="progress-nav-item" data-section="cwv-simulator" href="#cwv-simulator"><span class="progress-nav-label">14 CWV</span></a>
-  <a class="progress-nav-item" data-section="backlink-graph" href="#backlink-graph"><span class="progress-nav-label">15 Backlink</span></a>
+  <a class="progress-nav-item" data-section="onpage-inspector" href="#onpage-inspector"><span class="progress-nav-label">14 On-Page</span></a>
+  <a class="progress-nav-item" data-section="cwv-simulator" href="#cwv-simulator"><span class="progress-nav-label">15 CWV</span></a>
+  <a class="progress-nav-item" data-section="backlink-graph" href="#backlink-graph"><span class="progress-nav-label">16 Backlink</span></a>
   <a class="progress-nav-item is-chapter" href="#technical-seo"><span class="progress-nav-label">MAHIR</span></a>
-  <a class="progress-nav-item" data-section="technical-seo" href="#technical-seo"><span class="progress-nav-label">16 Technical</span></a>
-  <a class="progress-nav-item" data-section="crawl-budget" href="#crawl-budget"><span class="progress-nav-label">17 Crawl Budget</span></a>
-  <a class="progress-nav-item" data-section="geo" href="#geo"><span class="progress-nav-label">18 GEO</span></a>
+  <a class="progress-nav-item" data-section="technical-seo" href="#technical-seo"><span class="progress-nav-label">17 Technical</span></a>
+  <a class="progress-nav-item" data-section="crawl-budget" href="#crawl-budget"><span class="progress-nav-label">18 Crawl Budget</span></a>
+  <a class="progress-nav-item" data-section="geo" href="#geo"><span class="progress-nav-label">19 GEO</span></a>
   <a class="progress-nav-item is-chapter" href="#tools"><span class="progress-nav-label">REFERENSI</span></a>
-  <a class="progress-nav-item" data-section="tools" href="#tools"><span class="progress-nav-label">19 Tools</span></a>
-  <a class="progress-nav-item" data-section="glosarium" href="#glosarium"><span class="progress-nav-label">20 Glosarium</span></a>
-  <a class="progress-nav-item" data-section="tentang-penulis" href="#tentang-penulis"><span class="progress-nav-label">21 Penulis</span></a>
+  <a class="progress-nav-item" data-section="tools" href="#tools"><span class="progress-nav-label">20 Tools</span></a>
+  <a class="progress-nav-item" data-section="glosarium" href="#glosarium"><span class="progress-nav-label">21 Glosarium</span></a>
+  <a class="progress-nav-item" data-section="tentang-penulis" href="#tentang-penulis"><span class="progress-nav-label">22 Penulis</span></a>
 </nav>
 
 <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
