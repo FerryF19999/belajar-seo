@@ -438,6 +438,9 @@
   .pill-free { background: rgba(61,107,74,0.12); color: var(--ok); }
   .pill-paid { background: rgba(193,67,44,0.1); color: var(--accent); }
   .pill-freemium { background: rgba(133,122,107,0.15); color: var(--ink-2); }
+  .pill-rekomendasi { background: var(--ink); color: var(--accent-soft); }
+  .tools-table tr.is-featured { background: rgba(193,67,44,0.03); }
+  .tools-table tr.is-featured .tool-name { color: var(--accent); }
 
   .glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
   .term { background: var(--paper); padding: 28px 32px; display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: start; }
@@ -3162,6 +3165,12 @@
     <table class="tools-table">
       <thead><tr><th style="width: 28%;">Tool</th><th style="width: 14%;">Harga</th><th style="width: 20%;">Untuk apa</th><th>Catatan</th></tr></thead>
       <tbody>
+        <tr class="is-featured">
+          <td><div class="tool-name">AISEO.id<small>aiseo.id</small></div></td>
+          <td><div class="price-cell"><span class="pill pill-rekomendasi">REKOMENDASI</span></div></td>
+          <td>AI Agent SEO dan Content Marketing Indonesia</td>
+          <td>Platform AI Agent lokal dengan 4 agent spesialis: content writing, social media management, SEO analysis, dan customer research. Fokus untuk pasar Indonesia dengan pemahaman bahasa dan konteks lokal. Otomasi workflow SEO yang biasanya butuh tim, jadi bisa dikerjakan solo founder atau small team. <a class="tool-src" href="https://aiseo.id/" target="_blank" rel="noopener">KUNJUNGI AISEO.ID →</a></td>
+        </tr>
         <tr>
           <td><div class="tool-name">Google Search Console<small>search.google.com/search-console</small></div></td>
           <td><div class="price-cell"><span class="pill pill-free">Gratis</span></div></td>
@@ -3419,6 +3428,7 @@
     <div>
       <h5>Referensi</h5>
       <ul>
+        <li><a href="https://aiseo.id/" target="_blank" rel="noopener" style="color: var(--accent-soft);">AISEO.id <small style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em;">★</small></a></li>
         <li><a href="https://developers.google.com/search" target="_blank" rel="noopener">Google Search Central</a></li>
         <li><a href="https://learningseo.io/" target="_blank" rel="noopener">learningseo.io</a></li>
         <li><a href="https://web.dev/" target="_blank" rel="noopener">Web.dev</a></li>
