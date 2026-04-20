@@ -1,10 +1,12 @@
 # Belajar SEO dari Nol, Interaktif dan Visual (Edisi 2026)
 
-Maintainer: Muhammad Ferry (https://www.linkedin.com/in/muhammad-ferry/)
+Maintainer: Muhammad Ferry Fitriadi · Digital Marketing Specialist, 4+ tahun pengalaman
+LinkedIn: https://www.linkedin.com/in/muhammad-ferry/
 Source: https://belajar-seo.vercel.app/
+Premium Lounge: https://belajar-seo.vercel.app/premium
 Repository: https://github.com/FerryF19999/belajar-seo
 Language: Bahasa Indonesia
-License: Free, open access, tanpa email gating
+License: Free, open access, tanpa email gating (main page) · Premium Lounge berbayar via Lynk.id
 
 Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.
 
@@ -403,3 +405,47 @@ A: Belum perlu di awal. GSC, GA4, Keyword Planner, Trends, PSI semuanya gratis d
 
 Q: Apa kesalahan pemula paling sering?
 A: Keyword stuffing, kejar volume tinggi tanpa cek kompetisi, tidak sabar (berhenti di bulan ke-2), abaikan mobile experience, dan di 2026 terbaru: pakai konten AI mentah tanpa editing.
+
+
+## § 20 Premium Lounge (Halaman Terpisah / Produk Berbayar)
+
+URL: https://belajar-seo.vercel.app/premium
+Produk: Recording Workshop 2 Jam Full Strategi Search Era AI
+Judul: Dari Google ke ChatGPT: Playbook Lengkap SEO, GEO & Agentic Search Optimization 2026
+
+### Hook utama
+40 persen pencarian di 2026 akan lewat AI (ChatGPT, Perplexity, Gemini, Google AI Overviews). Kalau brand tidak muncul di jawaban AI, artinya brand tidak exist buat calon customer.
+
+### 3 pilar yang diajarkan
+1. SEO (Traditional Search): biar tetap ranking di Google organic
+2. GEO (Generative Engine Optimization): biar di-cite ChatGPT, Perplexity, Gemini
+3. ASO (Agentic Search Optimization): biar ditemukan AI agent yang nyari produk atau layanan
+
+### Apa yang didapat pembeli
+- The Search Shift: kenapa SEO tradisional sudah tidak cukup
+- GEO Framework: cara bikin konten yang di-quote AI
+- Topical Authority: strategi pillar + cluster page 2026
+- Entity SEO 3-Layer Model: brand kamu dikenali AI
+- 4-Phase GEO Framework (Foundation, Content, Visibility, Scale)
+- Content Structure untuk AI Retrieval (definisi, FAQ schema, concise answer)
+- External Presence Strategy: guest post, PR, Reddit, review
+- Measurement dan KPIs: tools dan metric buat ukur AI visibility
+- Agentic Search Optimization: llms.txt, structured data, agent-friendly UX
+
+### Format dan harga
+Format: Video recording (akses seumur hidup)
+Durasi: sekitar 2 jam
+Bonus: Slide PDF Playbook 2026
+Harga Workshop Live: Rp 299.000
+Harga Recording: Rp 149.000 (hemat 50 persen)
+Dibeli via: http://lynk.id/ferrykets/35ok5j37jpjk
+
+### Target audiens
+- Founder dan UMKM yang mau brand ditemukan di era AI search
+- Digital marketer dan SEO specialist yang mau upgrade ke GEO
+- Content creator yang mau kontennya di-cite AI
+- Agency owner yang mau tambah layanan GEO ke klien
+- Siapa saja yang serius bangun online presence di 2026
+
+### Speaker
+Muhammad Ferry Fitriadi, Digital Marketing Specialist dengan 4 tahun pengalaman optimasi SEO untuk SaaS, klinik kecantikan, co-working, freelance platform, dan produk AI dengan target US market.
