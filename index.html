@@ -2839,6 +2839,26 @@
     .geo-takeaway h4 { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; line-height: 1.25; margin-bottom: 8px; }
     .geo-takeaway h4 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-soft); }
     .geo-takeaway p { font-size: 14px; color: rgba(250,247,241,0.8); line-height: 1.6; }
+
+    .geo-urgency { margin-bottom: 56px; }
+    .geo-urgency-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+    .geo-urgency-head h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; }
+    .geo-urgency-head h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .geo-urgency-head .src { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.05em; }
+    .geo-urgency-head .src a { color: var(--ink-2); text-decoration: none; border-bottom: 1px dashed var(--muted); }
+    .geo-urgency-head .src a:hover { color: var(--accent); border-color: var(--accent); }
+    .geo-urgency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); background: var(--line); }
+    @media (max-width: 740px) { .geo-urgency-grid { grid-template-columns: 1fr; } }
+    .geo-urgency-cell { background: var(--paper); padding: 28px 24px; position: relative; }
+    .geo-urgency-cell.bad { background: var(--ink); color: var(--paper); }
+    .geo-urgency-cell-val { font-family: 'Fraunces', serif; font-size: 56px; font-weight: 600; line-height: 1; color: var(--accent); margin-bottom: 8px; letter-spacing: -0.02em; }
+    .geo-urgency-cell.bad .geo-urgency-cell-val { color: var(--accent-soft); }
+    .geo-urgency-cell-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .geo-urgency-cell.bad .geo-urgency-cell-label { color: rgba(250,247,241,0.6); }
+    .geo-urgency-cell-desc { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+    .geo-urgency-cell.bad .geo-urgency-cell-desc { color: rgba(250,247,241,0.85); }
+    .geo-urgency-note { margin-top: 20px; padding: 16px 22px; background: var(--bg-2); border-left: 3px solid var(--accent); font-family: 'Instrument Serif', serif; font-style: italic; font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+    .geo-urgency-note strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 600; font-style: normal; }
   </style>
 
   <div class="container">
@@ -2880,6 +2900,31 @@
       <div class="geo-compare-row"><div>Format konten</div><div>Variatif: pillar page, cluster, how-to, listicle, FAQ, halaman produk (sesuai intent)</div><div>Jawaban ringkas di atas (inverted pyramid), bukti konkret, heading berbasis pertanyaan</div></div>
       <div class="geo-compare-row"><div>Metrik sukses</div><div>Organic impressions, CTR, position, traffic, konversi</div><div>Citation rate, subjective impression, position-adjusted word count (metrik Princeton)</div></div>
       <div class="geo-compare-row"><div>Siklus hasil</div><div>Situs baru: 3 sampai 8 bulan. Situs matang: perubahan terlihat 2 sampai 8 minggu</div><div>Engine live-retrieval (Perplexity, Gemini, AI Overviews): hitungan hari. Engine training-based (ChatGPT base): menunggu siklus training berikutnya</div></div>
+    </div>
+
+    <div class="geo-urgency">
+      <div class="geo-urgency-head">
+        <h3>Kenapa GEO <em>mendesak</em>: dampak AI Overviews ke CTR organik.</h3>
+        <div class="src">SUMBER: <a href="https://searchengineland.com/google-ai-overviews-drive-drop-organic-paid-ctr-464212" target="_blank" rel="noopener">Search Engine Land · AI Overviews CTR Study</a></div>
+      </div>
+      <div class="geo-urgency-grid">
+        <div class="geo-urgency-cell bad">
+          <div class="geo-urgency-cell-label">CTR ORGANIK ANJLOK</div>
+          <div class="geo-urgency-cell-val">−61%</div>
+          <div class="geo-urgency-cell-desc">Drop klik organik di query yang menampilkan AI Overviews. User dapat jawaban langsung di SERP tanpa perlu klik hasil organik di bawahnya.</div>
+        </div>
+        <div class="geo-urgency-cell">
+          <div class="geo-urgency-cell-label">EFEK RAMBATAN</div>
+          <div class="geo-urgency-cell-val">−41%</div>
+          <div class="geo-urgency-cell-desc">Drop CTR bahkan di query yang tidak menampilkan AI Overviews. Pola perilaku user berubah secara sistemik, bukan cuma di kotak AIO.</div>
+        </div>
+        <div class="geo-urgency-cell">
+          <div class="geo-urgency-cell-label">CAKUPAN AIO</div>
+          <div class="geo-urgency-cell-val">~90%</div>
+          <div class="geo-urgency-cell-desc">Persentase query di industri <em>healthcare</em> dan <em>edukasi</em> yang memunculkan AI Overviews. Niche informasional paling terdampak.</div>
+        </div>
+      </div>
+      <div class="geo-urgency-note"><strong>Kenapa ini penting:</strong> kalau situsmu bergantung sepenuhnya ke traffic organik informasional, persiapan GEO bukan lagi nice-to-have. E-commerce masih relatif aman (AIO muncul di sekitar 4% query), tapi publisher, blog edukasi, dan situs B2B informasional wajib adaptasi sekarang.</div>
     </div>
 
     <div class="geo-chart">
