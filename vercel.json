@@ -43,9 +43,9 @@
       ]
     },
     {
-      "source": "/author-muhammad-ferry.jpg",
+      "source": "/author-muhammad-ferry.png",
       "headers": [
-        { "key": "Content-Type", "value": "image/jpeg" },
+        { "key": "Content-Type", "value": "image/png" },
         { "key": "Cache-Control", "value": "public, max-age=604800" }
       ]
     },
