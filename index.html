@@ -2054,6 +2054,10 @@
           name: 'Panduan Lengkap',
           build: (k, a) => {
             const aud = a ? ' untuk ' + capitalize(a) : '';
+            const hasAction = /^(cara|bagaimana|tips|resep|panduan)\s/i.test(k);
+            if (hasAction) {
+              return capitalize(k) + aud + ': Panduan Lengkap ' + YEAR;
+            }
             return 'Panduan Lengkap ' + capitalize(k) + aud + ' ' + YEAR;
           },
           reason: 'Kata "Panduan Lengkap" menarik user yang sedang riset awal. Tahun di akhir memberi sinyal freshness ke Google dan user.'
@@ -2061,7 +2065,9 @@
         {
           name: 'How-to Step',
           build: (k, a) => {
-            return 'Cara ' + k + ' dalam 5 Langkah Praktis';
+            const hasCara = /^(cara|bagaimana)\s/i.test(k);
+            const base = hasCara ? capitalize(k) : 'Cara ' + k;
+            return base + ' dalam 5 Langkah Praktis';
           },
           reason: 'Angka ganjil ("5 Langkah") terbukti meningkatkan CTR. Format list-based sering muncul di Featured Snippet.'
         },
