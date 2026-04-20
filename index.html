@@ -3459,22 +3459,53 @@
         });
       }
 
+      let animated = false;
       function animate() {
+        if (animated) return;
+        animated = true;
         container.querySelectorAll('.geo-bar-fill').forEach((fill, i) => {
           setTimeout(() => {
             fill.style.width = fill.dataset.target + '%';
-          }, i * 80);
+          }, i * 60);
+        });
+      }
+
+      function forceShow() {
+        // Instant fill without staggered animation, for when user is already past section
+        if (animated) return;
+        animated = true;
+        container.querySelectorAll('.geo-bar-fill').forEach(fill => {
+          fill.style.width = fill.dataset.target + '%';
         });
       }
 
       render();
 
+      const geoSection = document.getElementById('geo');
+
+      function isInOrPastViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight;
+      }
+
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
           entries.forEach(e => { if (e.isIntersecting) { animate(); io.disconnect(); } });
-        }, { threshold: 0.2 });
-        io.observe(document.getElementById('geo'));
+        }, { threshold: 0.05, rootMargin: '0px 0px -10% 0px' });
+        io.observe(geoSection);
+
+        // If section already visible on page load (deep link or fast refresh), animate immediately
+        if (isInOrPastViewport(geoSection)) {
+          setTimeout(animate, 100);
+        }
       } else { animate(); }
+
+      // Safety fallback: if still not animated after 3 seconds and user has scrolled past, force fill
+      setTimeout(() => {
+        if (!animated && isInOrPastViewport(geoSection)) {
+          forceShow();
+        }
+      }, 3000);
     })();
   </script>
 </section>
