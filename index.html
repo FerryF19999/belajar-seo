@@ -537,20 +537,23 @@
   .startpath-cta:hover { background: var(--accent); }
 
   /* Floating Progress Sidebar */
-  .progress-nav { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 4px; padding: 14px 8px; background: rgba(250,247,241,0.88); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 2px; max-height: 80vh; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .progress-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 0; padding: 10px 6px; background: rgba(250,247,241,0.88); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 2px; max-height: 78vh; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.3s, width 0.25s; scrollbar-width: none; -ms-overflow-style: none; }
+  .progress-nav::-webkit-scrollbar { width: 0; height: 0; display: none; }
   .progress-nav.visible { opacity: 1; pointer-events: auto; }
   @media (max-width: 1100px) { .progress-nav { display: none; } }
-  .progress-nav-item { display: flex; align-items: center; gap: 10px; padding: 5px 10px; text-decoration: none; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; border-radius: 2px; transition: all 0.15s; position: relative; }
-  .progress-nav-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: all 0.2s; flex-shrink: 0; }
+  .progress-nav-item { display: flex; align-items: center; gap: 8px; padding: 3px 6px; text-decoration: none; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; border-radius: 2px; transition: all 0.15s; position: relative; }
+  .progress-nav-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--line); transition: all 0.2s; flex-shrink: 0; }
   .progress-nav-item:hover { color: var(--accent); background: var(--bg); }
   .progress-nav-item:hover::before { background: var(--accent); }
   .progress-nav-item.is-active { color: var(--accent); font-weight: 600; }
-  .progress-nav-item.is-active::before { background: var(--accent); box-shadow: 0 0 0 3px rgba(193,67,44,0.2); }
-  .progress-nav-item.is-chapter { font-weight: 700; color: var(--ink); letter-spacing: 0.1em; padding-top: 10px; padding-bottom: 5px; border-top: 1px dashed var(--line); margin-top: 5px; }
+  .progress-nav-item.is-active::before { background: var(--accent); box-shadow: 0 0 0 2px rgba(193,67,44,0.2); }
+  .progress-nav-item.is-chapter { font-weight: 700; color: var(--ink); letter-spacing: 0.08em; padding-top: 6px; padding-bottom: 3px; border-top: 1px dashed var(--line); margin-top: 3px; font-size: 9px; }
   .progress-nav-item.is-chapter:first-child { border-top: none; margin-top: 0; padding-top: 0; }
   .progress-nav-item.is-chapter::before { background: var(--accent); }
-  .progress-nav-label { white-space: nowrap; max-width: 0; overflow: hidden; transition: max-width 0.25s, margin-left 0.25s; }
-  .progress-nav:hover .progress-nav-label { max-width: 180px; }
+  .progress-nav-label { white-space: nowrap; max-width: 0; overflow: hidden; transition: max-width 0.25s; opacity: 0; }
+  .progress-nav:hover .progress-nav-label { max-width: 160px; opacity: 1; }
+  .progress-nav.visible { opacity: 0.55; }
+  .progress-nav.visible:hover { opacity: 1; }
 
   /* Back to Top Button */
   .back-top { position: fixed; bottom: 24px; right: 24px; z-index: 40; width: 44px; height: 44px; background: var(--ink); color: var(--paper); border: none; border-radius: 50%; cursor: pointer; display: grid; place-items: center; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; opacity: 0; pointer-events: none; transition: opacity 0.3s, background 0.2s; box-shadow: 0 4px 12px rgba(26,22,19,0.15); }
@@ -863,28 +866,26 @@
     </div>
 
     <div class="mind-impact">
-      <h3>Contoh nyata: <em>toko bunga</em> di Jakarta.</h3>
+      <h3>Data nyata: long-tail vs head keyword untuk <em>konversi</em>.</h3>
       <div class="mind-cases">
         <div class="mind-case bad">
-          <div class="mind-case-tag">MINDSET LAMA</div>
-          <div class="mind-case-q">Target keyword: "jual bunga" (volume 22.000/bln)</div>
+          <div class="mind-case-tag">HEAD KEYWORD (1 kata)</div>
+          <div class="mind-case-q">Contoh: "sepatu", "bunga", "seo"</div>
           <div class="mind-case-metrics">
-            <div class="mind-case-metric"><strong>4.500</strong>trafik/bln</div>
-            <div class="mind-case-metric"><strong>0,8%</strong>konversi</div>
-            <div class="mind-case-metric"><strong>36</strong>order/bln</div>
+            <div class="mind-case-metric"><strong>0,77%</strong>konversi rata-rata</div>
+            <div class="mind-case-metric"><strong>Tinggi</strong>volume, brutal kompetisi</div>
           </div>
         </div>
         <div class="mind-case good">
-          <div class="mind-case-tag">MINDSET BENAR</div>
-          <div class="mind-case-q">Target keyword: "bunga wisuda Jakarta same day" (volume 480/bln)</div>
+          <div class="mind-case-tag">LONG-TAIL KEYWORD (3+ kata)</div>
+          <div class="mind-case-q">Contoh: "sepatu lari wanita marathon pertama"</div>
           <div class="mind-case-metrics">
-            <div class="mind-case-metric"><strong>380</strong>trafik/bln</div>
-            <div class="mind-case-metric"><strong>14%</strong>konversi</div>
-            <div class="mind-case-metric"><strong>53</strong>order/bln</div>
+            <div class="mind-case-metric"><strong>2,35%</strong>konversi rata-rata</div>
+            <div class="mind-case-metric"><strong>91,8%</strong>total query di Google</div>
           </div>
         </div>
       </div>
-      <div class="mind-impact-note">Trafik turun 12 kali lipat, revenue <em>justru naik</em>. Karena niat pembeli jelas, margin bisa lebih tinggi, dan kompetisinya realistis. Pemula yang kejar angka traffic besar sering dapat trafik yang tidak pernah jadi penjualan.</div>
+      <div class="mind-impact-note">Long-tail keyword konversi <em>3 kali lebih tinggi</em> dari head keyword, dan mewakili mayoritas (91,8%) pencarian Google. Ini bukan opini, ini data industri yang konsisten selama lebih dari 10 tahun.<br><br><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(250,247,241,0.6); letter-spacing: 0.05em;">SUMBER: <a href="https://blog.hubspot.com/marketing/long-tail-keywords-data" target="_blank" rel="noopener" style="color: var(--accent-soft); text-decoration: none; border-bottom: 1px dashed rgba(232,106,82,0.4);">HubSpot Long-Tail Study</a> · <a href="https://backlinko.com/long-tail-keywords" target="_blank" rel="noopener" style="color: var(--accent-soft); text-decoration: none; border-bottom: 1px dashed rgba(232,106,82,0.4);">Backlinko 306M Keyword Analysis</a></span></div>
     </div>
 
     <div class="mind-quote">
