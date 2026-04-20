@@ -347,7 +347,12 @@
   section { padding: 72px 32px; }
   .container { max-width: 1240px; margin: 0 auto; }
   .section-header { display: grid; grid-template-columns: 200px 1fr; gap: 48px; margin-bottom: 56px; align-items: start; }
-  .section-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.1em; border-top: 2px solid var(--ink); padding-top: 12px; }
+  .section-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.1em; border-top: 2px solid var(--ink); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .level-badge { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.15em; padding: 3px 8px; border-radius: 2px; text-transform: uppercase; }
+  .level-badge.pemula { background: rgba(61,107,74,0.15); color: var(--ok); border: 1px solid rgba(61,107,74,0.3); }
+  .level-badge.menengah { background: rgba(232,106,82,0.12); color: #b04a2e; border: 1px solid rgba(232,106,82,0.3); }
+  .level-badge.mahir { background: rgba(193,67,44,0.1); color: var(--accent); border: 1px solid var(--accent); }
+  .level-badge.semua { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
   .section-header h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.02; letter-spacing: -0.02em; max-width: 800px; }
   .section-header h2 em { font-style: italic; font-family: 'Instrument Serif', serif; color: var(--accent); }
   .section-header p { margin-top: 20px; font-size: 17px; color: var(--ink-2); max-width: 640px; line-height: 1.6; }
@@ -722,7 +727,7 @@
 <section id="apa-itu">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">01 · FUNDAMENTAL</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>01 · FUNDAMENTAL</div>
       <div>
         <h2>Apa itu <em>SEO</em>, dan kenapa penting di 2026?</h2>
         <p>SEO (Search Engine Optimization) adalah praktik membuat situsmu lebih mudah ditemukan oleh orang yang mencari sesuatu di Google, Bing, atau bahkan ChatGPT. Bukan soal menipu algoritma, tapi soal membantu mesin memahami kontenmu, dan membantu manusia menemukan jawaban mereka.</p>
@@ -767,7 +772,7 @@
 <section id="crawler-demo">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">02 · VISUALISASI</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>02 · VISUALISASI</div>
       <div>
         <h2>Lihat <em>Googlebot</em> bekerja.</h2>
         <p>Tiga langkah yang terjadi tiap kali seseorang mencari sesuatu.</p>
@@ -1033,7 +1038,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">03 · ANATOMI SERP</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>03 · ANATOMI SERP</div>
       <div>
         <h2>Apa saja yang ada di <em>halaman hasil</em> Google?</h2>
         <p>Klik tiap komponen untuk memahami peluang dan cara optimasinya.</p>
@@ -1171,7 +1176,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">04 · ROADMAP 10 FASE</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>04 · ROADMAP 10 FASE</div>
       <div>
         <h2>Peta lengkap <em>perjalanan</em> SEO praktisi.</h2>
         <p>Dari pemula sampai mahir, berdasarkan roadmap komunitas global learningseo.io.</p>
@@ -1220,7 +1225,7 @@
 <section id="pilar">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">05 · EMPAT PILAR</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>05 · EMPAT PILAR</div>
       <div>
         <h2>Empat <em>pilar</em> yang menopang semua strategi SEO.</h2>
         <p>Bayangkan sebagai kaki meja. Kalau salah satu lemah, seluruh strategi goyah. Setiap pilar punya teknik dan metriknya sendiri, tapi mereka bekerja bersama.</p>
@@ -1318,7 +1323,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">06 · SEARCH INTENT</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>06 · SEARCH INTENT</div>
       <div>
         <h2>Sebelum menulis kata, pahami <em>niat</em> di balik pencarian.</h2>
         <p>Google di 2026 bukan lagi soal cocokin keyword. Algoritma berusaha pahami apa yang sebenarnya dicari user: mau belajar, mau beli, atau cuma cari brand tertentu. Kalau kontenmu salah intent, mau seoptimal apapun teknisnya, tetap tidak bakal ranking.</p>
@@ -1503,7 +1508,7 @@
 <section id="keyword-playground">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">07 · PLAYGROUND KEYWORD</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>07 · PLAYGROUND KEYWORD</div>
       <div>
         <h2 class="serif">Eksperimen <em class="italic-serif">keyword</em> langsung di sini.</h2>
         <p>Ketik satu kata kunci utama, lalu lihat bagaimana ia bercabang jadi puluhan long-tail yang lebih spesifik. Data di sini dummy, tujuannya melatih intuisi, bukan riset produksi.</p>
@@ -1631,7 +1636,7 @@
 <section id="onpage-inspector">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">08 · ON-PAGE INSPECTOR</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>08 · ON-PAGE INSPECTOR</div>
       <div>
         <h2 class="serif">Cek kesehatan <em class="italic-serif">on-page</em> halamanmu.</h2>
         <p>Masukkan title tag, meta description, dan target keyword. Inspector akan menilai panjang karakter, posisi keyword, serta menampilkan mockup bagaimana hasilmu muncul di Google.</p>
@@ -1792,7 +1797,7 @@
 <section id="cwv-simulator">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">09 · CORE WEB VITALS</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>09 · CORE WEB VITALS</div>
       <div>
         <h2 class="serif">Simulasi performa <em class="italic-serif">halaman</em>mu.</h2>
         <p>Geser slider untuk melihat bagaimana tiga metrik Core Web Vitals (LCP, CLS, INP) berinteraksi. Google pakai ketiganya sebagai sinyal ranking sejak 2021, jadi jangan cuma kejar konten, kejar juga kecepatan.</p>
@@ -1898,7 +1903,7 @@
 <section id="backlink-graph">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">10 · BACKLINK FLOW</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>10 · BACKLINK FLOW</div>
       <div>
         <h2 class="serif">Bagaimana <em class="italic-serif">link equity</em> mengalir?</h2>
         <p>Setiap backlink mengirim sinyal otoritas ke situsmu, tapi tidak semua link sama bobotnya. Visual di bawah memperlihatkan bagaimana link berkualitas tinggi mendorong skor naik, sementara link spam justru bisa menarikmu turun.</p>
@@ -2131,7 +2136,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">11 · TECHNICAL SEO</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>11 · TECHNICAL SEO</div>
       <div>
         <h2>Sepuluh <em>masalah teknis</em> paling sering, lengkap dengan solusinya.</h2>
         <p>Technical SEO adalah fondasi infrastruktur. Kalau Googlebot tidak bisa crawl, render, atau index situsmu dengan benar, konten sebagus apapun tidak akan tampil di SERP. Bagian ini memetakan masalah-masalah paling umum yang kami temui di audit situs UMKM maupun enterprise.</p>
@@ -2618,7 +2623,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">12 · CRAWL BUDGET</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>12 · CRAWL BUDGET</div>
       <div>
         <h2>Berapa halaman Googlebot mau <em>crawl</em> dari situsmu?</h2>
         <p>Crawl budget adalah resource terbatas yang Google alokasikan untuk menjelajahi situsmu tiap hari. Untuk situs kecil tidak jadi masalah, tapi untuk e-commerce dengan ratusan ribu URL, salah manajemen bikin halaman penting tidak pernah di-crawl.</p>
@@ -2983,7 +2988,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">13 · GEO</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>13 · GEO</div>
       <div>
         <h2>Generative <em>Engine</em> Optimization: di-cite oleh ChatGPT, Perplexity, dan Gemini.</h2>
         <p>Kalau SEO tradisional ngejar posisi di SERP, GEO ngejar di-cite sebagai sumber di jawaban AI. Dua-duanya wajib di 2026, tapi teknik-nya beda. Bagian ini rangkum riset kredibel dari Princeton dan Gartner.</p>
@@ -3152,7 +3157,7 @@
 <section id="kurikulum" class="curriculum">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">14 · KURIKULUM</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>14 · KURIKULUM</div>
       <div>
         <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
         <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
@@ -3246,7 +3251,7 @@
 <section id="checklist" class="checklist-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">15 · CHECKLIST</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>15 · CHECKLIST</div>
       <div>
         <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
         <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
@@ -3283,7 +3288,7 @@
 <section id="rencana">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">16 · RENCANA 30 HARI</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>16 · RENCANA 30 HARI</div>
       <div>
         <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
         <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
@@ -3321,7 +3326,7 @@
 <section id="tools" class="tools">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">17 · TOOLS</div>
+      <div class="section-num"><span class="level-badge semua">Semua Level</span>17 · TOOLS</div>
       <div>
         <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
         <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
@@ -3419,7 +3424,7 @@
 <section id="glosarium">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">18 · GLOSARIUM</div>
+      <div class="section-num"><span class="level-badge semua">Semua Level</span>18 · GLOSARIUM</div>
       <div>
         <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
         <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
@@ -3476,7 +3481,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">19 · TENTANG PENULIS</div>
+      <div class="section-num"><span class="level-badge semua">Semua Level</span>19 · TENTANG PENULIS</div>
       <div>
         <h2>Bahan ini <em>tidak</em> ditulis oleh AI generik.</h2>
         <p>Semua materi disusun dari pengalaman lapangan, referensi Google Search Central, studi kasus UMKM dan enterprise, serta eksperimen di klien nyata.</p>
@@ -3543,7 +3548,7 @@
 <section id="faq" class="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-num">20 · FAQ</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>20 · FAQ</div>
       <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
     </div>
 
