@@ -2066,13 +2066,15 @@
           reason: 'Kata "Panduan Lengkap" menarik user yang sedang riset awal. Tahun di akhir memberi sinyal freshness ke Google dan user.'
         },
         {
-          name: 'How-to Step',
+          name: 'Listicle Praktis',
           build: (k, a) => {
-            const hasCara = /^(cara|bagaimana)\s/i.test(k);
-            const base = hasCara ? capitalize(k) : 'Cara ' + k;
-            return base + ' dalam 5 Langkah Praktis';
+            const isAction = /^(cara|bagaimana|tutorial|panduan|tips|resep|belajar|install|mulai|review)\s/i.test(k);
+            if (isAction) {
+              return capitalize(k) + ' dalam 5 Langkah Praktis';
+            }
+            return '5 Tips Praktis tentang ' + capitalize(k);
           },
-          reason: 'Angka ganjil ("5 Langkah") terbukti meningkatkan CTR. Format list-based sering muncul di Featured Snippet.'
+          reason: 'Angka ganjil ("5 Langkah" atau "5 Tips") terbukti meningkatkan CTR. Format list-based sering muncul di Featured Snippet. Template ini auto-detect: kalau keyword action-start, pakai pola "dalam 5 Langkah", kalau keyword noun, pakai pola "5 Tips tentang".'
         },
         {
           name: 'Terbaik Tahunan',
