@@ -3383,39 +3383,22 @@
       <div class="geo-urgency-note"><strong>Kenapa ini penting:</strong> kalau situsmu bergantung sepenuhnya ke traffic organik informasional, persiapan GEO bukan lagi nice-to-have. E-commerce masih relatif aman (AIO muncul di sekitar 4% query), tapi publisher, blog edukasi, dan situs B2B informasional wajib adaptasi sekarang.</div>
     </div>
 
-    <div class="geo-chart">
-      <div class="geo-chart-head">
-        <h3>Efektivitas teknik <em>GEO</em> terhadap visibility di AI search</h3>
-        <div class="src">SUMBER: <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener">Aggarwal et al · Princeton · KDD 2024</a></div>
-      </div>
-      <div class="geo-bars" id="geo-bars"></div>
-    </div>
-
-    <div class="geo-engines">
-      <div class="geo-engine">
-        <div class="engine-tag">ENGINE · TRAINING HEAVY</div>
-        <h4>Optimasi untuk <em>ChatGPT</em></h4>
-        <p>ChatGPT mengandalkan training data dan "semantic authority". Tulisanmu harus terdengar seperti ensiklopedia yang terpercaya, bukan opini pribadi.</p>
-        <ul>
-          <li>Hindari frasa subjektif ("saya rasa", "menurut kami", "kayaknya")</li>
-          <li>Pakai kalimat deklaratif objektif yang menurunkan perplexity</li>
-          <li>Cantumkan data, angka, dan fakta yang bisa diverifikasi</li>
-          <li>Build topical authority lewat cluster konten yang konsisten</li>
-          <li>Pastikan konten masuk sitemap Bing dan Common Crawl</li>
-        </ul>
-      </div>
-      <div class="geo-engine">
-        <div class="engine-tag">ENGINE · LIVE WEB CITATIONS</div>
-        <h4>Optimasi untuk <em>Perplexity</em></h4>
-        <p>Perplexity adalah "citations-first engine" yang pakai live web indexing (Bing plus bot sendiri). Setiap jawaban selalu mencantumkan sumber.</p>
-        <ul>
-          <li>Prioritaskan konten fresh dengan tanggal publish dan update jelas</li>
-          <li>Gunakan schema Article dan datePublished yang valid</li>
-          <li>Optimalkan teknis dasar SEO (sitemap, robots, speed)</li>
-          <li>Sertakan data original, studi kasus, angka konkret yang ber-atribusi</li>
-          <li>Build domain authority dengan backlink dari situs kredibel</li>
-        </ul>
-      </div>
+    <div style="background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 36px 40px; margin-bottom: 56px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 14px; text-transform: uppercase;">DEEP DIVE · PREMIUM LOUNGE</div>
+      <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 28px; line-height: 1.2; margin-bottom: 14px; letter-spacing: -0.01em;">Mau framework <em class="italic-serif" style="color: var(--accent);">GEO lengkap</em>?</h3>
+      <p style="font-size: 15px; color: var(--ink-2); line-height: 1.7; margin-bottom: 14px;">Bab pengantar di atas sudah cukup untuk pemula paham konsep dasarnya. Kalau mau kuasai, ada bahan lebih dalam di Premium Lounge:</p>
+      <ul style="list-style: none; padding: 0; margin: 0 0 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px;">
+        <li style="padding-left: 20px; position: relative; font-size: 14px; color: var(--ink-2); line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--accent);">◆</span> 9 teknik GEO efektivitas terukur (Princeton)</li>
+        <li style="padding-left: 20px; position: relative; font-size: 14px; color: var(--ink-2); line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--accent);">◆</span> 4-Phase Framework (Foundation → Scale)</li>
+        <li style="padding-left: 20px; position: relative; font-size: 14px; color: var(--ink-2); line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--accent);">◆</span> Entity SEO 3-Layer Model</li>
+        <li style="padding-left: 20px; position: relative; font-size: 14px; color: var(--ink-2); line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--accent);">◆</span> Optimasi per engine (ChatGPT, Perplexity, Gemini)</li>
+        <li style="padding-left: 20px; position: relative; font-size: 14px; color: var(--ink-2); line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--accent);">◆</span> Content Structure untuk AI Retrieval</li>
+        <li style="padding-left: 20px; position: relative; font-size: 14px; color: var(--ink-2); line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--accent);">◆</span> Agentic Search Optimization (llms.txt, schema)</li>
+      </ul>
+      <a href="/premium" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; background: var(--ink); color: var(--paper); text-decoration: none; font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; border-radius: 2px; transition: background 0.15s;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">
+        Ke Premium Lounge
+        <span style="font-family: 'Instrument Serif', serif; font-size: 22px; font-style: italic;">→</span>
+      </a>
     </div>
 
     <div class="geo-takeaway">
@@ -3442,6 +3425,7 @@
       ];
 
       const container = document.getElementById('geo-bars');
+      if (!container) return;
       const maxVal = 45;
 
       function render() {
