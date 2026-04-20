@@ -2072,7 +2072,7 @@
         {
           name: 'Terbaik Tahunan',
           build: (t, k, a) => {
-            const aud = a ? ' ' + a : '';
+            const aud = a ? ' untuk ' + capitalize(a) : '';
             return t.charAt(0).toUpperCase() + t.slice(1) + ' Terbaik ' + YEAR + aud + ': ' + capitalize(k) + ' yang Patut Dicoba';
           },
           reason: 'Pattern "[topic] terbaik [tahun]" dominan untuk keyword komersial. User dalam fase komparasi pre-purchase.'
@@ -2080,6 +2080,10 @@
         {
           name: 'Pemula Friendly',
           build: (t, k, a) => {
+            const hasPemula = /pemula|dasar|nol|newbie/i.test(k);
+            if (hasPemula) {
+              return capitalize(k) + ' ' + t + ': Belajar dari Nol';
+            }
             return capitalize(k) + ' ' + t + ' untuk Pemula: Mulai dari Nol';
           },
           reason: 'Kata "Pemula" dan "Nol" menurunkan barrier. Cocok untuk long-tail informasional dengan search intent learning.'
