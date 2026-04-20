@@ -1286,9 +1286,9 @@
       const y = 70 + slot*38;
       const g = document.createElementNS('http://www.w3.org/2000/svg','g');
       g.setAttribute('class','crawler-index-item');
-      g.innerHTML = '<rect x="370" y="'+y+'" width="200" height="28" rx="2" class="crawler-index-box"/>'
+      g.innerHTML = '<rect x="370" y="'+y+'" width="160" height="28" rx="2" class="crawler-index-box"/>'
         + '<text x="380" y="'+(y+18)+'" class="crawler-index-label">'+pages[pageId].label+'</text>'
-        + '<text x="560" y="'+(y+18)+'" text-anchor="end" class="crawler-index-label" fill="#3d6b4a">indexed</text>';
+        + '<text x="520" y="'+(y+18)+'" text-anchor="end" class="crawler-index-label" fill="#3d6b4a">indexed</text>';
       indexG.appendChild(g);
       requestAnimationFrame(() => g.classList.add('show'));
     }
