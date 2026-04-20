@@ -2007,13 +2007,9 @@
 
     <div class="tg-inputs">
       <div class="tg-input-row">
-        <div class="tg-field">
-          <label>TOPIC (BRAND atau NAMA PRODUK)</label>
-          <input type="text" id="tg-topic" placeholder="Contoh: kopi v60, SEO, rendang" autocomplete="off" />
-        </div>
-        <div class="tg-field">
-          <label>TARGET KEYWORD UTAMA</label>
-          <input type="text" id="tg-keyword" placeholder="Contoh: cara seduh, panduan, resep" autocomplete="off" />
+        <div class="tg-field" style="grid-column: span 2;">
+          <label>KEYWORD UTAMA (frasa lengkap yang mau ranking)</label>
+          <input type="text" id="tg-keyword" placeholder="Contoh: tas hermes original, cara seduh kopi v60, resep rendang padang" autocomplete="off" />
         </div>
         <div class="tg-field">
           <label>AUDIENCE (OPSIONAL)</label>
@@ -2030,9 +2026,10 @@
         <button class="tg-go" id="tg-generate">Generate 5 Title →</button>
         <div class="tg-chips">
           <span>Contoh:</span>
-          <button class="tg-chip" data-topic="kopi v60" data-keyword="cara seduh">kopi v60</button>
-          <button class="tg-chip" data-topic="laptop gaming" data-keyword="terbaik">laptop gaming</button>
-          <button class="tg-chip" data-topic="skincare" data-keyword="review">skincare</button>
+          <button class="tg-chip" data-keyword="cara seduh kopi v60">cara seduh kopi v60</button>
+          <button class="tg-chip" data-keyword="laptop gaming murah">laptop gaming murah</button>
+          <button class="tg-chip" data-keyword="tas hermes original">tas hermes original</button>
+          <button class="tg-chip" data-keyword="resep rendang padang">resep rendang padang</button>
         </div>
       </div>
     </div>
@@ -2044,7 +2041,6 @@
 
   <script>
     (function(){
-      const topicEl = document.getElementById('tg-topic');
       const keywordEl = document.getElementById('tg-keyword');
       const audienceEl = document.getElementById('tg-audience');
       const btn = document.getElementById('tg-generate');
@@ -2056,42 +2052,42 @@
       const templates = [
         {
           name: 'Panduan Lengkap',
-          build: (t, k, a) => {
-            const aud = a ? ' untuk ' + a.charAt(0).toUpperCase() + a.slice(1) : '';
-            return 'Panduan ' + capitalize(k) + ' ' + t.charAt(0).toUpperCase() + t.slice(1) + aud + ' ' + YEAR;
+          build: (k, a) => {
+            const aud = a ? ' untuk ' + capitalize(a) : '';
+            return 'Panduan Lengkap ' + capitalize(k) + aud + ' ' + YEAR;
           },
-          reason: 'Kata "Panduan" menarik user yang sedang riset awal. Tahun di akhir memberi sinyal freshness ke Google dan user.'
+          reason: 'Kata "Panduan Lengkap" menarik user yang sedang riset awal. Tahun di akhir memberi sinyal freshness ke Google dan user.'
         },
         {
           name: 'How-to Step',
-          build: (t, k, a) => {
-            return capitalize(k) + ' ' + t + ' dalam 5 Langkah Praktis';
+          build: (k, a) => {
+            return 'Cara ' + k + ' dalam 5 Langkah Praktis';
           },
           reason: 'Angka ganjil ("5 Langkah") terbukti meningkatkan CTR. Format list-based sering muncul di Featured Snippet.'
         },
         {
           name: 'Terbaik Tahunan',
-          build: (t, k, a) => {
+          build: (k, a) => {
             const aud = a ? ' untuk ' + capitalize(a) : '';
-            return t.charAt(0).toUpperCase() + t.slice(1) + ' Terbaik ' + YEAR + aud + ': ' + capitalize(k) + ' yang Patut Dicoba';
+            return capitalize(k) + ' Terbaik ' + YEAR + aud + ': Review Jujur';
           },
-          reason: 'Pattern "[topic] terbaik [tahun]" dominan untuk keyword komersial. User dalam fase komparasi pre-purchase.'
+          reason: 'Pattern "[keyword] terbaik [tahun]" dominan untuk keyword komersial. User dalam fase komparasi pre-purchase.'
         },
         {
           name: 'Pemula Friendly',
-          build: (t, k, a) => {
+          build: (k, a) => {
             const hasPemula = /pemula|dasar|nol|newbie/i.test(k);
             if (hasPemula) {
-              return capitalize(k) + ' ' + t + ': Belajar dari Nol';
+              return capitalize(k) + ': Belajar dari Nol tanpa Ribet';
             }
-            return capitalize(k) + ' ' + t + ' untuk Pemula: Mulai dari Nol';
+            return capitalize(k) + ' untuk Pemula: Mulai dari Nol';
           },
           reason: 'Kata "Pemula" dan "Nol" menurunkan barrier. Cocok untuk long-tail informasional dengan search intent learning.'
         },
         {
           name: 'Vs Komparasi',
-          build: (t, k, a) => {
-            return capitalize(t) + ' vs Alternatif: Panduan ' + k + ' yang Jujur';
+          build: (k, a) => {
+            return capitalize(k) + ' vs Alternatif: Panduan Memilih yang Tepat';
           },
           reason: 'Pattern "X vs Y" match perfect dengan komersial investigation intent. User udah hampir beli, tinggal pilih.'
         }
@@ -2108,15 +2104,14 @@
       }
 
       function render() {
-        const topic = topicEl.value.trim();
         const keyword = keywordEl.value.trim();
         const audience = audienceEl.value;
-        if (!topic || !keyword) {
-          results.innerHTML = '<div class="tg-empty">Isi topic dan keyword dulu, baru generate.</div>';
+        if (!keyword) {
+          results.innerHTML = '<div class="tg-empty">Isi keyword utama dulu, baru generate.</div>';
           return;
         }
         const cards = templates.map((tpl, i) => {
-          const title = tpl.build(topic, keyword, audience);
+          const title = tpl.build(keyword, audience);
           const len = title.length;
           const cls = getLengthClass(len);
           const icon = cls === 'good' ? '✓' : (cls === 'warn' ? '!' : '×');
@@ -2147,9 +2142,8 @@
       function escapeAttr(s) { return s.replace(/"/g, '&quot;'); }
 
       btn.addEventListener('click', render);
-      [topicEl, keywordEl, audienceEl].forEach(el => el.addEventListener('keydown', e => { if (e.key === 'Enter') render(); }));
+      [keywordEl, audienceEl].forEach(el => el.addEventListener('keydown', e => { if (e.key === 'Enter') render(); }));
       chips.forEach(c => c.addEventListener('click', () => {
-        topicEl.value = c.dataset.topic;
         keywordEl.value = c.dataset.keyword;
         render();
       }));
