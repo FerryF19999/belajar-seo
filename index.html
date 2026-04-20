@@ -540,8 +540,8 @@
   .progress-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 0; padding: 10px 6px; background: rgba(250,247,241,0.88); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 2px; max-height: 78vh; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.3s, width 0.25s; scrollbar-width: none; -ms-overflow-style: none; }
   .progress-nav::-webkit-scrollbar { width: 0; height: 0; display: none; }
   .progress-nav.visible { opacity: 1; pointer-events: auto; }
-  @media (max-width: 1200px) { .progress-nav { display: none; } }
-  @media (min-width: 1201px) { body { padding-right: 60px; } }
+  @media (max-width: 1400px) { .progress-nav { display: none; } }
+  @media (min-width: 1401px) { body { padding-right: 60px; } }
   .progress-nav-item { display: flex; align-items: center; gap: 8px; padding: 3px 6px; text-decoration: none; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; border-radius: 2px; transition: all 0.15s; position: relative; }
   .progress-nav-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--line); transition: all 0.2s; flex-shrink: 0; }
   .progress-nav-item:hover { color: var(--accent); background: var(--bg); }
@@ -673,7 +673,7 @@
         <div class="label">Mulai dari sini</div>
         <h2>Baru pertama kali belajar SEO? <em>Ikuti</em> urutan ini.</h2>
       </div>
-      <div class="note">Tidak perlu baca semua 20 bab. Pilih track sesuai level kamu.</div>
+      <div class="note">Tidak perlu baca semua 24 bab. Pilih track sesuai level kamu.</div>
     </div>
 
     <div class="startpath-tracks">
@@ -703,10 +703,10 @@
         <p>Pakai tools interaktif dan ikuti kurikulum plus checklist supaya hasilnya terukur.</p>
         <ul>
           <li><a href="#keyword-playground">Keyword Playground</a></li>
+          <li><a href="#title-generator">Title Generator</a></li>
+          <li><a href="#revenue-simulator">Revenue Simulator</a></li>
           <li><a href="#kurikulum">Kurikulum 8 Modul</a></li>
           <li><a href="#checklist">Checklist 10 item</a></li>
-          <li><a href="#rencana">Rencana 30 Hari</a></li>
-          <li><a href="#faq">FAQ pemula</a></li>
         </ul>
         <a class="startpath-cta" href="#keyword-playground">Masuk praktik →</a>
       </div>
@@ -1143,7 +1143,7 @@
     #crawler-demo { padding: 80px 32px; background: var(--bg); color: var(--ink); }
     .crawler-wrap { margin-top: 48px; border: 1px solid var(--line); background: var(--paper); border-radius: 4px; overflow: hidden; }
     .crawler-phases { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
-    .crawler-phase { padding: 18px 24px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; transition: background .4s, color .4s; }
+    .crawler-phase { padding: 18px 20px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; transition: background .4s, color .4s; min-width: 0; overflow: hidden; }
     .crawler-phase:last-child { border-right: 0; }
     .crawler-phase span { font-size: 12px; letter-spacing: .12em; color: var(--muted); }
     .crawler-phase small { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink-2); }
