@@ -970,13 +970,13 @@
     (function(){
       const questions = [
         { id: 'https', text: 'Situs kamu sudah pakai <em>HTTPS</em>?', hint: 'URL di address bar ada gemboknya. Kalau masih http:// atau browser bilang Not Secure, jawab tidak.', cat: 'technical', weight: 10 },
-        { id: 'gsc', text: 'Sudah install <em>Google Search Console</em> dan Analytics 4?', hint: 'Dua tools Google gratis untuk tahu traffic dan error. Tanpa ini, SEO cuma tebak-tebakan.', cat: 'measurement', weight: 10 },
+        { id: 'gsc', text: 'Sudah install <em>Google Search Console</em>, Analytics 4, dan Tag Manager?', hint: 'Tiga tools Google gratis: GSC untuk data SEO, GA4 untuk behavior pengunjung, GTM untuk kelola tag dan event tracking. Tanpa ini, SEO cuma tebak-tebakan.', cat: 'measurement', weight: 10 },
         { id: 'sitemap', text: 'Sitemap.xml sudah di-submit ke <em>GSC</em>?', hint: 'File yang kasih tahu Google semua URL di situsmu. Cek di GSC > Sitemaps.', cat: 'technical', weight: 8 },
         { id: 'title', text: 'Tiap halaman punya <em>title tag unik</em> (50-60 karakter)?', hint: 'Bukan default template. Unik tiap halaman, mengandung keyword utama, tidak terlalu panjang atau pendek.', cat: 'onpage', weight: 8 },
         { id: 'cwv', text: 'Pernah cek <em>Core Web Vitals</em> di PageSpeed Insights?', hint: 'LCP di bawah 2.5 detik, CLS di bawah 0.1, INP di bawah 200ms. Cek di pagespeed.web.dev.', cat: 'technical', weight: 7 },
         { id: 'internal', text: 'Ada <em>strategi internal link</em> antar artikel?', hint: 'Bukan sekadar link menu. Setiap artikel baru minimal link ke 2-5 artikel relevan lainnya di situsmu.', cat: 'onpage', weight: 7 },
         { id: 'keyword', text: 'Riset keyword <em>sebelum</em> nulis artikel?', hint: 'Bukan tulis dulu baru cari keyword. Pakai Google Suggest, Keyword Planner, atau AnswerThePublic untuk validasi demand.', cat: 'strategy', weight: 8 },
-        { id: 'revenue', text: 'Konten kamu mengarah ke <em>konversi spesifik</em>?', hint: 'Lead form, sign-up, pembelian, bukan sekadar traffic. Tahu keyword mana yang bawa revenue, bukan cuma impressions.', cat: 'strategy', weight: 10 }
+        { id: 'revenue', text: 'Konten kamu mengarah ke <em>dampak bisnis</em> (revenue, leads, konversi), bukan sekadar ranking atau traffic?', hint: 'Tahu keyword mana yang bawa pembeli, bukan cuma impressions. Ranking dan traffic itu vanity metric kalau tidak nyambung ke bisnis.', cat: 'strategy', weight: 10 }
       ];
 
       const TOTAL = questions.reduce((sum, q) => sum + q.weight, 0);
@@ -989,13 +989,13 @@
 
       const RECOS = {
         https:    { title: 'Pasang HTTPS di situsmu', text: 'Pakai SSL gratis dari Let\'s Encrypt, Cloudflare, atau hosting provider. Paksa redirect HTTP ke HTTPS. Cek <a href="#technical-seo">Bab Technical SEO #15</a> poin HTTPS.' },
-        gsc:      { title: 'Setup Google Search Console dan Analytics 4', text: 'Gratis, 15 menit. Tanpa ini kamu tidak tahu halaman mana yang ranking dan error apa yang harus diperbaiki. Mulai dari search.google.com/search-console.' },
+        gsc:      { title: 'Setup Google Search Console, Analytics 4, dan Tag Manager', text: 'Tiga tools gratis dari Google. GSC kasih tahu halaman mana yang di-crawl dan ranking, GA4 untuk perilaku pengunjung, GTM untuk pasang event tracking tanpa sentuh kode. Setup total 30 menit, mulai dari search.google.com/search-console.' },
         sitemap:  { title: 'Submit sitemap.xml ke GSC', text: 'Generate sitemap otomatis dari CMS (Yoast di WordPress, atau xml-sitemaps.com). Submit di GSC Sitemaps.' },
         title:    { title: 'Audit title tag tiap halaman', text: 'Pakai tools gratis seperti Screaming Frog atau Ahrefs Webmaster Tools. Pastikan tiap halaman punya title unik 50-60 karakter dengan keyword utama di depan.' },
         cwv:      { title: 'Test Core Web Vitals situsmu', text: 'Buka <a href="#cwv-simulator">Bab Simulator CWV</a> untuk pahami metriknya, lalu test di pagespeed.web.dev. Fokus fix LCP dulu (biasanya image yang belum di-compress).' },
         internal: { title: 'Bangun internal linking sistematis', text: 'Setiap artikel baru link ke 2-5 artikel existing yang relevan. Hindari orphan page. Pelajari pola pillar + cluster di <a href="#kurikulum">Modul 06 Kurikulum</a>.' },
         keyword:  { title: 'Riset keyword sebelum nulis', text: 'Pakai <a href="#keyword-playground">Keyword Playground</a> untuk latih intuisi, lalu validasi di Google Keyword Planner. Pahami search intent dulu sebelum eksekusi.' },
-        revenue:  { title: 'Ubah mindset: traffic ke revenue', text: 'Mulai dari <a href="#mindset">Bab Mindset SEO</a>. Target keyword yang pembeli-mu cari, bukan keyword volume tinggi yang tidak konversi.' }
+        revenue:  { title: 'Ubah mindset: dari ranking ke dampak bisnis', text: 'SEO bukan lomba ranking atau traffic doang. Yang beneran matter adalah dampak ke bisnis: revenue, leads, konversi. Mulai dari <a href="#mindset">Bab Mindset SEO</a> untuk reset cara pikir, lalu target keyword yang pembelimu beneran cari, bukan keyword volume tinggi yang keren tapi tidak bawa uang.' }
       };
 
       const stage = document.getElementById('audit-stage');
