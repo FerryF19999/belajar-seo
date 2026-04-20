@@ -21,8 +21,8 @@
 <meta property="og:url" content="https://belajar-seo.vercel.app/">
 <meta property="og:site_name" content="SEO Sekolah">
 <meta property="og:locale" content="id_ID">
-<meta property="og:image" content="https://belajar-seo.vercel.app/og-image.svg">
-<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image" content="https://belajar-seo.vercel.app/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Belajar SEO dari Nol, sampai halaman pertama Google. Kurikulum 2026.">
@@ -32,7 +32,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Belajar SEO dari Nol, Interaktif dan Visual (2026)">
 <meta name="twitter:description" content="Panduan interaktif belajar SEO dari nol. Simulator CWV, animasi crawler, playground keyword, roadmap 10 fase. Gratis.">
-<meta name="twitter:image" content="https://belajar-seo.vercel.app/og-image.svg">
+<meta name="twitter:image" content="https://belajar-seo.vercel.app/og-image.png">
 <meta name="twitter:image:alt" content="Belajar SEO dari Nol, sampai halaman pertama Google.">
 
 <script type="application/ld+json">
@@ -498,6 +498,61 @@
   .modal-nav button.next { align-items: flex-end; }
   body.modal-open { overflow: hidden; }
 
+  /* Learning Path Card (Mulai Dari Sini) */
+  .startpath { max-width: 1240px; margin: 0 auto 32px; padding: 0 32px; }
+  .startpath-card { background: var(--paper); border: 1px solid var(--line); padding: 36px 40px; position: relative; overflow: hidden; }
+  .startpath-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--ok) 0%, var(--ok) 33%, var(--accent-soft) 33%, var(--accent-soft) 66%, var(--accent) 66%); }
+  .startpath-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .startpath-head .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--accent); text-transform: uppercase; }
+  .startpath-head h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 30px; line-height: 1.15; letter-spacing: -0.01em; margin-top: 6px; }
+  .startpath-head h2 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+  .startpath-head .note { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 15px; color: var(--muted); max-width: 320px; text-align: right; }
+  @media (max-width: 700px) { .startpath-head .note { text-align: left; } .startpath-card { padding: 28px 24px; } }
+  .startpath-tracks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); background: var(--line); }
+  @media (max-width: 900px) { .startpath-tracks { grid-template-columns: 1fr; } }
+  .startpath-track { background: var(--paper); padding: 24px 22px; position: relative; }
+  .startpath-track::before { content: ''; position: absolute; top: 0; left: 0; width: 32px; height: 3px; }
+  .startpath-track.s1::before { background: var(--ok); }
+  .startpath-track.s2::before { background: var(--accent-soft); }
+  .startpath-track.s3::before { background: var(--accent); }
+  .startpath-track-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .startpath-track-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
+  .startpath-track-time { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink); padding: 2px 7px; background: var(--bg); border: 1px solid var(--line); border-radius: 2px; letter-spacing: 0.05em; }
+  .startpath-track h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; line-height: 1.2; margin-bottom: 8px; }
+  .startpath-track h3 em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+  .startpath-track p { font-size: 13px; color: var(--ink-2); line-height: 1.55; margin-bottom: 14px; }
+  .startpath-track ul { list-style: none; padding: 0; margin: 0 0 16px; }
+  .startpath-track li { padding: 6px 0 6px 24px; position: relative; font-size: 13.5px; color: var(--ink-2); line-height: 1.45; border-top: 1px dashed var(--line); }
+  .startpath-track li:first-child { border-top: none; }
+  .startpath-track li::before { content: counter(spath, decimal); counter-increment: spath; position: absolute; left: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); font-weight: 600; padding-top: 2px; }
+  .startpath-track ul { counter-reset: spath; }
+  .startpath-track li a { color: var(--ink); text-decoration: none; border-bottom: 1px dashed var(--muted); transition: color 0.15s, border-color 0.15s; }
+  .startpath-track li a:hover { color: var(--accent); border-color: var(--accent); }
+  .startpath-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--ink); color: var(--paper); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; transition: background 0.15s; border-radius: 2px; }
+  .startpath-cta:hover { background: var(--accent); }
+
+  /* Floating Progress Sidebar */
+  .progress-nav { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 4px; padding: 14px 8px; background: rgba(250,247,241,0.88); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 2px; max-height: 80vh; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+  .progress-nav.visible { opacity: 1; pointer-events: auto; }
+  @media (max-width: 1100px) { .progress-nav { display: none; } }
+  .progress-nav-item { display: flex; align-items: center; gap: 10px; padding: 5px 10px; text-decoration: none; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.05em; border-radius: 2px; transition: all 0.15s; position: relative; }
+  .progress-nav-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: all 0.2s; flex-shrink: 0; }
+  .progress-nav-item:hover { color: var(--accent); background: var(--bg); }
+  .progress-nav-item:hover::before { background: var(--accent); }
+  .progress-nav-item.is-active { color: var(--accent); font-weight: 600; }
+  .progress-nav-item.is-active::before { background: var(--accent); box-shadow: 0 0 0 3px rgba(193,67,44,0.2); }
+  .progress-nav-item.is-chapter { font-weight: 700; color: var(--ink); letter-spacing: 0.1em; padding-top: 10px; padding-bottom: 5px; border-top: 1px dashed var(--line); margin-top: 5px; }
+  .progress-nav-item.is-chapter:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+  .progress-nav-item.is-chapter::before { background: var(--accent); }
+  .progress-nav-label { white-space: nowrap; max-width: 0; overflow: hidden; transition: max-width 0.25s, margin-left 0.25s; }
+  .progress-nav:hover .progress-nav-label { max-width: 180px; }
+
+  /* Back to Top Button */
+  .back-top { position: fixed; bottom: 24px; right: 24px; z-index: 40; width: 44px; height: 44px; background: var(--ink); color: var(--paper); border: none; border-radius: 50%; cursor: pointer; display: grid; place-items: center; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; opacity: 0; pointer-events: none; transition: opacity 0.3s, background 0.2s; box-shadow: 0 4px 12px rgba(26,22,19,0.15); }
+  .back-top.visible { opacity: 1; pointer-events: auto; }
+  .back-top:hover { background: var(--accent); }
+  @media (max-width: 1100px) { .back-top { bottom: 16px; right: 16px; } }
+
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
     .section-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
@@ -598,6 +653,71 @@
     </ul>
   </aside>
 </section>
+
+<div class="startpath">
+  <div class="startpath-card">
+    <div class="startpath-head">
+      <div>
+        <div class="label">Mulai dari sini</div>
+        <h2>Baru pertama kali belajar SEO? <em>Ikuti</em> urutan ini.</h2>
+      </div>
+      <div class="note">Tidak perlu baca semua 20 bab. Pilih track sesuai level kamu.</div>
+    </div>
+
+    <div class="startpath-tracks">
+      <div class="startpath-track s1">
+        <div class="startpath-track-head">
+          <span class="startpath-track-tag">TRACK 1 · PEMULA</span>
+          <span class="startpath-track-time">~30 menit</span>
+        </div>
+        <h3>Pahami <em>fondasi</em> dulu</h3>
+        <p>Model mental tentang bagaimana Google kerja. Wajib dipahami sebelum hal teknis.</p>
+        <ul>
+          <li><a href="#apa-itu">Apa itu SEO</a></li>
+          <li><a href="#crawler-demo">Animasi Crawler</a></li>
+          <li><a href="#serp-anatomy">Anatomi SERP</a></li>
+          <li><a href="#pilar">Empat Pilar</a></li>
+          <li><a href="#search-intent">Search Intent</a></li>
+        </ul>
+        <a class="startpath-cta" href="#apa-itu">Mulai →</a>
+      </div>
+
+      <div class="startpath-track s2">
+        <div class="startpath-track-head">
+          <span class="startpath-track-tag">TRACK 2 · PRAKTIK</span>
+          <span class="startpath-track-time">~2 jam</span>
+        </div>
+        <h3>Coba praktik <em>langsung</em></h3>
+        <p>Pakai tools interaktif dan ikuti kurikulum plus checklist supaya hasilnya terukur.</p>
+        <ul>
+          <li><a href="#keyword-playground">Keyword Playground</a></li>
+          <li><a href="#onpage-inspector">On-Page Inspector</a></li>
+          <li><a href="#kurikulum">Kurikulum 8 Modul</a></li>
+          <li><a href="#checklist">Checklist 10 item</a></li>
+          <li><a href="#rencana">Rencana 30 Hari</a></li>
+        </ul>
+        <a class="startpath-cta" href="#keyword-playground">Masuk praktik →</a>
+      </div>
+
+      <div class="startpath-track s3">
+        <div class="startpath-track-head">
+          <span class="startpath-track-tag">TRACK 3 · MAHIR</span>
+          <span class="startpath-track-time">sesuai butuh</span>
+        </div>
+        <h3>Deep dive <em>teknis</em> dan AI</h3>
+        <p>Skip dulu kalau pemula. Baca kalau situs kamu sudah jalan dan butuh optimasi lanjutan.</p>
+        <ul>
+          <li><a href="#cwv-simulator">CWV Simulator</a></li>
+          <li><a href="#backlink-graph">Backlink Flow</a></li>
+          <li><a href="#technical-seo">Technical SEO (16 issue)</a></li>
+          <li><a href="#crawl-budget">Crawl Budget</a></li>
+          <li><a href="#geo">GEO (AI Search)</a></li>
+        </ul>
+        <a class="startpath-cta" href="#technical-seo">Ke advanced →</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section id="apa-itu">
   <div class="container">
@@ -3488,6 +3608,36 @@
   </div>
 </footer>
 
+<nav class="progress-nav" id="progressNav" aria-label="Navigasi cepat antar bab">
+  <a class="progress-nav-item is-chapter" href="#startpath"><span class="progress-nav-label">Mulai</span></a>
+  <a class="progress-nav-item" data-section="apa-itu" href="#apa-itu"><span class="progress-nav-label">01 Fundamental</span></a>
+  <a class="progress-nav-item" data-section="crawler-demo" href="#crawler-demo"><span class="progress-nav-label">02 Crawler</span></a>
+  <a class="progress-nav-item" data-section="serp-anatomy" href="#serp-anatomy"><span class="progress-nav-label">03 SERP</span></a>
+  <a class="progress-nav-item" data-section="roadmap" href="#roadmap"><span class="progress-nav-label">04 Roadmap</span></a>
+  <a class="progress-nav-item" data-section="pilar" href="#pilar"><span class="progress-nav-label">05 Pilar</span></a>
+  <a class="progress-nav-item" data-section="search-intent" href="#search-intent"><span class="progress-nav-label">06 Intent</span></a>
+  <a class="progress-nav-item is-chapter" href="#keyword-playground"><span class="progress-nav-label">LAB</span></a>
+  <a class="progress-nav-item" data-section="keyword-playground" href="#keyword-playground"><span class="progress-nav-label">07 Keyword</span></a>
+  <a class="progress-nav-item" data-section="onpage-inspector" href="#onpage-inspector"><span class="progress-nav-label">08 On-Page</span></a>
+  <a class="progress-nav-item" data-section="cwv-simulator" href="#cwv-simulator"><span class="progress-nav-label">09 CWV</span></a>
+  <a class="progress-nav-item" data-section="backlink-graph" href="#backlink-graph"><span class="progress-nav-label">10 Backlink</span></a>
+  <a class="progress-nav-item is-chapter" href="#technical-seo"><span class="progress-nav-label">ADVANCED</span></a>
+  <a class="progress-nav-item" data-section="technical-seo" href="#technical-seo"><span class="progress-nav-label">11 Technical</span></a>
+  <a class="progress-nav-item" data-section="crawl-budget" href="#crawl-budget"><span class="progress-nav-label">12 Crawl Budget</span></a>
+  <a class="progress-nav-item" data-section="geo" href="#geo"><span class="progress-nav-label">13 GEO</span></a>
+  <a class="progress-nav-item is-chapter" href="#kurikulum"><span class="progress-nav-label">BELAJAR</span></a>
+  <a class="progress-nav-item" data-section="kurikulum" href="#kurikulum"><span class="progress-nav-label">14 Kurikulum</span></a>
+  <a class="progress-nav-item" data-section="checklist" href="#checklist"><span class="progress-nav-label">15 Checklist</span></a>
+  <a class="progress-nav-item" data-section="rencana" href="#rencana"><span class="progress-nav-label">16 30 Hari</span></a>
+  <a class="progress-nav-item is-chapter" href="#tools"><span class="progress-nav-label">REFERENSI</span></a>
+  <a class="progress-nav-item" data-section="tools" href="#tools"><span class="progress-nav-label">17 Tools</span></a>
+  <a class="progress-nav-item" data-section="glosarium" href="#glosarium"><span class="progress-nav-label">18 Glosarium</span></a>
+  <a class="progress-nav-item" data-section="tentang-penulis" href="#tentang-penulis"><span class="progress-nav-label">19 Penulis</span></a>
+  <a class="progress-nav-item" data-section="faq" href="#faq"><span class="progress-nav-label">20 FAQ</span></a>
+</nav>
+
+<button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
+
 <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
   <div class="modal">
     <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
@@ -3947,6 +4097,52 @@ Sitemap: https://situsmu.com/sitemap.xml</pre>
         groups.forEach(g => { g.classList.remove('is-open'); g.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false'); });
       }
     });
+  })();
+
+  // Floating Progress Nav + Back to Top
+  (function(){
+    const progressNav = document.getElementById('progressNav');
+    const backTop = document.getElementById('backTop');
+    const navItems = progressNav.querySelectorAll('.progress-nav-item[data-section]');
+    const sections = Array.from(navItems).map(item => ({
+      id: item.dataset.section,
+      el: document.getElementById(item.dataset.section),
+      item: item
+    })).filter(s => s.el);
+
+    function updateActive() {
+      const scrollY = window.scrollY + window.innerHeight / 3;
+      let active = null;
+      for (const s of sections) {
+        if (s.el.offsetTop <= scrollY) active = s;
+      }
+      navItems.forEach(item => item.classList.remove('is-active'));
+      if (active) active.item.classList.add('is-active');
+
+      // Show/hide progress nav and back-top after scrolling past hero
+      const showThreshold = 600;
+      if (window.scrollY > showThreshold) {
+        progressNav.classList.add('visible');
+        backTop.classList.add('visible');
+      } else {
+        progressNav.classList.remove('visible');
+        backTop.classList.remove('visible');
+      }
+    }
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => { updateActive(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    backTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    updateActive();
   })();
 </script>
 
