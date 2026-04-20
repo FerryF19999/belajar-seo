@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Belajar SEO dari Nol, Interaktif dan Visual (2026)</title>
+<title>Belajar SEO Praktis dari Nol Sampai Ngerti · Kurikulum 2026</title>
 <meta name="description" content="Panduan interaktif belajar SEO dari nol sampai halaman pertama Google. Lengkap dengan simulator Core Web Vitals, animasi crawler, playground keyword, roadmap 10 fase learningseo.io, serta 10 masalah technical SEO beserta solusinya. Gratis, Bahasa Indonesia, edisi 2026.">
 <meta name="keywords" content="belajar seo, seo pemula, seo indonesia, panduan seo gratis, tutorial seo, seo 2026, core web vitals, keyword research, on page seo, technical seo, backlink, learningseo, seo sekolah, ai search, google search console">
 <meta name="author" content="Muhammad Ferry">
@@ -642,8 +642,8 @@
     <h1>Belajar SEO<br><em>praktis</em>,<br>dari nol<br>sampai ngerti.</h1>
     <p class="hero-lede">Panduan interaktif, praktis, dan jujur untuk siapa saja yang ingin websitenya ditemukan. Lengkap dengan animasi crawler, simulator Core Web Vitals, dan playground keyword. Tanpa trik, tanpa buzzword kosong.</p>
     <div class="hero-meta">
-      <div><strong>24</strong>Bab lengkap</div>
-      <div><strong>16</strong>Simulator dan alat</div>
+      <div><strong>25</strong>Bab lengkap</div>
+      <div><strong>17</strong>Simulator dan alat</div>
       <div><strong>10 fase</strong>Roadmap learningseo.io</div>
       <div><strong>Gratis</strong>Selamanya</div>
     </div>
@@ -2345,10 +2345,230 @@
   </script>
 </section>
 
+<section id="setup-google">
+  <style>
+    #setup-google { padding: 96px 32px; background: var(--bg-2); color: var(--ink); }
+    .sg-intro { max-width: 720px; font-size: 15px; color: var(--ink-2); line-height: 1.6; margin-bottom: 32px; padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--accent); }
+    .sg-intro strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 600; }
+
+    .sg-tabs { display: flex; gap: 0; margin-bottom: 0; border: 1px solid var(--line); border-bottom: none; background: var(--paper); }
+    .sg-tab { flex: 1; padding: 16px 18px; background: transparent; border: none; border-right: 1px solid var(--line); font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; color: var(--muted); cursor: pointer; text-align: left; transition: all 0.15s; }
+    .sg-tab:last-child { border-right: none; }
+    .sg-tab:hover { color: var(--accent); background: var(--bg); }
+    .sg-tab.is-active { color: var(--paper); background: var(--ink); }
+    .sg-tab small { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; margin-top: 4px; text-transform: uppercase; font-weight: 400; }
+    .sg-tab.is-active small { color: var(--accent-soft); }
+    @media (max-width: 760px) { .sg-tabs { flex-direction: column; } .sg-tab { border-right: none; border-bottom: 1px solid var(--line); } .sg-tab:last-child { border-bottom: none; } }
+
+    .sg-panel { background: var(--paper); border: 1px solid var(--line); padding: 40px; display: none; }
+    .sg-panel.is-active { display: block; }
+    .sg-panel-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+    .sg-panel-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; }
+    .sg-panel-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+    .sg-panel-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; display: flex; gap: 16px; flex-wrap: wrap; }
+    .sg-panel-meta strong { color: var(--ink); }
+
+    .sg-steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; }
+    .sg-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 20px 0; border-top: 1px dashed var(--line); }
+    .sg-step:first-child { border-top: none; padding-top: 4px; }
+    .sg-step-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 40px; color: var(--accent); line-height: 0.9; }
+    .sg-step-title { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; line-height: 1.3; margin-bottom: 6px; color: var(--ink); }
+    .sg-step-desc { font-size: 14px; color: var(--ink-2); line-height: 1.65; margin-bottom: 8px; }
+    .sg-step-desc code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--bg); padding: 2px 6px; border: 1px solid var(--line); color: var(--accent); }
+    .sg-step-desc a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); }
+    .sg-step-desc a:hover { color: var(--ink); border-color: var(--ink); }
+    .sg-step-tip { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 13px; color: var(--muted); padding: 8px 12px; background: var(--bg); border-left: 2px solid var(--line); margin-top: 6px; }
+    .sg-step-tip strong { color: var(--ink); font-family: 'Fraunces', serif; font-weight: 500; font-style: normal; }
+  </style>
+
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>12 · SETUP GOOGLE TOOLS</div>
+      <div>
+        <h2>Pasang <em>GSC, GA4, dan GTM</em> dalam 30 menit.</h2>
+        <p>Tiga tools wajib sebelum SEO serius. Gratis, resmi dari Google. Ikuti step demi step, tidak perlu tanya developer. Setelah semua setup, kamu punya data lengkap: siapa crawl situsmu, bagaimana user behavior, dan event apa yang terjadi.</p>
+      </div>
+    </div>
+
+    <div class="sg-intro">
+      <strong>Urutan rekomendasi:</strong> GSC dulu (data SEO), GA4 kedua (behavior), GTM terakhir (untuk kelola tag ke depan tanpa sentuh kode). Bisa dipasang semua dalam 1 hari kerja. Data pertama muncul setelah 24-72 jam.
+    </div>
+
+    <div class="sg-tabs" id="sg-tabs">
+      <button class="sg-tab is-active" data-panel="gsc">Google Search Console<small>GSC · ~10 menit</small></button>
+      <button class="sg-tab" data-panel="ga4">Google Analytics 4<small>GA4 · ~10 menit</small></button>
+      <button class="sg-tab" data-panel="gtm">Google Tag Manager<small>GTM · ~10 menit</small></button>
+    </div>
+
+    <div class="sg-panel is-active" data-panel="gsc">
+      <div class="sg-panel-header">
+        <div class="sg-panel-title">Setup <em>Google Search Console</em></div>
+        <div class="sg-panel-meta"><span>DATA: <strong>Query, Coverage, Core Web Vitals</strong></span><span>WAKTU: <strong>~10 menit</strong></span></div>
+      </div>
+      <ol class="sg-steps">
+        <li class="sg-step">
+          <div class="sg-step-num">i</div>
+          <div>
+            <div class="sg-step-title">Buka Google Search Console</div>
+            <div class="sg-step-desc">Kunjungi <a href="https://search.google.com/search-console" target="_blank" rel="noopener">search.google.com/search-console</a> dan sign in dengan akun Google yang kamu pakai untuk situs.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">ii</div>
+          <div>
+            <div class="sg-step-title">Add Property: pilih tipe Domain</div>
+            <div class="sg-step-desc">Klik <code>Add property</code> lalu pilih <strong>Domain</strong> (bukan URL prefix). Domain property cover semua subdomain dan protokol otomatis. Masukkan nama domain tanpa http/https (contoh: <code>situsmu.com</code>).</div>
+            <div class="sg-step-tip"><strong>Kenapa Domain vs URL prefix?</strong> Domain satu property untuk semua subdomain (www, blog, shop). URL prefix cuma 1 variasi. Lebih efisien pakai Domain.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">iii</div>
+          <div>
+            <div class="sg-step-title">Verifikasi via DNS TXT record</div>
+            <div class="sg-step-desc">GSC kasih TXT record unik (contoh: <code>google-site-verification=abc123...</code>). Buka panel DNS hosting/domain registrar kamu (Cloudflare, Niagahoster, dll), tambah record baru dengan tipe <strong>TXT</strong>, name <strong>@</strong>, value TXT dari GSC. Simpan, tunggu 5-15 menit, balik ke GSC klik <code>Verify</code>.</div>
+            <div class="sg-step-tip"><strong>Alternatif kalau tidak akses DNS:</strong> pilih tipe URL prefix (bukan Domain), lalu verifikasi via HTML file upload atau HTML meta tag di header situs.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">iv</div>
+          <div>
+            <div class="sg-step-title">Submit sitemap.xml</div>
+            <div class="sg-step-desc">Di menu kiri GSC, klik <code>Sitemaps</code>. Masukkan URL sitemap kamu (biasanya <code>/sitemap.xml</code>). Klik Submit. Status harus "Success" dalam beberapa menit.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">v</div>
+          <div>
+            <div class="sg-step-title">Tunggu data pertama (1-7 hari)</div>
+            <div class="sg-step-desc">Performance report baru menampilkan data klik/impressions setelah 24-72 jam. Coverage report lebih cepat (12-24 jam). Jangan panik kalau masih kosong hari pertama.</div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="sg-panel" data-panel="ga4">
+      <div class="sg-panel-header">
+        <div class="sg-panel-title">Setup <em>Google Analytics 4</em></div>
+        <div class="sg-panel-meta"><span>DATA: <strong>Users, Engagement, Conversion</strong></span><span>WAKTU: <strong>~10 menit</strong></span></div>
+      </div>
+      <ol class="sg-steps">
+        <li class="sg-step">
+          <div class="sg-step-num">i</div>
+          <div>
+            <div class="sg-step-title">Buka analytics.google.com</div>
+            <div class="sg-step-desc">Sign in dengan akun Google yang sama dengan GSC. Kalau baru pertama kali: klik <code>Start measuring</code>. Kalau sudah punya account: Admin → <code>Create Property</code>.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">ii</div>
+          <div>
+            <div class="sg-step-title">Buat Property baru</div>
+            <div class="sg-step-desc">Isi property name (nama bebas, contoh: "Website Utama"), pilih <strong>Reporting time zone</strong> (Asia/Jakarta) dan <strong>Currency</strong> (IDR). Klik Next, pilih business details sesuai kondisi kamu.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">iii</div>
+          <div>
+            <div class="sg-step-title">Buat Data Stream: Web</div>
+            <div class="sg-step-desc">Pilih platform <strong>Web</strong>. Masukkan URL situs (contoh: <code>https://situsmu.com</code>) dan stream name. Centang <code>Enhanced measurement</code> supaya otomatis track scroll, outbound click, video, dll.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">iv</div>
+          <div>
+            <div class="sg-step-title">Copy Measurement ID</div>
+            <div class="sg-step-desc">Setelah stream dibuat, kamu dapat <strong>Measurement ID</strong> format <code>G-XXXXXXXXXX</code>. Catat, butuh nanti saat pasang tag.</div>
+            <div class="sg-step-tip"><strong>Pilihan pasang tag:</strong> via GTM (disarankan, lebih fleksibel) atau paste gtag.js script langsung di <code>&lt;head&gt;</code> situs. Kalau kamu ikut guide ini sampai tab GTM, pakai GTM saja.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">v</div>
+          <div>
+            <div class="sg-step-title">Verifikasi via Realtime report</div>
+            <div class="sg-step-desc">Setelah tag terpasang, buka situsmu di tab baru. Balik ke GA4, buka <code>Reports → Realtime</code>. Harus muncul 1 active user (kamu sendiri) dalam 30 detik.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">vi</div>
+          <div>
+            <div class="sg-step-title">Link ke GSC (bonus)</div>
+            <div class="sg-step-desc">Admin → Product Links → Search Console Links. Connect property GSC yang tadi kamu setup. Hasilnya, GA4 bisa tampilkan query organic yang bawa traffic di report Acquisition.</div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="sg-panel" data-panel="gtm">
+      <div class="sg-panel-header">
+        <div class="sg-panel-title">Setup <em>Google Tag Manager</em></div>
+        <div class="sg-panel-meta"><span>FUNGSI: <strong>Kelola tag tanpa sentuh kode</strong></span><span>WAKTU: <strong>~10 menit</strong></span></div>
+      </div>
+      <ol class="sg-steps">
+        <li class="sg-step">
+          <div class="sg-step-num">i</div>
+          <div>
+            <div class="sg-step-title">Buka tagmanager.google.com</div>
+            <div class="sg-step-desc">Sign in. Klik <code>Create Account</code>. Isi account name (nama brand atau perusahaan), country, container name (nama situs), dan pilih platform <strong>Web</strong>.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">ii</div>
+          <div>
+            <div class="sg-step-title">Setujui TOS, copy container snippet</div>
+            <div class="sg-step-desc">GTM kasih dua blok kode (head dan body). Container ID format <code>GTM-XXXXXXX</code>. Copy kedua blok.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">iii</div>
+          <div>
+            <div class="sg-step-title">Pasang snippet di semua halaman</div>
+            <div class="sg-step-desc">Blok pertama paste tepat setelah <code>&lt;head&gt;</code> setinggi mungkin. Blok kedua (noscript) paste tepat setelah <code>&lt;body&gt;</code>. Di WordPress, pakai plugin GTM4WP. Di Next.js, pasang di <code>_document.js</code>. Di Wix/Webflow, ada field khusus GTM di settings.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">iv</div>
+          <div>
+            <div class="sg-step-title">Buat tag GA4 Configuration</div>
+            <div class="sg-step-desc">Di GTM: <code>Tags → New</code>. Tag type: <strong>Google Analytics: GA4 Configuration</strong>. Masukkan Measurement ID dari GA4 (<code>G-XXXXXXXXXX</code>). Trigger: <strong>All Pages</strong>. Save.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">v</div>
+          <div>
+            <div class="sg-step-title">Preview & debug</div>
+            <div class="sg-step-desc">Klik <code>Preview</code> di GTM. Masukkan URL situs kamu, open in Tag Assistant. Assistant akan connect dan tunjukkan tag mana yang firing saat kamu browse situs. Pastikan GA4 Configuration fired di semua halaman.</div>
+          </div>
+        </li>
+        <li class="sg-step">
+          <div class="sg-step-num">vi</div>
+          <div>
+            <div class="sg-step-title">Submit & Publish</div>
+            <div class="sg-step-desc">Setelah test OK, klik <code>Submit</code> di GTM. Kasih version name (contoh: "Initial GA4 setup"). Klik Publish. Dari sini, semua tag baru (Facebook Pixel, Ads Conversion, custom event) tinggal deploy via GTM tanpa touch kode situs.</div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const tabs = document.querySelectorAll('#sg-tabs .sg-tab');
+      const panels = document.querySelectorAll('#setup-google .sg-panel');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const key = tab.dataset.panel;
+          tabs.forEach(t => t.classList.toggle('is-active', t === tab));
+          panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === key));
+        });
+      });
+    })();
+  </script>
+</section>
+
 <section id="kurikulum" class="curriculum">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>12 · KURIKULUM</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>13 · KURIKULUM</div>
       <div>
         <h2>Delapan modul. <em>Urut.</em> Tanpa lompat.</h2>
         <p>Belajar SEO seperti membangun rumah. Kamu tidak bisa memasang dinding sebelum fondasinya kuat. Ikuti modul secara berurutan; setiap modul mengandaikan kamu sudah menguasai yang sebelumnya.</p>
@@ -2443,7 +2663,7 @@
 <section id="checklist" class="checklist-section">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>13 · CHECKLIST</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>14 · CHECKLIST</div>
       <div>
         <h2>Checklist halaman <em>pertama</em> yang akan kamu optimasi.</h2>
         <p>Sepuluh hal wajib sebelum kamu bilang "halaman ini sudah di-SEO". Klik untuk menandai, progresmu tersimpan di browser.</p>
@@ -2481,7 +2701,7 @@
 <section id="rencana">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>14 · RENCANA 30 HARI</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>15 · RENCANA 30 HARI</div>
       <div>
         <h2>30 hari pertama, <em>minggu demi minggu</em>.</h2>
         <p>Kalau kamu betul-betul dari nol, ini peta jalan 4 minggu yang sudah terbukti. Fokus dan konsisten lebih penting daripada buru-buru.</p>
@@ -2520,7 +2740,7 @@
 <section id="faq" class="faq">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge pemula">Pemula</span>15 · FAQ</div>
+      <div class="section-num"><span class="level-badge pemula">Pemula</span>16 · FAQ</div>
       <div><h2>Pertanyaan yang <em>paling sering</em> ditanyakan.</h2></div>
     </div>
 
@@ -2539,7 +2759,7 @@
 <section id="onpage-inspector">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge menengah">Menengah</span>16 · ON-PAGE INSPECTOR</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>17 · ON-PAGE INSPECTOR</div>
       <div>
         <h2 class="serif">Cek kesehatan <em class="italic-serif">on-page</em> halamanmu.</h2>
         <p>Masukkan title tag, meta description, dan target keyword. Inspector akan menilai panjang karakter, posisi keyword, serta menampilkan mockup bagaimana hasilmu muncul di Google.</p>
@@ -2701,7 +2921,7 @@
 <section id="cwv-simulator">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge menengah">Menengah</span>17 · CORE WEB VITALS</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>18 · CORE WEB VITALS</div>
       <div>
         <h2 class="serif">Simulasi performa <em class="italic-serif">halaman</em>mu.</h2>
         <p>Geser slider untuk melihat bagaimana tiga metrik Core Web Vitals (LCP, CLS, INP) berinteraksi. Google pakai ketiganya sebagai sinyal ranking sejak 2021, jadi jangan cuma kejar konten, kejar juga kecepatan.</p>
@@ -2808,7 +3028,7 @@
 <section id="backlink-graph">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge menengah">Menengah</span>18 · BACKLINK FLOW</div>
+      <div class="section-num"><span class="level-badge menengah">Menengah</span>19 · BACKLINK FLOW</div>
       <div>
         <h2 class="serif">Bagaimana <em class="italic-serif">link equity</em> mengalir?</h2>
         <p>Setiap backlink mengirim sinyal otoritas ke situsmu, tapi tidak semua link sama bobotnya. Visual di bawah memperlihatkan bagaimana link berkualitas tinggi mendorong skor naik, sementara link spam justru bisa menarikmu turun.</p>
@@ -3042,7 +3262,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge mahir">Mahir</span>19 · TECHNICAL SEO</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>20 · TECHNICAL SEO</div>
       <div>
         <h2>Sepuluh <em>masalah teknis</em> paling sering, lengkap dengan solusinya.</h2>
         <p>Technical SEO adalah fondasi infrastruktur. Kalau Googlebot tidak bisa crawl, render, atau index situsmu dengan benar, konten sebagus apapun tidak akan tampil di SERP. Bagian ini memetakan masalah-masalah paling umum yang kami temui di audit situs UMKM maupun enterprise.</p>
@@ -3529,7 +3749,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge mahir">Mahir</span>20 · CRAWL BUDGET</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>21 · CRAWL BUDGET</div>
       <div>
         <h2>Berapa halaman Googlebot mau <em>crawl</em> dari situsmu?</h2>
         <p>Crawl budget adalah resource terbatas yang Google alokasikan untuk menjelajahi situsmu tiap hari. Untuk situs kecil tidak jadi masalah, tapi untuk e-commerce dengan ratusan ribu URL, salah manajemen bikin halaman penting tidak pernah di-crawl.</p>
@@ -3894,7 +4114,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge mahir">Mahir</span>21 · GEO</div>
+      <div class="section-num"><span class="level-badge mahir">Mahir</span>22 · GEO</div>
       <div>
         <h2>Generative <em>Engine</em> Optimization: di-cite oleh ChatGPT, Perplexity, dan Gemini.</h2>
         <p>Kalau SEO tradisional ngejar posisi di SERP, GEO ngejar di-cite sebagai sumber di jawaban AI. Dua-duanya wajib di 2026, tapi teknik-nya beda. Bagian ini rangkum riset kredibel dari Princeton dan Gartner.</p>
@@ -4064,7 +4284,7 @@
 <section id="tools" class="tools">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge semua">Semua Level</span>22 · TOOLS</div>
+      <div class="section-num"><span class="level-badge semua">Semua Level</span>23 · TOOLS</div>
       <div>
         <h2>Tools <em>gratis</em> yang cukup untuk memulai.</h2>
         <p>Jangan terjebak marketing tools mahal. Untuk pemula, kombinasi tools gratis di bawah ini sudah lebih dari cukup selama 6 bulan pertama.</p>
@@ -4163,7 +4383,7 @@
 <section id="glosarium">
   <div class="container">
     <div class="section-header">
-      <div class="section-num"><span class="level-badge semua">Semua Level</span>23 · GLOSARIUM</div>
+      <div class="section-num"><span class="level-badge semua">Semua Level</span>24 · GLOSARIUM</div>
       <div>
         <h2>Istilah yang akan <em>sering</em> kamu temui.</h2>
         <p>SEO penuh jargon, dan banyak panduan menggunakannya seolah-olah semua orang sudah tahu. Berikut bahasa Indonesia plainnya.</p>
@@ -4221,7 +4441,7 @@
 
   <div class="container">
     <div class="section-header">
-      <div class="section-num">24 · TENTANG PENULIS</div>
+      <div class="section-num">25 · TENTANG PENULIS</div>
       <div>
         <h2>Bahan ini <em>tidak</em> ditulis oleh AI generik.</h2>
         <p>Semua materi disusun dari pengalaman lapangan, referensi Google Search Central, studi kasus UMKM dan enterprise, serta eksperimen di klien nyata.</p>
@@ -4350,22 +4570,23 @@
   <a class="progress-nav-item" data-section="keyword-playground" href="#keyword-playground"><span class="progress-nav-label">09 Keyword</span></a>
   <a class="progress-nav-item" data-section="title-generator" href="#title-generator"><span class="progress-nav-label">10 Title Gen</span></a>
   <a class="progress-nav-item" data-section="revenue-simulator" href="#revenue-simulator"><span class="progress-nav-label">11 Revenue Sim</span></a>
-  <a class="progress-nav-item" data-section="kurikulum" href="#kurikulum"><span class="progress-nav-label">12 Kurikulum</span></a>
-  <a class="progress-nav-item" data-section="checklist" href="#checklist"><span class="progress-nav-label">13 Checklist</span></a>
-  <a class="progress-nav-item" data-section="rencana" href="#rencana"><span class="progress-nav-label">14 30 Hari</span></a>
-  <a class="progress-nav-item" data-section="faq" href="#faq"><span class="progress-nav-label">15 FAQ</span></a>
+  <a class="progress-nav-item" data-section="setup-google" href="#setup-google"><span class="progress-nav-label">12 Setup Google</span></a>
+  <a class="progress-nav-item" data-section="kurikulum" href="#kurikulum"><span class="progress-nav-label">13 Kurikulum</span></a>
+  <a class="progress-nav-item" data-section="checklist" href="#checklist"><span class="progress-nav-label">14 Checklist</span></a>
+  <a class="progress-nav-item" data-section="rencana" href="#rencana"><span class="progress-nav-label">15 30 Hari</span></a>
+  <a class="progress-nav-item" data-section="faq" href="#faq"><span class="progress-nav-label">16 FAQ</span></a>
   <a class="progress-nav-item is-chapter" href="#onpage-inspector"><span class="progress-nav-label">MENENGAH</span></a>
-  <a class="progress-nav-item" data-section="onpage-inspector" href="#onpage-inspector"><span class="progress-nav-label">16 On-Page</span></a>
-  <a class="progress-nav-item" data-section="cwv-simulator" href="#cwv-simulator"><span class="progress-nav-label">17 CWV</span></a>
-  <a class="progress-nav-item" data-section="backlink-graph" href="#backlink-graph"><span class="progress-nav-label">18 Backlink</span></a>
+  <a class="progress-nav-item" data-section="onpage-inspector" href="#onpage-inspector"><span class="progress-nav-label">17 On-Page</span></a>
+  <a class="progress-nav-item" data-section="cwv-simulator" href="#cwv-simulator"><span class="progress-nav-label">18 CWV</span></a>
+  <a class="progress-nav-item" data-section="backlink-graph" href="#backlink-graph"><span class="progress-nav-label">19 Backlink</span></a>
   <a class="progress-nav-item is-chapter" href="#technical-seo"><span class="progress-nav-label">MAHIR</span></a>
-  <a class="progress-nav-item" data-section="technical-seo" href="#technical-seo"><span class="progress-nav-label">19 Technical</span></a>
-  <a class="progress-nav-item" data-section="crawl-budget" href="#crawl-budget"><span class="progress-nav-label">20 Crawl Budget</span></a>
-  <a class="progress-nav-item" data-section="geo" href="#geo"><span class="progress-nav-label">21 GEO</span></a>
+  <a class="progress-nav-item" data-section="technical-seo" href="#technical-seo"><span class="progress-nav-label">20 Technical</span></a>
+  <a class="progress-nav-item" data-section="crawl-budget" href="#crawl-budget"><span class="progress-nav-label">21 Crawl Budget</span></a>
+  <a class="progress-nav-item" data-section="geo" href="#geo"><span class="progress-nav-label">22 GEO</span></a>
   <a class="progress-nav-item is-chapter" href="#tools"><span class="progress-nav-label">REFERENSI</span></a>
-  <a class="progress-nav-item" data-section="tools" href="#tools"><span class="progress-nav-label">22 Tools</span></a>
-  <a class="progress-nav-item" data-section="glosarium" href="#glosarium"><span class="progress-nav-label">23 Glosarium</span></a>
-  <a class="progress-nav-item" data-section="tentang-penulis" href="#tentang-penulis"><span class="progress-nav-label">24 Penulis</span></a>
+  <a class="progress-nav-item" data-section="tools" href="#tools"><span class="progress-nav-label">23 Tools</span></a>
+  <a class="progress-nav-item" data-section="glosarium" href="#glosarium"><span class="progress-nav-label">24 Glosarium</span></a>
+  <a class="progress-nav-item" data-section="tentang-penulis" href="#tentang-penulis"><span class="progress-nav-label">25 Penulis</span></a>
 </nav>
 
 <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
