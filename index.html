@@ -1234,10 +1234,13 @@
       bot.style.opacity = 0;
     }
     function setPhase(name) {
-      phaseEls.forEach(el => { el.classList.remove('is-active'); if (el.dataset.phase === name) el.classList.add('is-active'); });
       const order = ['crawl','index','rank'];
       const idx = order.indexOf(name);
-      phaseEls.forEach((el,i) => { if (i < idx) el.classList.add('is-done'); });
+      phaseEls.forEach((el, i) => {
+        el.classList.remove('is-active', 'is-done');
+        if (el.dataset.phase === name) el.classList.add('is-active');
+        else if (i < idx) el.classList.add('is-done');
+      });
     }
     function animateBot(fromIdx, toIdx, dur) {
       return new Promise(resolve => {
